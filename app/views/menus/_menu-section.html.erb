@@ -1,0 +1,31 @@
+
+  <table class="Menu_display" width="100%">
+  <p class="title"><%= menu_title %></p>
+  <% menus.all.each do |menu|%>
+        <tr>
+          <td>
+            <img class="image" src="<%=menu.item%>.<%=menu.extension%>" width="50%">
+          </td>
+          <td>
+            <p class="display_price">
+              Price :<%=menu.price%>/-
+            </p>
+          </td>
+          <td>
+           <input class="item_count" type="number" min="0" max="1000">
+          </td>
+          <% if show_delete_btn %>
+            <%= form_with(url: "/menus/#{menu.id}",method: "DELETE") do %>
+              <td>
+                <input class="delete" type="submit" value="Remove Item">
+              </td>
+            <% end %>
+          <% end %>
+        </tr>
+      <tr>
+          <th>
+           <p class="Menu_name"> <%=menu.item %></p>
+          </th>
+      </tr>
+  <% end %>
+  </table>
