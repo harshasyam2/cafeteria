@@ -1,6 +1,4 @@
 class MenusController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
     render "index"
   end
@@ -8,7 +6,8 @@ class MenusController < ApplicationController
   def create
     Menu.create!(
       name: params[:name],
-      category: params[:category],
+      price: params[:price],
+      menu_id: params[:menu_id],
     )
   end
 

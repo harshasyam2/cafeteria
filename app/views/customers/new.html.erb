@@ -1,0 +1,26 @@
+<div class="Customer_signup">
+  <h1 class="NewCustomers_title">Welcome new Customer!</h1>
+  <section class="NewCustomers">
+    <%= form_with url:customers_path do |form| %>
+      <div class="Form-section">
+        <div class="Form-input-label">First Name:<p class="Mandatory"> * </p></div>
+        <%= form.text_field :first_name,class:"Form-input" %>
+      </div>
+      <div class="Form-section">
+        <div class="Form-input-label">Last Name:</div>
+        <%= form.text_field :last_name,class:"Form-input" %>
+      </div>
+      <div class="Form-section">
+        <div class="Form-input-label">Email:<p class="Mandatory"> * </p></div>
+        <%= form.email_field :email,class:"Form-input" %>
+      </div>
+      <div class="Form-section">
+        <div class="Form-input-label">Password:<p class="Mandatory"> * </p></div>
+        <%= form.password_field :password,class:"Form-input"  %>
+      </div>
+      <div class="Form-section">
+        <%= form.submit "Sign Up",class:"Form-submit"%>
+      </div>
+    <% end %>
+  </section>
+</div>

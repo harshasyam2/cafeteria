@@ -1,0 +1,66 @@
+.Customer_signup{
+  max-width:300px;
+  margin:0 auto;
+}
+
+.Form-section{
+  margin-bottom:20px;
+  align-items:center;
+  margin-left:20px;
+}
+
+.Form-input{
+  font-size:12px;
+  cursor:pointer;
+}
+
+.Form-input-label{
+  color:#555555;
+  font-size:16px;
+  text-shadow: 3px 3px 3px gray;
+  display:flex;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.Form-submit{
+  font-size:14px;
+  margin-left:70px;
+  padding:10px;
+  color:linen;
+  font-weight: 600;
+  background-color: rgb(143, 137, 131);
+  border:1px solid transparent;
+  border-radius:8px;
+}
+
+.NewCustomers_title{
+  margin-top:30px;
+  margin-bottom:20px;
+  font-size:20px;
+  padding:10px;
+  text-align: center;
+  text-shadow:2px 4px 6px red;
+}
+
+.NewCustomers{
+  margin-left:40px;
+}
+
+.Signin_content{
+  max-width: 300px;
+  margin:0 auto;
+  padding:15px;
+  padding-left:70px;
+}
+
+.Flash-error{
+ text-align: center;
+ color: darkred;
+ margin:20px;
+}
+
+.Mandatory{
+  color:red;
+  margin:5px;
+}

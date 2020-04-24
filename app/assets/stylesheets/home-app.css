@@ -1,0 +1,52 @@
+.Home_page_menu{
+  width:100%;
+  height: auto;
+  margin:20px;
+  margin-left: 20px;
+}
+
+.Home_creation_line{
+  display:flex;
+  align-items:center;
+}
+
+.Home_menu{
+  font-size:14px;
+  margin-top:20px;
+  padding:8px;
+  cursor: pointer;
+}
+
+.heading{
+  font-size:18px;
+  text-align: center;
+  font-weight:600px;
+  margin-top:15px;
+  text-shadow: 10px 10px 10px red;
+}
+
+.content{
+  margin-top:150px;
+}
+
+.heading:hover{
+  text-decoration: underline;
+}
+
+.create{
+  margin-left:800px;
+}
+
+.signin{
+  margin-left:5px;
+}
+
+.Customer_heading{
+  max-width: 700px;
+  margin:0 auto;
+  margin-top:30px;
+  padding:10px;
+  background-color:lightgray;
+  display:flex;
+  justify-content: space-between;
+}
