@@ -1,0 +1,13 @@
+<table class="display_users">
+  <% Customer.all.each do |customer| %>
+    <tr>
+        <td class="customer_name"><%= customer.first_name.concat(" ").concat(customer.last_name) %></td>
+        <td class="customer_email"><%= customer.email %></td>
+        <%= form_with(url: "/customers/#{customer.id}", method: "patch") do %>
+        <td>
+          <input class="make_billing_person" type="submit" value="Make Billing Person">
+        </td>
+        <% end %>
+    </tr>
+  <% end %>
+</table>

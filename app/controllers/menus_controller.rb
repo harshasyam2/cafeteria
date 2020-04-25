@@ -10,19 +10,18 @@ class MenusController < ApplicationController
   end
 
   def create
-    menu = Menu.find_by(name: params[:name], category: params[:category])
+    menu = Menu.find_by(name: params[:name])
     if menu
       flash[:error] = "Menu with entered details exists.Please check the details."
       redirect_to menus_path
     else
-      menu = Menu.new(
+      new_menu = Menu.new(
         name: params[:name],
-        category: params[:category],
       )
-      if menu.save
+      if new_menu.save
         redirect_to menus_path
       else
-        flash[:error] = menu.errors.full_messages.join(",")
+        flash[:error] = new_menu.errors.full_messages.join(",")
         redirect_to menus_path
       end
     end

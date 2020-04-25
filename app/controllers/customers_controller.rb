@@ -1,6 +1,10 @@
 class CustomersController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
+  def index
+    render "index"
+  end
+
   def new
     render "customers/new"
   end
@@ -16,6 +20,7 @@ class CustomersController < ApplicationController
         last_name: params[:last_name],
         email: params[:email],
         password: params[:password],
+        role: "customer",
       )
       if new_customer.save
         redirect_to "/"
@@ -24,5 +29,13 @@ class CustomersController < ApplicationController
         redirect_to new_customer_path
       end
     end
+  end
+
+  def update
+    id = params[:id]
+    customer = Customer.find(id)
+    customer.role = "Billing Person"
+    customer.save!
+    redirect_to customers_path
   end
 end

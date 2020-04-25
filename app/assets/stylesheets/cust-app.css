@@ -64,3 +64,25 @@
   color:red;
   margin:5px;
 }
+
+.display_users{
+  display:flex;
+  align-items:center;
+  margin:10px;
+  padding:7px;
+  max-width:700px;
+  margin:0 auto;
+  background-color:darkgray;
+}
+
+.customer_name{
+  margin:10px;
+  padding:8px;
+  font-size:14px;
+}
+
+.customer_email{
+  margin:10px;
+  font-size:14px;
+  padding:8px;
+}
