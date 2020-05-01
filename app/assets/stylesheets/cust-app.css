@@ -65,14 +65,22 @@
   margin:5px;
 }
 
-.display_users{
+.display_users_to_owner{
   display:flex;
   align-items:center;
+  font-size:14px;
   margin:10px;
   padding:7px;
   max-width:700px;
   margin:0 auto;
-  background-color:darkgray;
+  background-color:lightgray;
+}
+
+.display_users{
+  background-color:lightgray;
+  padding-left:570px;
+  margin-bottom:15px;
+  font-size:14px;
 }
 
 .customer_name{
@@ -85,4 +93,8 @@
   margin:10px;
   font-size:14px;
   padding:8px;
+}
+
+.display_users_section{
+  margin:10px;
 }

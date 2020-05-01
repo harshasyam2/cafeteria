@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   skip_before_action :ensure_user_logged_in
+  skip_before_action :verify_authenticity_token
 
   def index
     render "index"
@@ -20,8 +21,12 @@ class CustomersController < ApplicationController
         last_name: params[:last_name],
         email: params[:email],
         password: params[:password],
-        role: "customer",
       )
+      if Customer.count == 0
+        new_customer.role = "Owner"
+      else
+        new_customer.role = "Customer"
+      end
       if new_customer.save
         redirect_to "/"
       else
@@ -34,7 +39,7 @@ class CustomersController < ApplicationController
   def update
     id = params[:id]
     customer = Customer.find(id)
-    customer.role = "Billing Person"
+    customer.role = params[:role]
     customer.save!
     redirect_to customers_path
   end

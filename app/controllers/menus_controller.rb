@@ -2,7 +2,7 @@ class MenusController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    if current_user.email == "harshasyam2@gmail.com"
+    if current_user == Customer.first
       render "index", locals: { show_adding_column: true, show_block: true, menus: Menu.all }
     else
       render "index", locals: { show_adding_column: false, show_block: false, menus: Menu.all }

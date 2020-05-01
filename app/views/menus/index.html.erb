@@ -5,7 +5,7 @@
         </section>
   <% end %>
   <% if show_adding_column %>
-        <p class="display_users" ><%= link_to "Show all users", customers_path %></p>
+        <p class="display_users" ><%= link_to "Manage Billing Persons", customers_path %></p>
         <form class="Adding_menus" action="/menus" method="POST">
                 <div class="Add_menu_block">
                         <h1 class="add_menu">Add Menu:</h1>
@@ -21,7 +21,6 @@
          <form class="Add_menu" action="/menuitems" method="POST">
                 <input class="item" type="text" name="name" size="15" placeholder="Enter item name">
                 <input class="price" type="text" name="price" size="10" placeholder="Enter Price">
-                <input class="menu_box" type="text" name="category" size="10" placeholder="Category">
                 <!-- The below line is for identifying the menu name and finding its menu id to add to menuitems table -->
                 <select class="menu_id" name="menu_id">
                         <% menus.all.each do |menu| %>
@@ -31,11 +30,11 @@
                 <input class="submit" type="submit" value="Add an item">
         </form>
   <% end %>
-   <% menus.all.each do |menu| %>
-        <%= render partial:"menu-section",locals:{
-                menu_title:menu.name,
-                menuitems:Menuitem.all.where(menu_id:menu.id),
-                show_delete_btn:show_adding_column
-        } %>
-   <% end %>
+        <% menus.all.each do |menu| %>
+                <%= render partial:"menu-section",locals:{
+                        menu_title:menu.name,
+                        menuitems:Menuitem.all.where(menu_id:menu.id),
+                        show_delete_btn:show_adding_column
+                } %>
+        <% end %>
 </main>

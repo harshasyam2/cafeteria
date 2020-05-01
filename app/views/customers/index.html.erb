@@ -1,13 +1,19 @@
-<table class="display_users">
-  <% Customer.all.each do |customer| %>
-    <tr>
-        <td class="customer_name"><%= customer.first_name.concat(" ").concat(customer.last_name) %></td>
-        <td class="customer_email"><%= customer.email %></td>
-        <%= form_with(url: "/customers/#{customer.id}", method: "patch") do %>
-        <td>
-          <input class="make_billing_person" type="submit" value="Make Billing Person">
-        </td>
-        <% end %>
-    </tr>
-  <% end %>
+<table class="display_users_to_owner">
+  <%= render partial:"customer-section",locals:{
+    user_title: "Clerk",
+    customers: Customer.all.where("role=?","Clerk"),
+    cust_value: "Customer",
+    button_value: "Remove as Clerk"
+    } %>
 </table>
+<table class="display_users_to_owner">
+  <%= render partial:"customer-section",locals:{
+    user_title: "Customer",
+    customers: Customer.all.where("role=?","Customer"),
+    cust_value: "Clerk",
+    button_value: "Mark as Clerk"
+    } %>
+</table>
+<form action="/menus" method="get">
+  <input type="submit" value="Back to menu">
+</form>
