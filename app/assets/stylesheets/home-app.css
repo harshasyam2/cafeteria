@@ -50,3 +50,11 @@
   display:flex;
   justify-content: space-between;
 }
+
+.signout_heading{
+  font-size:14px;
+  transition: 0.5s;
+}
+.signout_heading:hover{
+  transform: scale(1.2);
+}

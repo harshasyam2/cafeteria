@@ -64,6 +64,14 @@
   text-decoration:underline;
   padding-left:10px;
   padding:5px;
+  text-align:center;
+  transition: 0.5s;
+}
+
+.title:hover{
+  background-color:black;
+  color:white;
+  transform: scale(1.2);
 }
 
 .image{

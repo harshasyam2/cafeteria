@@ -1,13 +1,17 @@
 <section class="display_users_section">
-  <p><%= user_title %></p>
+  <p class="user_title"> <%= user_title %> </p>
   <% customers.all.each do |customer| %>
     <tr>
-        <td class="customer_name"><%= customer.first_name.concat(" ").concat(customer.last_name) %></td>
-        <td class="customer_email"><%= customer.email %></td>
+        <td class="customer_name">
+          <%= customer.first_name.concat(" ").concat(customer.last_name) %>
+        </td>
+        <td class="customer_email">
+          <%= customer.email %>
+        </td>
         <%= form_with(url: "/customers/#{customer.id}",method: "put") do %>
           <td>
-            <input type="hidden" id="custId" name="role" value="<%= cust_value %>">
-            <input class="make_billing_person" type="submit" value="<%= button_value %>">
+            <input type="hidden" name="role" value="<%= cust_value %>">
+            <input class="billing_button" type="submit" value="<%= button_value %>">
           </td>
         <% end %>
     </tr>

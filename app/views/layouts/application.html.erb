@@ -10,13 +10,15 @@
   </head>
 
   <body>
-   <% if @current_user %>
-      <p class="Customer_heading">
-        Welcome <%= @current_user.first_name %>!
-        <%= link_to "Sign out", destroy_session_path, method:"delete"%>
-      </p>
-    <% end %>
-      <p class="Flash-error"> <%= flash[:error] %> </p>
+      <% if @current_user %>
+        <div class="Customer_heading">
+          Welcome <%= @current_user.first_name %>!
+          <p class="signout_heading">
+            <%= link_to "Sign out", destroy_session_path, method:"delete" %>
+          </p>
+        </div>
+      <% end %>
+        <p class="Flash-error"> <%= flash[:error] %> </p>
     <%= yield %>
   </body>
 </html>
