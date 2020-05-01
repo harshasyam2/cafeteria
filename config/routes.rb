@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :menus
   resources :menuitems
   resources :customers
+  resources :orders
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions
   delete "/signout", to: "sessions#destroy", as: :destroy_session

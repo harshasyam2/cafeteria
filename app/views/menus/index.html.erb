@@ -1,7 +1,13 @@
 <main class="Main_page">
   <% if !show_adding_column%>
         <section class="cart" >
-        <img src="cart.png" width="40%">
+                <%= form_with(url: "/orders", method: "get") do %>
+                        <%= image_submit_tag(
+                        source="cart.png",
+                        class: "cart-image"
+                        )
+                        %>
+                <% end %>
         </section>
   <% end %>
   <% if show_adding_column %>
