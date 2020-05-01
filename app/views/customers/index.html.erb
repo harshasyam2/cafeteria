@@ -2,7 +2,7 @@
   <table class="display_users_to_owner">
     <%= render partial:"customer-section",locals:{
       user_title: "Clerk",
-      customers: Customer.all.where("role=?","Clerk"),
+      customers: Customer.clerk,
       cust_value: "Customer",
       button_value: "Remove as Clerk"
       } %>
@@ -10,7 +10,7 @@
   <table class="display_users_to_owner">
     <%= render partial:"customer-section",locals:{
       user_title: "Customer",
-      customers: Customer.all.where("role=?","Customer"),
+      customers: Customer.customer,
       cust_value: "Clerk",
       button_value: "Mark as Clerk"
       } %>

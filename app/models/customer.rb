@@ -4,11 +4,11 @@ class Customer < ActiveRecord::Base
   validates :email, presence: true
   has_secure_password
 
-  def clerk
+  def self.clerk
     all.where("role=?", "Clerk")
   end
 
-  def customer
+  def self.customer
     all.where("role=?", "Customer")
   end
 end

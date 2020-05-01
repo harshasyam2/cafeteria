@@ -11,13 +11,13 @@
            <input class="item_count" type="number" min="0" max="1000">
           </td>
           <% if show_delete_btn %>
-            <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE") do %>
+            <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
               <td>
                 <input class="delete" type="submit" value="Remove Item">
               </td>
             <% end %>
           <% else %>
-            <%= form_with(url: "/orderitems",method: "POST") do %>
+            <%= form_with(url: "/orderitems",method: "POST",local: true) do %>
               <td>
                 <input class="" type="submit" value="Add to cart">
               </td>
