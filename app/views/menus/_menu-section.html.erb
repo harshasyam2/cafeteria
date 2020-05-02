@@ -16,6 +16,9 @@
                 <input class="delete" type="submit" value="Remove Item">
               </td>
             <% end %>
+              <td>
+                  <%= link_to "Edit item", "/menuitems/#{menu_item.id}/edit", method:"get" %>
+              </td>
           <% else %>
             <%= form_with(url: "/orderitems",method: "POST",local: true) do %>
               <td>

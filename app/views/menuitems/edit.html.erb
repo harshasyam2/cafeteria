@@ -1,0 +1,7 @@
+<section class="edit_page">
+  <%= form_with(url: "/menuitems/#{@menuitem.id}", method: "put") do %>
+    <input type="text" name="name" class="edit_name" value="<%= @menuitem.name %>">
+    <input type="text" name="price" class="edit_price" value="<%= @menuitem.price %>">
+    <input type="submit" value="Update item">
+  <% end %>
+</section>

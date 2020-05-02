@@ -20,4 +20,18 @@ class MenuitemsController < ApplicationController
     menuitem.destroy
     redirect_to menus_path
   end
+
+  def update
+    id = params[:id]
+    menuitem = Menuitem.find(id)
+    menuitem.name = params[:name]
+    menuitem.price = params[:price]
+    menuitem.save!
+    redirect_to menus_path
+  end
+
+  def edit
+    id = params[:id]
+    @menuitem = Menuitem.find(id)
+  end
 end
