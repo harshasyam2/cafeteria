@@ -1,7 +1,7 @@
 <main class="Main_page">
   <% if !show_adding_column%>
         <section class="cart" >
-                <%= form_with(url: "/orders", method: "get") do %>
+                <%= form_with(url: "/orderitems", method: "get") do %>
                         <%= image_submit_tag(
                         source="cart.png",
                         class: "cart-image"
@@ -10,8 +10,11 @@
                 <% end %>
         </section>
   <% end %>
-  <% if show_adding_column %>
+  <!-- This has to be only for owner Later change this show_menubar-->
+  <% if show_menubar %>
         <p class="display_users" ><%= link_to "Manage Billing Persons", customers_path %></p>
+  <% end %>
+  <% if show_adding_column %>
         <form class="Adding_menus" action="/menus" method="POST">
                 <div class="Add_menu_block">
                         <h1 class="add_menu">Add Menu:</h1>

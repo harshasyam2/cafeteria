@@ -1,0 +1,20 @@
+<main class="cart_display">
+  <% orderitems.all.each do |orderitem| %>
+    <table>
+      <caption>
+          <%= orderitem.status %>
+        </caption>
+      <tr>
+        <td>
+          <%= orderitem.menuitem_name %>
+        </td>
+        <td>
+          <%= orderitem.menuitem_price %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+  <%= form_with(url: "/orders", method: "post" ) do %>
+    <input type="submit" value="Confirm Order">
+  <% end %>
+</main>

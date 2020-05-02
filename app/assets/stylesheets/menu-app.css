@@ -186,3 +186,11 @@
 .cart-image{
   width:40%;
 }
+
+.Add_to_cart{
+  color:white;
+  background-color:limegreen;
+  border:1px solid transparent;
+  border-radius:5px;
+  padding:5px;
+}

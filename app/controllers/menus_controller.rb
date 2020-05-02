@@ -2,10 +2,12 @@ class MenusController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    if current_user == Customer.first
-      render "index", locals: { show_adding_column: true, show_block: true, menus: Menu.all }
+    if current_user.role == "Owner"
+      render "index", locals: { show_adding_column: true, show_menubar: true, menus: Menu.all }
+    elsif current_user.role == "Clerk"
+      render "index", locals: { show_adding_column: false, show_menubar: true, menus: Menu.all }
     else
-      render "index", locals: { show_adding_column: false, show_block: false, menus: Menu.all }
+      render "index", locals: { show_adding_column: false, show_menubar: false, menus: Menu.all }
     end
   end
 
