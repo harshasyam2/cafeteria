@@ -1,9 +1,9 @@
 <main class="cart_display">
-  <% orderitems.all.each do |orderitem| %>
-    <table>
+  <table>
       <caption>
-          <%= orderitem.status %>
-        </caption>
+          <p class="cart_heading"> Incart </p>
+      </caption>
+      <% orderitems.all.each do |orderitem| %>
       <tr>
         <td>
           <%= orderitem.menuitem_name %>
@@ -12,9 +12,9 @@
           <%= orderitem.menuitem_price %>
         </td>
       </tr>
-    </table>
-  <% end %>
-  <%= form_with(url: "/orders", method: "post" ) do %>
+      <% end %>
+  </table>
+  <%= form_with(url: "/orders", method: "post",local:true) do %>
     <input type="submit" value="Confirm Order">
   <% end %>
 </main>

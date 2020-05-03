@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def create
     order = Order.create!(
-      date: Date.now,
+      date: Date.today,
       user_id: @current_user.id,
     )
     @order_id = order.id
