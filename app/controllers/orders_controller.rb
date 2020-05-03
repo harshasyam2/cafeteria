@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def create
-    if Order.incart.count == 0
+    @orders = Order.incart
+    if @orders.where(customer_id: current_user.id).count == 0
       order = Order.create!(
         date: Date.today,
         customer_id: current_user.id,

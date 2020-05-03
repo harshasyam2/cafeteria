@@ -5,7 +5,6 @@ class Order < ActiveRecord::Base
     all.where("status=?", "incart")
   end
 
-  def self.currentuser
-    all.where(user_id: current_user.id)
+  def self.user
   end
 end
