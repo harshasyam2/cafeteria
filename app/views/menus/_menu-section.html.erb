@@ -20,7 +20,7 @@
             <td>
                 <input class="item_count" type="number" min="0" max="1000">
             </td>
-            <%= form_with(url: "/orderitems",method: "POST",local: true) do %>
+            <%= form_with(url: "/orders",method: "POST",local: true) do %>
               <input type="hidden" name="id" value="<%= menu_item.id %>">
               <td>
                 <input class="Add_to_cart" type="submit" value="Add to cart">

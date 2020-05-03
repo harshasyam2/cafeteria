@@ -3,6 +3,7 @@ class Customer < ActiveRecord::Base
   validates :email, presence: true
   validates :email, presence: true
   has_secure_password
+  has_many :orders
 
   def self.clerk
     all.where("role=?", "Clerk")

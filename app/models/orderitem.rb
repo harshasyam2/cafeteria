@@ -1,5 +1,4 @@
 class Orderitem < ActiveRecord::Base
-  def self.incart
-    all.where("status=?", "incart")
-  end
+  belongs_to :order
+  #belongs_to :menu_item
 end

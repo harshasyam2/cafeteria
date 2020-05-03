@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :orders
   resources :orderitems
+  get "/create", to: "orderitems#create", as: :create_orderitem
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions
   delete "/signout", to: "sessions#destroy", as: :destroy_session
