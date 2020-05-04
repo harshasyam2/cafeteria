@@ -33,5 +33,6 @@ class MenusController < ApplicationController
     id = params[:id]
     menu = Menu.find(id)
     menu.destroy
+    redirect_to menus_path
   end
 end

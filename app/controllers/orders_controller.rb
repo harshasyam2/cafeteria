@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
       @order_id = order.id
       redirect_to create_orderitem_path(:order_id => @order_id, :menuitem_id => @menuitem_id)
     else
-      order = @orders.first
+      order = @orders.where(customer_id: current_user.id).first
       @menuitem_id = params[:id]
       @order_id = order.id
       redirect_to create_orderitem_path(:order_id => @order_id, :menuitem_id => @menuitem_id)
