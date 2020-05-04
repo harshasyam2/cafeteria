@@ -2,7 +2,6 @@ class OrderitemsController < ApplicationController
   def index
     @orders = Order.incart
     order = @orders.where(customer_id: current_user.id)
-    #render plain: order.count
     if order
       orderid = order.first.id
       render "index", locals: { orderitems: Orderitem.where("order_id=?", orderid) }

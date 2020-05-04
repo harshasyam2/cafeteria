@@ -1,25 +1,26 @@
 <main class="cart_display">
-  <table>
-      <caption>
-          <p class="cart_heading"> Incart </p>
+  <table class="cart_table">
+      <caption class="cart_heading">
+          <p > Items in your cart </p>
       </caption>
       <% orderitems.all.each do |orderitem| %>
       <tr>
-        <td>
+        <td class="cart_item_data">
           <%= orderitem.menuitem_name %>
         </td>
-        <td>
-          <%= orderitem.menuitem_price %>
+        <td class="cart_item_data">
+          <p>Price :<%= orderitem.menuitem_price %>/-</p>
         </td>
-        <td>
+        <td class="cart_item_data">
           <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete") do %>
-            <input type="submit" value="Remove">
+            <input type="submit" class="Remove_cartitem" value="Remove">
           <% end %>
         </td>
       </tr>
       <% end %>
   </table>
+  <hr width=50%>
   <%= form_with(url: "/orders", method: "post",local:true) do %>
-    <input type="submit" value="Confirm Order">
+    <input type="submit" class="Confirm_order" value="Confirm Order">
   <% end %>
 </main>

@@ -1,5 +1,41 @@
 .cart_display{
   width:100%;
   height:auto;
-  background-color:lightpink;
+}
+
+.cart_heading{
+  text-align:center;
+  color:#453C52;
+  margin:20px;
+  text-shadow:2px 2px 2px red;
+}
+
+.Remove_cartitem{
+  font-size:14px;
+  padding:5px;
+  border:1px solid transparent;
+  border-radius:8px;
+  font-weight:600px;
+  color:white;
+  background-color:limegreen;
+}
+
+.cart_item_data{
+  width:20%;
+  text-align:center;
+}
+
+.Confirm_order{
+  margin:20px;
+  margin-left:470px;
+  color:white;
+  background-color:limegreen;
+  border-radius:8px;
+  border:1px solid transparent;
+  padding:5px;
+}
+
+.cart_table{
+  width:50%;
+  margin-left:260px;
 }
