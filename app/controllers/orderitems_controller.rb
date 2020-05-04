@@ -2,11 +2,11 @@ class OrderitemsController < ApplicationController
   def index
     @orders = Order.incart
     order = @orders.where(customer_id: current_user.id)
-    if order
+    if order.first
       orderid = order.first.id
-      render "index", locals: { orderitems: Orderitem.where("order_id=?", orderid) }
+      render "index", locals: { orderitems: Orderitem.where("order_id=?", orderid), orderid: orderid }
     else
-      render "index", locals: { orderitems: Orderitem.where("order_id=?", -1) }
+      render "index", locals: { orderitems: Orderitem.where("order_id=?", -1), orderid: orderid }
     end
   end
 

@@ -81,11 +81,9 @@
   background-color:lightgray;
 }
 
-.display_users{
-  background-color:lightgray;
-  padding:10px;
-  margin-bottom:15px;
+.display_menu_links{
   font-size:14px;
+  margin-right:10px;
 }
 
 .customer_name{
@@ -105,13 +103,16 @@
 }
 
 .billing_button{
-  background-color:lightgoldenrodyellow;
+  background-color:limegreen;
+  padding:3px;
+  color:white;
   border:1px solid transparent;
-  border-radius:5px;
+  border-radius:8px;
+  margin:10px;
 }
 
 .billing_button:hover{
-  color:red;
+  background-color:#453C52;
 }
 
 .user_title{

@@ -4,7 +4,7 @@
   font-family:sans-serif;
 }
 
-.cart{
+.cart_section{
   margin-top:50px;
   margin-left:620px;
 }
@@ -185,6 +185,7 @@
 
 .cart_image{
   width:60%;
+  border:1px solid transparent;
 }
 
 .Add_to_cart{
@@ -193,4 +194,12 @@
   border:1px solid transparent;
   border-radius:5px;
   padding:5px;
+}
+
+.menubar_display{
+  display:flex;
+  align-items:center;
+  background-color:lightgray;
+  padding:6px;
+  margin:10px;
 }

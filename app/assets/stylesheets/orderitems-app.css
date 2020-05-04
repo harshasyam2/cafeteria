@@ -18,6 +18,7 @@
   font-weight:600px;
   color:white;
   background-color:limegreen;
+  margin:10px;
 }
 
 .cart_item_data{
@@ -38,4 +39,15 @@
 .cart_table{
   width:50%;
   margin-left:260px;
+}
+
+.cart_row{
+  margin:10px;
+}
+
+.cart{
+  padding:5px;
+  border-radius:8px;
+  margin-top:20px;
+  margin-left:475px;
 }
