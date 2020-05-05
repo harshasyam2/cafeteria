@@ -81,3 +81,35 @@
   background-color:skyblue;
   color:black;
 }
+
+.order_items_caption{
+  text-shadow:5px 5px 5px red;
+  margin:10px;
+  text-align:center;
+}
+
+.order_items_caption:hover{
+  text-decoration:underline;
+  text-shadow:5px 5px 5px skyblue;
+}
+
+.order_item_data{
+  width:20%;
+}
+
+.myorder_name{
+  background-color: white;
+  border:1px solid transparent;
+  margin-bottom:10px;
+  margin-top:10px;
+  margin-left:40px;
+  margin-right:-60px;
+}
+
+.order_table{
+  width:50%;
+  margin:20px;
+  margin-left:260px;
+  border:1px solid lightgray;
+  box-shadow:3px 3px 3px 3px lightgray;
+}

@@ -9,6 +9,10 @@ class Order < ActiveRecord::Base
     all.where("status=?", "ordered")
   end
 
+  def self.delivered
+    all.where("status=?", "delivered")
+  end
+
   def self.fromto(initial_date, final_date)
     all.where("date>=? and date<=?", initial_date, final_date)
   end

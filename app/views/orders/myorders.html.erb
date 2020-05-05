@@ -1,19 +1,13 @@
-<% @orders.notincart.order(:date).each do |order| %>
-<table>
-  <caption> <%= order.status %> </caption>
-  <% Orderitem.find_by_id(order.id).all.each do |orderitem| %>
-    <tr>
-      <td>
-        <p class="show_order_details">
-          <%= orderitem.menuitem_name %>
-          <%= orderitem.menuitem_price %>
-        </p>
-      </td>
-      <td>
-        <p><%=  %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-<hr>
-<% end %>
+<%= render partial:"order-section.html.erb", locals: {
+  orders: @orders.delivered,
+  order_title: "Delivered",
+   count: @orders.delivered.count
+}
+%>
+
+<%= render partial:"order-section.html.erb", locals: {
+  orders: @orders.ordered,
+  order_title: "Ordered",
+  count: @orders.ordered.count
+}
+%>
