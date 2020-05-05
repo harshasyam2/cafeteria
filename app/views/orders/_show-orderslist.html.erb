@@ -6,6 +6,9 @@
         <p  class="order_display_user"> <%= customer.first_name.concat(" #{customer.last_name}")%> </p>
       </td>
       <td>
+        <p> Bill : <%= order.bill %>/-</p>
+      </td>
+      <td>
         <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>
           <input class="button show" type="submit" value="Show Details">
         <% end %>
@@ -13,6 +16,7 @@
       <% if show_delivered_button%>
         <td>
           <%= form_with(url: "/orders/#{order.id}", method: "put",local: true) do %>
+            <input type="hidden" name="bill" value="<%= order.bill %>">
             <input type="hidden" name="status" value="delivered">
             <input class="button delivered" type="submit" value="Delivered">
           <% end %>
