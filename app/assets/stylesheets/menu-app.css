@@ -193,7 +193,7 @@
   background-color:limegreen;
   border:1px solid transparent;
   border-radius:5px;
-  padding:5px;
+  padding:5px 10px;
 }
 
 .menubar_display{
@@ -212,4 +212,28 @@
 .menuitems_show{
   max-width:700px;
   margin:0 auto;
+}
+
+.edit_line_row{
+  display:flex;
+  align-items:center;
+  margin-left:260px;
+}
+
+.edit_name_price{
+  padding:5px;
+  padding-left:15px;
+  font-size:14px;
+  border:2px solid lightgrey;
+  border-radius:8px;
+  margin:10px;
+}
+
+.update_button{
+  background-color:limegreen;
+  padding:5px 10px;
+  border:1px solid transparent;
+  border-radius:8px;
+  color:white;
+  margin-left:20px;
 }
