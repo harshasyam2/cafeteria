@@ -1,21 +1,5 @@
-<table>
-  <% @orders.all.each do |order| %>
-    <tr>
-      <td>
-        <% customer=Customer.find(order.customer_id) %>
-        <p  class="order_display_user"> <%= customer.first_name.concat(" #{customer.last_name}")%> </p>
-      </td>
-      <td>
-        <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>
-          <input type="submit" value="Show Details">
-        <% end %>
-      </td>
-      <td>
-        <%= form_with(url: "/orders/#{order.id}", method: "put",local: true) do %>
-          <input type="hidden" name="status" value="delivered">
-          <input type="submit" value="Delivered">
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<%= render partial:"show-orderslist",locals: {
+    orders_list: @orders,
+    show_delivered_button:true
+  }
+%>

@@ -26,11 +26,22 @@ class OrdersController < ApplicationController
     @orderid = params[:id]
   end
 
+  def listshow
+    initial_date = params[:initial_date]
+    final_date = params[:final_date]
+    @orders = Order.fromto(initial_date, final_date)
+    render "showlist"
+  end
+
   def update
     id = params[:id]
     order = Order.find(id)
     order.status = params[:status]
     order.save!
     redirect_to menus_path
+  end
+
+  def listorders
+    render "listorders"
   end
 end

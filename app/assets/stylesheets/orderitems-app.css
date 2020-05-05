@@ -61,3 +61,23 @@
   padding:5px;
   margin:5px;
 }
+
+.button{
+  padding:5px;
+  margin:10px;
+  font-size:12px;
+  border:1px solid transparent;
+  border-radius:8px;
+  background-color:limegreen;
+  color:white;
+}
+
+.show:hover{
+  background-color:skyblue;
+  color:black;
+}
+
+.delivered:hover{
+  background-color:skyblue;
+  color:black;
+}

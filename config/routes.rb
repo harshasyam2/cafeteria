@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :customers
   resources :orders
   resources :orderitems
+  get "/listorders", to: "orders#listorders", as: :list_orders
+  get "/showlist", to: "orders#listshow", as: :show_list_orders
   get "/create", to: "orderitems#create", as: :create_orderitem
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions
