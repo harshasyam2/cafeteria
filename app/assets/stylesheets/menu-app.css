@@ -203,3 +203,13 @@
   padding:6px;
   margin:10px;
 }
+
+.delete_menuitem{
+  color:Red;
+  margin-right:40px;
+}
+
+.menuitems_show{
+  max-width:700px;
+  margin:0 auto;
+}

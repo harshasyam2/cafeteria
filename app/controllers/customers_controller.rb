@@ -13,7 +13,12 @@ class CustomersController < ApplicationController
   def uniquecustomer
     email = params[:email]
     customer = Customer.find_by("email=?", email)
-    redirect_to customer_path(:id => customer.id)
+    if customer
+      redirect_to customer_path(:id => customer.id)
+    else
+      flash[:error] = "User with entered details donesn't exist.Please enter valid mail-id again"
+      redirect_to customers_path
+    end
   end
 
   def show

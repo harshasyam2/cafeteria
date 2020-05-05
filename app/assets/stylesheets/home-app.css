@@ -68,3 +68,28 @@
 .links:hover{
   text-decoration:underline;
 }
+
+.Form-email-input{
+  font-size:14px;
+  padding:2px;
+  padding-left:10px;
+  margin-left:360px;
+  margin-right:20px;
+}
+
+.Form-search{
+  font-size:14px;
+  background-color:limegreen;
+  color:white;
+  border:1px solid transparent;
+  border-radius:8px;
+  padding:5px;
+}
+
+.Form-menuitem-input{
+  font-size:14px;
+  padding:2px;
+  padding-left:10px;
+  margin-left:200px;
+  margin-right:20px;
+}

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/showlist", to: "orders#listshow", as: :show_list_orders
   get "/myorders", to: "orders#myorders", as: :my_orders
   post "/uniquecustomers", to: "customers#uniquecustomer", as: :unique_customer
+  post "/uniquemenuitems", to: "menuitems#uniquemenuitem", as: :unique_menuitem
   get "/create", to: "orderitems#create", as: :create_orderitem
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions

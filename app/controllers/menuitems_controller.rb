@@ -5,6 +5,22 @@ class MenuitemsController < ApplicationController
     render "index"
   end
 
+  def uniquemenuitem
+    name = params[:name]
+    menuitem = Menuitem.find_by("name=?", name)
+    if menuitem
+      redirect_to menuitem_path(:id => menuitem.id)
+    else
+      flash[:error] = "Menuitem not found."
+      redirect_to menus_path
+    end
+  end
+
+  def show
+    @id = params[:id]
+    @user = current_user
+  end
+
   def create
     Menuitem.create!(
       name: params[:name],
