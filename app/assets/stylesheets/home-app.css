@@ -55,6 +55,16 @@
   font-size:14px;
   transition: 0.5s;
 }
+
 .signout_heading:hover{
   transform: scale(1.1);
+}
+
+.links{
+  margin:5px;
+  text-decoration:none;
+}
+
+.links:hover{
+  text-decoration:underline;
 }

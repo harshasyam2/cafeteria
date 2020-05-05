@@ -14,7 +14,7 @@
         <div class="Customer_heading">
           Welcome <%= @current_user.first_name %>!
           <p class="signout_heading">
-            <%= link_to "Sign out", destroy_session_path, method:"delete" %>
+            <%= link_to "Sign out", destroy_session_path, method:"delete", class:"links" %>
           </p>
         </div>
       <% end %>
