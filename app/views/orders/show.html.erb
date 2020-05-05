@@ -1,10 +1,14 @@
-<table>
+<table class="Show_order_table">
   <% Orderitem.find_by_id(@orderid).all.each do |orderitem| %>
     <tr>
-      <td>
+      <td width="150px">
         <p class="show_order_details">
           <%= orderitem.menuitem_name %>
-          <%= orderitem.menuitem_price %>
+        </p>
+      </td>
+      <td>
+        <p class="show_order_details">
+          Price:<%= orderitem.menuitem_price %>/-
         </p>
       </td>
     </tr>

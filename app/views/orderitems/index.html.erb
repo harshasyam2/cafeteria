@@ -1,9 +1,11 @@
 <main class="cart_display">
+  <p class="cart_heading">
+    Items in your cart
+  </p>
+  <% bill_amount=0 %>
+  <% orderitems.all.each do |orderitem| %>
+  <% bill_amount = bill_amount + orderitem.menuitem_price %>
   <table class="cart_table">
-      <caption class="cart_heading">
-          <p > Items in your cart </p>
-      </caption>
-      <% orderitems.all.each do |orderitem| %>
       <tr class="cart_row">
         <td class="cart_item_data">
           <%= orderitem.menuitem_name %>
@@ -17,11 +19,13 @@
           <% end %>
         </td>
       </tr>
-      <% end %>
-  </table>
+    </table>
+    <% end %>
+    <p class="Bill"> Total Bill: <%= bill_amount %>/- </p>
   <hr width=50%>
   <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
     <input type="hidden" name="status" value="ordered">
+    <input type="hidden" name="bill" value="<%= bill_amount %>">
     <input type="submit" class="Confirm_order" value="Confirm Order">
   <% end %>
   <form action="/menus" method="get">

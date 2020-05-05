@@ -2,16 +2,25 @@
 <p class="order_items_caption"> <%= order_title %> </p>
 <% end %>
 <% orders.notincart.order(:date).each do |order| %>
-<table class="order_table">
-  <% Orderitem.find_by_id(order.id).all.each do |orderitem| %>
-      <tr class="order_row">
-        <td  class="order_item_data">
-          <input type="text" class="myorder_name" value="<%= orderitem.menuitem_name %>" readonly>
-        </td>
-        <td  class="order_item_dat">
-           <input type="text" class="myorder_name" value="Price:<%= orderitem.menuitem_price %>/-" readonly>
-        </td>
-      </tr>
-  <% end %>
-</table>
+<div class="order_table_block">
+  <table class="order_table">
+    <% Orderitem.find_by_id(order.id).all.each do |orderitem| %>
+        <tr class="order_row">
+          <td  class="order_item_data">
+            <input type="text" class="myorder_name" value="<%= orderitem.menuitem_name %>" readonly>
+          </td>
+          <td  class="order_item_data">
+            <input type="text" class="myorder_name" value="Price:<%= orderitem.menuitem_price %>/-" readonly>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+  <table class="order_table">
+    <tr>
+      <td class="order_item_data">
+        <p class="Bill in_myorders">Total Bill: <%= order.bill %>/- </p>
+      </td>
+    </tr>
+  </table>
+</div>
 <% end %>

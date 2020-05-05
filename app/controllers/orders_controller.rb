@@ -42,6 +42,7 @@ class OrdersController < ApplicationController
     id = params[:id]
     order = Order.find(id)
     order.status = params[:status]
+    order.bill = params[:bill]
     order.save!
     redirect_to menus_path
   end
