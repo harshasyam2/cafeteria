@@ -1,0 +1,19 @@
+<% @orders.notincart.order(:date).each do |order| %>
+<table>
+  <caption> <%= order.status %> </caption>
+  <% Orderitem.find_by_id(order.id).all.each do |orderitem| %>
+    <tr>
+      <td>
+        <p class="show_order_details">
+          <%= orderitem.menuitem_name %>
+          <%= orderitem.menuitem_price %>
+        </p>
+      </td>
+      <td>
+        <p><%=  %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<hr>
+<% end %>

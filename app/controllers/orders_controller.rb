@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   def create
     @orders = Order.incart
-    if @orders.where(customer_id: current_user.id).count == 0
+    if @orders.currentuser(current_user).count == 0
       order = Order.create!(
         date: Date.today,
         customer_id: current_user.id,
@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
       @order_id = order.id
       redirect_to create_orderitem_path(:order_id => @order_id, :menuitem_id => @menuitem_id)
     else
-      order = @orders.where(customer_id: current_user.id).first
+      order = @orders.currentuser(current_user).first
       @menuitem_id = params[:id]
       @order_id = order.id
       redirect_to create_orderitem_path(:order_id => @order_id, :menuitem_id => @menuitem_id)
@@ -24,6 +24,11 @@ class OrdersController < ApplicationController
 
   def show
     @orderid = params[:id]
+  end
+
+  def myorders
+    @orders = Order.currentuser(current_user)
+    render "myorders"
   end
 
   def listshow

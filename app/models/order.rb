@@ -12,4 +12,12 @@ class Order < ActiveRecord::Base
   def self.fromto(initial_date, final_date)
     all.where("date>=? and date<=?", initial_date, final_date)
   end
+
+  def self.currentuser(user)
+    all.where("customer_id=?", user.id)
+  end
+
+  def self.notincart
+    all.where("status!=?", "incart")
+  end
 end

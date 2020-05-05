@@ -12,6 +12,11 @@
   <% end %>
   <!-- This has to be only for owner Later change this show_menubar-->
         <div class="menubar_display">
+                <% if !show_menubar %>
+                        <p class="display_menu_links" >
+                                <%= link_to "My Orders", my_orders_path %>
+                        </p>
+                <% end %>
                 <% if show_menubar %>
                         <p class="display_menu_links" >
                                 <%= link_to "Show Orders", orders_path %>

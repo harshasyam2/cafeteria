@@ -28,6 +28,7 @@ class CustomersController < ApplicationController
         new_customer.role = "Customer"
       end
       if new_customer.save
+        session[:current_user_id] = new_customer.id
         redirect_to "/"
       else
         flash[:error] = new_customer.errors.full_messages.join(",")
