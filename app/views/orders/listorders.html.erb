@@ -1,5 +1,13 @@
 <%= form_with(url: "/showlist", method: "get",local:true) do %>
-  <input type="date" name="initial_date">
-  <input type="date" name="final_date">
-  <input type="submit" value="Search">
+  <div class="search_records">
+    <label class="label_to_records from">
+      From Date:
+    </label>
+      <input class="from_to_button" type="date" name="initial_date">
+    <label class="label_to_records to">
+      To Date:
+    </label>
+    <input class="from_to_button" type="date" name="final_date">
+    <input class="search_button" type="submit" value="Search">
+  </div>
 <% end %>

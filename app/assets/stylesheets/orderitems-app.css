@@ -113,3 +113,44 @@
   border:1px solid lightgray;
   box-shadow:3px 3px 3px 3px lightgray;
 }
+
+.list_orders_to_admin{
+  width:50%;
+  margin-left:260px;
+}
+
+.search_records{
+  display:flex;
+  align-items:center;
+}
+
+.from_to_button{
+  font-size:14px;
+  margin:5px;
+  margin-right:10px;
+}
+
+.search_button{
+  background-color: limegreen;
+  font-size:14px;
+  color:white;
+  padding:5px;
+  margin-left:10px;
+  border-radius:8px;
+  border:1px solid transparent;
+}
+
+.label_to_records{
+  color:#453C52;
+  font-size:14px;
+  font-weight:600px;
+  margin-right:5px;
+}
+
+.from{
+  margin-left:200px;
+}
+
+.to{
+  margin-left:20px;
+}
