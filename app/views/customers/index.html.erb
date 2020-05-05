@@ -1,3 +1,7 @@
+<%= form_with(url:unique_customer_path,local:true) do |form| %>
+  <%= form.text_field :email,class:"Form-input" %>
+  <%= form.submit "search",class:"Form-search"%>
+<% end %>
 <section class="users_display_page">
   <table class="display_users_to_owner">
     <%= render partial:"customer-section",locals:{

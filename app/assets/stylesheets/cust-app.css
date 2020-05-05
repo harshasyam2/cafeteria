@@ -147,3 +147,9 @@
   height:auto;
   margin:-20 auto;
 }
+
+.users_billing_section{
+  display:flex;
+  margin:10px;
+  margin-left:260px;
+}

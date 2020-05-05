@@ -10,6 +10,16 @@ class CustomersController < ApplicationController
     render "customers/new"
   end
 
+  def uniquecustomer
+    email = params[:email]
+    customer = Customer.find_by("email=?", email)
+    redirect_to customer_path(:id => customer.id)
+  end
+
+  def show
+    @id = params[:id]
+  end
+
   def create
     customer = Customer.find_by(email: params[:email])
     if customer

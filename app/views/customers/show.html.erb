@@ -1,0 +1,22 @@
+<% customer=Customer.find(@id) %>
+<% if customer.role=="Clerk" %>
+  <% cust_value="Customer" %>
+  <% button_value="Remove as Clerk" %>
+<% elsif customer.role=="Customer" %>
+  <% cust_value="Clerk" %>
+  <% button_value="Mark as Clerk" %>
+<% end %>
+<section class="users_billing_section">
+  <div class="customer_name">
+    <%= customer.first_name.concat(" ").concat(customer.last_name) %>
+  </div>
+  <div class="customer_email">
+    <%= customer.email %>
+  </div>
+  <%= form_with(url: "/customers/#{customer.id}",method: "put",local: true) do %>
+    <div>
+      <input type="hidden" name="role" value="<%= cust_value %>">
+      <input class="billing_button" type="submit" value="<%= button_value %>">
+    </div>
+  <% end %>
+</section>
