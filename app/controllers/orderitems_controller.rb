@@ -42,14 +42,14 @@ class OrderitemsController < ApplicationController
     no_of_items = params[:no_of_items]
     id = params[:id]
     orderitem = Orderitem.find(id)
-    if no_of_items >10
-      flash[:error]="Can't order more than 10 items"
+    if no_of_items > 10
+      flash[:error] = "Can't order more than 10 items"
       redirect_to orderitems_path
     else
       orderitem.no_of_items = no_of_items
       orderitem.save!
       redirect_to orderitems_path
-
+    end
   end
 
   def destroy
