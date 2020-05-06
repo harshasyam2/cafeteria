@@ -109,23 +109,33 @@
 }
 
 .order_item_data{
-  width:15%;
   text-align:left;
+  margin:10px;
 }
 
 .myorder_name{
   background-color: white;
   border:1px solid transparent;
-  margin-bottom:10px;
-  margin-top:10px;
-  margin-left:20px;
-  margin-right:-120px;
+  margin:10px;
+  margin-right:-30px;
+}
+
+.name_myorders{
+  width:220px;
+}
+
+.price_myorders{
+  width:130px;
+}
+
+.items_myorders{
+  width:150px;
 }
 
 .order_table{
   width:50%;
   margin:10px;
-  margin-left:160px;
+  margin-left:50px;
 }
 
 .order_table_block{
@@ -180,7 +190,7 @@
 }
 
 .in_myorders{
-  margin-left:60px;
+  margin-left:160px;
 }
 
 .Show_order_table{

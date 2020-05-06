@@ -7,10 +7,13 @@
     <% Orderitem.find_by_id(order.id).all.each do |orderitem| %>
         <tr class="order_row">
           <td  class="order_item_data">
-            <input type="text" class="myorder_name" value="<%= orderitem.menuitem_name %>" readonly>
+            <input type="text" class="myorder_name name_myorders" value="<%= orderitem.menuitem_name %>" readonly>
           </td>
           <td  class="order_item_data">
-            <input type="text" class="myorder_name" value="Price:<%= orderitem.menuitem_price %>/-" readonly>
+            <input type="text" class="myorder_name price_myorders" value="Price:<%= orderitem.menuitem_price %>/-" readonly>
+          </td>
+          <td  class="order_item_data">
+            <input type="text" class="myorder_name items_myorders" value="No.of items:<%= orderitem.no_of_items %>" readonly>
           </td>
         </tr>
     <% end %>
