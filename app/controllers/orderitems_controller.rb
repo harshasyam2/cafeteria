@@ -18,8 +18,18 @@ class OrderitemsController < ApplicationController
       menuitem_id: params[:menuitem_id],
       menuitem_name: menuitem.name,
       menuitem_price: menuitem.price,
+      no_of_items: params[:no_of_items],
     )
     redirect_to menus_path
+  end
+
+  def update
+    no_of_items = params[:no_of_items]
+    id = params[:id]
+    orderitem = Orderitem.find(id)
+    orderitem.no_of_items = no_of_items
+    orderitem.save!
+    redirect_to orderitems_path
   end
 
   def destroy

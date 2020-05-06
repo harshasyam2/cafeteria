@@ -4,7 +4,7 @@
   </p>
   <% bill_amount=0 %>
   <% orderitems.all.each do |orderitem| %>
-  <% bill_amount = bill_amount + orderitem.menuitem_price %>
+  <% bill_amount = bill_amount+ Orderitem.calculate(orderitem.no_of_items,orderitem.menuitem_price) %>
   <table class="cart_table">
       <tr class="cart_row">
         <td class="cart_item_data">
@@ -12,6 +12,12 @@
         </td>
         <td class="cart_item_data">
           <p>Price :<%= orderitem.menuitem_price %>/-</p>
+        </td>
+         <td class="cart_item_data">
+          <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
+            <p>No.of items :
+            <input type="number" name="no_of_items" min="0" max="1000" value="<%= orderitem.no_of_items %>" onchange="this.form.submit()"></p>
+          <% end %>
         </td>
         <td class="cart_item_data">
           <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete",local:true) do %>
@@ -26,7 +32,9 @@
   <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
     <input type="hidden" name="status" value="ordered">
     <input type="hidden" name="bill" value="<%= bill_amount %>">
-    <input type="submit" class="Confirm_order" value="Confirm Order">
+    <% if bill_amount > 0%>
+      <input type="submit" class="Confirm_order" value="Confirm Order">
+    <% end %>
   <% end %>
   <form action="/menus" method="get">
     <input class="back_to_menu cart" type="submit" value="Back to menu">
