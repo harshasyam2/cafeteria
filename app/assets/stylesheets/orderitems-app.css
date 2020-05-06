@@ -186,3 +186,10 @@
   margin-left:260px;
   width:50%;
 }
+
+.Bill_in_show_details{
+  text-align:center;
+  text-shadow:2px 2px 2px skyblue;
+  padding:5px;
+  font-size:16px;
+}

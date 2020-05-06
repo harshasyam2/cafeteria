@@ -1,4 +1,5 @@
 <table class="Show_order_table">
+  <% bill_value=Order.find(@orderid).bill %>
   <% Orderitem.find_by_id(@orderid).all.each do |orderitem| %>
     <tr>
       <td width="150px">
@@ -8,9 +9,16 @@
       </td>
       <td>
         <p class="show_order_details">
-          Price:<%= orderitem.menuitem_price %>/-
+          Price : <%= orderitem.menuitem_price %>/-
+        </p>
+      </td>
+      <td>
+        <p class="show_order_details">
+          No.of items : <%= orderitem.no_of_items %>
         </p>
       </td>
     </tr>
   <% end %>
 </table>
+<hr width="50%">
+<p class="Bill_in_show_details">Total Bill : <%= bill_value %></p>
