@@ -18,7 +18,7 @@
       <% else %>
         <%= form_with(url: "/orders",method: "POST",local:true) do %>
           <td>
-            <input class="item_count" name="no_of_items" type="number" min="0" max="1000">
+            <input class="item_count" name="no_of_items" type="number" min="0" max="10">
           </td>
             <input type="hidden" name="id" value="<%= menu_item.id %>">
           <td>

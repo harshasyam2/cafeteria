@@ -17,8 +17,14 @@ class OrderitemsController < ApplicationController
     if orderitem
       count = orderitem.no_of_items
       no_of_items = params[:no_of_items]
-      orderitem.no_of_items = Orderitem.add_items_incart(count, no_of_items)
-      orderitem.save!
+      if Orderitem.add_items_incart(count, no_of_items) > 10
+        flash[:error] = "Can't order more than 10 items"
+        redirect_to orderitems_path
+      else
+        orderitem.no_of_items = Orderitem.add_items_incart(count, no_of_items)
+        orderitem.save
+        redirect_to menus_path
+      end
     else
       menuitem = Menuitem.find(id)
       Orderitem.create!(
@@ -28,17 +34,22 @@ class OrderitemsController < ApplicationController
         menuitem_price: menuitem.price,
         no_of_items: params[:no_of_items],
       )
+      redirect_to menus_path
     end
-    redirect_to menus_path
   end
 
   def update
     no_of_items = params[:no_of_items]
     id = params[:id]
     orderitem = Orderitem.find(id)
-    orderitem.no_of_items = no_of_items
-    orderitem.save!
-    redirect_to orderitems_path
+    if no_of_items > 10
+      flash[:error] = "Can't order more than 10 items"
+      redirect_to orderitems_path
+    else
+      orderitem.no_of_items = no_of_items
+      orderitem.save!
+      redirect_to orderitems_path
+    end
   end
 
   def destroy
