@@ -12,14 +12,23 @@ class OrderitemsController < ApplicationController
 
   def create
     id = params[:menuitem_id]
-    menuitem = Menuitem.find(id)
-    Orderitem.create!(
-      order_id: params[:order_id],
-      menuitem_id: params[:menuitem_id],
-      menuitem_name: menuitem.name,
-      menuitem_price: menuitem.price,
-      no_of_items: params[:no_of_items],
-    )
+    @orderitem = Orderitem.item_present(params[:order_id])
+    orderitem = @orderitem.menuitem_present(params[:menuitem_id]).first
+    if orderitem
+      count = orderitem.no_of_items
+      no_of_items = params[:no_of_items]
+      orderitem.no_of_items = Orderitem.add_items_incart(count, no_of_items)
+      orderitem.save!
+    else
+      menuitem = Menuitem.find(id)
+      Orderitem.create!(
+        order_id: params[:order_id],
+        menuitem_id: params[:menuitem_id],
+        menuitem_name: menuitem.name,
+        menuitem_price: menuitem.price,
+        no_of_items: params[:no_of_items],
+      )
+    end
     redirect_to menus_path
   end
 
