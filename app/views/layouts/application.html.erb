@@ -12,7 +12,8 @@
   <body>
       <% if @current_user %>
         <div class="Customer_heading">
-          Welcome <%= @current_user.first_name %>!
+          <img class="logo" src="Logo.jpeg" >
+          <div class="welcome">Welcome <%= @current_user.first_name %>!</div>
           <p class="signout_heading">
             <%= link_to "Sign out", destroy_session_path, method:"delete", class:"links" %>
           </p>

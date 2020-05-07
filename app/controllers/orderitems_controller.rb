@@ -27,13 +27,18 @@ class OrderitemsController < ApplicationController
       end
     else
       menuitem = Menuitem.find(id)
-      Orderitem.create!(
+      new_orderitem = Orderitem.new(
         order_id: params[:order_id],
         menuitem_id: params[:menuitem_id],
         menuitem_name: menuitem.name,
         menuitem_price: menuitem.price,
-        no_of_items: params[:no_of_items],
       )
+      if params[:no_of_items].to_i >= 1
+        new_orderitem.no_of_items = params[:no_of_items]
+        new_orderitem.save!
+      else
+        flash[:error] = "Enter no.of items"
+      end
       redirect_to menus_path
     end
   end
@@ -42,7 +47,7 @@ class OrderitemsController < ApplicationController
     no_of_items = params[:no_of_items]
     id = params[:id]
     orderitem = Orderitem.find(id)
-    if no_of_items > 10
+    if no_of_items.to_i > 10
       flash[:error] = "Can't order more than 10 items"
       redirect_to orderitems_path
     else

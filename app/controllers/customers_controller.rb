@@ -16,7 +16,7 @@ class CustomersController < ApplicationController
     if customer
       redirect_to customer_path(:id => customer.id)
     else
-      flash[:error] = "User with entered details donesn't exist.Please enter valid mail-id again"
+      flash[:error] = "User with entered details doesn't exist.Please enter valid mail-id again"
       redirect_to customers_path
     end
   end
