@@ -31,6 +31,7 @@ class MenuitemsController < ApplicationController
         name: params[:name],
         price: params[:price],
         menu_id: params[:menu_id],
+        url: params[:url],
       )
       if new_menuitem.save
         redirect_to menus_path

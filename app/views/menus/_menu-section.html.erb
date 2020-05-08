@@ -3,6 +3,9 @@
   <% menuitems.all.each do |menu_item| %>
         <tr>
           <td>
+            <img src="<%= menu_item.url %>" class="menu-item-image">
+          </td>
+          <td>
             <p class="display_price">
               Price :<%= menu_item.price %>/-
             </p>

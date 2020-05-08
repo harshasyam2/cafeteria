@@ -53,6 +53,7 @@
                                 <option value="<%= menu.id %>"> <%= menu.name %></option>
                         <% end %>
                 </select>
+                <%= text_field_tag "url",nil,class:"image-holder" %>
                 <input class="submit" type="submit" value="Add an item">
         </form>
   <% end %>
