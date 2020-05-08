@@ -5,19 +5,19 @@
       <%= form_with url:customers_path do |form| %>
         <div class="Form-section">
           <div class="Form-input-label">First Name:<p class="Mandatory"> * </p></div>
-          <%= form.text_field :first_name,class:"Form-input" %>
+          <%= form.text_field :first_name,class:"Form-input",placeholder:"First Name",autofocus: "autofocus" %>
         </div>
         <div class="Form-section">
           <div class="Form-input-label">Last Name:</div>
-          <%= form.text_field :last_name,class:"Form-input" %>
+          <%= form.text_field :last_name,class:"Form-input",placeholder:"Last Name" %>
         </div>
         <div class="Form-section">
           <div class="Form-input-label">Email:<p class="Mandatory"> * </p></div>
-          <%= form.email_field :email,class:"Form-input" %>
+          <%= form.email_field :email,class:"Form-input",placeholder:"Email-id" %>
         </div>
         <div class="Form-section">
           <div class="Form-input-label">Password:<p class="Mandatory"> * </p></div>
-          <%= form.password_field :password,class:"Form-input"  %>
+          <%= form.password_field :password,class:"Form-input",placeholder:"Password" %>
         </div>
         <div class="Form-section">
           <%= form.submit "Sign Up",class:"Form-submit"%>

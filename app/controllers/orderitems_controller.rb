@@ -17,7 +17,10 @@ class OrderitemsController < ApplicationController
     if orderitem
       count = orderitem.no_of_items
       no_of_items = params[:no_of_items]
-      if Orderitem.add_items_incart(count, no_of_items) > 10
+      if params[:no_of_items] == nil
+        flash[:error] = "Item already adde to cart"
+        redirect_to menus_path
+      elsif Orderitem.add_items_incart(count, no_of_items) > 10
         flash[:error] = "Can't order more than 10 items"
         redirect_to orderitems_path
       else
@@ -37,7 +40,8 @@ class OrderitemsController < ApplicationController
         new_orderitem.no_of_items = params[:no_of_items]
         new_orderitem.save!
       else
-        flash[:error] = "Enter no.of items"
+        new_orderitem.no_of_items = 1
+        new_orderitem.save!
       end
       redirect_to menus_path
     end

@@ -6,7 +6,7 @@ class MenuitemsController < ApplicationController
   end
 
   def uniquemenuitem
-    name = params[:name].capitalize
+    name = params[:name]
     menuitem = Menuitem.find_by(name: name)
     if menuitem
       redirect_to menuitem_path(:id => menuitem.id)
@@ -22,13 +22,13 @@ class MenuitemsController < ApplicationController
   end
 
   def create
-    menuitem = Menuitem.find_by(name: params[:name].capitalize)
+    menuitem = Menuitem.find_by(name: params[:name])
     if menuitem
       flash[:error] = "Menuitem with entered details exists."
       redirect_to menus_path
     else
       new_menuitem = Menuitem.create!(
-        name: params[:name].capitalize,
+        name: params[:name],
         price: params[:price],
         menu_id: params[:menu_id],
       )

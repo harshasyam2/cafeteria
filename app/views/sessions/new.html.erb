@@ -5,11 +5,11 @@
       <%= form_with url:sessions_path do |form| %>
         <div class="Form-section">
           <p class="Form-input-label">Email:</p>
-          <%= form.email_field :email,class:"Form-input" %>
+          <%= form.email_field :email,class:"Form-input",placeholder:"Email-id",autofocus: "autofocus" %>
         </div>
         <div class="Form-section">
           <p class="Form-input-label">Password:</p>
-          <%= form.password_field :password,class:"Form-input" %>
+          <%= form.password_field :password,class:"Form-input",placeholder:"Password" %>
         </div>
         <div class="Form-section">
           <%= form.submit "Sign-in!",class:"Form-submit" %>
