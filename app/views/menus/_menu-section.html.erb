@@ -3,7 +3,12 @@
   <% menuitems.all.each do |menu_item| %>
         <tr>
           <td>
-            <img src="<%= menu_item.url %>" class="menu-item-image">
+            <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
+          </td>
+        </tr>
+        <tr>
+          <td>
+           <p class="Menu_name"> <%= menu_item.name %></p>
           </td>
           <td>
             <p class="display_price">
@@ -30,11 +35,6 @@
               </td>
             <% end %>
           <% end %>
-        </tr>
-      <tr>
-          <th>
-           <p class="Menu_name"> <%= menu_item.name %></p>
-          </th>
       </tr>
   <% end %>
   </table>

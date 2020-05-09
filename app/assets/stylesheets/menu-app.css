@@ -137,10 +137,10 @@
 }
 
 .Menu_name{
+  text-align:center;
   color:#453C52;
-  margin-top:-5px;
-  margin-left:12px;
-  margin-bottom:20px;
+  margin:20px;
+  margin-left:60px;
   text-shadow: 10px 7px 4px lightsalmon;
 }
 
@@ -247,12 +247,9 @@
 }
 
 .menu-item-image{
-  width:60px;
-  margin:auto;
-  border:3px solid lightgrey;
-  transition: 0.5s;
-}
-
-.menu-item-image:hover{
-  transform:scale(1.2);
+  margin:20px;
+  margin-left:90px;
+  margin-bottom:0px;
+  width:150px;
+  border:5px solid lightgrey;
 }
