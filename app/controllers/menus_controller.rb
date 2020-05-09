@@ -21,6 +21,7 @@ class MenusController < ApplicationController
         name: params[:name],
       )
       if new_menu.save
+        flash[:error] = "Menu added Successfully"
         redirect_to menus_path
       else
         flash[:error] = new_menu.errors.full_messages.join(",")

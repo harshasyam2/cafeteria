@@ -34,6 +34,7 @@ class MenuitemsController < ApplicationController
         url: params[:url],
       )
       if new_menuitem.save
+        flash[:error] = "Menuitem added Successfully"
         redirect_to menus_path
       else
         flash[:error] = new_menuitem.errors.full_messages.join(",")

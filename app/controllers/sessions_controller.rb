@@ -2,7 +2,12 @@ class SessionsController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def new
-    render "new"
+    if current_user
+      flash[:error] = "You are already logged in!"
+      redirect_to "/"
+    else
+      render "new"
+    end
   end
 
   def create
