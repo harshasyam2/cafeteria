@@ -1,5 +1,6 @@
 .cart_display{
-  width:100%;
+  max-width:700px;
+  margin:0 auto;
   height:auto;
 }
 
@@ -7,7 +8,7 @@
   text-align:center;
   color:#453C52;
   margin:20px;
-  text-shadow:2px 2px 2px red;
+  text-shadow:2px 2px 2px skyblue;
 }
 
 .Bill{
@@ -18,8 +19,8 @@
   font-size:14px;
   padding:5px;
   background-color:cyan;
-  margin-left:450px;
-  margin-right:450px;
+  margin:auto;
+  margin-top:20px;
   border-radius:10px;
 }
 
@@ -32,6 +33,7 @@
   color:white;
   background-color:limegreen;
   margin:10px;
+  margin-left:100px;
 }
 
 .cart_item_data{
@@ -42,7 +44,7 @@
 
 .Confirm_order{
   margin:20px;
-  margin-left:470px;
+  margin-left:300px;
   color:white;
   background-color:limegreen;
   border-radius:8px;
@@ -51,8 +53,8 @@
 }
 
 .cart_table{
-  width:50%;
-  margin-left:260px;
+  width:100%;
+  margin-left:-100px;
 }
 
 .cart_row{
@@ -60,10 +62,11 @@
 }
 
 .cart{
-  padding:5px;
+  margin:20px;
+  margin-left:300px;
   border-radius:8px;
-  margin-top:20px;
-  margin-left:475px;
+  border:1px solid transparent;
+  padding:5px 10px;
 }
 
 .order_display_user{

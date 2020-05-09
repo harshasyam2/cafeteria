@@ -5,28 +5,35 @@
   <% bill_amount=0 %>
   <% orderitems.all.each do |orderitem| %>
   <% bill_amount = bill_amount+ Orderitem.calculate(orderitem.no_of_items,orderitem.menuitem_price) %>
-  <table class="cart_table">
+  <table class="Menu_display cart_table">
+      <tr>
+         <td colspan="2">
+          <% menu_item=Menuitem.find(orderitem.menuitem_id)%>
+            <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
+          </td>
+      </tr>
       <tr class="cart_row">
-        <td class="cart_item_data">
-          <%= orderitem.menuitem_name %>
+         <td colspan="2">
+          <p class="Menu_name"><%= orderitem.menuitem_name %></p>
         </td>
-        <td class="cart_item_data">
-          <p>Price :<%= orderitem.menuitem_price %>/-</p>
+         <td>
+          <p class="display_price">Price :<%= orderitem.menuitem_price %>/-</p>
         </td>
-         <td class="cart_item_data">
-          <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
-            <p>No.of items : <input type="number"
-                                  name="no_of_items"
-                                  value="<%= orderitem.no_of_items %>"
-                                  min="0"
-                                  max="10"
-                                  size="10"
-                                  onchange="this.form.submit()"
-                            >
-            </p>
-          <% end %>
+          <td width="20%">
+            <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
+              <p class="display_price">No.of items :
+                <input type="number"
+                        name="no_of_items"
+                        value="<%= orderitem.no_of_items %>"
+                        size="5"
+                        min="0"
+                        max="10"
+                        onchange="this.form.submit()"
+                >
+              </p>
+            <% end %>
         </td>
-        <td class="cart_item_data">
+        <td>
           <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete",local:true) do %>
             <input type="submit" class="Remove_cartitem" value="Remove">
           <% end %>
