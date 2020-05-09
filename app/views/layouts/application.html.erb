@@ -18,6 +18,7 @@
           </p>
         </div>
       <% end %>
+        <p class="Flash-alert"> <%= flash[:alert] %> </p>
         <p class="Flash-error"> <%= flash[:error] %> </p>
     <%= yield %>
   </body>
