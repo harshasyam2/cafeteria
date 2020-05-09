@@ -30,6 +30,15 @@ class MenusController < ApplicationController
     end
   end
 
+  def ownermenus
+    unless current_user.notcustomer?
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      render "ownermenus"
+    end
+  end
+
   def destroy
     id = params[:id]
     menu = Menu.find(id)

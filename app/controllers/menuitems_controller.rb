@@ -27,7 +27,7 @@ class MenuitemsController < ApplicationController
       flash[:error] = "Menuitem with entered details exists."
       redirect_to menus_path
     else
-      new_menuitem = Menuitem.create!(
+      new_menuitem = Menuitem.new(
         name: params[:name],
         price: params[:price],
         menu_id: params[:menu_id],

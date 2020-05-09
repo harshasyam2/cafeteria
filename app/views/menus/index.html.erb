@@ -1,5 +1,4 @@
 <main class="Main_page">
-  <% if !show_adding_column%>
         <section class="cart_section" >
                 <%= form_with(url: "/orderitems", method: "get", local:true) do %>
                         <%= image_submit_tag(
@@ -9,7 +8,6 @@
                         %>
                 <% end %>
         </section>
-  <% end %>
   <!-- This has to be only for owner Later change this show_menubar-->
         <div class="menubar_display">
                 <% if !show_menubar %>
@@ -26,6 +24,9 @@
                         </p>
                 <% end %>
                 <% if show_adding_column %>
+                        <p class="display_menu_links">
+                                <%= link_to "Order Items",owner_menus_path,class:"links" %>
+                        </p>
                         <p class="display_menu_links" >
                                 <%= link_to "Manage Billing Persons", customers_path, class:"links" %>
                         </p>
@@ -66,7 +67,6 @@
                         menu_title:menu.name,
                         menuitems:Menuitem.all.where(menu_id:menu.id),
                         show_delete_btn:show_adding_column,
-                        menuitem_id:@menuitem_id
                 } %>
         <% end %>
 </main>

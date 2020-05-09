@@ -19,14 +19,22 @@ class OrderitemsController < ApplicationController
       no_of_items = params[:no_of_items]
       if params[:no_of_items] == nil
         flash[:error] = "Item already added to cart"
-        redirect_to menus_path
+        if current_user.role == "Owner"
+          redirect_to owner_menus_path
+        else
+          redirect_to menus_path
+        end
       elsif Orderitem.add_items_incart(count, no_of_items) > 10
         flash[:error] = "Can't order more than 10 items"
         redirect_to orderitems_path
       else
         orderitem.no_of_items = Orderitem.add_items_incart(count, no_of_items)
         orderitem.save
-        redirect_to menus_path
+        if current_user.role == "Owner"
+          redirect_to owner_menus_path
+        else
+          redirect_to menus_path
+        end
       end
     else
       menuitem = Menuitem.find(id)
@@ -43,9 +51,12 @@ class OrderitemsController < ApplicationController
         new_orderitem.no_of_items = 1
         new_orderitem.save!
       end
-      flash[:alert_cart] = "Added to cart Successfully"
-      @menuitem_id = menuitem.id
-      redirect_to menus_path
+      flash[:alert] = "Added to cart Successfully"
+      if current_user.role == "Owner"
+        redirect_to owner_menus_path
+      else
+        redirect_to menus_path
+      end
     end
   end
 
