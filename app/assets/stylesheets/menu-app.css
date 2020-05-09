@@ -44,12 +44,6 @@
   padding:5px;
 }
 
-
-.Menu_display{
-  margin:5px;
-  margin-bottom:20px;
-}
-
 .Menu_heading{
   color:blueviolet;
   text-decoration:underline;
@@ -133,14 +127,13 @@
 
 .delete{
   color:Red;
-  margin-left:10px;
 }
 
 .Menu_name{
   text-align:center;
   color:#453C52;
   margin:20px;
-  margin-left:60px;
+  margin-left:80px;
   text-shadow: 10px 7px 4px lightsalmon;
 }
 
@@ -217,7 +210,7 @@
 .edit_line_row{
   display:flex;
   align-items:center;
-  margin-left:260px;
+  margin-left:220px;
 }
 
 .edit_name_price{
@@ -252,4 +245,8 @@
   margin-bottom:0px;
   width:150px;
   border:5px solid lightgrey;
+}
+
+.list_menuitems{
+  margin-left:-50px;
 }

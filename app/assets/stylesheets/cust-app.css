@@ -60,7 +60,7 @@
   padding-left:70px;
 }
 
-.Flash-error,Flash-alert{
+.Flash-error,.Flash-alert{
  text-align: center;
  color: darkred;
  margin:20px;

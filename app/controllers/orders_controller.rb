@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.ordered
+    unless current_user.notcustomer?
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      @orders = Order.ordered
+    end
   end
 
   def create
@@ -41,10 +46,6 @@ class OrdersController < ApplicationController
   end
 
   def listshow
-    unless current_user.notcustomer?
-      flash[:alert] = "You are not accessed to this page"
-      redirect_to menus_path
-    end
     initial_date = params[:initial_date]
     final_date = params[:final_date]
     @orders = Order.fromto(initial_date, final_date)
@@ -65,6 +66,11 @@ class OrdersController < ApplicationController
   end
 
   def listorders
-    render "listorders"
+    unless current_user.notcustomer?
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      render "listorders"
+    end
   end
 end

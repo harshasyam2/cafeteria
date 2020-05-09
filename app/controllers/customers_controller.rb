@@ -3,7 +3,12 @@ class CustomersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    render "index"
+    unless current_user.notcustomer?
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      render "index"
+    end
   end
 
   def new
