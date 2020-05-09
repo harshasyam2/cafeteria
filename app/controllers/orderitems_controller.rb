@@ -43,7 +43,8 @@ class OrderitemsController < ApplicationController
         new_orderitem.no_of_items = 1
         new_orderitem.save!
       end
-      flash[:alert]="Added to cart Successfully"
+      flash[:alert_cart] = "Added to cart Successfully"
+      @menuitem_id = menuitem.id
       redirect_to menus_path
     end
   end

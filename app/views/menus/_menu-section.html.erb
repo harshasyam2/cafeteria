@@ -32,6 +32,9 @@
                 </td>
                 <input type="hidden" name="id" value="<%= menu_item.id %>">
                 <td width="20%">
+                  <% if menu_item.id==menuitem_id%>
+                    <p class="Flash-alert"> <%= flash[:alert_cart] %> </p>
+                  <% end %>
                   <input class="Add_to_cart" type="submit" value="Add to cart">
                 </td>
               <% end %>
