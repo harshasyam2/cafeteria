@@ -54,6 +54,7 @@ class MenuitemsController < ApplicationController
     menuitem = Menuitem.find(id)
     menuitem.name = params[:name]
     menuitem.price = params[:price]
+    menuitem.url = params[:url]
     menuitem.save!
     redirect_to menus_path
   end
