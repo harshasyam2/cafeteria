@@ -249,3 +249,9 @@
 .list_menuitems{
   margin-left:-50px;
 }
+
+.menuitemimage{
+  margin-left:-20px;
+  width:150px;
+  border:5px solid lightgray;
+}

@@ -73,4 +73,11 @@ class OrdersController < ApplicationController
       render "listorders"
     end
   end
+
+  def destroy
+    id = params[:id]
+    order = Order.find(id)
+    order.destroy
+    redirect_to my_orders_path
+  end
 end

@@ -114,6 +114,7 @@
 .order_item_data{
   text-align:left;
   margin:10px;
+  width:20%;
 }
 
 .myorder_name{
@@ -192,6 +193,11 @@
   margin-left:20px;
 }
 
+.in_myorders_cancel{
+  margin-left:60px;
+  margin-right:20px;
+}
+
 .in_myorders{
   margin-left:160px;
 }
@@ -206,4 +212,16 @@
   text-shadow:2px 2px 2px skyblue;
   padding:5px;
   font-size:16px;
+}
+
+.cancel_order{
+  padding:5px 10px;
+  border:2px solid lightgray;
+  border-radius:8px;
+  background-color:#8EE4AF;
+}
+
+.my_orders_bill_line{
+  display:flex;
+  justify-content: space-around;
 }
