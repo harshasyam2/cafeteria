@@ -43,6 +43,7 @@ class OrderitemsController < ApplicationController
         menuitem_id: params[:menuitem_id],
         menuitem_name: menuitem.name,
         menuitem_price: menuitem.price,
+        menuitem_url: menuitem.url,
       )
       if params[:no_of_items].to_i >= 1
         new_orderitem.no_of_items = params[:no_of_items]
