@@ -1,10 +1,10 @@
 .background_style{
   width:100%;
   height:100%;
-  background-color:rgb(233, 169, 169);
+  background:linear-gradient(rgba(255,255,0,0.3),rgba(0,0,255,0.3));
 }
 .Customer_signup{
-  max-width:300px;
+  max-width:400px;
   margin:0 auto;
 }
 
@@ -17,11 +17,13 @@
 .Form-input{
   padding:4px 20px;
   font-size:12px;
+  margin-left:35px;
   cursor:pointer;
 }
 
 .Form-input-label{
-  color:#555555;
+  color:#453C52;
+  margin-left:35px;
   font-size:16px;
   text-shadow: 3px 3px 3px gray;
   display:flex;
@@ -31,7 +33,8 @@
 
 .Form-submit{
   font-size:14px;
-  margin-left:70px;
+  margin-left:110px;
+  margin-bottom:20px;
   padding:10px;
   color:linen;
   font-weight: 600;
@@ -46,7 +49,7 @@
   font-size:20px;
   padding:10px;
   text-align: center;
-  text-shadow:2px 4px 6px red;
+  text-shadow:3px 3px 3px red;
 }
 
 .NewCustomers{
@@ -160,4 +163,16 @@
   display:flex;
   margin:10px;
   margin-left:260px;
+}
+
+.Signin_link{
+  padding:15px;
+  margin-top:-20px;
+  margin-left:50px;
+}
+
+.Signup_link{
+  padding:15px;
+  margin-top:-20px;
+  margin-left:420px;
 }
