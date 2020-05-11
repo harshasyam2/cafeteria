@@ -69,6 +69,13 @@
  margin:20px;
 }
 
+.Flash-alert-message{
+  color:#659DBD;
+  padding:10px;
+  text-align:center;
+  font-weight:600;
+}
+
 .cart_Flash{
   color:red;
   margin-top:-10px;
@@ -89,7 +96,7 @@
   max-width:700px;
   margin:0 auto;
   color:black;
-  background-color:lightgrey;
+  background-color:rgba(0,0,255,0.14);
 }
 
 .display_menu_links{
@@ -100,6 +107,11 @@
   padding:5px 8px;
   border-radius:8px;
   border:1px solid lightgrey;
+}
+
+.display_menu_links:hover{
+  background-color:#8EE4AF;
+  color:black;
 }
 
 .customer_name{

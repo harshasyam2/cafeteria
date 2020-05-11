@@ -1,13 +1,15 @@
 <%= render partial:"order-section.html.erb", locals: {
   orders: @orders.delivered,
   order_title: "Delivered",
-   count: @orders.delivered.count
+  count: @orders.delivered.count,
+  total_orders: @orders.count
 }
 %>
 
 <%= render partial:"order-section.html.erb", locals: {
   orders: @orders.ordered,
   order_title: "Ordered",
-  count: @orders.ordered.count
+  count: @orders.ordered.count,
+  total_orders: @orders.count
 }
 %>

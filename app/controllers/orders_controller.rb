@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
     order.bill = params[:bill]
     order.save!
     if order.status == "ordered"
-      redirect_to menus_path
+      redirect_to my_orders_path
     elsif order.status == "delivered"
       redirect_to orders_path
     end

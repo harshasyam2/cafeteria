@@ -46,7 +46,8 @@
   <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
     <input type="hidden" name="status" value="ordered">
     <input type="hidden" name="bill" value="<%= bill_amount %>">
-    <% if bill_amount > 0%>
+    <% if bill_amount > 0 %>
+      <% flash[:alert]="Your Order Confirmed" %>
       <input type="submit" class="Confirm_order" value="Confirm Order">
     <% end %>
   <% end %>
