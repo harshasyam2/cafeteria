@@ -69,6 +69,12 @@
  margin:20px;
 }
 
+.cart_Flash{
+  color:red;
+  margin-top:-10px;
+  margin-left:-120px;
+}
+
 .Mandatory{
   color:red;
   margin:5px;

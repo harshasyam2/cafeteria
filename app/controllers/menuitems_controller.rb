@@ -7,18 +7,13 @@ class MenuitemsController < ApplicationController
 
   def uniquemenuitem
     name = params[:name]
-    menuitem = Menuitem.find_by(name: name)
-    if menuitem
-      redirect_to menuitem_path(:id => menuitem.id)
+    @menuitems = Menuitem.where("name like ?", "%#{name}%").all
+    if @menuitems.count != 0
+      render "uniquemenuitem", locals: { menuitems: @menuitems, user: current_user }
     else
       flash[:error] = "Menuitem not found."
       redirect_to menus_path
     end
-  end
-
-  def show
-    @id = params[:id]
-    @user = current_user
   end
 
   def create

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get "/myorders", to: "orders#myorders", as: :my_orders
   get "/ownermenus", to: "menus#ownermenus", as: :owner_menus
   post "/uniquecustomers", to: "customers#uniquecustomer", as: :unique_customer
-  post "/uniquemenuitems", to: "menuitems#uniquemenuitem", as: :unique_menuitem
+  post "/menuitem/unique", to: "menuitems#uniquemenuitem", as: :unique_menuitem
+  get "/menuitem/unique", to: "menuitems#index", as: :menuitems_path
   get "/create", to: "orderitems#create", as: :create_orderitem
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions

@@ -1,6 +1,9 @@
 <main class="Main_page">
         <section class="cart_section" >
                 <%= form_with(url: "/orderitems", method: "get", local:true) do %>
+                <% if flash[:alert_cart] %>
+                        <P class="cart_Flash"><%= flash[:alert_cart] %></p>
+                <% end %>
                         <%= image_submit_tag(
                         source="cart.png",
                         class: "cart_image"

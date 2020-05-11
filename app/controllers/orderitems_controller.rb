@@ -17,18 +17,21 @@ class OrderitemsController < ApplicationController
     if orderitem
       count = orderitem.no_of_items
       no_of_items = params[:no_of_items]
-      if params[:no_of_items] == nil
-        flash[:error] = "Item already added to cart"
+      total_items = Orderitem.add_items_incart(count, no_of_items)
+      if no_of_items.to_i < 1
+        flash[:error] = "Please select quantity to add item to cart"
         if current_user.role == "Owner"
           redirect_to owner_menus_path
         else
           redirect_to menus_path
         end
-      elsif Orderitem.add_items_incart(count, no_of_items) > 10
+      elsif total_items > 10
         flash[:error] = "Can't order more than 10 items"
         redirect_to orderitems_path
       else
-        orderitem.no_of_items = Orderitem.add_items_incart(count, no_of_items)
+        flash[:alert] = "Total no.of #{orderitem.menuitem_name}'s in cart is #{total_items}"
+        flash[:alert_cart] = "Click here to view your order"
+        orderitem.no_of_items = total_items
         orderitem.save
         if current_user.role == "Owner"
           redirect_to owner_menus_path
@@ -48,11 +51,10 @@ class OrderitemsController < ApplicationController
       if params[:no_of_items].to_i >= 1
         new_orderitem.no_of_items = params[:no_of_items]
         new_orderitem.save!
+        flash[:alert] = "Added to cart Successfully"
       else
-        new_orderitem.no_of_items = 1
-        new_orderitem.save!
+        flash[:alert] = "Please select quantity to add item to cart"
       end
-      flash[:alert] = "Added to cart Successfully"
       if current_user.role == "Owner"
         redirect_to owner_menus_path
       else
