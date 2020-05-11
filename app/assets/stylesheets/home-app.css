@@ -22,13 +22,16 @@
 }
 
 .Home_menu:hover{
-  background-color:#EDF5E1;
-  color:black;
+  background-color:lightcyan;
 }
 
 .home_link{
   color:#DAAD86;
   font-weight:600;
+}
+
+.home_link:hover{
+  color:black;
 }
 
 .heading{
@@ -105,6 +108,11 @@
   border-radius:8px;
   padding:5px 10px;
   margin-left:20px;
+}
+
+.Form-search:hover{
+  background-color:cyan;
+  color:purple;
 }
 
 .form-search-clear{

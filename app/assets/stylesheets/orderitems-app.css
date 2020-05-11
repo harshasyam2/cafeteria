@@ -178,6 +178,11 @@
   border:1px solid transparent;
 }
 
+.search_button:hover{
+  background-color:lightgrey;
+  color:black;
+}
+
 .label_to_records{
   color:#453C52;
   font-size:14px;

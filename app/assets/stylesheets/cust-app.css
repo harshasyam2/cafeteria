@@ -63,6 +63,12 @@
   padding-left:70px;
 }
 
+.Message{
+  color:#453C52;
+  padding:10px;
+  text-align:center;
+}
+
 .Flash-error,.Flash-alert{
  text-align: center;
  color: darkred;

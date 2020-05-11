@@ -48,8 +48,16 @@ class OrdersController < ApplicationController
   def listshow
     initial_date = params[:initial_date]
     final_date = params[:final_date]
-    @orders = Order.fromto(initial_date, final_date)
-    render "showlist"
+    if initial_date == "" or final_date == ""
+      flash[:alert] = "Please Enter valid dates.Dates can't be empty"
+      redirect_to list_orders_path
+    elsif initial_date.to_s > final_date.to_s
+      flash[:alert] = "Invalid search of dates. From Date is greater than To Date"
+      redirect_to list_orders_path
+    else
+      @orders = Order.fromto(initial_date, final_date)
+      render "showlist"
+    end
   end
 
   def update

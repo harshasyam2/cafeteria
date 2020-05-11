@@ -21,7 +21,7 @@
                 <% end %>
                 <% if show_menubar %>
                         <p class="display_menu_links" >
-                                <%= link_to "Show Orders", orders_path, class:"links"%>
+                                <%= link_to "Pending Orders", orders_path, class:"links"%>
                         </p>
                         <p class="display_menu_links" >
                                 <%= link_to "List Orders", list_orders_path, class:"links" %>
@@ -63,7 +63,7 @@
         </form>
   <% end %>
         <%= form_with(url:unique_menuitem_path,local:true) do |form| %>
-                <%= form.text_field :name,class:"Form-menuitem-input", placeholder:"Enter Fooditem" %>
+                <%= form.text_field :name,class:"Form-menuitem-input", placeholder:"Enter Fooditem",autofocus:"autofocus" %>
                 <%= form.submit "search",class:"Form-search" %>
         <% end %>
         <% menus.all.each do |menu| %>
