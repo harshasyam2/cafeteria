@@ -4,11 +4,16 @@
   height:auto;
 }
 
-.cart_heading{
+.title_of_page{
   text-align:center;
   color:#453C52;
-  margin:20px;
-  text-shadow:2px 2px 2px skyblue;
+  background:linear-gradient(rgba(255,255,0,0.4),rgba(0,0,180,0.2));
+  font-weight:600;
+  padding:5px 10px;
+  margin-left:450px;
+  margin-right:450px;
+  margin-bottom:40px;
+  border-radius:8px;
 }
 
 .Bill{

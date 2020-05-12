@@ -1,18 +1,19 @@
+<p class="title_of_page">My Orders</p>
 <% if @orders.count==0%>
   <p class="myorders_message">You have not placed any orders yet</p>
   <p class="myorders_message message_myorders">To place an order go back to menu</p>
 <% else %>
   <%= render partial:"order-section.html.erb", locals: {
-    orders: @orders.delivered,
-    order_title: "Delivered",
-    count: @orders.delivered.count,
+    orders: @orders.ordered,
+    order_title: "Ordered",
+    count: @orders.ordered.count,
   }
   %>
 
   <%= render partial:"order-section.html.erb", locals: {
-    orders: @orders.ordered,
-    order_title: "Ordered",
-    count: @orders.ordered.count,
+    orders: @orders.delivered,
+    order_title: "Delivered",
+    count: @orders.delivered.count,
   }
   %>
 <% end %>
