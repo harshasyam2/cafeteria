@@ -17,6 +17,42 @@
             <%= link_to "Sign out", destroy_session_path, method:"delete", class:"links" %>
           </p>
         </div>
+        <div class="menubar_display header_links">
+          <% if @current_user.role == "Customer" %>
+            <p class="display_menu_links" >
+              <%= link_to "My Orders", my_orders_path, class:"links" %>
+            </p>
+          <% end %>
+          <% if @current_user.role == "Owner" or @current_user.role == "Clerk" %>
+            <p class="display_menu_links" >
+              <%= link_to "Pending Orders", orders_path, class:"links"%>
+            </p>
+            <p class="display_menu_links" >
+              <%= link_to "List Orders", list_orders_path, class:"links" %>
+            </p>
+          <% end %>
+          <% if @current_user.role == "Owner" %>
+            <p class="display_menu_links">
+              <%= link_to "Order Items",owner_menus_path,class:"links" %>
+            </p>
+            <p class="display_menu_links" >
+              <%= link_to "Manage Billing Persons", customers_path, class:"links" %>
+            </p>
+          <% end %>
+          <div class="display_cart_header">
+            <%= form_with(url: "/orderitems", method: "get", local:true) do %>
+              <%= image_submit_tag(
+                    source="cart.png",
+                    class: "cart_image",
+                    title:"cart"
+                )
+              %>
+              <% if flash[:alert_cart] %>
+                <P class="cart_Flash"><%= flash[:alert_cart] %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
         <p class="Flash-alert"> <%= flash[:alert] %> </p>
         <p class="Flash-error"> <%= flash[:error] %> </p>

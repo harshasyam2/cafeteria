@@ -1,41 +1,4 @@
 <main class="Main_page">
-        <section class="cart_section" >
-                <%= form_with(url: "/orderitems", method: "get", local:true) do %>
-                <% if flash[:alert_cart] %>
-                        <P class="cart_Flash"><%= flash[:alert_cart] %></p>
-                <% end %>
-                        <%= image_submit_tag(
-                        source="cart.png",
-                        class: "cart_image",
-                        title:"cart"
-                        )
-                        %>
-                <% end %>
-        </section>
-  <!-- This has to be only for owner Later change this show_menubar-->
-        <div class="menubar_display">
-                <% if !show_menubar %>
-                        <p class="display_menu_links" >
-                                <%= link_to "My Orders", my_orders_path, class:"links" %>
-                        </p>
-                <% end %>
-                <% if show_menubar %>
-                        <p class="display_menu_links" >
-                                <%= link_to "Pending Orders", orders_path, class:"links"%>
-                        </p>
-                        <p class="display_menu_links" >
-                                <%= link_to "List Orders", list_orders_path, class:"links" %>
-                        </p>
-                <% end %>
-                <% if show_adding_column %>
-                        <p class="display_menu_links">
-                                <%= link_to "Order Items",owner_menus_path,class:"links" %>
-                        </p>
-                        <p class="display_menu_links" >
-                                <%= link_to "Manage Billing Persons", customers_path, class:"links" %>
-                        </p>
-                <% end %>
-        </div>
   <% if show_adding_column %>
         <form class="Adding_menus" action="/menus" method="POST">
                 <div class="Add_menu_block">

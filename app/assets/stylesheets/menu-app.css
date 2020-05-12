@@ -4,11 +4,6 @@
   font-family:sans-serif;
 }
 
-.cart_section{
-  margin-top:50px;
-  margin-left:620px;
-}
-
 .Add_menu{
   margin:5px;
   margin-top:20px;
@@ -177,7 +172,9 @@
 }
 
 .cart_image{
-  width:60%;
+  width:50px;
+  margin-top:-100px;
+  margin-right:50px;
   border:1px solid transparent;
 }
 
@@ -199,6 +196,13 @@
   align-items:center;
   padding:6px;
   margin:10px;
+  max-width:700px;
+  justify-content: space-between;
+}
+
+.header_links{
+  margin:60px;
+  margin-left:200px;
 }
 
 .menuitems_show{
