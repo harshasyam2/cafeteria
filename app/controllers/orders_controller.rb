@@ -67,7 +67,13 @@ class OrdersController < ApplicationController
     order.bill = params[:bill]
     order.save!
     if order.status == "ordered"
-      redirect_to my_orders_path
+      if current_user.role == "Customer"
+        flash[:alert] = "Your order confirmed"
+        redirect_to my_orders_path
+      else
+        flash[:alert] = "Your order confirmed"
+        redirect_to menus_path
+      end
     elsif order.status == "delivered"
       redirect_to orders_path
     end

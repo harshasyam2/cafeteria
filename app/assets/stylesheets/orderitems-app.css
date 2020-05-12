@@ -136,6 +136,18 @@
   width:150px;
 }
 
+.myorders_message{
+  text-align:center;
+  color:red;
+  font-size:16px;
+  margin:20px;
+  font-weight:600;
+}
+
+.message_myorders{
+  color:cornflowerblue;
+}
+
 .order_table{
   width:50%;
   margin:10px;

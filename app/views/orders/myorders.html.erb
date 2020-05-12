@@ -1,15 +1,21 @@
-<%= render partial:"order-section.html.erb", locals: {
-  orders: @orders.delivered,
-  order_title: "Delivered",
-  count: @orders.delivered.count,
-  total_orders: @orders.count
-}
-%>
+<% if @orders.count==0%>
+  <p class="myorders_message">You have not placed any orders yet</p>
+  <p class="myorders_message message_myorders">To place an order go back to menu</p>
+<% else %>
+  <%= render partial:"order-section.html.erb", locals: {
+    orders: @orders.delivered,
+    order_title: "Delivered",
+    count: @orders.delivered.count,
+  }
+  %>
 
-<%= render partial:"order-section.html.erb", locals: {
-  orders: @orders.ordered,
-  order_title: "Ordered",
-  count: @orders.ordered.count,
-  total_orders: @orders.count
-}
-%>
+  <%= render partial:"order-section.html.erb", locals: {
+    orders: @orders.ordered,
+    order_title: "Ordered",
+    count: @orders.ordered.count,
+  }
+  %>
+<% end %>
+<form action="/menus" method="get">
+  <input class="back_to_menu" type="submit" value="Back to menu">
+</form>

@@ -1,7 +1,4 @@
-<% if total_orders == 0 %>
-  <% flash[:alert]="You have not placed any orders yet" %>
-  <% flash[:alert_message]="To place an order go back to menu" %>
-<% else %>
+
   <% if count!=0 %>
     <p class="order_items_caption"> <%= order_title %> </p>
   <% end %>
@@ -46,4 +43,3 @@
     </table>
   </div>
   <% end %>
-<% end %>

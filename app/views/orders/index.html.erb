@@ -1,5 +1,12 @@
-<%= render partial:"show-orderslist",locals: {
-    orders_list: @orders,
-    show_delivered_button:true
-  }
-%>
+<% if @orders.count == 0 %>
+  <p class="myorders_message message_myorders">No orders pending.All orders delivered yet</p>
+<% else %>
+  <%= render partial:"show-orderslist",locals: {
+      orders_list: @orders,
+      show_delivered_button:true
+    }
+  %>
+<% end %>
+<form action="/menus" method="get">
+  <input class="back_to_menu" type="submit" value="Back to menu">
+</form>

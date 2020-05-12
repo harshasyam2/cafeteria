@@ -6,8 +6,8 @@ class MenuitemsController < ApplicationController
   end
 
   def uniquemenuitem
-    name = params[:name]
-    @menuitems = Menuitem.where("name like ?", "%#{name}%").all
+    name = params[:name].upcase
+    @menuitems = Menuitem.where("UPPER(name) like ?", "%#{name}%").all
     if @menuitems.count != 0
       render "uniquemenuitem", locals: { menuitems: @menuitems, user: current_user }
     else
@@ -46,6 +46,7 @@ class MenuitemsController < ApplicationController
   end
 
   def update
+    flash[:error] = "Menuitem updated successfully"
     id = params[:id]
     menuitem = Menuitem.find(id)
     menuitem.name = params[:name]
