@@ -10,37 +10,28 @@
 
 <table class="Menu_display menuitems_show">
   <% menuitems.all.each do |menu_item| %>
-    <tr>
-      <td>
-        <p class="display_price">
-          Price :<%= menu_item.price %>/-
-        </p>
-      </td>
-      <% if user.role == "Owner" %>
-        <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
-          <td>
-            <input class="delete_menuitem" type="submit" value="Remove Item">
-          </td>
-        <% end %>
-          <td>
-            <%= link_to "Edit item", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
-          </td>
-      <% else %>
-        <%= form_with(url: "/orders",method: "POST",local:true) do %>
-          <td>
-            <input class="item_count" name="no_of_items" type="number" min="1" max="10" value="1">
-          </td>
-            <input type="hidden" name="id" value="<%= menu_item.id %>">
-          <td>
-            <input class="Add_to_cart" type="submit" value="Add to cart">
-          </td>
-        <% end %>
-      <% end %>
-    </tr>
-    <tr>
-      <th>
-        <p class="Menu_name"> <%= menu_item.name %> </p>
-      </th>
-    </tr>
-  <% end %>
+          <tr>
+            <td colspan="2">
+              <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" width="20%">
+            <p class="Menu_name"> <%= menu_item.name %></p>
+            </td>
+            <td width="20%">
+              <p class="display_price">
+                Price :<%= menu_item.price %>/-
+              </p>
+            </td>
+            <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
+              <td width="20%">
+                <input class="delete" type="submit" value="Remove Item">
+              </td>
+            <% end %>
+            <td width="20%">
+              <%= link_to "Edit item", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
+            </td>
+        </tr>
+    <% end %>
 </table>
