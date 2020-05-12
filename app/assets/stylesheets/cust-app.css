@@ -145,7 +145,8 @@
 }
 
 .billing_button:hover{
-  background-color:#453C52;
+  background-color:black;
+  font-weight:600;
 }
 
 .user_title{
@@ -166,14 +167,18 @@
 }
 
 .back_to_menu{
-  color:red;
   border:1px solid transparent;
-  background-color: rgb(238, 225, 225);
+  background-color:#CAFAFE;
   margin-top:20px;
   text-align:center;
   border-radius:5px;
   padding:4px;
   margin-left:500px;
+}
+
+.back_to_menu:hover{
+  background-color:#8EE4AF;
+  color:black;
 }
 
 .users_display_page{
