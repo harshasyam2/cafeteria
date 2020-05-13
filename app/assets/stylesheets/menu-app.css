@@ -34,13 +34,15 @@
 
 .title{
   color:navy;
-  font-size:17px;
+  font-size:18px;
   margin:10px;
-  margin-left:70px;
-  padding-left:100px;
-  text-decoration:underline;
+  margin-left:300px;
+  margin-right:300px;
+  text-align:center;
   padding:5px;
-  padding-left:280px;
+  border:1px solid transparent;
+  border-radius:8px;
+  background:linear-gradient(rgba(255,255,0,0.3),rgba(0,0,255,0.3));
   transition: 0.5s;
 }
 

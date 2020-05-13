@@ -1,7 +1,13 @@
 <p class="title_of_page"> Manage Billing Person </p>
 <%= form_with(url:unique_customer_path,local:true) do |form| %>
-  <%= form.text_field :email,class:"Form-email-input", placeholder:"Enter Valid Email-id" %>
-  <%= form.submit "search",class:"Form-search" %>
+  <div class="email_search">
+    <div class="input-icons">
+      <i class="fa fa-envelope icon_mail"></i>
+      <%= form.text_field :email,class:"Form-email-input", placeholder:"Enter Valid Email-id" %>
+    </div>
+    <%= form.submit "search",class:"Form-search" %>
+    </div>
+  </div>
 <% end %>
 <section class="users_display_page">
   <table class="display_users_to_owner">

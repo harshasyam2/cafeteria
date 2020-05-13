@@ -15,9 +15,10 @@
 }
 
 .Form-input{
-  padding:4px 20px;
+  padding:5px 10px;
   font-size:12px;
-  margin-left:35px;
+  margin-left:40px;
+  padding-left:30px;
   cursor:pointer;
 }
 
@@ -209,4 +210,36 @@
   padding:15px;
   margin-top:-20px;
   margin-left:420px;
+}
+
+.input-icons i{
+  position:absolute;
+}
+
+.input-icons{
+  width:100%;
+  margin-bottom:10px;
+}
+
+.icon{
+  margin:5px;
+  margin-top:10px;
+  margin-left:35px;
+  color:#453C52;
+  min-width:50px;
+  text-align:center;
+}
+
+.icon_mail{
+  margin:6px;
+  margin-left:355px;
+  padding-bottom:10px;
+  color:#453C52;
+  min-width:50px;
+  text-align:center;
+}
+
+.email_search{
+  display:flex;
+  align-items:center;
 }
