@@ -34,7 +34,7 @@
 
 .title{
   color:navy;
-  font-size:18px;
+  font-size:16px;
   margin:10px;
   margin-left:300px;
   margin-right:300px;
@@ -126,6 +126,7 @@
 .Menu_name{
   text-align:center;
   color:#453C52;
+  font-size:14px;
   margin:20px;
   margin-left:80px;
   background-color:#AFD275;
@@ -191,6 +192,11 @@
 .Add_to_cart:hover{
   background-color:#DAAD86;;
   color:black;
+}
+
+.links_section{
+  display:flex;
+  align-items:center;
 }
 
 .menubar_display{

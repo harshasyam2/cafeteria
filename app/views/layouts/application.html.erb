@@ -18,27 +18,29 @@
           </p>
         </div>
         <div class="menubar_display header_links">
-          <% if @current_user.role == "Customer" %>
-            <p class="display_menu_links" >
-              <%= link_to "My Orders", my_orders_path, class:"links" %>
-            </p>
-          <% end %>
-          <% if @current_user.role == "Owner" or @current_user.role == "Clerk" %>
-            <p class="display_menu_links" >
-              <%= link_to "Pending Orders", orders_path, class:"links"%>
-            </p>
-            <p class="display_menu_links" >
-              <%= link_to "List Orders", list_orders_path, class:"links" %>
-            </p>
-          <% end %>
-          <% if @current_user.role == "Owner" %>
-            <p class="display_menu_links">
-              <%= link_to "Order Items",owner_menus_path,class:"links" %>
-            </p>
-            <p class="display_menu_links" >
-              <%= link_to "Manage Billing Persons", customers_path, class:"links" %>
-            </p>
-          <% end %>
+          <div class="links_section">
+            <% if @current_user.role == "Customer" %>
+              <p class="display_menu_links" >
+                <%= link_to "My Orders", my_orders_path, class:"links" %>
+              </p>
+            <% end %>
+            <% if @current_user.role == "Owner" or @current_user.role == "Clerk" %>
+              <p class="display_menu_links" >
+                <%= link_to "Pending Orders", orders_path, class:"links"%>
+              </p>
+              <p class="display_menu_links" >
+                <%= link_to "List Orders", list_orders_path, class:"links" %>
+              </p>
+            <% end %>
+            <% if @current_user.role == "Owner" %>
+              <p class="display_menu_links">
+                <%= link_to "Order Items",owner_menus_path,class:"links" %>
+              </p>
+              <p class="display_menu_links" >
+                <%= link_to "Manage Billing Persons", customers_path, class:"links" %>
+              </p>
+            <% end %>
+          </div>
           <div class="display_cart_header">
             <%= form_with(url: "/orderitems", method: "get", local:true) do %>
               <%= image_submit_tag(

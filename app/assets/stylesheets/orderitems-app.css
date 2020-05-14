@@ -93,6 +93,12 @@
   margin-left:50px;
 }
 
+.order_bill{
+  margin:10px;
+  padding:5px;
+  width:150px;
+}
+
 .show_order_details{
   padding:5px;
   margin:5px;
@@ -108,12 +114,10 @@
   color:white;
 }
 
-.show:hover{
-  background-color:skyblue;
-  color:black;
+.show{
+  margin-left:-50px;
 }
-
-.delivered:hover{
+.button:hover{
   background-color:skyblue;
   color:black;
 }
@@ -182,8 +186,8 @@
 }
 
 .list_orders_to_admin{
-  width:50%;
-  margin-left:260px;
+  width:65%;
+  margin-left:160px;
 }
 
 .search_records{

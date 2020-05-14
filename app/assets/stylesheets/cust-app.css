@@ -36,11 +36,15 @@
   font-size:14px;
   margin-left:110px;
   padding:10px;
-  color:linen;
   font-weight: 600;
-  background-color: rgb(143, 137, 131);
+  background-color: #8EE4AF;
   border:1px solid transparent;
   border-radius:8px;
+}
+
+.Form-submit:hover{
+  background-color:lightgray;
+  color:#453C52;
 }
 
 .NewCustomers_title{
@@ -109,6 +113,12 @@
 .display_cart_header{
   margin-right:10px;
   margin-top:-40px;
+}
+
+.non-display_menu_liks{
+  margin-right:10px;
+  margin-top:-60px;
+  padding:5px 8px;
 }
 
 .display_menu_links{
@@ -197,7 +207,7 @@
 .users_billing_section{
   display:flex;
   margin:10px;
-  margin-left:260px;
+  margin-left:300px;
 }
 
 .Signin_link{

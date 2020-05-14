@@ -1,12 +1,20 @@
 <table class="list_orders_to_admin">
   <% orders_list.all.each do |order| %>
     <tr>
+    <% customer=Customer.find(order.customer_id) %>
       <td>
-      <% customer=Customer.find(order.customer_id) %>
-        <p  class="order_display_user"> <%= customer.first_name.concat(" #{customer.last_name}")%> </p>
+        <% customer_name=customer.first_name.concat(" #{customer.last_name} ") %>
+        <% if customer.role=="Customer" %>
+          <p  class="order_display_user"> <%= customer_name %> </p>
+        <% else %>
+          <p  class="order_display_user"> <%= customer_name.concat(" (#{customer.role}) ") %> </p>
+        <% end %>
       </td>
       <td>
-        <p> Bill : <%= order.bill %>/-</p>
+        <p  class="order_display_user"> <%= customer.contact_number %> </p>
+      </td>
+      <td>
+        <p class="order_bill"> Bill : <%= order.bill %>/-</p>
       </td>
       <td>
         <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>

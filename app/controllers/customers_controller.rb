@@ -39,6 +39,7 @@ class CustomersController < ApplicationController
       new_customer = Customer.new(
         first_name: params[:first_name],
         last_name: params[:last_name],
+        contact_number: params[:contact_number],
         email: params[:email],
         password: params[:password],
       )
