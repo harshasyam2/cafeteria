@@ -245,13 +245,13 @@
   border:1px solid transparent;
 }
 
-.input-icons:hover > .delete{
+.input-icons:hover .delete{
   padding-left:30px;
   background-color:lightgray;
   color:red;
 }
 
-.input-icons:hover > .icon_delete{
+.input-icons:hover .icon_delete{
   visibility:visible;
 }
 
