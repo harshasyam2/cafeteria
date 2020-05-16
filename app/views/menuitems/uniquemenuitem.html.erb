@@ -26,7 +26,12 @@
             </td>
             <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
               <td width="20%">
-                <input class="delete" type="submit" value="Remove Item">
+                <div class="input-icons">
+                  <%= link_to menuitem_path(menu_item.id),method:"delete" do %>
+                    <%= fa_icon "trash", class:"icon_delete" %>
+                  <% end %>
+                  <input class="delete" type="submit" value="Remove Item">
+                </div>
               </td>
             <% end %>
             <td width="20%">

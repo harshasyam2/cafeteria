@@ -237,10 +237,6 @@
   visibility:hidden;
 }
 
-.icons_with_text{
-  visibility:hidden;
-}
-
 .delete{
   color:white;
   background-color:#F18904;
@@ -254,6 +250,7 @@
   background-color:lightgray;
   color:red;
 }
+
 .input-icons:hover > .icon_delete{
   visibility:visible;
 }

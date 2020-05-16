@@ -53,17 +53,6 @@
   transform: scale(1.1);
 }
 
-.image{
-  margin-top:10px;
-  margin-left:70px;
-  border: 10px solid dimgray;
-  transition:transform 1s;
-}
-
-.image:hover{
-  transform:scale(1.2);
-}
-
 .item{
   padding-left:8px;
   padding-top:5px;
@@ -257,7 +246,12 @@
   margin-left:90px;
   margin-bottom:0px;
   width:150px;
-  border:5px solid lightgrey;
+  border:5px solid gray;
+  transition: 0.5s;
+}
+
+.menu-item-image:hover{
+  transform:scale(1.2);
 }
 
 .list_menuitems{
@@ -267,5 +261,5 @@
 .menuitemimage{
   margin-left:-20px;
   width:150px;
-  border:5px solid lightgray;
+  border:5px solid gray;
 }

@@ -28,13 +28,15 @@
               <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
                 <td width="20%">
                   <div class="input-icons">
-                    <i class="fa fa-trash icon_delete"></i>
+                    <%= link_to menuitem_path(menu_item.id),method:"delete" do %>
+                      <%= fa_icon "trash", class:"icon_delete" %>
+                    <% end %>
                     <input class="delete" type="submit" value="Remove Item">
                   </div>
                 </td>
               <% end %>
                 <td width="20%">
-                    <%= link_to "Edit item", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
+                    <%= link_to "Edit Item", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
                 </td>
             <% else %>
               <%= form_with(url: "/orders",method: "POST",local:true) do %>
