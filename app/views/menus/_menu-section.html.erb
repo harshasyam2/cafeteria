@@ -1,6 +1,14 @@
 <div class="list_menuitems">
   <table class="Menu_display" width="100%">
-    <p class="title"><%= menu_title %></p>
+    <div class="title_and_delete">
+      <p class="title"><%= menu_title %></p>
+      <% if show_delete_btn %>
+        <% menu=Menu.find_by(name:"#{menu_title}") %>
+        <%= form_with(url: "/menus/#{menu.id}",method: "DELETE",local: true) do %>
+          <input class="delete menu_delete" type="submit" value="Remove Menu">
+        <% end %>
+      <% end %>
+    </div>
     <% menuitems.all.each do |menu_item| %>
           <tr>
             <td colspan="2">

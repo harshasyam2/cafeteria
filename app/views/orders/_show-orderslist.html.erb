@@ -1,28 +1,37 @@
 <table class="list_orders_to_admin">
+  <tr class="list_row">
+    <th colspan="2" class="heading_lists"> Name </th>
+    <th class="heading_lists"> Contact Number </th>
+    <th class="heading_lists"> Bill Amount </th>
+    <th class="heading_lists"> Details </th>
+    <% if show_delivered_button %>
+      <th class="heading_lists"> Status </th>
+    <% end %>
+  </tr>
   <% orders_list.all.each do |order| %>
-    <tr>
+    <tr class="list_row">
     <% customer=Customer.find(order.customer_id) %>
-      <td>
-        <% customer_name=customer.first_name.concat(" #{customer.last_name} ") %>
+      <td colspan="2" class="list_row_data">
+        <% customer_name=customer.first_name %>
         <% if customer.role=="Customer" %>
-          <p  class="order_display_user"> <%= customer_name %> </p>
+          <%= customer_name %>
         <% else %>
-          <p  class="order_display_user"> <%= customer_name.concat(" (#{customer.role}) ") %> </p>
+          <%= customer_name.concat(" (#{customer.role}) ") %>
         <% end %>
       </td>
-      <td>
-        <p  class="order_display_user"> <%= customer.contact_number %> </p>
+      <td class="list_row_data">
+        <%= customer.contact_number %>
       </td>
-      <td>
+      <td class="list_row_data">
         <p class="order_bill"> Bill : <%= order.bill %>/-</p>
       </td>
-      <td>
+      <td class="list_row_data">
         <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>
-          <input class="button show" type="submit" value="Show Details">
+          <input class="button show list_row_show" type="submit" value="Show Details">
         <% end %>
       </td>
-      <% if show_delivered_button%>
-        <td>
+      <% if show_delivered_button %>
+        <td class="list_row_data">
           <%= form_with(url: "/orders/#{order.id}", method: "put",local: true) do %>
             <input type="hidden" name="bill" value="<%= order.bill %>">
             <input type="hidden" name="status" value="delivered">

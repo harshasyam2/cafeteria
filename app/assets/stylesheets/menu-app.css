@@ -36,8 +36,9 @@
   color:navy;
   font-size:16px;
   margin:10px;
+  width:180px;
   margin-left:300px;
-  margin-right:300px;
+  margin-right:50px;
   text-align:center;
   padding:5px;
   border:1px solid transparent;
@@ -110,6 +111,11 @@
   width:120px;
 }
 
+.title_and_delete{
+  display:flex;
+  align-items:center;
+}
+
 .delete{
   color:white;
   background-color:#F18904;
@@ -121,6 +127,14 @@
 .delete:hover{
   background-color:lightgray;
   color:red;
+}
+
+.menu_delete{
+  visibility:hidden;
+}
+
+.title_and_delete:hover > .menu_delete{
+  visibility:visible;
 }
 
 .Menu_name{

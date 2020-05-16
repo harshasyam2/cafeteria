@@ -6,12 +6,10 @@
 
 .title_of_page{
   text-align:center;
-  color:#453C52;
-  background:linear-gradient(rgba(255,255,0,0.4),rgba(0,0,180,0.2));
+  color:rgb(115, 83, 160);
   font-weight:600;
   padding:5px 10px;
-  margin-left:450px;
-  margin-right:450px;
+  text-decoration:underline;
   margin-bottom:40px;
   margin-top:-10px;
   border-radius:8px;
@@ -85,12 +83,6 @@
   border-radius:8px;
   border:1px solid transparent;
   padding:5px 10px;
-}
-
-.order_display_user{
-  padding:5px;
-  margin:5px;
-  margin-left:50px;
 }
 
 .order_bill{
@@ -186,8 +178,35 @@
 }
 
 .list_orders_to_admin{
-  width:65%;
+  width:70%;
   margin-left:160px;
+  border:1px solid black;
+  border-collapse:collapse;
+}
+
+.heading_lists{
+  font-size:14px;
+  font-weight:600;
+  padding:8px;
+  border:1px solid black;
+  text-align:center;
+}
+
+.list_row{
+  width:100px;
+  border:1px solid black;
+}
+
+.list_row_data{
+  width:100px;
+  font-size:12px;
+  padding:8px;
+  text-align:center;
+  border:1px solid black;
+}
+
+.list_row_show{
+  margin-left:10px;
 }
 
 .search_records{
