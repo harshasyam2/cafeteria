@@ -27,7 +27,10 @@
             <% if show_delete_btn %>
               <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
                 <td width="20%">
-                  <input class="delete" type="submit" value="Remove Item">
+                  <div class="input-icons">
+                    <i class="fa fa-trash icon_delete"></i>
+                    <input class="delete" type="submit" value="Remove Item">
+                  </div>
                 </td>
               <% end %>
                 <td width="20%">

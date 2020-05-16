@@ -116,19 +116,6 @@
   align-items:center;
 }
 
-.delete{
-  color:white;
-  background-color:#F18904;
-  padding:5px 8px;
-  border-radius:8px;
-  border:1px solid transparent;
-}
-
-.delete:hover{
-  background-color:lightgray;
-  color:red;
-}
-
 .menu_delete{
   visibility:hidden;
 }

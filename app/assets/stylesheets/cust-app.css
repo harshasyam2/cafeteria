@@ -231,6 +231,33 @@
   margin-bottom:10px;
 }
 
+.icon_delete{
+  margin-top:7px;
+  margin-left:10px;
+  visibility:hidden;
+}
+
+.icons_with_text{
+  visibility:hidden;
+}
+
+.delete{
+  color:white;
+  background-color:#F18904;
+  padding:5px 8px;
+  border-radius:8px;
+  border:1px solid transparent;
+}
+
+.input-icons:hover > .delete{
+  padding-left:30px;
+  background-color:lightgray;
+  color:red;
+}
+.input-icons:hover > .icon_delete{
+  visibility:visible;
+}
+
 .icon{
   margin:5px;
   margin-top:10px;
