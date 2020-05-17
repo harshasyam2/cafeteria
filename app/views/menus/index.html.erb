@@ -30,10 +30,12 @@
                 <%= form.submit "search",class:"Form-search" %>
         <% end %>
         <% menus.active.each do |menu| %>
-                <%= render partial:"menu-section",locals:{
-                        menu_title:menu.name,
-                        menuitems:Menuitem.all.where(menu_id:menu.id),
-                        show_delete_btn:show_adding_column,
-                } %>
+                <% if menu.menuitems.active.count >0 %>
+                        <%= render partial:"menu-section",locals:{
+                                menu_title:menu.name,
+                                menuitems:Menuitem.all.where(menu_id:menu.id),
+                                show_delete_btn:show_adding_column,
+                        } %>
+                <% end %>
         <% end %>
 </main>

@@ -25,6 +25,7 @@ class MenuitemsController < ApplicationController
     elsif menuitem and menuitem.status == "Inactive"
       menuitem.price = params[:price]
       menuitem.menu_id = params[:menu_id]
+      menuitem.url = params[:url]
       menuitem.status = "Active"
       menuitem.save!
       redirect_to menus_path
@@ -60,6 +61,7 @@ class MenuitemsController < ApplicationController
     menuitem = Menuitem.find(id)
     menuitem.name = params[:name]
     menuitem.price = params[:price]
+    menuitem.menu_id = params[:menu_id]
     menuitem.url = params[:url]
     menuitem.save!
     redirect_to menus_path

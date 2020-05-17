@@ -257,6 +257,10 @@
   visibility:visible;
 }
 
+.menu_id{
+  margin:10px;
+}
+
 .delete{
   color:white;
   background-color:#F18904;

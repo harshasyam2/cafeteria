@@ -7,8 +7,9 @@
     <table class="order_table">
       <% Orderitem.find_by_id(order.id).all.each do |orderitem| %>
           <tr>
+            <% menu_item=Menuitem.find_by("name=?",orderitem.menuitem_name) %>
             <td>
-              <img src="<%= orderitem.menuitem_url %>" class="menuitemimage", title="<%= orderitem.menuitem_name %>" >
+              <img src="<%= menu_item.url %>" class="menuitemimage", title="<%= menu_item.name %>" >
             </td>
           </tr>
           <tr class="order_row">
