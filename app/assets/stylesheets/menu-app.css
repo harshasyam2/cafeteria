@@ -109,7 +109,21 @@
   visibility:hidden;
 }
 
+.edit_menu{
+  border:0px solid transparent;
+  text-align:center;
+  color:navy;
+  text-decoration:underline;
+  background-color:white;
+  visibility:hidden;
+  margin-left:20px;
+}
+
 .title_and_delete:hover > .menu_delete{
+  visibility:visible;
+}
+
+.title_and_delete:hover > .edit_menu{
   visibility:visible;
 }
 

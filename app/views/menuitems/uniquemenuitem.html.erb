@@ -1,12 +1,19 @@
-<div class="form-search-clear">
-  <%= form_with(url:unique_menuitem_path,local:true) do |form| %>
-      <%= form.text_field :name,class:"Form-menuitem-input", placeholder:"Enter Fooditem",autofocus:"autofocus" %>
-      <%= form.submit "search",class:"Form-search" %>
-  <% end %>
-  <%= form_with(url:"/menus",method:"get",local:true) do |form| %>
-      <%= form.submit "clear search",class:"Form-search" %>
-  <% end %>
-</div>
+<section class="form_search_block">
+  <div class="form-search-clear">
+    <%= form_with(url:unique_menuitem_path,local:true) do |form| %>
+        <%= form.text_field :name,class:"Form-menuitem-input", placeholder:"Enter Fooditem",autofocus:"autofocus" %>
+        <%= form.submit "search",class:"Form-search" %>
+    <% end %>
+    <%= form_with(url:"/menus",method:"get",local:true) do |form| %>
+      <div class="input-icons search-icons clear_search">
+        <%= link_to menus_path, method:"get" do %>
+          <%= fa_icon "trash", class:"icon_search" %>
+        <% end %>
+        <%= form.submit "clear search",class:"Form-search" %>
+      </div>
+    <% end %>
+  </div>
+</section>
 
 <table class="Menu_display menuitems_show">
   <% menuitems.all.each do |menu_item| %>

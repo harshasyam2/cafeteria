@@ -4,8 +4,11 @@
       <p class="title"><%= menu_title %></p>
       <% if show_delete_btn %>
         <% menu=Menu.find_by(name:"#{menu_title}") %>
-        <%= form_with(url: "/menus/#{menu.id}",method: "DELETE",local: true) do %>
+        <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
           <input class="delete menu_delete" type="submit" value="Remove Menu">
+        <% end %>
+        <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
+          <input class="edit_menu" type="submit" value="Edit Menu">
         <% end %>
       <% end %>
     </div>

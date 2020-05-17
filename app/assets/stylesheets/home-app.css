@@ -110,17 +110,16 @@
   margin-left:20px;
 }
 
-.Form-search:hover{
-  background-color:cyan;
-  color:purple;
+.clear_search{
+  margin-top:10px;
 }
 
 .form-search-clear{
-  max-width:800px;
-  margin:0 auto;
+  width:700px;
+  margin-left:50px;
+  height:40px;
   display:flex;
   align-items:center;
-  margin-bottom:20px;
 }
 
 .Form-menuitem-input{
@@ -128,4 +127,9 @@
   padding:2px;
   padding-left:10px;
   margin-left:200px;
+}
+
+.Form_search_block{
+  display:flex;
+  align-items:center;
 }

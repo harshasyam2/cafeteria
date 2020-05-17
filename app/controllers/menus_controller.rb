@@ -13,12 +13,18 @@ class MenusController < ApplicationController
 
   def create
     menu = Menu.find_by(name: params[:name])
-    if menu
+    menu_status = menu.status
+    if menu and menu_status == "Active"
       flash[:error] = "Menu with entered details exists.Please check the details."
+      redirect_to menus_path
+    elsif menu and menu_status == "Inactive"
+      menu.status = "Active"
+      menu.save!
       redirect_to menus_path
     else
       new_menu = Menu.new(
         name: params[:name],
+        status: "Active",
       )
       if new_menu.save
         flash[:alert] = "Menu added Successfully"
@@ -39,10 +45,25 @@ class MenusController < ApplicationController
     end
   end
 
+  def edit
+    id = params[:id]
+    @menu = Menu.find(id)
+  end
+
+  def update
+    flash[:error] = "Menuitem updated successfully"
+    id = params[:id]
+    menu = Menu.find(id)
+    menu.name = params[:name]
+    menu.save!
+    redirect_to menus_path
+  end
+
   def destroy
     id = params[:id]
     menu = Menu.find(id)
-    menu.destroy
+    menu.status = "Inactive"
+    menu.save!
     redirect_to menus_path
   end
 end

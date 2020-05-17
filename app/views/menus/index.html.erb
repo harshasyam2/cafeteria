@@ -17,7 +17,7 @@
                 <input class="price" type="text" name="price" size="10" placeholder="Enter Price">
                 <!-- The below line is for identifying the menu name and finding its menu id to add to menuitems table -->
                 <select class="menu_id" name="menu_id">
-                        <% menus.all.each do |menu| %>
+                        <% menus.active.each do |menu| %>
                                 <option value="<%= menu.id %>"> <%= menu.name %></option>
                         <% end %>
                 </select>
@@ -29,7 +29,7 @@
                 <%= form.text_field :name,class:"Form-menuitem-input", placeholder:"Enter Fooditem",autofocus:"autofocus" %>
                 <%= form.submit "search",class:"Form-search" %>
         <% end %>
-        <% menus.all.each do |menu| %>
+        <% menus.active.each do |menu| %>
                 <%= render partial:"menu-section",locals:{
                         menu_title:menu.name,
                         menuitems:Menuitem.all.where(menu_id:menu.id),

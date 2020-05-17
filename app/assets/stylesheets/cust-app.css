@@ -237,6 +237,26 @@
   visibility:hidden;
 }
 
+.icon_search{
+  margin-top:7px;
+  margin-left:25px;
+  visibility:hidden;
+}
+
+.search-icons{
+  margin-top:0px;
+}
+
+.search-icons:hover .Form-search{
+  padding-left:30px;
+  background-color:cyan;
+  color:purple;
+}
+
+.search-icons:hover .icon_search{
+  visibility:visible;
+}
+
 .delete{
   color:white;
   background-color:#F18904;

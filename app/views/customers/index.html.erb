@@ -5,7 +5,11 @@
       <i class="fa fa-envelope icon_mail"></i>
       <%= form.text_field :email,class:"Form-email-input", placeholder:"Enter Valid Email-id" %>
     </div>
-    <div class="input-icons">
+    <div class="input-icons search-icons">
+      <%= link_to unique_customer_path, method:"post" do %>
+        <!-- Query to be solved "name" is required -->
+        <%= fa_icon "search", class:"icon_search" %>
+      <% end %>
       <%= form.submit "search",class:"Form-search" %>
     </div>
   </div>
