@@ -7,4 +7,7 @@ class Menuitem < ActiveRecord::Base
   def self.menuitem_with_id(menu_id)
     all.where("menu_id=?", menu_id)
   end
+  def self.active
+    all.where("status=?", "Active")
+  end
 end

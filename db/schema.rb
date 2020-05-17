@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_071223) do
+ActiveRecord::Schema.define(version: 2020_05_17_074900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_05_17_071223) do
     t.integer "price"
     t.bigint "menu_id"
     t.string "url"
+    t.string "status"
   end
 
   create_table "menus", force: :cascade do |t|

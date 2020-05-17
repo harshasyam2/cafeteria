@@ -17,9 +17,16 @@ class MenuitemsController < ApplicationController
   end
 
   def create
-    menuitem = Menuitem.find_by(name: params[:name])
-    if menuitem
+    name = params[:name].upcase
+    menuitem = Menuitem.find_by("UPPER(name)=?", name)
+    if menuitem and menuitem.status == "Active"
       flash[:error] = "Menuitem with entered details exists."
+      redirect_to menus_path
+    elsif menuitem and menuitem.status == "Inactive"
+      menuitem.price = params[:price]
+      menuitem.menu_id = params[:menu_id]
+      menuitem.status = "Active"
+      menuitem.save!
       redirect_to menus_path
     else
       new_menuitem = Menuitem.new(
@@ -27,6 +34,7 @@ class MenuitemsController < ApplicationController
         price: params[:price],
         menu_id: params[:menu_id],
         url: params[:url],
+        status: "Active",
       )
       if new_menuitem.save
         flash[:alert] = "Menuitem added Successfully"
@@ -41,7 +49,8 @@ class MenuitemsController < ApplicationController
   def destroy
     id = params[:id]
     menuitem = Menuitem.find(id)
-    menuitem.destroy
+    menuitem.status = "Inactive"
+    menuitem.save!
     redirect_to menus_path
   end
 

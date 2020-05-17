@@ -12,12 +12,12 @@ class MenusController < ApplicationController
   end
 
   def create
-    menu = Menu.find_by(name: params[:name])
-    menu_status = menu.status
-    if menu and menu_status == "Active"
+    name = params[:name].upcase
+    menu = Menu.find_by("UPPER(name)=?", name)
+    if menu and menu.status == "Active"
       flash[:error] = "Menu with entered details exists.Please check the details."
       redirect_to menus_path
-    elsif menu and menu_status == "Inactive"
+    elsif menu and menu.status == "Inactive"
       menu.status = "Active"
       menu.save!
       redirect_to menus_path
