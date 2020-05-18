@@ -106,6 +106,7 @@
 }
 
 .menu_delete{
+  width:160px;
   visibility:hidden;
 }
 
@@ -120,6 +121,8 @@
 }
 
 .title_and_delete:hover > .menu_delete{
+  background-color:lightgray;
+  color:red;
   visibility:visible;
 }
 

@@ -1,15 +1,16 @@
 <section class="form_search_block">
   <div class="form-search-clear">
-    <%= form_with(url:unique_menuitem_path,local:true) do |form| %>
-        <%= form.text_field :name,class:"Form-menuitem-input", placeholder:"Enter Fooditem",autofocus:"autofocus" %>
-        <%= form.submit "search",class:"Form-search" %>
+    <%= form_with(url:unique_menuitem_path,local:true) do %>
+      <input type="text" name="name" class="Form-menuitem-input" placeholder="Enter Fooditem" autofocus="autofocus">
+      <button type="submit" class="Form-search">
+        <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
+      </button>
     <% end %>
-    <%= form_with(url:"/menus",method:"get",local:true) do |form| %>
-      <div class="input-icons search-icons clear_search">
-        <%= link_to menus_path, method:"get" do %>
-          <%= fa_icon "trash", class:"icon_search" %>
-        <% end %>
-        <%= form.submit "clear search",class:"Form-search" %>
+    <%= form_with(url:"/menus",method:"get",local:true) do %>
+      <div class="input-icons">
+        <button type="submit" class="Form-search clear_search">
+          <i class="fa fa-trash iconclear_delete"></i>&nbsp;&nbsp;Clear Search
+        </button>
       </div>
     <% end %>
   </div>
@@ -34,10 +35,9 @@
             <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
               <td width="20%">
                 <div class="input-icons">
-                  <%= link_to menuitem_path(menu_item.id),method:"delete" do %>
-                    <%= fa_icon "trash", class:"icon_delete" %>
-                  <% end %>
-                  <input class="delete" type="submit" value="Remove Item">
+                  <button class="delete" type="submit">
+                    <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp;Remove Item
+                  </button>
                 </div>
               </td>
             <% end %>

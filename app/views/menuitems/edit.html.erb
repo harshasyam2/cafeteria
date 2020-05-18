@@ -1,5 +1,12 @@
 <%= form_with(url: "/menuitems/#{@menuitem.id}", method: "put") do %>
   <div class="edit_line_row">
+    <%= text_field_tag(
+        name="todo_text",
+        value=nil,
+        class: "AddTodo-text",
+        placeholder: "What's next?"
+        )
+      %>
     <input type="text" name="name" class="edit_name_price" size="10" value="<%= @menuitem.name %>">
     <input type="text" name="price" class="edit_name_price" size="5" value="<%= @menuitem.price %>">
     <select class="menu_id" name="menu_id">

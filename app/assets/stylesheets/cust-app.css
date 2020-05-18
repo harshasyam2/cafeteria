@@ -231,30 +231,10 @@
   margin-bottom:10px;
 }
 
-.icon_delete{
-  margin-top:7px;
-  margin-left:10px;
-  visibility:hidden;
-}
-
 .icon_search{
   margin-top:7px;
   margin-left:25px;
   visibility:hidden;
-}
-
-.search-icons{
-  margin-top:0px;
-}
-
-.search-icons:hover .Form-search{
-  padding-left:30px;
-  background-color:cyan;
-  color:purple;
-}
-
-.search-icons:hover .icon_search{
-  visibility:visible;
 }
 
 .menu_id{
@@ -265,18 +245,14 @@
   color:white;
   background-color:#F18904;
   padding:5px 8px;
+  padding-left:20px;
   border-radius:8px;
   border:1px solid transparent;
 }
 
 .input-icons:hover .delete{
-  padding-left:30px;
   background-color:lightgray;
   color:red;
-}
-
-.input-icons:hover .icon_delete{
-  visibility:visible;
 }
 
 .icon{
@@ -288,9 +264,34 @@
   text-align:center;
 }
 
+.search_email_block{
+  margin-right:90px;
+  margin-top:-10px;
+}
+
+.clear_search{
+  margin-top:8px;
+}
+
+.icon_delete{
+  margin-left:-10px;
+  margin-top:2px;
+  color:black;
+  border:1px solid transparent;
+}
+
+.iconclear_delete{
+  margin-top:2px;
+  margin-left:-15px;
+  color:black;
+  border:1px solid transparent;
+  margin-right:10px;
+}
+
 .icon_mail{
   margin:6px;
-  margin-left:355px;
+  margin-left:15px;
+  margin-top:8px;
   padding-bottom:10px;
   color:#453C52;
   min-width:50px;
@@ -298,6 +299,8 @@
 }
 
 .email_search{
+  max-width:500px;
+  margin:0 auto;
   display:flex;
   align-items:center;
 }

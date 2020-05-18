@@ -5,7 +5,9 @@
       <% if show_delete_btn %>
         <% menu=Menu.find_by(name:"#{menu_title}") %>
         <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
-          <input class="delete menu_delete" type="submit" value="Remove Menu">
+          <button class="delete menu_delete" type="submit">
+            <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;Remove Menu
+          </button>
         <% end %>
         <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
           <input class="edit_menu" type="submit" value="Edit Menu">
@@ -31,10 +33,9 @@
               <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
                 <td width="20%">
                   <div class="input-icons">
-                    <%= link_to menuitem_path(menu_item.id),method:"delete" do %>
-                      <%= fa_icon "trash", class:"icon_delete" %>
-                    <% end %>
-                    <input class="delete" type="submit" value="Remove Item">
+                    <button class="delete" type="submit">
+                      <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp; Remove Item
+                    </button>
                   </div>
                 </td>
               <% end %>

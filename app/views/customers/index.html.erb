@@ -1,17 +1,13 @@
 <p class="title_of_page"> Manage Billing Person </p>
-<%= form_with(url:unique_customer_path,local:true) do |form| %>
+<%= form_with(url:unique_customer_path,local:true) do %>
   <div class="email_search">
     <div class="input-icons">
       <i class="fa fa-envelope icon_mail"></i>
-      <%= form.text_field :email,class:"Form-email-input", placeholder:"Enter Valid Email-id" %>
+      <input type="text" name="email" class="email_input" placeholder="Enter Valid Email-id">
     </div>
-    <div class="input-icons search-icons">
-      <%= link_to unique_customer_path, method:"post" do %>
-        <!-- Query to be solved "name" is required -->
-        <%= fa_icon "search", class:"icon_search" %>
-      <% end %>
-      <%= form.submit "search",class:"Form-search" %>
-    </div>
+    <button type="submit" class="Form-search search_email_block">
+      <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
+    </button>
   </div>
 <% end %>
 <section class="users_display_page">

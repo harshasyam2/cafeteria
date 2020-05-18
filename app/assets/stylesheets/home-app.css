@@ -92,16 +92,16 @@
   text-decoration:underline;
 }
 
-.Form-email-input{
+.email_input{
   font-size:14px;
   padding:2px;
-  margin-left:360px;
-  margin-right:20px;
+  margin-left:20px;
   padding-left:30px;
 }
 
 .Form-search{
   font-size:14px;
+  width:150px;
   background-color:limegreen;
   color:white;
   border:1px solid transparent;
@@ -110,12 +110,13 @@
   margin-left:20px;
 }
 
-.clear_search{
-  margin-top:10px;
+.Form-search:hover{
+  background-color:cyan;
+  color:purple;
 }
 
 .form-search-clear{
-  width:700px;
+  width:800px;
   margin-left:50px;
   height:40px;
   display:flex;
