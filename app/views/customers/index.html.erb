@@ -3,7 +3,13 @@
   <div class="email_search">
     <div class="input-icons">
       <i class="fa fa-envelope icon_mail"></i>
-      <input type="text" name="email" class="email_input" placeholder="Enter Valid Email-id">
+       <%= text_field_tag(
+        name="email",
+        value=nil,
+        class: "email_input",
+        placeholder: "Enter Valid Email-id"
+        )
+      %>
     </div>
     <button type="submit" class="Form-search search_email_block">
       <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search

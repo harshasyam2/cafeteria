@@ -1,7 +1,14 @@
 <section class="form_search_block">
   <div class="form-search-clear">
     <%= form_with(url:unique_menuitem_path,local:true) do %>
-      <input type="text" name="name" class="Form-menuitem-input" placeholder="Enter Fooditem" autofocus="autofocus">
+      <%= text_field_tag(
+        name="name",
+        value=nil,
+        class: "Form-menuitem-input",
+         placeholder: "Enter Fooditem",
+         autofocus: "autofocus"
+        )
+      %>
       <button type="submit" class="Form-search">
         <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
       </button>

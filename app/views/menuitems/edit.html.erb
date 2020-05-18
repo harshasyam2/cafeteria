@@ -1,20 +1,31 @@
 <%= form_with(url: "/menuitems/#{@menuitem.id}", method: "put") do %>
   <div class="edit_line_row">
     <%= text_field_tag(
-        name="todo_text",
-        value=nil,
-        class: "AddTodo-text",
-        placeholder: "What's next?"
+        name="name",
+        value="#{@menuitem.name}",
+        class: "edit_name_price",
+        size: "10"
         )
       %>
-    <input type="text" name="name" class="edit_name_price" size="10" value="<%= @menuitem.name %>">
-    <input type="text" name="price" class="edit_name_price" size="5" value="<%= @menuitem.price %>">
+    <%= text_field_tag(
+        name="price",
+        value="#{@menuitem.price}",
+        size: "5",
+        class: "edit_name_price"
+        )
+      %>
     <select class="menu_id" name="menu_id">
       <% Menu.active.each do |menu| %>
         <option value="<%= menu.id %>"> <%= menu.name %></option>
       <% end %>
     </select>
-    <input type="text" name="url" class="edit_url" size="10" value="<%= @menuitem.url %>">
+    <%= text_field_tag(
+        name="url",
+        value="#{@menuitem.url}",
+        class: "edit_url",
+        size: "10"
+        )
+      %>
     <input type="submit" class="update_button" value="Update item">
   </div>
 <% end %>
