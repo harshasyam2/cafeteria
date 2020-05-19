@@ -1,10 +1,12 @@
-<p class="title_of_page"> Order Items </p>
+<p class="title_of_page"> Make an Order </p>
 <main class="Main_page">
-  <% Menu.all.each do |menu| %>
+  <% Menu.active.each do |menu| %>
+    <% if menu.menuitems.active.count >0 %>
       <%= render partial:"menu-section",locals:{
           menu_title:menu.name,
           menuitems:Menuitem.all.where(menu_id:menu.id),
           show_delete_btn: false,
       } %>
+    <% end %>
   <% end %>
 </main>

@@ -41,22 +41,32 @@ class OrdersController < ApplicationController
   end
 
   def myorders
-    @orders = Order.currentuser(current_user)
-    render "myorders"
+    if current_user.role == "Customer"
+      @orders = Order.currentuser(current_user)
+      render "myorders"
+    else
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    end
   end
 
   def listshow
-    initial_date = params[:initial_date]
-    final_date = params[:final_date]
-    if initial_date == "" or final_date == ""
-      flash[:alert] = "Please Enter valid dates.Dates can't be empty"
-      redirect_to list_orders_path
-    elsif initial_date.to_s > final_date.to_s
-      flash[:alert] = "Invalid search of dates. From Date is greater than To Date"
-      redirect_to list_orders_path
+    if current_user.role == "Customer"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
     else
-      @orders = Order.fromto(initial_date, final_date)
-      render "showlist"
+      initial_date = params[:initial_date]
+      final_date = params[:final_date]
+      if initial_date == "" or final_date == ""
+        flash[:alert] = "Please Enter valid dates.Dates can't be empty"
+        redirect_to list_orders_path
+      elsif initial_date.to_s > final_date.to_s
+        flash[:alert] = "Invalid search of dates. From Date is greater than To Date"
+        redirect_to list_orders_path
+      else
+        @orders = Order.fromto(initial_date, final_date)
+        render "showlist"
+      end
     end
   end
 

@@ -117,7 +117,7 @@
 
 .form-search-clear{
   width:800px;
-  margin-left:50px;
+  margin:auto;
   height:40px;
   display:flex;
   align-items:center;
@@ -127,7 +127,7 @@
   font-size:14px;
   padding:2px;
   padding-left:10px;
-  margin-left:200px;
+  margin-left:100px;
 }
 
 .Form_search_block{

@@ -29,12 +29,12 @@
                 <%= link_to "Pending Orders", orders_path, class:"links"%>
               </p>
               <p class="display_menu_links" >
-                <%= link_to "List Orders", list_orders_path, class:"links" %>
+                <%= link_to "List Sales", list_orders_path, class:"links" %>
               </p>
             <% end %>
             <% if @current_user.role == "Owner" %>
               <p class="display_menu_links">
-                <%= link_to "Order Items",owner_menus_path,class:"links" %>
+                <%= link_to "Make an Order",owner_menus_path,class:"links" %>
               </p>
               <p class="display_menu_links" >
                 <%= link_to "Manage Billing Persons", customers_path, class:"links" %>

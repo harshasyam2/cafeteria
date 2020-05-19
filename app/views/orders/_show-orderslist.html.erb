@@ -1,3 +1,8 @@
+<% total_earning=0 %>
+<% orders_list.all.each do |order| %>
+  <% total_earning=total_earning+order.bill %>
+<% end %>
+<p class="totalearning">Total Earning :<%= total_earning %>/-</p>
 <table class="list_orders_to_admin">
   <tr class="list_row">
     <th colspan="2" class="heading_lists"> Name </th>

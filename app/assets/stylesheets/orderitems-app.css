@@ -15,6 +15,19 @@
   border-radius:8px;
 }
 
+.totalearning{
+  margin:auto;
+  margin-bottom:20px;
+  background-color:black;
+  width:190px;
+  padding:5px 10px;
+  border-radius:8px;
+  text-align:center;
+  color:white;
+  font-size:13px;
+  font-weight:600;
+}
+
 .Bill{
   text-align:center;
   width:180px;
@@ -142,12 +155,17 @@
   padding:5px 8px;
   padding-left:20px;
   font-size:16px;
-  width:180px;
-  margin-left:10px;
+  margin-left:-30px;
+  border-radius:8px;
+  color:#453C52;
+  width:150px;
+  text-align:center;
+  background-color:#AFD275;
 }
 
 .price_myorders{
   width:100px;
+  margin-left:50px;
 }
 
 .items_myorders{
@@ -173,17 +191,17 @@
 }
 
 .order_table_block{
-  margin-left:250px;
-  margin-right:250px;
+  margin:auto;
   margin-bottom:15px;
   margin-top:20px;
+  width:600px;
   border:1px solid lightgray;
   box-shadow:3px 3px 3px 3px lightgray;
 }
 
 .list_orders_to_admin{
-  width:70%;
-  margin-left:160px;
+  width:700px;
+  margin:auto;
   border:1px solid black;
   border-collapse:collapse;
 }
@@ -216,7 +234,8 @@
 .search_records{
   display:flex;
   align-items:center;
-  margin-left:100px;
+  width:700px;
+  margin:auto;
 }
 
 .from_to_button{
@@ -248,7 +267,7 @@
 }
 
 .from{
-  margin-left:200px;
+  margin-left:50px;
 }
 
 .to{

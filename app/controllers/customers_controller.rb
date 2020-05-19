@@ -12,7 +12,12 @@ class CustomersController < ApplicationController
   end
 
   def new
-    render "customers/new"
+    if current_user
+      flash[:error] = "You are already logged in!"
+      redirect_to "/"
+    else
+      render "customers/new"
+    end
   end
 
   def uniquecustomer
@@ -27,7 +32,12 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @id = params[:id]
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed for this page!"
+      redirect_to menus_path
+    else
+      @id = params[:id]
+    end
   end
 
   def create
