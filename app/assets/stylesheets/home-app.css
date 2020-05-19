@@ -8,6 +8,8 @@
 .Home_creation_line{
   display:flex;
   align-items:center;
+  justify-content: right;
+  margin-right:100px;
 }
 
 .Home_menu{
@@ -38,10 +40,10 @@
   font-size:18px;
   text-align: center;
   font-weight:600;
-  margin-top:35px;
   padding:5px 10px;
-  margin-left:350px;
-  margin-right:350px;
+  width:350px;
+  margin:auto;
+  margin-top:35px;
   border-radius:15px;
   background:linear-gradient(to top,#8EE4AF,grey);
 }
@@ -55,12 +57,7 @@
 }
 
 .create{
-  margin-left:800px;
   margin-right:20px;
-}
-
-.signin{
-  margin-left:5px;
 }
 
 .Customer_heading{

@@ -49,8 +49,9 @@
 }
 
 .Form-submit:hover{
-  background-color:lightgray;
-  color:#453C52;
+  background-color:grey;
+  color:white;
+  font-weight:600;
 }
 
 .NewCustomers_title{
@@ -59,7 +60,12 @@
   font-size:20px;
   padding:10px;
   text-align: center;
-  text-shadow:3px 3px 3px red;
+  text-shadow:3px 3px 3px #659DBD;
+}
+
+.NewCustomers_title:hover{
+  text-shadow:3px 3px 3px peru;
+  text-decoration:underline;
 }
 
 .NewCustomers{
