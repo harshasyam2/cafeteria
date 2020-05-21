@@ -227,7 +227,8 @@
 .edit_line_row{
   display:flex;
   align-items:center;
-  margin-left:180px;
+  width:650px;
+  margin:auto;
 }
 
 .edit_name_price{
@@ -236,7 +237,7 @@
   font-size:14px;
   border:2px solid lightgrey;
   border-radius:8px;
-  margin:10px;
+  margin:5px;
 }
 
 .update_button{
@@ -245,7 +246,8 @@
   border:1px solid transparent;
   border-radius:8px;
   color:white;
-  margin-left:20px;
+  margin-left:10px;
+  margin-right:10px;
 }
 
 .update_button:hover{

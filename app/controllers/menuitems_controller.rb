@@ -17,8 +17,8 @@ class MenuitemsController < ApplicationController
   end
 
   def create
-    name = params[:name].upcase
-    menuitem = Menuitem.find_by("UPPER(name)=?", name)
+    name = params[:name].gsub(/\s+/, "").strip.upcase
+    menuitem = Menuitem.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
     if menuitem and menuitem.status == "Active"
       flash[:error] = "Menuitem with entered details exists."
       redirect_to menus_path
@@ -27,7 +27,11 @@ class MenuitemsController < ApplicationController
       menuitem.menu_id = params[:menu_id]
       menuitem.url = params[:url]
       menuitem.status = "Active"
-      menuitem.save!
+      if menuitem.save
+        flash[:alert] = "Menuitem added Successfully"
+      else
+        flash[:error] = menuitem.errors.full_messages.join(",")
+      end
       redirect_to menus_path
     else
       new_menuitem = Menuitem.new(
@@ -51,7 +55,11 @@ class MenuitemsController < ApplicationController
     id = params[:id]
     menuitem = Menuitem.find(id)
     menuitem.status = "Inactive"
-    menuitem.save!
+    if menuitem.save
+      flash[:alert] = "Menuitem removed successfully"
+    else
+      flash[:error] = menuitem.errors.full_messages.join(",")
+    end
     redirect_to menus_path
   end
 

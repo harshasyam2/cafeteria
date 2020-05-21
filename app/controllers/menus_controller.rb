@@ -12,18 +12,22 @@ class MenusController < ApplicationController
   end
 
   def create
-    name = params[:name].upcase
-    menu = Menu.find_by("UPPER(name)=?", name)
+    name = params[:name].gsub(/\s+/, "").strip.upcase
+    menu = Menu.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
     if menu and menu.status == "Active"
       flash[:error] = "Menu with entered details exists.Please check the details."
       redirect_to menus_path
     elsif menu and menu.status == "Inactive"
       menu.status = "Active"
-      menu.save!
+      if menu.save
+        flash[:alert] = "Menu added Successfully"
+      else
+        flash[:error] = menu.errors.full_messages.join(",")
+      end
       redirect_to menus_path
     else
       new_menu = Menu.new(
-        name: params[:name],
+        name: params[:name].strip.gsub(/\s+/, " "),
         status: "Active",
       )
       if new_menu.save
@@ -51,7 +55,7 @@ class MenusController < ApplicationController
   end
 
   def update
-    flash[:error] = "Menuitem updated successfully"
+    flash[:error] = "Menu updated successfully"
     id = params[:id]
     menu = Menu.find(id)
     menu.name = params[:name]
@@ -63,7 +67,11 @@ class MenusController < ApplicationController
     id = params[:id]
     menu = Menu.find(id)
     menu.status = "Inactive"
-    menu.save!
+    if menu.save
+      flash[:alert] = "Menu removed successfully"
+    else
+      flash[:error] = menu.errors.full_messages.join(",")
+    end
     redirect_to menus_path
   end
 end
