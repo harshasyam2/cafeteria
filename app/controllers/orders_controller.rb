@@ -65,6 +65,8 @@ class OrdersController < ApplicationController
         redirect_to list_orders_path
       else
         @orders = Order.fromto(initial_date, final_date)
+        @initial_date = initial_date
+        @final_date = final_date
         render "showlist"
       end
     end

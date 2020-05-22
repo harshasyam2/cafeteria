@@ -30,7 +30,6 @@ class OrderitemsController < ApplicationController
         redirect_to orderitems_path
       else
         flash[:alert] = "Total no.of #{orderitem.menuitem_name}'s in cart is #{total_items}"
-        flash[:alert_cart] = "Click here to view your order"
         orderitem.no_of_items = total_items
         orderitem.save
         if current_user.role == "Owner"

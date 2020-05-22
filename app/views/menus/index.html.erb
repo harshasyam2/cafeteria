@@ -1,6 +1,6 @@
 <main class="Main_page">
   <% if show_adding_column %>
-        <form class="Adding_menus" action="/menus" method="POST">
+        <%= form_with(url: "/menus",method: "post",class: "Adding_menus",local: true) do %>
                 <div class="Add_menu_block">
                         <h1 class="add_menu">Add Menu:</h1>
                         <div class="add_menu_input">
@@ -18,8 +18,8 @@
                                 <input class="submit" type="submit" value="Add menu">
                         </div>
                 </div>
-        </form>
-         <form class="Add_menu" action="/menuitems" method="POST">
+        <% end %>
+        <%= form_with(url: "/menuitems",method: "post",class: "Add_menu",local: true) do %>
                 <%= text_field_tag(
                         name="name",
                         value=nil,
@@ -50,13 +50,13 @@
                         )
                 %>
                 <input class="submit" type="submit" value="Add an item">
-        </form>
+        <% end %>
   <% end %>
         <%= form_with(url:unique_menuitem_path,local:true) do %>
                         <%= text_field_tag(
                                 name="name",
                                 value=nil,
-                                class: "Form-menuitem-input",
+                                class: "Form-menuitem-input menu_search_place",
                                 placeholder: "Enter Fooditem",
                                 autofocus: "autofocus"
                                 )

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :customers
   resources :orders
   resources :orderitems
+  get "/viewprofile", to: "customers#viewprofile", as: :view_profile_customer
+  post "/profile", to: "customers#profile", as: :profile_customer
   get "/listorders", to: "orders#listorders", as: :list_orders
   get "/showlist", to: "orders#listshow", as: :show_list_orders
   get "/myorders", to: "orders#myorders", as: :my_orders

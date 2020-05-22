@@ -1,6 +1,4 @@
 class MenuitemsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
     render "index"
   end
@@ -64,14 +62,17 @@ class MenuitemsController < ApplicationController
   end
 
   def update
-    flash[:error] = "Menuitem updated successfully"
     id = params[:id]
     menuitem = Menuitem.find(id)
     menuitem.name = params[:name]
     menuitem.price = params[:price]
     menuitem.menu_id = params[:menu_id]
     menuitem.url = params[:url]
-    menuitem.save!
+    if menuitem.save
+      flash[:error] = "Menuitem updated successfully"
+    else
+      flash[:error] = menuitem.errors.full_messages.join(",")
+    end
     redirect_to menus_path
   end
 

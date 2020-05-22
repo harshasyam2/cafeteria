@@ -33,7 +33,7 @@
       button_value: "Mark as Clerk"
       } %>
   </table>
-  <form action="/menus" method="get">
+  <%= form_with(url: "/menus",method: "get", local: true) do %>
     <input class="back_to_menu" type="submit" value="Back to menu">
-  </form>
+  <% end %>
 </section>

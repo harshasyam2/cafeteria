@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     customer = Customer.find_by(email: params[:email])
     if customer && customer.authenticate(params[:password])
       session[:current_user_id] = customer.id
+      flash[:alert] = "Welcome Back to Cafeteria Management"
       redirect_to "/"
     else
       flash[:error] = "Invalid username or password.Please retry"

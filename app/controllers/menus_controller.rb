@@ -1,6 +1,4 @@
 class MenusController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
     if current_user.role == "Owner"
       render "index", locals: { show_adding_column: true, show_menubar: true, menus: Menu.all }
@@ -55,11 +53,14 @@ class MenusController < ApplicationController
   end
 
   def update
-    flash[:error] = "Menu updated successfully"
     id = params[:id]
     menu = Menu.find(id)
     menu.name = params[:name]
-    menu.save!
+    if menu.save
+      flash[:error] = "Menu updated successfully"
+    else
+      flash[:error] = menu.errors.full_messages.join(",")
+    end
     redirect_to menus_path
   end
 
