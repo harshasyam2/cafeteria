@@ -57,7 +57,7 @@
                                 name="name",
                                 value=nil,
                                 class: "Form-menuitem-input menu_search_place",
-                                placeholder: "Enter Fooditem",
+                                placeholder: "Search for dishes....",
                                 autofocus: "autofocus"
                                 )
                         %>
@@ -71,6 +71,7 @@
                                 menu_title:menu.name,
                                 menuitems:Menuitem.all.where(menu_id:menu.id),
                                 show_delete_btn:show_adding_column,
+                                current_user:current_user
                         } %>
                 <% end %>
         <% end %>

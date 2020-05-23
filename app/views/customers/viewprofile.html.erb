@@ -1,32 +1,32 @@
 <section class="viewprofile_block">
   <%= form_with url:profile_customer_path do |form| %>
     <input type="hidden" name="id" value="<%= @user.id %>">
-    <div class="Form-section">
-      <div class="Form-input-label">First Name:<p class="Mandatory"> * </p></div>
+    <div class="Form-section profile-section">
+      <div class="Form-input-label profile_label">First Name :</div>
       <div class="input-icons">
         <i class="fa fa-user icon"></i>
         <%= form.text_field :first_name,value:"#{@user.first_name}",class:"Form-input",placeholder:"First Name",autofocus: "autofocus" %>
       </div>
     </div>
-    <div class="Form-section">
-      <div class="Form-input-label">Last Name:</div>
+    <div class="Form-section profile-section">
+      <div class="Form-input-label profile_label">Last Name :</div>
       <%= form.text_field :last_name,value:"#{@user.last_name}",class:"Form-input",placeholder:"Last Name" %>
     </div>
-    <div class="Form-section">
-      <div class="Form-input-label">Contact Number:<p class="Mandatory"> * </p></div>
+    <div class="Form-section profile-section">
+      <div class="Form-input-label profile_label">Contact Number :</div>
       <div class="input-icons">
         <i class="fa fa-phone icon"></i>
         <%= form.text_field :contact_number,value:"#{@user.contact_number}",class:"Form-input",placeholder:"Contact Number" %>
       </div>
     </div>
-    <div class="Form-section">
-      <div class="Form-input-label">Email:<p class="Mandatory"> * </p></div>
+    <div class="Form-section profile-section">
+      <div class="Form-input-label profile_label">Email :</div>
       <div class="input-icons">
         <i class="fa fa-envelope icon"></i>
         <%= form.email_field :email,value:"#{@user.email}",class:"Form-input",placeholder:"Email-id" %>
       </div>
     </div>
-    <div class="Form-section">
+    <div class="Form-section profile-section">
       <%= form.submit "Update Profile",class:"Form-submit",local:true %>
     </div>
   <% end %>

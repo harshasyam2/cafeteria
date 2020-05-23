@@ -39,7 +39,7 @@
       </tr>
     </table>
     <% end %>
-    <p class="Bill"> Total Bill: <%= bill_amount %>/- </p>
+    <p class="Bill"> Sub Total : <%= bill_amount %>/- </p>
   <hr width=50%>
   <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
     <input type="hidden" name="status" value="ordered">

@@ -1,11 +1,11 @@
 class MenusController < ApplicationController
   def index
     if current_user.role == "Owner"
-      render "index", locals: { show_adding_column: true, show_menubar: true, menus: Menu.all }
+      render "index", locals: { show_adding_column: true, show_menubar: true, menus: Menu.all,current_user:current_user }
     elsif current_user.role == "Clerk"
-      render "index", locals: { show_adding_column: false, show_menubar: true, menus: Menu.all }
+      render "index", locals: { show_adding_column: false, show_menubar: true, menus: Menu.all,current_user:current_user }
     else
-      render "index", locals: { show_adding_column: false, show_menubar: false, menus: Menu.all }
+      render "index", locals: { show_adding_column: false, show_menubar: false, menus: Menu.all,current_user:current_user }
     end
   end
 
