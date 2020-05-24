@@ -1,7 +1,7 @@
 .cart_display{
   max-width:800px;
   margin:0 auto;
-  height:auto;
+  height:100vh;
 }
 
 .title_of_page{
@@ -66,8 +66,9 @@
 }
 
 .Confirm_order{
-  margin:20px;
-  margin-left:300px;
+  margin:auto;
+  margin-top:20px;
+  display:block;
   color:white;
   background-color:limegreen;
   border-radius:8px;
@@ -234,7 +235,7 @@
 .search_records{
   display:flex;
   align-items:center;
-  width:800px;
+  width:700px;
   margin:auto;
 }
 

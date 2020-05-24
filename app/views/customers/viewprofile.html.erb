@@ -5,32 +5,29 @@
       <div class="Form-input-label profile_label">First Name :</div>
       <div class="input-icons">
         <i class="fa fa-user icon"></i>
-        <%= form.text_field :first_name,value:"#{@user.first_name}",class:"Form-input",placeholder:"First Name",autofocus: "autofocus" %>
+        <%= form.text_field :first_name,value:"#{@user.first_name}",class:"Form-input profile-input",placeholder:"First Name",autofocus: "autofocus" %>
       </div>
     </div>
     <div class="Form-section profile-section">
       <div class="Form-input-label profile_label">Last Name :</div>
-      <%= form.text_field :last_name,value:"#{@user.last_name}",class:"Form-input",placeholder:"Last Name" %>
+      <div class="input-icons">
+        <%= form.text_field :last_name,value:"#{@user.last_name}",class:"Form-input profile-input",placeholder:"Last Name" %>
+      </div>
     </div>
     <div class="Form-section profile-section">
       <div class="Form-input-label profile_label">Contact Number :</div>
       <div class="input-icons">
         <i class="fa fa-phone icon"></i>
-        <%= form.text_field :contact_number,value:"#{@user.contact_number}",class:"Form-input",placeholder:"Contact Number" %>
+        <%= form.text_field :contact_number,value:"#{@user.contact_number}",class:"Form-input profile-input",placeholder:"Contact Number" %>
       </div>
     </div>
     <div class="Form-section profile-section">
       <div class="Form-input-label profile_label">Email :</div>
       <div class="input-icons">
         <i class="fa fa-envelope icon"></i>
-        <%= form.email_field :email,value:"#{@user.email}",class:"Form-input",placeholder:"Email-id" %>
+        <%= form.email_field :email,value:"#{@user.email}",class:"Form-input profile-input",placeholder:"Email-id" %>
       </div>
     </div>
-    <div class="Form-section profile-section">
-      <%= form.submit "Update Profile",class:"Form-submit",local:true %>
-    </div>
-  <% end %>
-  <%= form_with(url: "/menus",method: "get", local: true) do %>
-    <input class="back_to_menu" type="submit" value="Back to menu">
+    <%= form.submit "Update Profile",class:"update_profile",local:true %>
   <% end %>
 </section>

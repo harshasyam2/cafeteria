@@ -9,7 +9,7 @@
   margin-top:20px;
   margin-bottom:15px;
   padding:8px;
-  background-color: purple;
+  background-color:#FF8D27;
 }
 
 .Menu_display{
@@ -33,9 +33,11 @@
 }
 
 .title{
-  color:navy;
+  background-color:black;
+  color:white;
+  font-weight:600;
   font-size:16px;
-  margin:10px;
+  margin:15px;
   width:180px;
   margin-left:300px;
   margin-right:50px;
@@ -43,13 +45,10 @@
   padding:5px;
   border:1px solid transparent;
   border-radius:8px;
-  background:linear-gradient(rgba(255,255,0,0.3),rgba(0,0,255,0.3));
   transition: 0.5s;
 }
 
 .title:hover{
-  background-color:black;
-  color:white;
   transform: scale(1.1);
 }
 
@@ -83,7 +82,7 @@
   padding-top:5px;
   padding-bottom:5px;
   margin-bottom:10px;
-  margin-left:10px;
+  margin-left:110px;
   background-color:#5CDB95;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -156,20 +155,28 @@
 .Adding_menus{
   max-width: 800px;
   margin:0 auto;
-  padding:10px;
-  background-color:lightgray;
+  padding:5px;
+  background-color:#FF8D27;
+  max-height:160px;
 }
 
 .add_menu{
   margin-bottom:10px;
   font-size:16px;
-  text-shadow:2px 2px 2px peru;
+  font-weight:600;
+  text-align:center;
+  font-family: fantasy;
+  padding:5px;
+  border-radius:8px;
+  width:100px;
+  margin:auto;
 }
 
 .add_menu_input{
   display:flex;
   align-items:center;
-  margin-bottom:7px;
+  margin:20px;
+  margin-left:230px;
 }
 
 .menu_label{
@@ -181,9 +188,22 @@
   font-size:13px;
 }
 
+.logo{
+  max-height:80px;
+  margin-left:30px;
+  width:80px;
+  border-radius:50%;
+}
+
+.home_page{
+  padding:15px;
+  height:200px;
+  margin:30px;
+}
+
 .cart_image{
   width:50px;
-  margin-top:-30px;
+  margin-top:40px;
   border:1px solid transparent;
 }
 
@@ -200,23 +220,19 @@
   color:black;
 }
 
-.links_section{
-  display:flex;
-  align-items:center;
-}
-
 .menubar_display{
   display:flex;
   align-items:center;
   padding:6px;
   margin:10px;
-  max-width:800px;
+  width:800px;
+  margin:auto;
   justify-content: space-between;
 }
 
-.header_links{
-  margin:auto;
-  margin-top:60px;
+.welcome{
+  font-weight:600;
+  color:white;
 }
 
 .menuitems_show{
@@ -272,12 +288,12 @@
   width:150px;
   max-height:150px;
   border:5px solid gray;
-  border-radius:30px;
+  border-radius:10px;
   transition: 0.5s;
 }
 
 .menu-item-image:hover{
-  transform:scale(1.2);
+  transform:scale(1.1);
 }
 
 .list_menuitems{
@@ -288,5 +304,5 @@
   margin-left:-20px;
   width:150px;
   border:5px solid gray;
-  border-radius:30px;
+  border-radius:10px;
 }

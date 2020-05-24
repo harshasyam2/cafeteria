@@ -16,50 +16,60 @@
         alert("Becareful while updating your profile...");
       }
     </script>
+
       <% if @current_user %>
         <div class="Customer_heading">
+          <img src="Logo.png" class="logo">
           <div class="welcome">Welcome <%= @current_user.first_name %>!</div>
-          <p class="signout_heading">
-            <%= link_to "Sign out", destroy_session_path, method:"delete", class:"links" %>
-          </p>
-        </div>
-        <div class="menubar_display header_links">
-          <div class="links_section">
-            <p class="display_menu_links" >
-              <%= link_to "View Profile", view_profile_customer_path, class:"links",onclick: "myFunction()" %>
+          <section class="header_section">
+            <p class="main_header_links" >
+              <%= link_to "Home", menus_path, class:"main_link" %>
             </p>
-            <% if @current_user.role == "Customer" %>
-              <p class="display_menu_links" >
-                <%= link_to "My Orders", my_orders_path, class:"links" %>
-              </p>
-            <% end %>
-            <% if @current_user.role == "Owner" or @current_user.role == "Clerk" %>
-              <p class="display_menu_links" >
-                <%= link_to "Pending Orders", orders_path, class:"links"%>
-              </p>
-              <p class="display_menu_links" >
-                <%= link_to "List Sales", list_orders_path, class:"links" %>
-              </p>
-            <% end %>
-            <% if @current_user.role == "Owner" %>
-              <p class="display_menu_links">
-                <%= link_to "Make an Order",owner_menus_path,class:"links" %>
-              </p>
-              <p class="display_menu_links" >
-                <%= link_to "Manage Billing Persons", customers_path, class:"links" %>
-              </p>
-            <% end %>
+            <p class="main_header_links" >
+              <%= link_to "View Profile", view_profile_customer_path, class:"main_link",onclick: "myFunction()" %>
+            </p>
+            <p class="main_header_links">
+              <%= link_to "Sign out", destroy_session_path, method:"delete", class:"main_link" %>
+            </p>
+          </section>
+        </div>
+        <div class="menubar_display">
+          <div class="dropdown">
+            <span><i class="fa fa-bars"></i></span>
+            <div class="dropdown-content">
+                <% if @current_user.role == "Customer" %>
+                  <p class="dropdown-lists">
+                    <%= link_to "My Orders", my_orders_path, class:"links_dropdown" %>
+                  </p>
+                <% end %>
+                <% if @current_user.role == "Owner" or @current_user.role == "Clerk" %>
+                  <p class="dropdown-lists" >
+                    <%= link_to "Pending Orders", orders_path, class:"links_dropdown"%>
+                  </p>
+                  <p class="dropdown-lists" >
+                    <%= link_to "List Sales", list_orders_path, class:"links_dropdown" %>
+                  </p>
+                <% end %>
+                <% if @current_user.role == "Owner" %>
+                  <p class="dropdown-lists">
+                    <%= link_to "Make an Order",owner_menus_path,class:"links_dropdown" %>
+                  </p>
+                  <p class="dropdown-lists" >
+                    <%= link_to "Manage Billing Persons", customers_path, class:"links_dropdown" %>
+                  </p>
+                <% end %>
+            </div>
           </div>
           <div class="display_cart_header">
-            <%= form_with(url: "/orderitems", method: "get", local:true) do %>
-              <%= image_submit_tag(
-                    source="cart.png",
-                    class: "cart_image",
-                    title:"cart"
-                )
-              %>
-            <% end %>
-          </div>
+                <%= form_with(url: "/orderitems", method: "get", local:true) do %>
+                  <%= image_submit_tag(
+                        source="cart.png",
+                        class: "cart_image",
+                        title:"cart"
+                    )
+                  %>
+                <% end %>
+              </div>
         </div>
       <% end %>
         <p class="Flash-alert"> <%= flash[:alert] %> </p>

@@ -44,13 +44,13 @@
                 <td width="20%">
                   <div class="input-icons">
                     <button class="delete" type="submit">
-                      <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp;Remove Item
+                      <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp;Delete
                     </button>
                   </div>
                 </td>
               <% end %>
               <td width="20%">
-                <%= link_to "Edit item", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
+                <%= link_to "Edit", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
               </td>
             <% else %>
               <%= form_with(url: "/orders",method: "POST",local:true) do %>
@@ -66,6 +66,3 @@
         </tr>
     <% end %>
 </table>
-<%= form_with(url: "/menus",method: "get", local: true) do %>
-  <input class="back_to_menu" type="submit" value="Back to menu">
-<% end %>

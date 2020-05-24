@@ -6,11 +6,11 @@
         <% menu=Menu.find_by(name:"#{menu_title}") %>
         <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
           <button class="delete menu_delete" type="submit">
-            <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;Remove Menu
+            <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;Delete
           </button>
         <% end %>
         <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
-          <input class="edit_menu" type="submit" value="Edit Menu">
+          <input class="edit_menu" type="submit" value="Edit">
         <% end %>
       <% end %>
     </div>
@@ -34,13 +34,13 @@
                 <td width="20%">
                   <div class="input-icons">
                     <button class="delete" type="submit">
-                      <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp; Remove Item
+                      <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp; Delete
                     </button>
                   </div>
                 </td>
               <% end %>
                 <td width="20%">
-                    <%= link_to "Edit Item", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
+                    <%= link_to "Edit", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
                 </td>
             <% else %>
               <%= form_with(url: "/orders",method: "POST",local:true) do %>

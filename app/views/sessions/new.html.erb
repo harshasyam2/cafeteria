@@ -1,27 +1,29 @@
 <section class="background_style">
   <div class="Customer_signin">
-    <h1 class="NewCustomers_title">Sign in!</h1>
-    <section class="Signin_content">
-      <%= form_with url:sessions_path do |form| %>
-        <div class="Form-section">
-          <p class="Form-input-label">Email:</p>
-          <div class="input-icons">
-            <i class="fa fa-envelope icon"></i>
-            <%= form.email_field :email,class:"Form-input",placeholder:"Email-id",autofocus: "autofocus" %>
+    <div class="customer_block">
+      <h1 class="NewCustomers_title">Sign in!</h1>
+      <section class="Signin_content">
+        <%= form_with url:sessions_path do |form| %>
+          <div class="Form-section">
+            <p class="Form-input-label">Email:</p>
+            <div class="input-icons">
+              <i class="fa fa-envelope icon"></i>
+              <%= form.email_field :email,class:"Form-input",placeholder:"Email-id",autofocus: "autofocus" %>
+            </div>
           </div>
-        </div>
-        <div class="Form-section">
-          <p class="Form-input-label">Password:</p>
-          <div class="input-icons">
-            <i class="fa fa-key icon"></i>
-            <%= form.password_field :password,class:"Form-input",placeholder:"Password" %>
+          <div class="Form-section">
+            <p class="Form-input-label">Password:</p>
+            <div class="input-icons">
+              <i class="fa fa-key icon"></i>
+              <%= form.password_field :password,class:"Form-input",placeholder:"Password" %>
+            </div>
           </div>
-        </div>
-        <div class="Form-section">
-          <%= form.submit "Sign-in!",class:"Form-submit" %>
-        </div>
-      <% end %>
-    </section>
-    <p class="Signup_link">If you don't have an Account <%= link_to "Create Account",new_customer_path,class:"links" %> here </p>
+          <div class="Form-section">
+            <%= form.submit "Sign-in!",class:"Form-submit" %>
+          </div>
+        <% end %>
+      </section>
+      <p class="Signup_link">Don't have an Account ? <%= link_to "Create Account",new_customer_path,class:"links" %> here </p>
+    </div>
   </div>
 </section>

@@ -1,45 +1,45 @@
 <section class="background_style">
   <div class="Customer_signup">
-    <h1 class="NewCustomers_title">Welcome new Customer!</h1>
     <section class="NewCustomers">
-      <%= form_with url:customers_path do |form| %>
-        <div class="Form-section">
-          <div class="Form-input-label">First Name:<p class="Mandatory"> * </p></div>
-          <div class="input-icons">
-            <i class="fa fa-user icon"></i>
-            <%= form.text_field :first_name,class:"Form-input",placeholder:"First Name",autofocus: "autofocus" %>
+      <h1 class="NewCustomers_title">Welcome new Customer!</h1>
+        <%= form_with url:customers_path do |form| %>
+          <div class="Form-section">
+            <div class="Form-input-label">First Name:<p class="Mandatory"> * </p></div>
+            <div class="input-icons">
+              <i class="fa fa-user icon"></i>
+              <%= form.text_field :first_name,class:"Form-input",placeholder:"First Name",autofocus: "autofocus" %>
+            </div>
           </div>
-        </div>
-        <div class="Form-section">
-          <div class="Form-input-label">Last Name:</div>
-          <%= form.text_field :last_name,class:"Form-input",placeholder:"Last Name" %>
-        </div>
-        <div class="Form-section">
-          <div class="Form-input-label">Contact Number:<p class="Mandatory"> * </p></div>
-          <div class="input-icons">
-            <i class="fa fa-phone icon"></i>
-            <%= form.text_field :contact_number,class:"Form-input",placeholder:"Contact Number" %>
+          <div class="Form-section">
+            <div class="Form-input-label">Last Name:</div>
+            <%= form.text_field :last_name,class:"Form-input",placeholder:"Last Name" %>
           </div>
-        </div>
-        <div class="Form-section">
-          <div class="Form-input-label">Email:<p class="Mandatory"> * </p></div>
-          <div class="input-icons">
-            <i class="fa fa-envelope icon"></i>
-            <%= form.email_field :email,class:"Form-input",placeholder:"Email-id" %>
+          <div class="Form-section">
+            <div class="Form-input-label">Contact Number:<p class="Mandatory"> * </p></div>
+            <div class="input-icons">
+              <i class="fa fa-phone icon"></i>
+              <%= form.text_field :contact_number,class:"Form-input",placeholder:"Contact Number" %>
+            </div>
           </div>
-        </div>
-        <div class="Form-section">
-          <div class="Form-input-label">Password:<p class="Mandatory"> * </p></div>
-          <div class="input-icons">
-            <i class="fa fa-key icon"></i>
-            <%= form.password_field :password,class:"Form-input",placeholder:"Password" %>
+          <div class="Form-section">
+            <div class="Form-input-label">Email:<p class="Mandatory"> * </p></div>
+            <div class="input-icons">
+              <i class="fa fa-envelope icon"></i>
+              <%= form.email_field :email,class:"Form-input",placeholder:"Email-id" %>
+            </div>
           </div>
-        </div>
-        <div class="Form-section">
-          <%= form.submit "Sign Up",class:"Form-submit"%>
-        </div>
-      <% end %>
+          <div class="Form-section">
+            <div class="Form-input-label">Password:<p class="Mandatory"> * </p></div>
+            <div class="input-icons">
+              <i class="fa fa-key icon"></i>
+              <%= form.password_field :password,class:"Form-input",placeholder:"Password" %>
+            </div>
+          </div>
+          <div class="Form-section">
+            <%= form.submit "Sign Up",class:"Form-submit"%>
+          </div>
+        <% end %>
+      <p class="Signin_link">If you are an existing user<%= link_to "Sign-in",new_sessions_path,class:"links" %>here </p>
     </section>
-    <p class="Signin_link">If you are an existing user<%= link_to "Sign-in",new_sessions_path,class:"links" %>here </p>
   </div>
 </section>
