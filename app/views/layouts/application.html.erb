@@ -22,7 +22,7 @@
           <div class="dropdown">
             <span><i class="fa fa-bars bars_display"></i></span>
             <div class="dropdown-content">
-                <% if @current_user.role == "Customer" %>
+                <% if @current_user %>
                   <p class="dropdown-lists">
                     <%= link_to "My Orders", my_orders_path, class:"links_dropdown" %>
                   </p>

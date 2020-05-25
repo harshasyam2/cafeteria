@@ -4,7 +4,7 @@
   <tr class="list_row">
     <th colspan="2" class="heading_lists"> Name </th>
     <th class="heading_lists"> Sub Total</th>
-    <th class="heading_lists"> show Details </th>
+    <th class="heading_lists"> Show Details </th>
     <th class="heading_lists"> Status </th>
     <% if order_title=="Ordered" %>
       <th class="heading_lists"> Cancellation </th>
@@ -30,7 +30,7 @@
         <% end %>
       </td>
       <td class="list_row_data">
-        <p class="order_status"><%= order.status%></p>
+        <p class="order_status"><%= order.status.capitalize %></p>
       </td>
       <% if order_title=="Ordered" %>
         <td class="list_row_data">

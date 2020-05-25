@@ -41,13 +41,8 @@ class OrdersController < ApplicationController
   end
 
   def myorders
-    if current_user.role == "Customer"
-      @orders = Order.currentuser(current_user)
-      render "myorders"
-    else
-      flash[:alert] = "You are not accessed to this page"
-      redirect_to menus_path
-    end
+    @orders = Order.currentuser(current_user)
+    render "myorders"
   end
 
   def listshow
