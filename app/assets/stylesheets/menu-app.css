@@ -82,7 +82,6 @@
   padding-top:5px;
   padding-bottom:5px;
   margin-bottom:10px;
-  margin-left:110px;
   background-color:#5CDB95;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -91,7 +90,7 @@
 }
 
 .submit:hover{
-  background-color: #E8A87C;
+  background-color:black;
 }
 
 .display_price{
@@ -153,7 +152,7 @@
 }
 
 .Adding_menus{
-  max-width: 800px;
+  max-width:800px;
   margin:0 auto;
   padding:5px;
   background-color:#FF8D27;
@@ -165,7 +164,6 @@
   font-size:16px;
   font-weight:600;
   text-align:center;
-  font-family: fantasy;
   padding:5px;
   border-radius:8px;
   width:100px;
@@ -179,6 +177,10 @@
   margin-left:230px;
 }
 
+.menu_submit{
+  margin-left:110px;
+}
+
 .menu_label{
   margin-right:10px;
   font-size: 14px;
@@ -186,13 +188,22 @@
 
 .menu_box{
   font-size:13px;
+  padding:8px 10px;
+  border:1px solid grey;
+  border-radius:5px;
+}
+
+.bars_display{
+  color:white;
+  height:30px;
+  margin-left:10px;
 }
 
 .logo{
   max-height:80px;
-  margin-left:30px;
   width:80px;
   border-radius:50%;
+  margin-left:-20px;
 }
 
 .home_page{
@@ -202,9 +213,36 @@
 }
 
 .cart_image{
-  width:50px;
-  margin-top:40px;
+  height:30px;
+  padding:10px;
   border:1px solid transparent;
+  transition:0.5s;
+}
+
+.cart_image:hover{
+  transform: scale(1.2);
+}
+
+.emptycart_block{
+  width:400px;
+  margin:auto;
+  padding-left:170px;
+}
+
+.empty-cart-theme{
+  margin:5% auto;
+  border-radius:50%;
+}
+
+.emptycart_heading{
+  font-weight:600;
+  font-size:18px;
+  margin:20px;
+}
+
+.emptycart_message{
+  font-size:16px;
+  margin-left:-40px;
 }
 
 .Add_to_cart{
@@ -220,23 +258,13 @@
   color:black;
 }
 
-.menubar_display{
-  display:flex;
-  align-items:center;
-  padding:6px;
-  margin:10px;
-  width:800px;
-  margin:auto;
-  justify-content: space-between;
-}
-
 .welcome{
   font-weight:600;
   color:white;
 }
 
 .menuitems_show{
-  max-width:800px;
+  max-width:700px;
   margin:0 auto;
 }
 

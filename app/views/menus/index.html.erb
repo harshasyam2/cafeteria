@@ -15,7 +15,7 @@
                                 %>
                         </div>
                         <div class="add_menu_input">
-                                <input class="submit" type="submit" value="Add menu">
+                                <input class="submit menu_submit" type="submit" value="Add menu">
                         </div>
                 </div>
         <% end %>
@@ -52,19 +52,21 @@
                 <input class="submit" type="submit" value="Add an item">
         <% end %>
   <% end %>
-        <%= form_with(url:unique_menuitem_path,local:true) do %>
-                        <%= text_field_tag(
-                                name="name",
-                                value=nil,
-                                class: "Form-menuitem-input menu_search_place",
-                                placeholder: "Search for dishes....",
-                                autofocus: "autofocus"
-                                )
-                        %>
-                        <button type="submit" class="Form-search">
-                                <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
-                        </button>
-        <% end %>
+        <div class="search_section">
+                <%= form_with(url:unique_menuitem_path,local:true) do %>
+                                <%= text_field_tag(
+                                        name="name",
+                                        value=nil,
+                                        class: "Form-menuitem-input menu_search_place",
+                                        placeholder: "Search for dishes....",
+                                        autofocus: "autofocus"
+                                        )
+                                %>
+                                <button type="submit" class="Form-search">
+                                        <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
+                                </button>
+                <% end %>
+        </div>
         <% menus.active.each do |menu| %>
                 <% if menu.menuitems.active.count >0 %>
                         <%= render partial:"menu-section",locals:{

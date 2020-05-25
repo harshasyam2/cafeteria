@@ -1,20 +1,22 @@
 .Home_page_menu{
   width:100%;
   height: auto;
-  margin:20px;
-  margin-left: 20px;
+  margin-top:-20px;
 }
 
 .Home_creation_line{
   display:flex;
   align-items:center;
+  background-color:black;
+  height:100px;
+  justify-content:space-between;
 }
 
 .home-header{
   display:flex;
   align-items:center;
-  padding-left:300px;
   margin:auto;
+  position:relative;
 }
 
 .Home_menu{
@@ -22,13 +24,15 @@
   padding:5px 8px;
   border:3px solid transparent;
   cursor: pointer;
-  background-color:black;
-  color:#DAAD86;
+  color:white;
+  font-weight:600;
   border-radius:8px;
 }
 
 .Home_menu:hover{
-  background-color:lightcyan;
+  background-color:white;
+  border:2px solid white;
+  color:black;
 }
 
 .home_link{
@@ -89,7 +93,7 @@
   display:none;
   position:absolute;
   min-width:250px;
-  background-color:lightgray;
+  background-color:#d3e6f2;
   padding:12px 16px;
   box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
 }
@@ -110,6 +114,8 @@
 
 .main_header_links{
   font-size:14px;
+  display:flex;
+  align-items:center;
 }
 
 .main_link{
@@ -122,6 +128,9 @@
 
 .main_link:hover{
   border:2px solid white;
+  border-radius:5px;
+  background-color:white;
+  color:black;
 }
 
 .links,.links_dropdown{
@@ -155,13 +164,18 @@
   margin-left:20px;
 }
 
+.search_section{
+  margin:auto;
+  width:800px;
+}
+
 .Form-search:hover{
   background-color:cyan;
   color:purple;
 }
 
 .form-search-clear{
-  width:800px;
+  width:620px;
   margin:auto;
   height:40px;
   display:flex;
@@ -170,15 +184,11 @@
 
 .Form-menuitem-input{
   font-size:14px;
-  padding:2px;
-  padding-left:10px;
-  margin-left:100px;
+  padding:5px 10px;
+  border:1px solid gray;
+  border-radius:5px;
 }
 
 .menu_search_place{
   margin-left:150px;
-}
-.Form_search_block{
-  display:flex;
-  align-items:center;
 }

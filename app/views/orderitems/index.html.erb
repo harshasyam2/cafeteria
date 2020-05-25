@@ -2,50 +2,60 @@
 <main class="cart_display">
   <% bill_amount=0 %>
   <% orderitems.all.each do |orderitem| %>
-  <% bill_amount = bill_amount+ Orderitem.calculate(orderitem.no_of_items,orderitem.menuitem_price) %>
-  <table class="Menu_display cart_table">
-      <tr>
-         <td colspan="2">
-          <% menu_item=Menuitem.find(orderitem.menuitem_id)%>
-            <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
+    <% bill_amount = bill_amount+ Orderitem.calculate(orderitem.no_of_items,orderitem.menuitem_price) %>
+  <% end %>
+  <% if bill_amount > 0%>
+    <% orderitems.all.each do |orderitem| %>
+    <table class="Menu_display cart_table">
+        <tr>
+          <td colspan="2">
+            <% menu_item=Menuitem.find(orderitem.menuitem_id)%>
+              <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
+            </td>
+        </tr>
+        <tr class="cart_row">
+          <td colspan="2">
+            <p class="Menu_name"><%= orderitem.menuitem_name %></p>
           </td>
-      </tr>
-      <tr class="cart_row">
-         <td colspan="2">
-          <p class="Menu_name"><%= orderitem.menuitem_name %></p>
-        </td>
-         <td>
-          <p class="display_price">Price :<%= orderitem.menuitem_price %>/-</p>
-        </td>
-          <td width="20%">
-            <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
-              <p class="display_price">No.of items :
-                <input type="number"
-                        name="no_of_items"
-                        value="<%= orderitem.no_of_items %>"
-                        size="5"
-                        min="1"
-                        max="10"
-                        onchange="this.form.submit()"
-                >
-              </p>
+          <td>
+            <p class="display_price">Price :<%= orderitem.menuitem_price %>/-</p>
+          </td>
+            <td width="20%">
+              <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
+                <p class="display_price">No.of items :
+                  <input type="number"
+                          name="no_of_items"
+                          value="<%= orderitem.no_of_items %>"
+                          size="5"
+                          min="1"
+                          max="10"
+                          onchange="this.form.submit()"
+                  >
+                </p>
+              <% end %>
+          </td>
+          <td>
+            <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete",local:true) do %>
+              <input type="submit" class="Remove_cartitem" value="Remove">
             <% end %>
-        </td>
-        <td>
-          <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete",local:true) do %>
-            <input type="submit" class="Remove_cartitem" value="Remove">
-          <% end %>
-        </td>
-      </tr>
-    </table>
-    <% end %>
+          </td>
+        </tr>
+      </table>
+      <% end %>
     <p class="Bill"> Sub Total : <%= bill_amount %>/- </p>
-  <hr width=50%>
-  <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
-    <input type="hidden" name="status" value="ordered">
-    <input type="hidden" name="bill" value="<%= bill_amount %>">
-    <% if bill_amount > 0 %>
-      <input type="submit" class="Confirm_order" value="Confirm Order">
+    <hr width=50%>
+    <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
+      <input type="hidden" name="status" value="ordered">
+      <input type="hidden" name="bill" value="<%= bill_amount %>">
+      <% if bill_amount > 0 %>
+        <input type="submit" class="Confirm_order" value="Confirm Order">
+      <% end %>
     <% end %>
+  <% else%>
+    <div class="emptycart_block">
+      <img src="emptycart.jpeg" class="empty-cart-theme">
+      <h2 class="emptycart_heading">Good food is always cooking</h2>
+      <p class="emptycart_message">Your cart is empty. Add something from the menu</p>
+    </div>
   <% end %>
 </main>

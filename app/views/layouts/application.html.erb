@@ -19,23 +19,8 @@
 
       <% if @current_user %>
         <div class="Customer_heading">
-          <img src="Logo.png" class="logo">
-          <div class="welcome">Welcome <%= @current_user.first_name %>!</div>
-          <section class="header_section">
-            <p class="main_header_links" >
-              <%= link_to "Home", menus_path, class:"main_link" %>
-            </p>
-            <p class="main_header_links" >
-              <%= link_to "View Profile", view_profile_customer_path, class:"main_link",onclick: "myFunction()" %>
-            </p>
-            <p class="main_header_links">
-              <%= link_to "Sign out", destroy_session_path, method:"delete", class:"main_link" %>
-            </p>
-          </section>
-        </div>
-        <div class="menubar_display">
           <div class="dropdown">
-            <span><i class="fa fa-bars"></i></span>
+            <span><i class="fa fa-bars bars_display"></i></span>
             <div class="dropdown-content">
                 <% if @current_user.role == "Customer" %>
                   <p class="dropdown-lists">
@@ -60,7 +45,16 @@
                 <% end %>
             </div>
           </div>
-          <div class="display_cart_header">
+          <img src="Logo.png" class="logo">
+          <div class="welcome">Welcome <%= @current_user.first_name %>!</div>
+          <section class="header_section">
+            <p class="main_header_links" >
+              <%= link_to "Home", menus_path, class:"main_link" %>
+            </p>
+            <p class="main_header_links" >
+              <%= link_to "View Profile", view_profile_customer_path, class:"main_link",onclick: "myFunction()" %>
+            </p>
+            <div class="main_header_links">
                 <%= form_with(url: "/orderitems", method: "get", local:true) do %>
                   <%= image_submit_tag(
                         source="cart.png",
@@ -69,7 +63,11 @@
                     )
                   %>
                 <% end %>
-              </div>
+            </div>
+            <p class="main_header_links">
+              <%= link_to "Sign out", destroy_session_path, method:"delete", class:"main_link" %>
+            </p>
+          </section>
         </div>
       <% end %>
         <p class="Flash-alert"> <%= flash[:alert] %> </p>
