@@ -105,11 +105,6 @@
   width:150px;
 }
 
-.show_order_details{
-  padding:5px;
-  margin:5px;
-}
-
 .button{
   padding:5px 10px;
   margin:10px;
@@ -178,6 +173,7 @@
   color:red;
   font-size:16px;
   margin:20px;
+  margin-left:-130px;
   font-weight:600;
 }
 
@@ -186,9 +182,8 @@
 }
 
 .order_table{
-  width:50%;
-  margin:10px;
-  margin-left:50px;
+  width:500px;
+  margin:auto;
 }
 
 .order_table_block{
@@ -284,11 +279,6 @@
   margin-left:160px;
 }
 
-.Show_order_table{
-  margin-left:260px;
-  width:50%;
-}
-
 .Bill_in_show_details{
   text-align:center;
   text-shadow:2px 2px 2px skyblue;
@@ -311,7 +301,12 @@
 
 .my_orders_bill_line{
   display:flex;
-  justify-content: space-around;
+  align-items:center;
+}
+
+.order_table_bill_line{
+  width:300px;
+  margin:auto;
 }
 
 .display_dates{

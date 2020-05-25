@@ -1,24 +1,47 @@
-<table class="Show_order_table">
+<table class="order_table">
   <% bill_value=Order.find(@orderid).bill %>
   <% Orderitem.find_by_id(@orderid).all.each do |orderitem| %>
     <tr>
-      <td width="150px">
-        <p class="show_order_details">
+      <td>
+        <% menu_item=Menuitem.find_by("name=?",orderitem.menuitem_name) %>
+        <img src="<%= menu_item.url %>" class="menuitemimage", title="<%= menu_item.name %>" >
+      </td>
+    </tr>
+    <tr class="order_row">
+      <td class="order_item_data item_name">
+        <p class="myorder_name name_myorders">
           <%= orderitem.menuitem_name %>
         </p>
       </td>
-      <td>
-        <p class="show_order_details">
+      <td class="order_item_data">
+        <p class="myorder_name price_myorders">
           Price : <%= orderitem.menuitem_price %>/-
         </p>
       </td>
-      <td>
-        <p class="show_order_details">
+      <td class="order_item_data">
+        <p class="myorder_name items_myorders">
           No.of items : <%= orderitem.no_of_items %>
         </p>
       </td>
     </tr>
   <% end %>
 </table>
-<hr width="50%">
-<p class="Bill_in_show_details">Total Bill : <%= bill_value %></p>
+<hr width="600px">
+<table class="order_table_bill_line">
+    <tr>
+      <% order=Order.find(@orderid) %>
+      <div class="my_orders_bill_line">
+        <td class="order_item_data">
+          <p class="Bill <%= order.status=="ordered" ? "in_myorders_cancel" : "in_myorders" %>">Total Bill: <%= order.bill %>/- </p>
+        </td>
+        <td>
+          <% if order.status=="ordered" %>
+            <%=  form_with(url: "/orders/#{order.id}",method: "delete",local: true) do %>
+              <input type="hidden" name="id" value="<%= order.id %>">
+              <input type="submit" value="Cancel order" class="cancel_order">
+            <% end %>
+          <% end %>
+        </td>
+      </div>
+    </tr>
+</table>

@@ -1,0 +1,46 @@
+<% if count!=0 %>
+  <p class="order_items_caption"> <%= order_title %> </p>
+<table class="list_orders_to_admin">
+  <tr class="list_row">
+    <th colspan="2" class="heading_lists"> Name </th>
+    <th class="heading_lists"> Sub Total</th>
+    <th class="heading_lists"> show Details </th>
+    <th class="heading_lists"> Status </th>
+    <% if order_title=="Ordered" %>
+      <th class="heading_lists"> Cancellation </th>
+    <% end %>
+  </tr>
+  <% orders.notincart.order(:date).each do |order| %>
+    <tr class="list_row">
+    <% customer=Customer.find(order.customer_id) %>
+      <td colspan="2" class="list_row_data">
+        <% customer_name=customer.first_name %>
+        <% if customer.role=="Customer" %>
+          <%= customer_name %>
+        <% else %>
+          <%= customer_name.concat(" (#{customer.role}) ") %>
+        <% end %>
+      </td>
+      <td class="list_row_data">
+        <p class="order_bill"><%= order.bill %>/-</p>
+      </td>
+      <td class="list_row_data">
+        <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>
+          <input class="button show list_row_show" type="submit" value="Show Details">
+        <% end %>
+      </td>
+      <td class="list_row_data">
+        <p class="order_status"><%= order.status%></p>
+      </td>
+      <% if order_title=="Ordered" %>
+        <td class="list_row_data">
+          <%=  form_with(url: "/orders/#{order.id}",method: "delete",local: true) do %>
+              <input type="hidden" name="id" value="<%= order.id %>">
+              <input type="submit" value="Cancel order" class="cancel_order">
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+<% end %>
