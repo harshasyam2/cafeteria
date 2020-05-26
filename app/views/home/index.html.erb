@@ -1,11 +1,5 @@
 <section class="Home_page_menu">
-  <div class="Home_creation_line">
-    <img src="Logo.png" class="logo home_page">
-    <div class="home-header">
-      <p class="Home_menu create" ><%= link_to "Create Account", new_customer_path,class:"links home_link" %></p>
-      <p class="Home_menu" ><%= link_to "Sign in",new_sessions_path,class:"links home_link" %></p>
-    </div>
-  </div>
+    <%= render partial:"header-section" %>
     <h1 class="heading">Welcome To Our Restaurant!</h1>
     <p class="content"> <img src="content.png"></p>
 </section>

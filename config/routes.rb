@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get "/" => "home#index"
+  get "/" => "home#index", as: :root
   resources :menus
   resources :menuitems
   resources :customers
   resources :orders
   resources :orderitems
+  get "/aboutus", to: "home#aboutus", as: :about_us
   get "/viewprofile", to: "customers#viewprofile", as: :view_profile_customer
   post "/profile", to: "customers#profile", as: :profile_customer
   get "/listorders", to: "orders#listorders", as: :list_orders

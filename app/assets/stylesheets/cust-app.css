@@ -1,5 +1,4 @@
 .background_style{
-  margin-top:-20px;
   width:100%;
   height:100vh;
   background:linear-gradient(rgba(255,255,0,0.3),rgba(0,0,255,0.3));
@@ -124,10 +123,35 @@
   text-align:center;
 }
 
-.Flash-error,.Flash-alert{
+.about_us{
+  width:85%;
+  margin:auto;
+}
+
+.about_us_content{
+  font-size:17px;
+  margin:10px;
+  line-height:1.2;
+}
+
+.about_us_title{
+  font-size:22px;
+  width:200px;
+  margin:auto;
+  color:#DC4348;
+  font-weight:bolder;
+  margin-top:40px;
+  margin-bottom:40px;
+}
+
+.Flash-error,.Flash-alert,.Flash-error-signin_up{
   text-align: center;
   color: darkred;
   margin:20px;
+}
+
+.Flash-error-signin_up{
+  margin-top:40px;
 }
 
 .Flash-alert-message{

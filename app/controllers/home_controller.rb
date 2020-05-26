@@ -8,4 +8,8 @@ class HomeController < ApplicationController
       render "index"
     end
   end
+
+  def aboutus
+    render "aboutus"
+  end
 end

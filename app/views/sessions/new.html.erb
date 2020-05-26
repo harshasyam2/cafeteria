@@ -1,5 +1,7 @@
+<%= render partial:"header-section" %>
 <section class="background_style">
   <div class="Customer_signin">
+    <p class="Flash-error-signin_up"> <%= flash[:error_signin] %> </p>
     <div class="customer_block">
       <h1 class="NewCustomers_title">Sign in!</h1>
       <section class="Signin_content">

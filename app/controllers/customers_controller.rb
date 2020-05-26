@@ -62,7 +62,7 @@ class CustomersController < ApplicationController
         flash[:alert] = "Welcome to Cafeteria Management.Your account created successfully"
         redirect_to "/"
       else
-        flash[:error] = new_customer.errors.full_messages.join(",")
+        flash[:error_signup] = new_customer.errors.full_messages.join(",")
         redirect_to new_customer_path
       end
     end

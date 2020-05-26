@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       flash[:alert] = "Welcome Back to Cafeteria Management"
       redirect_to "/"
     else
-      flash[:error] = "Invalid username or password.Please retry"
+      flash[:error_signin] = "Invalid username or password.Please retry"
       redirect_to new_sessions_path
     end
   end

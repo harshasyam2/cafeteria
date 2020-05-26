@@ -1,3 +1,7 @@
+*{
+  font-family:sans-serif;
+}
+
 .Home_page_menu{
   width:100%;
   height: auto;
@@ -38,6 +42,7 @@
 .home_link{
   color:#DAAD86;
   font-weight:600;
+  margin-right:20px;
 }
 
 .home_link:hover{
@@ -62,10 +67,6 @@
 
 .heading:hover{
   text-decoration: underline;
-}
-
-.create{
-  margin-right:20px;
 }
 
 .Customer_heading{
