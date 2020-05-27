@@ -5,7 +5,6 @@
 .Home_page_menu{
   width:100%;
   height: auto;
-  margin-top:-20px;
 }
 
 .Home_creation_line{
@@ -56,9 +55,24 @@
   padding:5px 10px;
   width:370px;
   margin:auto;
-  margin-top:100px;
+  margin-top:200px;
   border-radius:15px;
-  background:linear-gradient(to top,#8EE4AF,grey);
+  background-color: black;
+  cursor:pointer;
+}
+
+.heading:hover{
+  background-color:#DAAD86;
+}
+
+.heading_content{
+  color:#FF8D27;
+  text-decoration: none;
+}
+
+.heading_content:hover{
+  text-decoration:underline;
+  color:black;
 }
 
 .content{
@@ -70,7 +84,7 @@
 }
 
 .Customer_heading{
-  width:800px;
+  width:1000px;
   margin:0 auto;
   margin-top:30px;
   padding:10px;
@@ -150,8 +164,12 @@
 .email_input{
   font-size:14px;
   padding:2px;
-  margin-left:20px;
-  padding-left:30px;
+  margin-left:80px;
+  padding-left:40px;
+  border:1px solid grey;
+  padding-top:8px;
+  padding-bottom:8px;
+  border-radius:8px;
 }
 
 .Form-search{

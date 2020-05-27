@@ -54,6 +54,11 @@
             <p class="main_header_links" >
               <%= link_to "View Profile", view_profile_customer_path, class:"main_link",onclick: "myFunction()" %>
             </p>
+            <% if @current_user.role!="Customer" %>
+              <p class="main_header_links">
+                <%= link_to "View Feedback", feedback_contact_path, method:"get", class:"main_link" %>
+              </p>
+            <% end %>
             <div class="main_header_links">
                 <%= form_with(url: "/orderitems", method: "get", local:true) do %>
                   <%= image_submit_tag(
@@ -69,10 +74,28 @@
             </p>
           </section>
         </div>
-      <% end %>
+      <% else %>
+        <div class="Home_creation_line">
+          <img src="Logo.png" class="logo home_page">
+          <div class="home-header">
+            <p class="Home_menu"><%= link_to "Home", root_path,class:"links home_link" %>
+            <p class="Home_menu"><%= link_to "About Us", about_us_path,class:"links home_link" %>
+            <p class="Home_menu"><%= link_to "Contact Us", contacts_path,class:"links home_link" %>
+            <p class="Home_menu" ><%= link_to "Create Account", new_customer_path,class:"links home_link" %></p>
+            <p class="Home_menu" ><%= link_to "Sign in",new_sessions_path,class:"links home_link" %></p>
+          </div>
+      </div>
+    <% end %>
+    <% if @current_user %>
         <p class="Flash-alert"> <%= flash[:alert] %> </p>
         <p class="Flash-error"> <%= flash[:error] %> </p>
         <p class="Flash-alert-message"> <%= flash[:alert_message] %> </p>
+    <% end %>
     <%= yield %>
+    <div class="Home_creation_line">
+      <div class="home-header">
+            <p class="Home_menu"><%= link_to "Contact Us", contacts_path,class:"links home_link" %>
+      </div>
+    </div>
   </body>
 </html>

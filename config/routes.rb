@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :orders
   resources :orderitems
+  resources :contacts
   get "/aboutus", to: "home#aboutus", as: :about_us
   get "/viewprofile", to: "customers#viewprofile", as: :view_profile_customer
   post "/profile", to: "customers#profile", as: :profile_customer
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   post "/uniquecustomers", to: "customers#uniquecustomer", as: :unique_customer
   post "/menuitem/unique", to: "menuitems#uniquemenuitem", as: :unique_menuitem
   get "/menuitem/unique", to: "menus#index"
+  get "/feedback_list", to: "contacts#feedback", as: :feedback_contact
   get "/create", to: "orderitems#create", as: :create_orderitem
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions

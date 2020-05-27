@@ -1,0 +1,52 @@
+
+  <p class="Flash-error-signin_up"> <%= flash[:error_contactus] %> </p>
+  <div class="contact_us_block">
+    <%= form_with url:contacts_path do |form| %>
+    <div class="contact_us_section">
+      <div class="contactus-section">
+        <div class="contact-input-label">First Name:<p class="Mandatory"> * </p></div>
+        <div class="input-icons">
+          <i class="fa fa-user icon"></i>
+          <%= form.text_field :first_name,class:"Form-input",autofocus: "autofocus" %>
+        </div>
+      </div>
+      <div class="contactus-section">
+        <div class="contact-input-label"> Last Name:</div>
+        <%= form.text_field :last_name,class:"Form-input" %>
+      </div>
+    </div>
+      <div class="contact_us_section">
+        <div class="contactus-section">
+          <div class="contact-input-label"> City:<p class="Mandatory"> * </p></div>
+          <%= form.text_field :city,class:"Form-input" %>
+        </div>
+        <div class="contactus-section">
+          <div class="contact-input-label"> State:<p class="Mandatory"> * </p></div>
+          <%= form.text_field :state,class:"Form-input" %>
+        </div>
+      </div>
+      <div class="contact_us_section">
+        <div class="contactus-section">
+          <div class="contact-input-label">Mobile Number:<p class="Mandatory"> * </p></div>
+          <div class="input-icons">
+            <i class="fa fa-phone icon"></i>
+            <%= form.text_field :mobile,class:"Form-input" %>
+          </div>
+        </div>
+        <div class="contactus-section">
+          <div class="contact-input-label">Email:<p class="Mandatory"> * </p></div>
+          <div class="input-icons">
+            <i class="fa fa-envelope icon"></i>
+            <%= form.email_field :email,class:"Form-input" %>
+          </div>
+        </div>
+      </div>
+      <div class="contactus-section center_section">
+        <div class="contact-input-label">Message:<p class="Mandatory"> * </p></div>
+          <%= form.text_area(name="message",class:"Form-input",size:"30") %>
+      </div>
+      <div class="contactus-section">
+        <%= form.submit "Submit",class:"contactus-submit",local:true%>
+      </div>
+    <% end %>
+  </div>

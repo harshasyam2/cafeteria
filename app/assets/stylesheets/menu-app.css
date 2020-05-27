@@ -14,6 +14,7 @@
 
 .Menu_display{
   padding:5px;
+  margin-left:70px;
 }
 
 .Menu_column{
@@ -203,7 +204,7 @@
   max-height:80px;
   width:80px;
   border-radius:50%;
-  margin-left:-20px;
+  margin-left:-40px;
 }
 
 .home_page{

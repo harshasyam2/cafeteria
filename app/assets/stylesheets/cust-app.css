@@ -29,10 +29,53 @@
   border-radius:30px;
 }
 
+.center_section{
+  width:500px;
+  margin:auto;
+}
+
+.contact_us_block{
+  width:700px;
+  margin:auto;
+}
+
+.contact_us_section{
+  display:flex;
+  align-items:center;
+}
+
+.contactus-submit{
+  margin-left:260px;
+  font-size:14px;
+  padding:10px;
+  font-weight: 600;
+  background-color: #8EE4AF;
+  border:1px solid transparent;
+  border-radius:8px;
+}
+
+.contactus-submit:hover{
+  background-color:grey;
+  color:white;
+}
+
+.contactus-section{
+  margin-bottom:20px;
+  align-items:center;
+}
+
+.contact-input-label{
+  width:210px;
+  margin-left:40px;
+  display:flex;
+  align-items:center;
+  margin-bottom:7px;
+}
+
 .Form-section{
   margin-bottom:20px;
   align-items:center;
-  margin-left:150px;
+  margin-left:170px;
 }
 
 .profile-section{
@@ -109,7 +152,7 @@
 .NewCustomers{
   background-color:lightgoldenrodyellow;
   border:5px solid black;
-  margin:100px auto;
+  margin:25px auto;
   border-radius:30px;
 }
 
@@ -121,6 +164,11 @@
   color:#453C52;
   padding:10px;
   text-align:center;
+}
+
+.about_us_background{
+  background-color:	#FFFDD0;
+  height:100vh;
 }
 
 .about_us{
@@ -140,7 +188,7 @@
   margin:auto;
   color:#DC4348;
   font-weight:bolder;
-  margin-top:40px;
+  padding-top:40px;
   margin-bottom:40px;
 }
 
@@ -165,6 +213,27 @@
 .Mandatory{
   color:red;
   margin:5px;
+}
+
+.feedback_table{
+  width:10P00px;
+  margin:auto;
+  border:1px solid black;
+  border-collapse:collapse;
+}
+
+.feedback_row{
+  border:1px solid black;
+  text-align:center;
+}
+
+.column_heading{
+  font-weight:bolder;
+}
+
+.feedback_data{
+  padding:10px;
+  border:1px solid black;
 }
 
 .display_users_to_owner{
@@ -335,7 +404,7 @@
 
 .icon_mail{
   margin:6px;
-  margin-left:15px;
+  margin-left:75px;
   margin-top:8px;
   padding-bottom:10px;
   color:#453C52;
@@ -344,7 +413,8 @@
 }
 
 .email_search{
-  max-width:500px;
+  max-width:580px;
+  padding-left:50px;
   margin:0 auto;
   display:flex;
   align-items:center;
