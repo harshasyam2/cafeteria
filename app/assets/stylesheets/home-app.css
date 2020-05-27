@@ -141,6 +141,19 @@
   align-items:center;
 }
 
+.social_media_links{
+  color:white;
+  margin:20px
+}
+
+.social_media_links:hover{
+  color:#FF8D27;
+}
+
+.facebook_link{
+  margin-left:100px;
+}
+
 .main_link{
   color:white;
   font-weight:600;
