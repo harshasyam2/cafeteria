@@ -1,11 +1,11 @@
 class MenusController < ApplicationController
   def index
     if current_user.role == "Owner"
-      render "index", locals: { show_adding_column: true, show_menubar: true, menus: Menu.all,current_user:current_user }
+      render "index", locals: { show_adding_column: true, show_menubar: true, menus: Menu.all, current_user: current_user }
     elsif current_user.role == "Clerk"
-      render "index", locals: { show_adding_column: false, show_menubar: true, menus: Menu.all,current_user:current_user }
+      render "index", locals: { show_adding_column: false, show_menubar: true, menus: Menu.all, current_user: current_user }
     else
-      render "index", locals: { show_adding_column: false, show_menubar: false, menus: Menu.all,current_user:current_user }
+      render "index", locals: { show_adding_column: false, show_menubar: false, menus: Menu.all, current_user: current_user }
     end
   end
 
@@ -18,11 +18,13 @@ class MenusController < ApplicationController
     elsif menu and menu.status == "Inactive"
       menu.status = "Active"
       if menu.save
-        flash[:alert] = "Menu added Successfully"
+        redirect_to create_menuitem_path(
+          :menu_id => menu.id,
+        )
       else
         flash[:error] = menu.errors.full_messages.join(",")
+        redirect_to menus_path
       end
-      redirect_to menus_path
     else
       new_menu = Menu.new(
         name: params[:name].strip.gsub(/\s+/, " "),
@@ -69,10 +71,12 @@ class MenusController < ApplicationController
     menu = Menu.find(id)
     menu.status = "Inactive"
     if menu.save
-      flash[:alert] = "Menu removed successfully"
+      redirect_to destroy_menuitem_path(
+        :menu_id => id,
+      )
     else
       flash[:error] = menu.errors.full_messages.join(",")
+      redirect_to menus_path
     end
-    redirect_to menus_path
   end
 end

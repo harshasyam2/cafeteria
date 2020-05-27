@@ -29,4 +29,8 @@ class Menuitem < ActiveRecord::Base
   def self.active
     all.where("status=?", "Active")
   end
+
+  def self.menu_present(menu_id)
+    all.where("menu_id=?", menu_id)
+  end
 end

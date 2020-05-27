@@ -61,6 +61,32 @@ class MenuitemsController < ApplicationController
     redirect_to menus_path
   end
 
+  def destroymenuitem
+    @menuitems = Menuitem.menu_present(params[:menu_id])
+    @menuitems.each do |menuitem|
+      menuitem.status = "Inactive"
+      if menuitem.save
+        flash[:alert] = "Menu and Menuitems removed successfully"
+      else
+        flash[:error] = menuitem.errors.full_messages.join(",")
+      end
+    end
+    redirect_to menus_path
+  end
+
+  def createmenuitem
+    @menuitems = Menuitem.menu_present(params[:menu_id])
+    @menuitems.each do |menuitem|
+      menuitem.status = "Active"
+      if menuitem.save
+        flash[:alert] = "Menu and Menuitems added successfully"
+      else
+        flash[:error] = menuitem.errors.full_messages.join(",")
+      end
+    end
+    redirect_to menus_path
+  end
+
   def update
     id = params[:id]
     menuitem = Menuitem.find(id)

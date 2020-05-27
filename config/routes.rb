@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get "/ownermenus", to: "menus#ownermenus", as: :owner_menus
   post "/uniquecustomers", to: "customers#uniquecustomer", as: :unique_customer
   post "/menuitem/unique", to: "menuitems#uniquemenuitem", as: :unique_menuitem
+  get "/createmenuitem", to: "menuitems#createmenuitem", as: :create_menuitem
+  get "/destroymenuitem", to: "menuitems#destroymenuitem", as: :destroy_menuitem
   get "/menuitem/unique", to: "menus#index"
   get "/feedback_list", to: "contacts#feedback", as: :feedback_contact
   get "/create", to: "orderitems#create", as: :create_orderitem
