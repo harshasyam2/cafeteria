@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :orderitems
   resources :contacts
   get "/aboutus", to: "home#aboutus", as: :about_us
+  get "/privacypolicy", to: "home#privacypolicy", as: :privacy_policy
   get "/viewprofile", to: "customers#viewprofile", as: :view_profile_customer
   post "/profile", to: "customers#profile", as: :profile_customer
   get "/listorders", to: "orders#listorders", as: :list_orders

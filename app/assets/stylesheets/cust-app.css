@@ -166,23 +166,23 @@
   text-align:center;
 }
 
-.about_us_background{
+.about_us_background,.privacy_policy_background{
   background-color:	#FFFDD0;
   height:100vh;
 }
 
-.about_us{
+.about_us,.privacy_policy{
   width:85%;
   margin:auto;
 }
 
-.about_us_content{
+.about_us_content,.privacy_policy_content{
   font-size:17px;
   margin:10px;
   line-height:1.2;
 }
 
-.about_us_title{
+.about_us_title,.privacy_policy_title{
   font-size:22px;
   width:200px;
   margin:auto;
@@ -216,10 +216,11 @@
 }
 
 .feedback_table{
-  width:10P00px;
+  width:1000px;
   margin:auto;
   border:1px solid black;
   border-collapse:collapse;
+  margin-bottom:20px;
 }
 
 .feedback_row{

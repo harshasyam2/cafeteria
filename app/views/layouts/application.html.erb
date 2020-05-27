@@ -45,7 +45,7 @@
                 <% end %>
             </div>
           </div>
-          <img src="Logo.png" class="logo">
+          <%= image_tag "Logo.png",class:"logo" %>
           <div class="welcome">Welcome <%= @current_user.first_name %>!</div>
           <section class="header_section">
             <p class="main_header_links" >
@@ -76,7 +76,7 @@
         </div>
       <% else %>
         <div class="Home_creation_line">
-          <img src="Logo.png" class="logo home_page">
+          <%= image_tag "Logo.png",class: "logo home_page" %>
           <div class="home-header">
             <p class="Home_menu"><%= link_to "Home", root_path,class:"links home_link" %>
             <p class="Home_menu"><%= link_to "About Us", about_us_path,class:"links home_link" %>
@@ -92,9 +92,14 @@
         <p class="Flash-alert-message"> <%= flash[:alert_message] %> </p>
     <% end %>
     <%= yield %>
-    <div class="Home_creation_line">
-      <div class="home-header">
-            <p class="Home_menu"><%= link_to "Contact Us", contacts_path,class:"links home_link" %>
+    <div class="footer_line">
+      <div class="home-footer">
+        <p class="Home_menu"><%= link_to "Privacy Policy", privacy_policy_path,class:"links home_link" %>
+        <% if @current_user %>
+
+        <% else %>
+          <p class="Home_menu"><%= link_to "Contact Us", contacts_path,class:"links home_link" %>
+        <% end %>
       </div>
     </div>
   </body>

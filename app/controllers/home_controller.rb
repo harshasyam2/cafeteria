@@ -12,4 +12,8 @@ class HomeController < ApplicationController
   def aboutus
     render "aboutus"
   end
+
+  def privacypolicy
+    render "privacypolicy"
+  end
 end

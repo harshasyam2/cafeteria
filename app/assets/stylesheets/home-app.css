@@ -15,7 +15,15 @@
   justify-content:space-between;
 }
 
-.home-header{
+.footer_line{
+  display:flex;
+  align-items:center;
+  background-color:black;
+  height:40px;
+  justify-content:space-between;
+}
+
+.home-header,.home-footer{
   display:flex;
   align-items:center;
   margin:auto;
