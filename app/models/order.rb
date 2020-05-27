@@ -10,6 +10,10 @@ class Order < ActiveRecord::Base
     all.where("status=?", "ordered")
   end
 
+  def self.cancelled
+    all.where("status=?", "cancelled")
+  end
+
   def self.delivered
     all.where("status=?", "delivered")
   end

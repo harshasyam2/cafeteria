@@ -2,7 +2,11 @@ class ContactsController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def index
-    render "index"
+    if !current_user
+      render "index"
+    else
+      render "index"
+    end
   end
 
   def create

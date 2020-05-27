@@ -1,18 +1,20 @@
-<p class="title_of_page"> Sales Based On Dates </p>
-<div class="display_dates">From Date :
-  <p class="display_ini_fin_dates"><%= @initial_date %></p>
+<div class="main_content">
+  <p class="title_of_page"> Sales Based On Dates </p>
+  <div class="display_dates">From Date :
+    <p class="display_ini_fin_dates"><%= @initial_date %></p>
+  </div>
+  <div class="display_dates">To Date :
+    <p class="display_ini_fin_dates"><%= @final_date %></p>
+  </div>
+  <% if @orders.delivered.count == 0 %>
+    <p class="myorders_message message_myorders">
+      No orders delivered in the specified dates. Check Pending orders to deliver orders
+    </p>
+  <% else %>
+    <%= render partial:"show-orderslist",locals: {
+        orders_list:@orders.delivered,
+        show_delivered_button:false,
+      }
+    %>
+  <% end %>
 </div>
-<div class="display_dates">To Date :
-  <p class="display_ini_fin_dates"><%= @final_date %></p>
-</div>
-<% if @orders.delivered.count == 0 %>
-  <p class="myorders_message message_myorders">
-    No orders delivered in the specified dates. Check Pending orders to deliver orders
-  </p>
-<% else %>
-  <%= render partial:"show-orderslist",locals: {
-      orders_list:@orders.delivered,
-      show_delivered_button:false,
-    }
-  %>
-<% end %>

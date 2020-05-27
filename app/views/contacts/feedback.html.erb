@@ -1,24 +1,34 @@
-<table class="feedback_table">
-  <tr class="feedback_row">
-    <th class="feedback_data column_heading">Name</th>
-    <th class="feedback_data column_heading">Contact</th>
-    <th class="feedback_data column_heading">Email</th>
-    <th class="feedback_data column_heading">Feedback</th>
-  </tr>
-  <% Contact.all.each do |contact| %>
+<div class="main_content">
+  <table class="feedback_table">
     <tr class="feedback_row">
-      <td class="feedback_data">
-        <%= contact.first_name.concat(" #{contact.last_name}") %>
-      </td>
-      <td class="feedback_data">
-        <%= contact.mobile %>
-      </td>
-      <td class="feedback_data">
-        <%= contact.email %>
-      </td>
-      <td class="feedback_data">
-        <%= contact.message %>
-      </td>
+      <th colspan="2" class="feedback_data column_heading">Name</th>
+      <th class="feedback_data column_heading">Contact</th>
+      <th class="feedback_data column_heading">City</th>
+      <th class="feedback_data column_heading">State</th>
+      <th class="feedback_data column_heading">Email</th>
+      <th class="feedback_data column_heading">Feedback</th>
     </tr>
-  <% end %>
-</table>
+    <% Contact.all.each do |contact| %>
+      <tr class="feedback_row">
+        <td colspan="2" class="feedback_data">
+          <%= contact.first_name.concat(" #{contact.last_name}") %>
+        </td>
+        <td class="feedback_data">
+          <%= contact.mobile %>
+        </td>
+        <td class="feedback_data">
+          <%= contact.city %>
+        </td>
+        <td class="feedback_data">
+          <%= contact.state %>
+        </td>
+        <td class="feedback_data">
+          <%= contact.email %>
+        </td>
+        <td class="feedback_data">
+          <%= contact.message %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

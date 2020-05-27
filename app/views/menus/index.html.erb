@@ -1,80 +1,82 @@
-<main class="Main_page">
-  <% if show_adding_column %>
-        <%= form_with(url: "/menus",method: "post",class: "Adding_menus",local: true) do %>
-                <div class="Add_menu_block">
-                        <h1 class="add_menu">ADD MENU</h1>
-                        <div class="add_menu_input">
-                                <p class="menu_label">Menu Name:</p>
-                                 <%= text_field_tag(
-                                        name="name",
-                                        value=nil,
-                                        class: "menu_box",
-                                        size: "20",
-                                        placeholder: "Enter name of menu"
-                                        )
-                                %>
+<div class="main_content">
+        <main class="Main_page">
+        <% if show_adding_column %>
+                <%= form_with(url: "/menus",method: "post",class: "Adding_menus",local: true) do %>
+                        <div class="Add_menu_block">
+                                <h1 class="add_menu">ADD MENU</h1>
+                                <div class="add_menu_input">
+                                        <p class="menu_label">Menu Name:</p>
+                                        <%= text_field_tag(
+                                                name="name",
+                                                value=nil,
+                                                class: "menu_box",
+                                                size: "20",
+                                                placeholder: "Enter name of menu"
+                                                )
+                                        %>
+                                </div>
+                                <div class="add_menu_input">
+                                        <input class="submit menu_submit" type="submit" value="Add menu">
+                                </div>
                         </div>
-                        <div class="add_menu_input">
-                                <input class="submit menu_submit" type="submit" value="Add menu">
-                        </div>
-                </div>
+                <% end %>
+                <%= form_with(url: "/menuitems",method: "post",class: "Add_menu",local: true) do %>
+                        <%= text_field_tag(
+                                name="name",
+                                value=nil,
+                                class: "item",
+                                size: "15",
+                                placeholder: "Enter item name"
+                                )
+                        %>
+                        <%= text_field_tag(
+                                name="price",
+                                value=nil,
+                                class: "price",
+                                size: "10",
+                                placeholder: "Enter Price"
+                                )
+                        %>
+                        <!-- The below line is for identifying the menu name and finding its menu id to add to menuitems table -->
+                        <select class="menu_id" name="menu_id">
+                                <% menus.active.each do |menu| %>
+                                        <option value="<%= menu.id %>"> <%= menu.name %></option>
+                                <% end %>
+                        </select>
+                        <%= text_field_tag(
+                                name="url",
+                                value=nil,
+                                class:"image-holder",
+                                placeholder: "Image Url"
+                                )
+                        %>
+                        <input class="submit" type="submit" value="Add an item">
+                <% end %>
         <% end %>
-        <%= form_with(url: "/menuitems",method: "post",class: "Add_menu",local: true) do %>
-                <%= text_field_tag(
-                        name="name",
-                        value=nil,
-                        class: "item",
-                        size: "15",
-                        placeholder: "Enter item name"
-                        )
-                %>
-                <%= text_field_tag(
-                        name="price",
-                        value=nil,
-                        class: "price",
-                        size: "10",
-                        placeholder: "Enter Price"
-                        )
-                %>
-                <!-- The below line is for identifying the menu name and finding its menu id to add to menuitems table -->
-                <select class="menu_id" name="menu_id">
-                        <% menus.active.each do |menu| %>
-                                <option value="<%= menu.id %>"> <%= menu.name %></option>
+                <div class="search_section">
+                        <%= form_with(url:unique_menuitem_path,local:true) do %>
+                                        <%= text_field_tag(
+                                                name="name",
+                                                value=nil,
+                                                class: "Form-menuitem-input menu_search_place",
+                                                placeholder: "Search for dishes....",
+                                                autofocus: "autofocus"
+                                                )
+                                        %>
+                                        <button type="submit" class="Form-search">
+                                                <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
+                                        </button>
                         <% end %>
-                </select>
-                <%= text_field_tag(
-                        name="url",
-                        value=nil,
-                        class:"image-holder",
-                        placeholder: "Image Url"
-                        )
-                %>
-                <input class="submit" type="submit" value="Add an item">
-        <% end %>
-  <% end %>
-        <div class="search_section">
-                <%= form_with(url:unique_menuitem_path,local:true) do %>
-                                <%= text_field_tag(
-                                        name="name",
-                                        value=nil,
-                                        class: "Form-menuitem-input menu_search_place",
-                                        placeholder: "Search for dishes....",
-                                        autofocus: "autofocus"
-                                        )
-                                %>
-                                <button type="submit" class="Form-search">
-                                        <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
-                                </button>
+                </div>
+                <% menus.active.each do |menu| %>
+                        <% if menu.menuitems.active.count >0 %>
+                                <%= render partial:"menu-section",locals:{
+                                        menu_title:menu.name,
+                                        menuitems:Menuitem.all.where(menu_id:menu.id),
+                                        show_delete_btn:show_adding_column,
+                                        current_user:current_user
+                                } %>
+                        <% end %>
                 <% end %>
-        </div>
-        <% menus.active.each do |menu| %>
-                <% if menu.menuitems.active.count >0 %>
-                        <%= render partial:"menu-section",locals:{
-                                menu_title:menu.name,
-                                menuitems:Menuitem.all.where(menu_id:menu.id),
-                                show_delete_btn:show_adding_column,
-                                current_user:current_user
-                        } %>
-                <% end %>
-        <% end %>
-</main>
+        </main>
+</div>

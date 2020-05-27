@@ -1,33 +1,35 @@
-<section class="viewprofile_block">
-  <%= form_with url:profile_customer_path do |form| %>
-    <input type="hidden" name="id" value="<%= @user.id %>">
-    <div class="Form-section profile-section">
-      <div class="Form-input-label profile_label">First Name :</div>
-      <div class="input-icons">
-        <i class="fa fa-user icon"></i>
-        <%= form.text_field :first_name,value:"#{@user.first_name}",class:"Form-input profile-input",placeholder:"First Name",autofocus: "autofocus" %>
+<div class="main_content">
+  <section class="viewprofile_block">
+    <%= form_with url:profile_customer_path do |form| %>
+      <input type="hidden" name="id" value="<%= @user.id %>">
+      <div class="Form-section profile-section">
+        <div class="Form-input-label profile_label">First Name :</div>
+        <div class="input-icons">
+          <i class="fa fa-user icon"></i>
+          <%= form.text_field :first_name,value:"#{@user.first_name}",class:"Form-input profile-input",placeholder:"First Name",autofocus: "autofocus" %>
+        </div>
       </div>
-    </div>
-    <div class="Form-section profile-section">
-      <div class="Form-input-label profile_label">Last Name :</div>
-      <div class="input-icons">
-        <%= form.text_field :last_name,value:"#{@user.last_name}",class:"Form-input profile-input",placeholder:"Last Name" %>
+      <div class="Form-section profile-section">
+        <div class="Form-input-label profile_label">Last Name :</div>
+        <div class="input-icons">
+          <%= form.text_field :last_name,value:"#{@user.last_name}",class:"Form-input profile-input",placeholder:"Last Name" %>
+        </div>
       </div>
-    </div>
-    <div class="Form-section profile-section">
-      <div class="Form-input-label profile_label">Contact Number :</div>
-      <div class="input-icons">
-        <i class="fa fa-phone icon"></i>
-        <%= form.text_field :contact_number,value:"#{@user.contact_number}",class:"Form-input profile-input",placeholder:"Contact Number" %>
+      <div class="Form-section profile-section">
+        <div class="Form-input-label profile_label">Contact Number :</div>
+        <div class="input-icons">
+          <i class="fa fa-phone icon"></i>
+          <%= form.text_field :contact_number,value:"#{@user.contact_number}",class:"Form-input profile-input",placeholder:"Contact Number" %>
+        </div>
       </div>
-    </div>
-    <div class="Form-section profile-section">
-      <div class="Form-input-label profile_label">Email :</div>
-      <div class="input-icons">
-        <i class="fa fa-envelope icon"></i>
-        <%= form.email_field :email,value:"#{@user.email}",class:"Form-input profile-input",placeholder:"Email-id" %>
+      <div class="Form-section profile-section">
+        <div class="Form-input-label profile_label">Email :</div>
+        <div class="input-icons">
+          <i class="fa fa-envelope icon"></i>
+          <%= form.email_field :email,value:"#{@user.email}",class:"Form-input profile-input",placeholder:"Email-id" %>
+        </div>
       </div>
-    </div>
-    <%= form.submit "Update Profile",class:"update_profile",local:true %>
-  <% end %>
-</section>
+      <%= form.submit "Update Profile",class:"update_profile",local:true %>
+    <% end %>
+  </section>
+</div>

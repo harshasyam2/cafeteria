@@ -1,22 +1,31 @@
-<p class="title_of_page">My Orders</p>
-<% if @orders.notincart.count==0%>
-  <div class="emptycart_block">
-    <img src="empty-myorders.jpeg" class="empty-myorder-theme">
-    <p class="myorders_message">You have not placed any orders yet</p>
-    <p class="myorders_message message_myorders">To place an order go back to menu</p>
-  </div>
-<% else %>
-  <%= render partial:"myorder-section.html.erb", locals: {
-    orders: @orders.ordered,
-    order_title: "Ordered",
-    count: @orders.ordered.count,
-  }
-  %>
+<div class="main_content">
+  <p class="title_of_page">My Orders</p>
+  <% if @orders.notincart.count==0%>
+    <div class="emptycart_block">
+      <img src="empty-myorders.jpeg" class="empty-myorder-theme">
+      <p class="myorders_message">You have not placed any orders yet</p>
+      <p class="myorders_message message_myorders">To place an order go back to menu</p>
+    </div>
+  <% else %>
+    <%= render partial:"myorder-section.html.erb", locals: {
+      orders: @orders.ordered,
+      order_title: "Ordered",
+      count: @orders.ordered.count,
+    }
+    %>
 
-  <%= render partial:"myorder-section.html.erb", locals: {
-    orders: @orders.delivered,
-    order_title: "Delivered",
-    count: @orders.delivered.count,
-  }
-  %>
-<% end %>
+    <%= render partial:"myorder-section.html.erb", locals: {
+      orders: @orders.cancelled,
+      order_title: "Cancelled",
+      count: @orders.cancelled.count,
+    }
+    %>
+
+    <%= render partial:"myorder-section.html.erb", locals: {
+      orders: @orders.delivered,
+      order_title: "Delivered",
+      count: @orders.delivered.count,
+    }
+    %>
+  <% end %>
+</div>

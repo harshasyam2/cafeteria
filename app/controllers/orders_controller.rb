@@ -98,7 +98,18 @@ class OrdersController < ApplicationController
   def destroy
     id = params[:id]
     order = Order.find(id)
-    order.destroy
-    redirect_to my_orders_path
+    if order.customer_id == current_user
+      order.destroy
+      flash[:alert] = "Order cancelled Successfully"
+      redirect_to my_orders_path
+    else
+      order.status = "cancelled"
+      if order.save
+        flash[:alert] = "Order Cancelled Successfully"
+      else
+        flash[:error] = order.errors.full_messages.join(",")
+      end
+      redirect_to orders_path
+    end
   end
 end

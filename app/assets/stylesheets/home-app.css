@@ -19,7 +19,7 @@
   display:flex;
   align-items:center;
   background-color:black;
-  height:40px;
+  height:160px;
   justify-content:space-between;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .Customer_heading{
-  width:1000px;
+  width:100%;
   margin:0 auto;
   margin-top:30px;
   padding:10px;
@@ -193,7 +193,7 @@
 
 .search_section{
   margin:auto;
-  width:800px;
+  width:630px;
 }
 
 .Form-search:hover{
@@ -204,6 +204,7 @@
 .form-search-clear{
   width:620px;
   margin:auto;
+  padding-left:100px;
   height:40px;
   display:flex;
   align-items:center;

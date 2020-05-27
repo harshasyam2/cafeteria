@@ -4,5 +4,5 @@ class Contact < ActiveRecord::Base
   validates :state, presence: true
   validates :email, presence: true
   validates :mobile, presence: true, numericality: { only_integer: true }, length: { minimum: 10 }
-  validates :message, presence: true
+  validates :message, presence: true, length: { minimum: 10, maximum: 80 }
 end
