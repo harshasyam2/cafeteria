@@ -70,12 +70,23 @@
                 </div>
                 <% menus.active.each do |menu| %>
                         <% if menu.menuitems.active.count >0 %>
-                                <%= render partial:"menu-section",locals:{
-                                        menu_title:menu.name,
-                                        menuitems:Menuitem.all.where(menu_id:menu.id),
-                                        show_delete_btn:show_adding_column,
-                                        current_user:current_user
-                                } %>
+                                <% if current_user.role=="Owner"%>
+                                        <%= render partial:"menu-section",locals:{
+                                                menu_title:menu.name,
+                                                menuitems:Menuitem.all.where(menu_id:menu.id),
+                                                show_delete_btn:show_adding_column,
+                                                current_user:current_user,
+                                                display_cart: false
+                                        } %>
+                                <% else %>
+                                        <%= render partial:"menu-section",locals:{
+                                                menu_title:menu.name,
+                                                menuitems:Menuitem.all.where(menu_id:menu.id),
+                                                show_delete_btn:show_adding_column,
+                                                current_user:current_user,
+                                                display_cart: true
+                                        } %>
+                                <% end %>
                         <% end %>
                 <% end %>
         </main>

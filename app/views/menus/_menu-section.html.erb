@@ -1,59 +1,96 @@
-<div class="list_menuitems">
-  <table class="Menu_display" width="100%">
-    <div class="title_and_delete">
-      <p class="title"><%= menu_title %></p>
-      <% if show_delete_btn %>
-        <% menu=Menu.find_by(name:"#{menu_title}") %>
-        <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
-          <button class="delete menu_delete" type="submit">
-            <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;Delete
-          </button>
+<div class="<%= display_cart ? "cart_menu_block" : "" %>">
+  <div class="list_menuitems">
+    <table class="Menu_display" width="100%">
+      <div class="title_and_delete">
+        <p class="title"><%= menu_title %></p>
+        <% if show_delete_btn %>
+          <% menu=Menu.find_by(name:"#{menu_title}") %>
+          <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
+            <button class="delete menu_delete" type="submit">
+              <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;Delete
+            </button>
+          <% end %>
+          <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
+            <input class="edit_menu" type="submit" value="Edit">
+          <% end %>
         <% end %>
-        <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
-          <input class="edit_menu" type="submit" value="Edit">
+      </div>
+      <% menuitems.active.each do |menu_item| %>
+            <tr>
+              <td colspan="2">
+                <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" width="20%">
+              <p class="Menu_name"> <%= menu_item.name %></p>
+              </td>
+              <td width="20%">
+                <p class="display_price">
+                  Price :<%= menu_item.price %>/-
+                </p>
+              </td>
+              <% if show_delete_btn %>
+                <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
+                  <td width="20%">
+                    <div class="input-icons">
+                      <button class="delete" type="submit">
+                        <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp; Delete
+                      </button>
+                    </div>
+                  </td>
+                <% end %>
+                  <td width="20%">
+                      <%= link_to "Edit", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
+                  </td>
+              <% else %>
+                <%= form_with(url: "/orders",method: "POST",local:true) do %>
+                  <td width="20%">
+                    <input class="item_count" name="no_of_items" type="number" min="1" max="10" value="1">
+                  </td>
+                  <input type="hidden" name="id" value="<%= menu_item.id %>">
+                  <td width="20%">
+                    <input class="Add_to_cart" type="submit" value="&nbsp;Add&nbsp;">
+                  </td>
+                <% end %>
+              <% end %>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+  <% if display_cart %>
+    <% @order=Order.currentuser(current_user).incart.first %>
+    <% if @order %>
+      <% @orderitems=Orderitem.item_present(@order.id) %>
+      <% if @orderitems %>
+        <% orderitem_count=@orderitems.count %>
+        <% if  orderitem_count >=1 %>
+          <div class="cart_section">
+              <p class="cart_section_title">Items in your cart</p>
+              <table class="cart_section_table">
+                <tr class="cart_section_row">
+                  <th class="cart_section_data">Item Name</th>
+                  <th class="cart_section_data">Quantity</th>
+                  <th class="cart_section_data">Price</p>
+                  <th class="cart_section_data">Total</p>
+                </tr>
+                <% subtotal=0 %>
+                <% @orderitems.all.each do |orderitem| %>
+                  <tr class="cart_section_row">
+                    <% x=orderitem.no_of_items %>
+                    <% y=orderitem.menuitem_price %>
+                    <% subtotal= subtotal+(x*y) %>
+                    <td class="cart_section_data"><%= orderitem.menuitem_name %></td>
+                    <td class="cart_section_data"><%= x %></td>
+                    <td class="cart_section_data"><%= y %></td>
+                    <td class="cart_section_data"><%= x*y %></td>
+                  </tr>
+                <% end %>
+              </table>
+              <p class="cart_section_subtotal"> SubTotal: <%= subtotal %>/-</p>
+          </div>
         <% end %>
       <% end %>
-    </div>
-    <% menuitems.active.each do |menu_item| %>
-          <tr>
-            <td colspan="2">
-              <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2" width="20%">
-            <p class="Menu_name"> <%= menu_item.name %></p>
-            </td>
-            <td width="20%">
-              <p class="display_price">
-                Price :<%= menu_item.price %>/-
-              </p>
-            </td>
-            <% if show_delete_btn %>
-              <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
-                <td width="20%">
-                  <div class="input-icons">
-                    <button class="delete" type="submit">
-                      <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp; Delete
-                    </button>
-                  </div>
-                </td>
-              <% end %>
-                <td width="20%">
-                    <%= link_to "Edit", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
-                </td>
-            <% else %>
-              <%= form_with(url: "/orders",method: "POST",local:true) do %>
-                <td width="20%">
-                  <input class="item_count" name="no_of_items" type="number" min="1" max="10" value="1">
-                </td>
-                <input type="hidden" name="id" value="<%= menu_item.id %>">
-                <td width="20%">
-                  <input class="Add_to_cart" type="submit" value="&nbsp;Add&nbsp;">
-                </td>
-              <% end %>
-            <% end %>
-        </tr>
     <% end %>
-  </table>
+  <% end %>
 </div>

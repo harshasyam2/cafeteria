@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :order_items
+  has_many :orderitems
   belongs_to :customer
 
   def self.incart

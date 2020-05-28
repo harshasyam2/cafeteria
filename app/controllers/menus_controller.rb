@@ -45,6 +45,7 @@ class MenusController < ApplicationController
       flash[:alert] = "You are not accessed to this page"
       redirect_to menus_path
     else
+      @current_user = current_user
       render "ownermenus"
     end
   end

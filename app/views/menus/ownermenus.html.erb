@@ -7,6 +7,8 @@
             menu_title:menu.name,
             menuitems:Menuitem.all.where(menu_id:menu.id),
             show_delete_btn: false,
+            current_user: @current_user,
+            display_cart: true
         } %>
       <% end %>
     <% end %>

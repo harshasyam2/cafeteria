@@ -237,6 +237,45 @@
   margin:30px;
 }
 
+.cart_menu_block{
+  display:flex;
+  position:relative;
+}
+
+.cart_section{
+  margin-left:100px;
+  background-color:#FF8D27;
+  padding:30px;
+}
+
+.cart_section_title{
+  font-weight:bold;
+  font-size:16px;
+  text-align:center;
+  margin:30px;
+}
+
+.cart_section_table{
+  width:300px;
+  border:1px solid black;
+  border-collapse:collapse;
+  padding:30px;
+}
+
+.cart_section_row{
+  border:1px solid black;
+}
+
+.cart_section_data{
+  border:1px solid black;
+  padding:8px;
+}
+
+.cart_section_subtotal{
+  font-weight:bolder;
+  margin:30px;
+}
+
 .cart_image{
   height:30px;
   padding:10px;

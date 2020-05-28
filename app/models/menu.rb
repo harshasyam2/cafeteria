@@ -17,6 +17,10 @@ class Menu < ActiveRecord::Base
     end
   end
 
+  def self.calculate(x, y)
+    x * y
+  end
+
   def menu_title
     unless menu_not_exists?
       errors.add(:menu, "with entered details already exists")
