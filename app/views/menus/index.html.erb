@@ -62,6 +62,11 @@
                                                 autofocus: "autofocus"
                                                 )
                                         %>
+                                        <% if current_user.role=="Owner" %>
+                                                <input type="hidden" name="page" value="delete_page">
+                                        <% else %>
+                                                <input type="hidden" name="page" value="normal_page">
+                                        <% end %>
                                         <button type="submit" class="Form-search">
                                                 <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
                                         </button>

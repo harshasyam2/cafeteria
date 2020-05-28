@@ -1,6 +1,23 @@
 <div class="main_content">
   <p class="title_of_page"> Make an Order </p>
   <main class="Main_page">
+    <div class="search_section">
+      <%= form_with(url:unique_menuitem_path,local:true) do %>
+        <%= text_field_tag(
+              name="name",
+              value=nil,
+              class: "Form-menuitem-input menu_search_place",
+              placeholder: "Search for dishes....",
+              autofocus: "autofocus"
+              )
+        %>
+        <button type="submit" class="Form-search">
+          <input type="hidden" name="page" value="normal_page">
+          <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
+        </button>
+       <% end %>
+    </div>
+
     <% Menu.active.each do |menu| %>
       <% if menu.menuitems.active.count >0 %>
         <%= render partial:"menu-section",locals:{

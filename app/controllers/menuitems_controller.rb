@@ -7,7 +7,8 @@ class MenuitemsController < ApplicationController
     name = params[:name].upcase
     @menuitems = Menuitem.where("UPPER(name) like ?", "%#{name}%").all
     if @menuitems.count != 0
-      render "uniquemenuitem", locals: { menuitems: @menuitems, user: current_user }
+      page = params[:page]
+      render "uniquemenuitem", locals: { menuitems: @menuitems, user: current_user, show_delete: page == "delete_page" ? true : false }
     else
       flash[:error] = "Menuitem not found."
       redirect_to menus_path

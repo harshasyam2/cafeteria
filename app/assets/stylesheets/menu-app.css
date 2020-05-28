@@ -176,8 +176,8 @@
   color:#453C52;
   font-size:14px;
   margin:20px;
-  margin-left:80px;
-  margin-right:40px;
+  margin-left:100px;
+  margin-right:30px;
   background-color:#AFD275;
   padding:5px 8px;
   border-radius:8px;
@@ -259,10 +259,9 @@
 }
 
 .cart_menu_block{
-  width:1000px;
-  margin:auto;
   display:flex;
-  position:relative;
+  width:100%;
+  justify-content:center;
 }
 
 .cart_section{
@@ -272,7 +271,7 @@
   padding:30px;
   width:300px;
   border-radius:15px;
-  height:auto;
+  max-height:450px;
 }
 
 .cart_section_title{
