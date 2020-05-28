@@ -1,6 +1,13 @@
-<div class="<%= display_cart ? "cart_menu_block" : "" %>">
+<% @order=Order.currentuser(current_user).incart.first %>
+<% if @order %>
+  <% @orderitems=Orderitem.item_present(@order.id) %>
+  <% if @orderitems %>
+    <% orderitem_count=@orderitems.count %>
+  <% end %>
+<% end %>
+<div class="<%= display_cart and orderitem_count >=1 ? "cart_menu_block" : "" %>">
   <div class="list_menuitems">
-    <table class="Menu_display" width="100%">
+    <table class="Menu_display menu_section_display" width="100%">
       <div class="title_and_delete">
         <p class="title"><%= menu_title %></p>
         <% if show_delete_btn %>
@@ -50,7 +57,7 @@
                   </td>
                   <input type="hidden" name="id" value="<%= menu_item.id %>">
                   <td width="20%">
-                    <input class="Add_to_cart" type="submit" value="&nbsp;Add&nbsp;">
+                    <input class="Add_to_cart" type="submit" value="&nbsp;Add&nbsp;" local= "true">
                   </td>
                 <% end %>
               <% end %>
@@ -59,38 +66,31 @@
     </table>
   </div>
   <% if display_cart %>
-    <% @order=Order.currentuser(current_user).incart.first %>
-    <% if @order %>
-      <% @orderitems=Orderitem.item_present(@order.id) %>
-      <% if @orderitems %>
-        <% orderitem_count=@orderitems.count %>
-        <% if  orderitem_count >=1 %>
-          <div class="cart_section">
-              <p class="cart_section_title">Items in your cart</p>
-              <table class="cart_section_table">
-                <tr class="cart_section_row">
-                  <th class="cart_section_data">Item Name</th>
-                  <th class="cart_section_data">Quantity</th>
-                  <th class="cart_section_data">Price</p>
-                  <th class="cart_section_data">Total</p>
-                </tr>
-                <% subtotal=0 %>
-                <% @orderitems.all.each do |orderitem| %>
-                  <tr class="cart_section_row">
-                    <% x=orderitem.no_of_items %>
-                    <% y=orderitem.menuitem_price %>
-                    <% subtotal= subtotal+(x*y) %>
-                    <td class="cart_section_data"><%= orderitem.menuitem_name %></td>
-                    <td class="cart_section_data"><%= x %></td>
-                    <td class="cart_section_data"><%= y %></td>
-                    <td class="cart_section_data"><%= x*y %></td>
-                  </tr>
-                <% end %>
-              </table>
-              <p class="cart_section_subtotal"> SubTotal: <%= subtotal %>/-</p>
-          </div>
-        <% end %>
-      <% end %>
+    <% if  orderitem_count >=1 %>
+      <div class="cart_section">
+          <p class="cart_section_title">Items in your cart</p>
+          <table class="cart_section_table">
+            <tr class="cart_section_row">
+              <th class="cart_section_data">Item Name</th>
+              <th class="cart_section_data">Quantity</th>
+              <th class="cart_section_data">Price</p>
+              <th class="cart_section_data">Total</p>
+            </tr>
+            <% subtotal=0 %>
+            <% @orderitems.all.each do |orderitem| %>
+              <tr class="cart_section_row">
+                <% x=orderitem.no_of_items %>
+                <% y=orderitem.menuitem_price %>
+                <% subtotal= subtotal+(x*y) %>
+                <td class="cart_section_data"><%= orderitem.menuitem_name %></td>
+                <td class="cart_section_data"><%= x %></td>
+                <td class="cart_section_data"><%= y %></td>
+                <td class="cart_section_data"><%= x*y %></td>
+              </tr>
+            <% end %>
+          </table>
+          <p class="cart_section_subtotal"> SubTotal: <%= subtotal %>/-</p>
+      </div>
     <% end %>
   <% end %>
 </div>

@@ -37,7 +37,6 @@
                                 placeholder: "Enter Price"
                                 )
                         %>
-                        <!-- The below line is for identifying the menu name and finding its menu id to add to menuitems table -->
                         <select class="menu_id" name="menu_id">
                                 <% menus.active.each do |menu| %>
                                         <option value="<%= menu.id %>"> <%= menu.name %></option>

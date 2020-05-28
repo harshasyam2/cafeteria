@@ -2,6 +2,22 @@
   min-height:calc(100vh - 160px);
 }
 
+.address_block{
+  margin-top:10px;
+  padding:30px;
+  border-radius:10px;
+  border:1px solid grey;
+  margin-left:25%;
+}
+
+.address_label{
+  color:#DC4348;
+  font-size:16px;
+  margin-top:30px;
+  margin-left:25%;
+  font-weight:600;
+}
+
 .address{
   color:#DAAD86;
   font-weight:600;
@@ -19,22 +35,29 @@
 }
 
 .Main_page{
-  max-width:1000px;
+  max-width:100%;
   margin:0 auto;
   font-family:sans-serif;
 }
 
 .Add_menu{
-  margin:5px;
   margin-top:20px;
   margin-bottom:15px;
   padding:8px;
   background-color:#FF8D27;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .Menu_display{
   padding:5px;
-  margin-left:70px;
+}
+
+.menu_section_display{
+  margin-left:10px;
+  width:700px;
+  margin:auto;
 }
 
 .Menu_column{
@@ -77,10 +100,8 @@
   padding-left:8px;
   padding-top:5px;
   padding-bottom:5px;
-  margin-top:20px;
-  margin-left:10px;
+  margin-left:20px;
   margin-right:10px;
-  margin-bottom:10px;
   border: 1px solid transparent;
   border-radius: 8px;
   cursor: pointer;
@@ -92,7 +113,6 @@
   padding-bottom:5px;
   margin-right:10px;
   margin-left:10px;
-  margin-bottom:10px;
   border: 1px solid transparent;
   border-radius: 8px;
   cursor: pointer;
@@ -102,7 +122,6 @@
   padding-left:8px;
   padding-top:5px;
   padding-bottom:5px;
-  margin-bottom:10px;
   background-color:#5CDB95;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -114,7 +133,7 @@
   background-color:black;
 }
 
-.display_price{
+.display_price,.display_quantity{
   margin:20px;
   width:120px;
   margin-left:40px;
@@ -174,10 +193,11 @@
 
 .Add_menu_block{
   margin:15px;
+  justify-content:space-around;
 }
 
 .Adding_menus{
-  max-width:1000px;
+  width:100%;
   margin:0 auto;
   padding:5px;
   background-color:#FF8D27;
@@ -198,8 +218,9 @@
 .add_menu_input{
   display:flex;
   align-items:center;
-  margin:20px;
-  margin-left:230px;
+  padding:10px;
+  width:350px;
+  margin:auto;
 }
 
 .menu_submit{
@@ -238,21 +259,28 @@
 }
 
 .cart_menu_block{
+  width:1000px;
+  margin:auto;
   display:flex;
   position:relative;
 }
 
 .cart_section{
-  margin-left:100px;
-  background-color:#FF8D27;
+  margin-left:40px;
+  margin-top:50px;
+  background-color:lightsalmon;
   padding:30px;
+  width:300px;
+  border-radius:15px;
+  height:auto;
 }
 
 .cart_section_title{
   font-weight:bold;
-  font-size:16px;
+  font-size:18px;
   text-align:center;
   margin:30px;
+  color:white;
 }
 
 .cart_section_table{
@@ -272,8 +300,10 @@
 }
 
 .cart_section_subtotal{
+  text-align:center;
   font-weight:bolder;
   margin:30px;
+  color:white;
 }
 
 .cart_image{

@@ -72,6 +72,7 @@ class OrdersController < ApplicationController
     order = Order.find(id)
     order.status = params[:status]
     order.bill = params[:bill]
+    order.address = params[:address]
     order.save!
     if order.status == "ordered"
       if current_user.role == "Customer"

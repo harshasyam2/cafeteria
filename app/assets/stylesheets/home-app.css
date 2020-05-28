@@ -141,6 +141,19 @@
   align-items:center;
 }
 
+.social_media{
+  margin:60px;
+  display:block;
+  width:200px;
+}
+
+.social_media_header{
+  text-align:center;
+  font-weight:600;
+  margin:20px;
+  color:#DAAD86;
+}
+
 .social_media_links{
   color:white;
   margin:20px
@@ -148,10 +161,6 @@
 
 .social_media_links:hover{
   color:#FF8D27;
-}
-
-.facebook_link{
-  margin-left:100px;
 }
 
 .main_link{
