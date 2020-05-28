@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :orderitems
   belongs_to :customer
+  validates :address, presence: true, length: { minimum: 10 }
 
   def self.incart
     all.where("status=?", "incart")

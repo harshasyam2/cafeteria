@@ -2,19 +2,25 @@
   min-height:calc(100vh - 160px);
 }
 
+.address_label_block{
+  margin-left:200px;
+  margin-top:20px;
+  display:block;
+}
+
 .address_block{
   margin-top:10px;
   padding:30px;
   border-radius:10px;
   border:1px solid grey;
-  margin-left:25%;
 }
 
 .address_label{
+  display:flex;
+  align-items:center;
   color:#DC4348;
   font-size:16px;
   margin-top:30px;
-  margin-left:25%;
   font-weight:600;
 }
 

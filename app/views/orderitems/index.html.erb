@@ -48,8 +48,10 @@
       <input type="hidden" name="status" value="ordered">
       <input type="hidden" name="bill" value="<%= bill_amount %>">
       <% if bill_amount > 0 %>
-        <label class="address_label">Address :</label>
-        <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
+        <div class="address_label_block">
+          <label class="address_label">Address :<p class="Mandatory"> * </p></label>
+          <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
+        </div>
         <input type="submit" class="Confirm_order" value="Confirm Order">
       <% end %>
     <% end %>

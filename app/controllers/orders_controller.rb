@@ -73,17 +73,21 @@ class OrdersController < ApplicationController
     order.status = params[:status]
     order.bill = params[:bill]
     order.address = params[:address]
-    order.save!
-    if order.status == "ordered"
-      if current_user.role == "Customer"
-        flash[:alert] = "Your order confirmed"
-        redirect_to my_orders_path
-      else
-        flash[:alert] = "Your order confirmed"
-        redirect_to menus_path
+    if order.save
+      if order.status == "ordered"
+        if current_user.role == "Customer"
+          flash[:alert] = "Your order confirmed"
+          redirect_to my_orders_path
+        else
+          flash[:alert] = "Your order confirmed"
+          redirect_to menus_path
+        end
+      elsif order.status == "delivered"
+        redirect_to orders_path
       end
-    elsif order.status == "delivered"
-      redirect_to orders_path
+    else
+      flash[:error] = order.errors.full_messages.join(",")
+      redirect_to orderitems_path
     end
   end
 
