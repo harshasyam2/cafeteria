@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     unless current_user.notcustomer?
       flash[:alert] = "You are not accessed to this page"
