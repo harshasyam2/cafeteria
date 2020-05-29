@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     if current_user.role == "Owner"
       render "index", locals: { show_adding_column: true, show_menubar: true, menus: Menu.all, current_user: current_user }
