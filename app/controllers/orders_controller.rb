@@ -72,6 +72,19 @@ class OrdersController < ApplicationController
     end
   end
 
+  def deliver
+    id = params[:id]
+    order = Order.find(id)
+    order.status = "delivered"
+    if order.save
+      flash[:alert] = "Order delivered Successfully"
+      redirect_to orders_path
+    else
+      flash[:error] = order.errors.full_messages.join(",")
+      redirect_to orderitems_path
+    end
+  end
+
   def update
     id = params[:id]
     order = Order.find(id)
@@ -87,8 +100,6 @@ class OrdersController < ApplicationController
           flash[:alert] = "Your order confirmed"
           redirect_to menus_path
         end
-      elsif order.status == "delivered"
-        redirect_to orders_path
       end
     else
       flash[:error] = order.errors.full_messages.join(",")

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/listorders", to: "orders#listorders", as: :list_orders
   get "/showlist", to: "orders#listshow", as: :show_list_orders
   get "/myorders", to: "orders#myorders", as: :my_orders
+  get "/deliver", to: "orders#deliver", as: :deliver_order
   get "/ownermenus", to: "menus#ownermenus", as: :owner_menus
   post "/uniquecustomers", to: "customers#uniquecustomer", as: :unique_customer
   post "/menuitem/unique", to: "menuitems#uniquemenuitem", as: :unique_menuitem

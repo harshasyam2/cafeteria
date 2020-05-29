@@ -41,9 +41,8 @@
       </td>
       <% if show_delivered_button %>
         <td class="list_row_data">
-          <%= form_with(url: "/orders/#{order.id}", method: "put",local: true) do %>
-            <input type="hidden" name="bill" value="<%= order.bill %>">
-            <input type="hidden" name="status" value="delivered">
+          <%= form_with(url: deliver_order_path, method: "get",local: true) do %>
+            <input type="hidden" name="id" value="<%= order.id %>">
             <input class="button delivered" type="submit" value="Deliver Order">
           <% end %>
         </td>
