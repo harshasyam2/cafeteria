@@ -6,7 +6,7 @@
   <% end %>
 <% end %>
 <% if orderitem_count %>
-  <div class="<%= display_cart and orderitem_count > 0 ? "cart_menu_block" : "" %>">
+  <div class="<%= display_cart ? "cart_menu_block" : "" %>">
 <% else %>
   <div class="">
 <% end %>
