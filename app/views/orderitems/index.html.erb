@@ -1,65 +1,68 @@
-<p class="title_of_page"> Items in your cart </p>
-<main class="cart_display">
-  <% bill_amount=0 %>
-  <% orderitems.all.each do |orderitem| %>
-    <% bill_amount = bill_amount+ Orderitem.calculate(orderitem.no_of_items,orderitem.menuitem_price) %>
-  <% end %>
-  <% if bill_amount > 0%>
+<div class="main_content">
+  <p class="title_of_page"> Items in your cart </p>
+  <div class="cart_display">
+    <% bill_amount=0 %>
     <% orderitems.all.each do |orderitem| %>
-    <table class="Menu_display cart_table">
-        <tr>
-          <td colspan="2">
-            <% menu_item=Menuitem.find(orderitem.menuitem_id)%>
+      <% bill_amount = bill_amount+ Orderitem.calculate(orderitem.no_of_items,orderitem.menuitem_price) %>
+    <% end %>
+    <% if bill_amount > 0%>
+      <% orderitems.all.each do |orderitem| %>
+      <table class="Menu_display cart_table">
+          <tr>
+            <td colspan="2">
+              <% menu_item=Menuitem.find(orderitem.menuitem_id)%>
               <img src="<%= menu_item.url %>" class="menu-item-image", title="<%= menu_item.name %>">
             </td>
-        </tr>
-        <tr class="cart_row">
-          <td colspan="2">
-            <p class="Menu_name"><%= orderitem.menuitem_name %></p>
-          </td>
-          <td>
-            <p class="display_price">Price :<%= orderitem.menuitem_price %>/-</p>
-          </td>
-            <td width="20%">
-              <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
-                <p class="display_quantity">Quantity :
-                  <input type="number"
-                          name="no_of_items"
-                          value="<%= orderitem.no_of_items %>"
-                          size="5"
-                          min="1"
-                          max="10"
-                          onchange="this.form.submit()"
-                  >
-                </p>
+          </tr>
+          <tr class="cart_row">
+            <td colspan="2">
+              <p class="Menu_name"><%= orderitem.menuitem_name %></p>
+            </td>
+            <td>
+              <p class="display_price">Price :<%= orderitem.menuitem_price %>/-</p>
+            </td>
+              <td width="20%">
+                <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
+                  <p class="display_quantity">Quantity :
+                    <input type="number"
+                            name="no_of_items"
+                            value="<%= orderitem.no_of_items %>"
+                            size="5"
+                            min="1"
+                            max="10"
+                            onchange="this.form.submit()"
+                    >
+                  </p>
+                <% end %>
+            </td>
+            <td>
+              <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete",local:true) do %>
+                <input type="submit" class="Remove_cartitem" value="Remove">
               <% end %>
-          </td>
-          <td>
-            <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete",local:true) do %>
-              <input type="submit" class="Remove_cartitem" value="Remove">
-            <% end %>
-          </td>
-        </tr>
-      </table>
+            </td>
+          </tr>
+        </table>
+        <% end %>
+      <p class="Bill"> Sub Total : <%= bill_amount %>/- </p>
+      <hr width=80%>
+      <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
+        <input type="hidden" name="status" value="ordered">
+        <input type="hidden" name="bill" value="<%= bill_amount %>">
+        <% if bill_amount > 0 %>
+          <div class="address_label_block">
+            <label class="address_label">Address :<p class="Mandatory"> * </p></label>
+            <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
+          </div>
+          <input type="submit" class="Confirm_order" value="Confirm Order">
+        <% end %>
       <% end %>
-    <p class="Bill"> Sub Total : <%= bill_amount %>/- </p>
-    <hr width=80%>
-    <%= form_with(url: "/orders/#{orderid}", method: "put", local:true) do %>
-      <input type="hidden" name="status" value="ordered">
-      <input type="hidden" name="bill" value="<%= bill_amount %>">
-      <% if bill_amount > 0 %>
-        <div class="address_label_block">
-          <label class="address_label">Address :<p class="Mandatory"> * </p></label>
-          <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
-        </div>
-        <input type="submit" class="Confirm_order" value="Confirm Order">
-      <% end %>
-    <% end %>
-  <% else%>
-    <div class="emptycart_block">
-      <img src="emptycart.jpeg" class="empty-cart-theme">
-      <h2 class="emptycart_heading">Good food is always cooking</h2>
-      <p class="emptycart_message">Your cart is empty. Add something from the menu</p>
     </div>
-  <% end %>
-</main>
+    <% else%>
+      <div class="emptycart_block">
+        <img src="emptycart.jpeg" class="empty-cart-theme">
+        <h2 class="emptycart_heading">Good food is always cooking</h2>
+        <p class="emptycart_message">Your cart is empty. Add something from the menu</p>
+      </div>
+    <% end %>
+    <br>
+</div>

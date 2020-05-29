@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @orders = Order.incart
     @no_of_items = params[:no_of_items]
     if @orders.currentuser(current_user).count == 0
-      order = Order.create!(
+      order = Order.new(
         date: Date.today,
         customer_id: current_user.id,
         status: "incart",
@@ -119,17 +119,16 @@ class OrdersController < ApplicationController
   def destroy
     id = params[:id]
     order = Order.find(id)
-    if order.customer_id == current_user
-      order.destroy
-      flash[:alert] = "Order cancelled Successfully"
-      redirect_to my_orders_path
-    else
+    if order.customer_id == current_user.id
       order.status = "cancelled"
       if order.save
         flash[:alert] = "Order Cancelled Successfully"
       else
         flash[:error] = order.errors.full_messages.join(",")
       end
+      redirect_to my_orders_path
+    else
+      flash[:error] = "You are not accessible to this page"
       redirect_to orders_path
     end
   end
