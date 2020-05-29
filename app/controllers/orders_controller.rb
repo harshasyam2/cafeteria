@@ -1,6 +1,4 @@
 class OrdersController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
     unless current_user.notcustomer?
       flash[:alert] = "You are not accessed to this page"
@@ -19,13 +17,18 @@ class OrdersController < ApplicationController
         customer_id: current_user.id,
         status: "incart",
       )
-      @menuitem_id = params[:id]
-      @order_id = order.id
-      redirect_to create_orderitem_path(
-        :order_id => @order_id,
-        :menuitem_id => @menuitem_id,
-        :no_of_items => @no_of_items,
-      )
+      if order.save
+        @menuitem_id = params[:id]
+        @order_id = order.id
+        redirect_to create_orderitem_path(
+          :order_id => @order_id,
+          :menuitem_id => @menuitem_id,
+          :no_of_items => @no_of_items,
+        )
+      else
+        flash[:error] = order.errors.full_messages.join(",")
+        redirect_to menus_path
+      end
     else
       order = @orders.currentuser(current_user).first
       @menuitem_id = params[:id]
