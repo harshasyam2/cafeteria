@@ -12,6 +12,7 @@
   <% end %>
       <% if display_cart and orderitem_count %>
         <% if orderitem_count >0 %>
+          <div class="cart_display_content">
             <div class="cart_section">
               <p class="cart_section_title">Items in your cart</p>
               <table class="cart_section_table">
@@ -36,6 +37,7 @@
               </table>
               <p class="cart_section_subtotal"> SubTotal: <%= subtotal %>/-</p>
             </div>
+          </div>
         <% end %>
       <% end %>
     </div>

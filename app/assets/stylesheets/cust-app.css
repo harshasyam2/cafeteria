@@ -336,7 +336,8 @@
 
 .users_display_page{
   width:100%;
-  height:100vh;
+  height:auto;
+  margin-bottom:30px;
   margin:-20 auto;
 }
 

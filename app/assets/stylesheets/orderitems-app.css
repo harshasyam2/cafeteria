@@ -178,6 +178,10 @@
   font-weight:600;
 }
 
+.myorders_content{
+  margin-bottom:100px;
+}
+
 .message_myorders{
   color:cornflowerblue;
 }

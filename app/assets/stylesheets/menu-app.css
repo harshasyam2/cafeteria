@@ -3,7 +3,7 @@
 }
 
 .address_label_block{
-  margin-left:200px;
+  margin-left:250px;
   margin-top:20px;
   display:block;
 }
@@ -246,6 +246,7 @@
 
 .sales_page{
   height:auto;
+  margin-bottom:100px;
 }
 
 .menu_box{
@@ -280,6 +281,17 @@
   justify-content:center;
 }
 
+.cart_display_content{
+  display:inline-block;
+}
+
+.cart_section_table{
+  width:300px;
+  border:1px solid black;
+  border-collapse:collapse;
+  padding:30px;
+}
+
 .cart_section{
   margin-left:40px;
   margin-top:50px;
@@ -287,7 +299,7 @@
   padding:30px;
   width:300px;
   border-radius:15px;
-  max-height:450px;
+  height:auto;
 }
 
 .cart_section_title{
@@ -296,13 +308,6 @@
   text-align:center;
   margin:30px;
   color:white;
-}
-
-.cart_section_table{
-  width:300px;
-  border:1px solid black;
-  border-collapse:collapse;
-  padding:30px;
 }
 
 .cart_section_row{
