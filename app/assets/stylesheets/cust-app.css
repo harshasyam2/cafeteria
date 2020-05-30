@@ -251,7 +251,7 @@
   border:1px solid black;
 }
 
-.display_users_to_owner{
+.display_users_to_owner,.users_billing_section{
   display:flex;
   align-items:center;
   font-size:14px;
@@ -340,12 +340,6 @@
   margin:-20 auto;
 }
 
-.users_billing_section{
-  display:flex;
-  margin:10px;
-  margin-left:300px;
-}
-
 .Signin_link,.Signup_link{
   width:600px;
   margin:20px;
@@ -368,7 +362,15 @@
 }
 
 .menu_id{
-  margin:10px;
+  padding-left:8px;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin-left:20px;
+  margin-right:10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color:white;
 }
 
 .delete{

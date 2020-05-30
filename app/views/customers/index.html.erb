@@ -1,36 +1,38 @@
-<p class="title_of_page"> Manage Billing Person </p>
-<%= form_with(url:unique_customer_path,local:true) do %>
-  <div class="email_search">
-    <div class="input-icons">
-      <i class="fa fa-envelope icon_mail"></i>
-       <%= text_field_tag(
-        name="email",
-        value=nil,
-        class: "email_input",
-        placeholder: "Enter Valid Email-id"
-        )
-      %>
+<div class="main_content">
+  <p class="title_of_page"> Manage Billing Person </p>
+  <%= form_with(url:unique_customer_path,local:true) do %>
+    <div class="email_search">
+      <div class="input-icons">
+        <i class="fa fa-envelope icon_mail"></i>
+        <%= text_field_tag(
+          name="email",
+          value=nil,
+          class: "email_input",
+          placeholder: "Enter Valid Email-id"
+          )
+        %>
+      </div>
+      <button type="submit" class="Form-search search_email_block">
+        <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
+      </button>
     </div>
-    <button type="submit" class="Form-search search_email_block">
-      <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
-    </button>
-  </div>
-<% end %>
-<section class="users_display_page">
-  <table class="display_users_to_owner">
-    <%= render partial:"customer-section",locals:{
-      user_title: "Clerk",
-      customers: Customer.clerk,
-      cust_value: "Customer",
-      button_value: "Remove as Clerk"
-      } %>
-  </table>
-  <table class="display_users_to_owner">
-    <%= render partial:"customer-section",locals:{
-      user_title: "Customer",
-      customers: Customer.customer,
-      cust_value: "Clerk",
-      button_value: "Mark as Clerk"
-      } %>
-  </table>
-</section>
+  <% end %>
+  <section class="users_display_page">
+    <table class="display_users_to_owner">
+      <%= render partial:"customer-section",locals:{
+        user_title: "Clerk",
+        customers: Customer.clerk,
+        cust_value: "Customer",
+        button_value: "Remove as Clerk"
+        } %>
+    </table>
+    <table class="display_users_to_owner">
+      <%= render partial:"customer-section",locals:{
+        user_title: "Customer",
+        customers: Customer.customer,
+        cust_value: "Clerk",
+        button_value: "Mark as Clerk"
+        } %>
+    </table>
+  </section>
+</div>

@@ -18,16 +18,36 @@
        <% end %>
     </div>
 
-    <% Menu.active.each do |menu| %>
-      <% if menu.menuitems.active.count >0 %>
-        <%= render partial:"menu-section",locals:{
-            menu_title:menu.name,
-            menuitems:Menuitem.all.where(menu_id:menu.id),
-            show_delete_btn: false,
-            current_user: @current_user,
-            display_cart: true
-        } %>
+    <% @order=Order.currentuser(@current_user).incart.first %>
+    <% if @order %>
+      <% @orderitems=Orderitem.item_present(@order.id) %>
+      <% if @orderitems %>
+        <% orderitem_count=@orderitems.count %>
       <% end %>
     <% end %>
+      <% display_cart= true %>
+    <% if orderitem_count %>
+      <div class="<%= display_cart ? "cart_menu_block" : "" %>">
+    <% else %>
+      <div class="">
+    <% end %>
+        <div class="partial-menu-section">
+          <% Menu.active.each do |menu| %>
+            <% if menu.menuitems.active.count >0 %>
+              <%= render partial:"menu-section",locals:{
+                  menu_title:menu.name,
+                  menuitems:Menuitem.all.where(menu_id:menu.id),
+                  show_delete_btn: false,
+                  current_user: @current_user,
+              } %>
+            <% end %>
+          <% end %>
+        </div>
+        <%= render partial:"cartitems-section",locals:{
+            current_user: @current_user,
+            display_cart: display_cart
+           }
+        %>
+      </div>
   </main>
 </div>

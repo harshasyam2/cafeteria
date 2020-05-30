@@ -1,31 +1,33 @@
 <%= form_with(url: "/menuitems/#{@menuitem.id}", method: "put") do %>
-  <div class="edit_line_row">
-    <%= text_field_tag(
-        name="name",
-        value="#{@menuitem.name}",
-        class: "edit_name_price",
-        size: "7"
-        )
-      %>
-    <%= text_field_tag(
-        name="price",
-        value="#{@menuitem.price}",
-        size: "3",
-        class: "edit_name_price"
-        )
-      %>
-    <select class="menu_id" name="menu_id">
-      <% Menu.active.each do |menu| %>
-        <option value="<%= menu.id %>"> <%= menu.name %></option>
-      <% end %>
-    </select>
-    <%= text_field_tag(
-        name="url",
-        value="#{@menuitem.url}",
-        class: "edit_url",
-        size: "10"
-        )
-      %>
-    <input type="submit" class="update_button" value="Update item">
+  <div class="edit_block">
+    <div class="edit_line_row">
+      <%= text_field_tag(
+          name="name",
+          value="#{@menuitem.name}",
+          class: "edit_name_price",
+          size: "15"
+          )
+        %>
+      <%= text_field_tag(
+          name="price",
+          value="#{@menuitem.price}",
+          size: "5",
+          class: "edit_name_price"
+          )
+        %>
+      <select class="menu_id" name="menu_id">
+        <% Menu.active.each do |menu| %>
+          <option value="<%= menu.id %>"> <%= menu.name %></option>
+        <% end %>
+      </select>
+      <%= text_field_tag(
+          name="url",
+          value="#{@menuitem.url}",
+          class: "edit_url",
+          size: "15"
+          )
+        %>
+      <input type="submit" class="update_button" value="Update item">
+    </div>
   </div>
 <% end %>

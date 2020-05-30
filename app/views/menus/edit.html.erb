@@ -1,12 +1,16 @@
-<%= form_with(url: "/menus/#{@menu.id}", method: "put",local:true) do %>
-  <div class="edit_line_row">
-    <%= text_field_tag(
-        name="name",
-        value="#{@menu.name}",
-        class: "edit_name_price",
-        size: "15",
-        )
-    %>
-    <input type="submit" class="update_button" value="Update item">
+<div class="main_content">
+  <%= form_with(url: "/menus/#{@menu.id}", method: "put",local:true) do %>
+  <div class="edit_block">
+    <div class="edit_line_block">
+      <%= text_field_tag(
+          name="name",
+          value="#{@menu.name}",
+          class: "edit_name_price",
+          size: "15",
+          )
+      %>
+      <input type="submit" class="update_button" value="Update item">
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>

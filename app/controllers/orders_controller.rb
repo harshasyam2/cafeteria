@@ -119,14 +119,18 @@ class OrdersController < ApplicationController
   def destroy
     id = params[:id]
     order = Order.find(id)
-    if order.customer_id == current_user.id
+    if order.customer_id == current_user.id or current_user.role != "Customer"
       order.status = "cancelled"
       if order.save
         flash[:alert] = "Order Cancelled Successfully"
       else
         flash[:error] = order.errors.full_messages.join(",")
       end
-      redirect_to my_orders_path
+      if order.customer_id == current_user.id
+        redirect_to my_orders_path
+      else
+        redirect_to orders_path
+      end
     else
       flash[:error] = "You are not accessible to this page"
       redirect_to orders_path

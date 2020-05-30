@@ -6,6 +6,7 @@
 <table class="list_orders_to_admin">
   <tr class="list_row">
     <th colspan="2" class="heading_lists"> Name </th>
+    <th class="heading_lists"> Ordered Date</th>
     <th class="heading_lists"> Contact Number </th>
     <th class="heading_lists"> Sub Total </th>
     <th class="heading_lists"> Details </th>
@@ -14,7 +15,7 @@
       <th class="heading_lists"> Status </th>
     <% end %>
   </tr>
-  <% orders_list.all.each do |order| %>
+  <% orders_list.order(:date).each do |order| %>
     <tr class="list_row">
     <% customer=Customer.find(order.customer_id) %>
       <td colspan="2" class="list_row_data">
@@ -24,6 +25,9 @@
         <% else %>
           <%= customer_name.concat(" (#{customer.role}) ") %>
         <% end %>
+      </td>
+      <td class="list_row_data">
+        <%= order.date %>
       </td>
       <td class="list_row_data">
         <%= customer.contact_number %>
