@@ -21,12 +21,13 @@
             <td>
               <p class="display_price">Price :<%= orderitem.menuitem_price %>/-</p>
             </td>
-              <td width="20%">
+              <td colspan="2" width="20%">
                 <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
                   <p class="display_quantity">Quantity :
                     <input type="number"
                             name="no_of_items"
                             value="<%= orderitem.no_of_items %>"
+                            class="number_in_cart"
                             size="5"
                             min="1"
                             max="10"
@@ -36,7 +37,7 @@
                 <% end %>
             </td>
             <td>
-              <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete",local:true) do %>
+              <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete", local:true) do %>
                 <input type="submit" class="Remove_cartitem" value="Remove">
               <% end %>
             </td>

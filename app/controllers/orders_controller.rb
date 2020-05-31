@@ -136,4 +136,11 @@ class OrdersController < ApplicationController
       redirect_to orders_path
     end
   end
+
+  def deleteorder
+    id = params[:id]
+    order = Order.find(id)
+    order.destroy
+    redirect_to orderitems_path
+  end
 end

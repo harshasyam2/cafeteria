@@ -74,17 +74,17 @@
                 </div>
                 <% @order=Order.currentuser(current_user).incart.first %>
                 <% if @order %>
-                        <% @orderitems=Orderitem.item_present(@order.id) %>
+                        <% @orderitems = Orderitem.item_present(@order.id) %>
                         <% if @orderitems %>
-                                <% orderitem_count=@orderitems.count %>
+                                <% orderitem_count = @orderitems.count %>
                         <% end %>
                 <% end %>
-                <% if current_user.role=="Owner"%>
+                <% if current_user.role=="Owner" %>
                         <%  display_cart= false %>
                 <% else %>
                         <% display_cart= true %>
                 <% end %>
-                <% if orderitem_count %>
+                <% if @orderitems and orderitem_count>0 %>
                         <div class="<%= display_cart ? "cart_menu_block" : "" %>">
                 <% else %>
                         <div class="">

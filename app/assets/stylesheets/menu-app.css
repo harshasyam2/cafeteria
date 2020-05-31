@@ -150,6 +150,17 @@
   margin-left:40px;
 }
 
+.display_quantity{
+  display:flex;
+  align-items:center;
+  width:180px;
+}
+
+.number_in_cart{
+  margin-left:5px;
+  width:50px;
+}
+
 .title_and_delete{
   display:flex;
   align-items:center;
