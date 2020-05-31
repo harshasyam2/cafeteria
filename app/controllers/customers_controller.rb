@@ -74,17 +74,36 @@ class CustomersController < ApplicationController
 
   def profile
     id = params[:id]
+    email = params[:email]
     customer = Customer.find(id)
-    customer.first_name = params[:first_name]
-    customer.last_name = params[:last_name]
-    customer.email = params[:email]
-    customer.contact_number = params[:contact_number]
-    if customer.save
-      flash[:alert] = "Your Profile updated successfully"
-      redirect_to menus_path
-    else
-      flash[:error] = customer.errors.full_messages.join(",")
+    customer_a = Customer.find_by(email: email)
+    if customer_a == current_user
+      customer.first_name = params[:first_name]
+      customer.last_name = params[:last_name]
+      customer.email = params[:email]
+      customer.contact_number = params[:contact_number]
+      if customer.save
+        flash[:alert] = "Your Profile updated successfully"
+        redirect_to menus_path
+      else
+        flash[:error] = customer.errors.full_messages.join(",")
+        redirect_to view_profile_customer_path
+      end
+    elsif customer_a
+      flash[:error] = "User with entered email exists.Please try again."
       redirect_to view_profile_customer_path
+    else
+      customer.first_name = params[:first_name]
+      customer.last_name = params[:last_name]
+      customer.email = params[:email]
+      customer.contact_number = params[:contact_number]
+      if customer.save
+        flash[:alert] = "Your Profile updated successfully"
+        redirect_to menus_path
+      else
+        flash[:error] = customer.errors.full_messages.join(",")
+        redirect_to view_profile_customer_path
+      end
     end
   end
 
