@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
         @orders = Order.fromto(initial_date, final_date)
         @initial_date = initial_date
         @final_date = final_date
-        render "showlist"
+        render "listorders"
       end
     end
   end
@@ -112,6 +112,11 @@ class OrdersController < ApplicationController
       flash[:alert] = "You are not accessed to this page"
       redirect_to menus_path
     else
+      initial_date = Date.today - 30
+      final_date = Date.today
+      @orders = Order.fromto(initial_date, final_date)
+      @initial_date = initial_date
+      @final_date = final_date
       render "listorders"
     end
   end

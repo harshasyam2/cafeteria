@@ -15,16 +15,24 @@
   <% end %>
   <div class="sales_page">
     <div class="display_dates">From Date :
-      <p class="display_ini_fin_dates"><%= Date.today - 30 %></p>
+      <p class="display_ini_fin_dates"><%= @initial_date %></p>
     </div>
     <div class="display_dates">To Date :
-      <p class="display_ini_fin_dates"><%= Date.today %></p>
+      <p class="display_ini_fin_dates"><%= @final_date %></p>
     </div>
-    <% @orders = Order.fromto( Date.today - 30,Date.today) %>
-    <%= render partial:"show-orderslist", locals:{
-        orders_list: @orders.delivered,
-        show_delivered_button:false,
-      }
-    %>
+    <% if @orders.delivered.count == 0 %>
+      <div class="emptysales_block">
+        <img src="nodelivery.jpeg" class="delivery_image">
+        <p class="myorders_message message_myorders">
+          No sales in respective dates
+        </p>
+      </div>
+    <% else %>
+      <%= render partial:"show-orderslist",locals: {
+          orders_list:@orders.delivered,
+          show_delivered_button:false,
+        }
+      %>
+    <% end %>
   </div>
 </div>
