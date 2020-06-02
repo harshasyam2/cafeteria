@@ -80,7 +80,7 @@ class OrderitemsController < ApplicationController
     id = params[:id]
     orderitem = Orderitem.find(id)
     orderitem.destroy
-    @order = Order.currentuser(current_user).first
+    @order = Order.currentuser(current_user).incart.first
     @orderitems = @order.orderitems
     if @order and @orderitems.count == 0
       redirect_to delete_order_path(

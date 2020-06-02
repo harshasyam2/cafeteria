@@ -13,4 +13,18 @@
       <input class="search_button" type="submit" value="Search">
     </div>
   <% end %>
+  <div class="sales_page">
+    <div class="display_dates">From Date :
+      <p class="display_ini_fin_dates"><%= Date.today - 30 %></p>
+    </div>
+    <div class="display_dates">To Date :
+      <p class="display_ini_fin_dates"><%= Date.today %></p>
+    </div>
+    <% @orders = Order.fromto( Date.today - 30,Date.today) %>
+    <%= render partial:"show-orderslist", locals:{
+        orders_list: @orders.delivered,
+        show_delivered_button:false,
+      }
+    %>
+  </div>
 </div>

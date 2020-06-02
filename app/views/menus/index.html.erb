@@ -79,12 +79,12 @@
                                 <% orderitem_count = @orderitems.count %>
                         <% end %>
                 <% end %>
-                <% if current_user.role=="Owner" %>
+                <% if current_user.role == "Owner" %>
                         <%  display_cart= false %>
                 <% else %>
                         <% display_cart= true %>
                 <% end %>
-                <% if @orderitems and orderitem_count>0 %>
+                <% if @orderitems and orderitem_count > 0 %>
                         <div class="<%= display_cart ? "cart_menu_block" : "" %>">
                 <% else %>
                         <div class="">

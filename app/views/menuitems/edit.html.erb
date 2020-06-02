@@ -17,7 +17,7 @@
         %>
       <select class="menu_id" name="menu_id">
         <% Menu.active.each do |menu| %>
-          <option value="<%= menu.id %>"> <%= menu.name %></option>
+          <option value="<%= menu.id %>" selected="<%= menu.name == Menu.find(@menuitem.menu_id).name ? "selected" : ""%>"> <%= menu.name %> </option>
         <% end %>
       </select>
       <%= text_field_tag(

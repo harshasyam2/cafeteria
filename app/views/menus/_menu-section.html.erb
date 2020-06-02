@@ -10,7 +10,9 @@
           </button>
         <% end %>
         <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
-          <input class="edit_menu" type="submit" value="Edit">
+          <button class="edit_menu" type="submit">
+            <i class="fa fa-edit edit_icon"></i>Edit
+          </button>
         <% end %>
       <% end %>
     </div>
@@ -43,7 +45,7 @@
             <%= link_to "Edit", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
           </td>
           <% else %>
-            <%= form_with(url: "/orders",method: "POST",local:true) do %>
+            <%= form_with(url: "/orders",method: "POST", local: true) do %>
               <td width="20%">
                 <input class="item_count" name="no_of_items" type="number" min="1" max="10" value="1">
               </td>

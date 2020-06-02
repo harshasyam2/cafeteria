@@ -36,6 +36,11 @@
                 <% end %>
               </table>
               <p class="cart_section_subtotal"> SubTotal: <%= subtotal %>/-</p>
+              <div class="cart_section_proceed">Completed Your Order ?
+                <%= form_with(url: "/orderitems", method: "get", local:true) do %>
+                  <input type="submit" class="proceed_button" value="Go to cart">
+                <% end %>
+              </div>
             </div>
           </div>
         <% end %>
