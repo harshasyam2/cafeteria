@@ -1,0 +1,26 @@
+<caption class="manage_menus_title"> <%= title %> Menus </caption>
+<tr class="manage_menus_row">
+  <td class="manage_menus_data">
+    <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
+      <%= check_box_tag(
+          name="status",
+          value="1",
+          checked = menu.status=="Active",
+          options={
+            class: "TodoItem-checkbox",
+            onclick: "this.form.submit()"
+          }
+        )
+      %>
+    <% end %>
+  </td>
+  <td class="manage_menus_data">  <%= menu.name %>  </td>
+  <td class="manage_menus_data">  <p class="<%= status_bar %>"><%= menu.status.capitalize %></p> </td>
+  <td class="manage_menus_data">
+    <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
+      <button class="edit_menu" type="submit">
+        <i class="fa fa-edit edit_icon"></i><p class="edit_menus">Edit</p>
+      </button>
+    <% end %>
+  </td>
+</tr>

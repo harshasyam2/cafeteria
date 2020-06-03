@@ -30,4 +30,8 @@ class Menu < ActiveRecord::Base
   def self.active
     all.where("status=?", "Active")
   end
+
+  def self.inactive
+    all.where("status=?", "Inactive")
+  end
 end

@@ -1,0 +1,29 @@
+<div class="main_content">
+  <p class="title_of_page"> Manage Menus </p>
+  <div class="manage_menu_block">
+    <% if Menu.active.count >0 %>
+      <table class="manage_menus">
+        <% Menu.active.each do |menu| %>
+          <%= render partial:"menus-manage",locals:{
+              title: "Active",
+              menu: menu,
+              status_bar: "active_button"
+              }
+          %>
+        <% end %>
+      </table>
+    <% end %>
+    <% if Menu.inactive.count >0 %>
+      <table class="manage_menus">
+        <% Menu.inactive.each do |menu| %>
+          <%= render partial:"menus-manage",locals:{
+              title: "Inactive",
+              menu: menu,
+              status_bar: "inactive_button"
+              }
+          %>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div>

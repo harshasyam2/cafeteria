@@ -1,5 +1,59 @@
 .main_content{
-  min-height:calc(100vh - 160px);
+  min-height:calc(100vh - 180px);
+}
+
+.manage_menu_block{
+ display:flex;
+ align-items:flex-start;
+ margin-bottom:100px;
+}
+
+.edit_menus:hover{
+  text-decoration:underline;
+}
+
+.manage_menus{
+  width:500px;
+  margin:0 auto;
+  background-color:lavender;
+}
+
+.manage_menus_row{
+  height:auto;
+}
+
+.manage_menus_data{
+  text-align:left;
+  padding:10px;
+  vertical-align:middle;
+  line-height:20px;
+}
+
+.manage_menus_title{
+  color:salmon;
+  font-weight:bolder;
+  font-weight:18px;
+  text-decoration:underline;
+  margin:30px;
+}
+
+.active_button,.inactive_button{
+  font-weight:600;
+  text-align:center;
+  width:80px;
+  padding:5px 10px;
+  border:1px solid grey;
+  border-radius:8px;
+}
+
+.active_button{
+  background-color:limegreen;
+  color:white;
+}
+
+.inactive_button{
+  background-color:#DC4348;
+  color:white;
 }
 
 .address_label_block{
@@ -53,6 +107,7 @@
   background-color:#FF8D27;
   display:flex;
   align-items:center;
+  font-weight:bold;
   justify-content:center;
 }
 
@@ -168,13 +223,9 @@
   margin:auto;
 }
 
-.menu_delete{
-  width:160px;
-  visibility:hidden;
-}
-
 .edit_icon{
-  margin-right:10px;
+  padding:10px;
+  margin-right:5px;
 }
 
 .edit_menu{
@@ -184,25 +235,14 @@
   text-align:center;
   color:navy;
   font-size:18px;
-  text-decoration:underline;
-  background-color:white;
-  visibility:hidden;
-  margin-left:20px;
+  background-color:lavender;
+  padding:10px;
 }
 
 .title_and_delete:hover > .menu_delete{
   background-color:lightgray;
   color:red;
   visibility:visible;
-}
-
-.title_and_delete:hover > .edit_menu{
-  visibility:visible;
-}
-
-
-.title_and_delete:hover > .edit_icon{
-  display:none;
 }
 
 .Menu_name{
@@ -450,20 +490,33 @@
   margin:auto;
 }
 
-.edit_line_block{
+.edit_input_block{
   display:flex;
   align-items:center;
-  width:300px;
-  margin:auto;
+  width:500px;
+  margin:0 auto;
+  padding:20px;
 }
 
-.edit_name_price{
+.edit_submit_block{
+  width:140px;
+  padding-top:30px;
+  margin:0 auto;
+}
+
+.edit_name{
+  color:#453C52;
+  font-size:16px;
+  width:140px;
+  padding:10px;
+}
+
+.edit_name_price,.edit_url{
   padding:5px 10px;
   font-size:14px;
   border:2px solid grey;
   border-radius:8px;
   margin:5px;
-
 }
 
 .update_button{
@@ -472,7 +525,7 @@
   border:1px solid transparent;
   border-radius:8px;
   color:white;
-  margin-left:10px;
+  justify-content:center;
   margin-right:10px;
 }
 

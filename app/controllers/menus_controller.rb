@@ -9,6 +9,10 @@ class MenusController < ApplicationController
     end
   end
 
+  def managemenus
+    render "managemenus"
+  end
+
   def create
     name = params[:name].gsub(/\s+/, "").strip.upcase
     menu = Menu.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
@@ -70,11 +74,22 @@ class MenusController < ApplicationController
   def destroy
     id = params[:id]
     menu = Menu.find(id)
-    menu.status = "Inactive"
+    status = params[:status]
+    if status
+      menu.status = "Active"
+    else
+      menu.status = "Inactive"
+    end
     if menu.save
-      redirect_to destroy_menuitem_path(
-        :menu_id => id,
-      )
+      if menu.status == "Inactive"
+        redirect_to destroy_menuitem_path(
+          :menu_id => id,
+        )
+      elsif menu.status == "Active"
+        redirect_to create_menuitem_path(
+          :menu_id => id,
+        )
+      end
     else
       flash[:error] = menu.errors.full_messages.join(",")
       redirect_to menus_path

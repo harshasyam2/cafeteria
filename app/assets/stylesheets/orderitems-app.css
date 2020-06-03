@@ -208,7 +208,7 @@
 }
 
 .heading_lists{
-  background-color: #EFD;
+  background-color:lavender;
   font-size:14px;
   font-weight:600;
   padding:8px;
@@ -226,6 +226,7 @@
   font-size:12px;
   padding:8px;
   text-align:center;
+  background-color:mintcream;
   border:1px solid black;
 }
 

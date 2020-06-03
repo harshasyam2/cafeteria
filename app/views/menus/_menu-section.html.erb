@@ -3,17 +3,7 @@
     <div class="title_and_delete">
       <p class="title"><%= menu_title %></p>
       <% if show_delete_btn %>
-        <% menu=Menu.find_by("name=?","#{menu_title}") %>
-        <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
-          <button class="delete menu_delete" type="submit">
-            <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;Delete
-          </button>
-        <% end %>
-        <%= form_with(url: "/menus/#{menu.id}/edit", method: "get", local: true) do %>
-          <button class="edit_menu" type="submit">
-            <i class="fa fa-edit edit_icon"></i>Edit
-          </button>
-        <% end %>
+
       <% end %>
     </div>
     <% menuitems.active.each do |menu_item| %>

@@ -30,6 +30,9 @@
                   </p>
                 <% end %>
                 <% if @current_user.role == "Owner" %>
+                  <p class="dropdown-lists" >
+                    <%= link_to "Manage Menus", manage_menus_path, class:"links_dropdown" %>
+                  </p>
                   <p class="dropdown-lists">
                     <%= link_to "Make an Order",owner_menus_path,class:"links_dropdown" %>
                   </p>
