@@ -315,7 +315,8 @@
 }
 
 .proceed_button:hover{
-  background-color:#DC4348;
+  background-color:cornsilk;
+  color:black;
 }
 
 .cart_display_content{
@@ -420,6 +421,7 @@
   border:1px solid transparent;
   border-radius:5px;
   padding:5px 10px;
+  margin-left:20px;
 }
 
 .Add_to_cart:hover{
@@ -456,10 +458,9 @@
 }
 
 .edit_name_price{
-  padding:5px;
-  padding-left:15px;
+  padding:5px 10px;
   font-size:14px;
-  border:2px solid lightgrey;
+  border:2px solid grey;
   border-radius:8px;
   margin:5px;
 

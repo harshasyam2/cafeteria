@@ -2,14 +2,12 @@
   <%= form_with(url: "/menus/#{@menu.id}", method: "put",local:true) do %>
   <div class="edit_block">
     <div class="edit_line_block">
-      <%= text_field_tag(
-          name="name",
-          value="#{@menu.name}",
-          class: "edit_name_price",
-          size: "15",
-          )
-      %>
-      <input type="submit" class="update_button" value="Update item">
+      <select class="edit_name_price" name="name">
+        <% Menu.active.each do |menu| %>
+          <option value="<%= menu.name %>" <%= (menu.name== @menu.name) ? "selected" : "" %>> <%= menu.name %> </option>
+        <% end %>
+      </select>
+      <input type="submit" class="update_button" value="Update Menu" data-disable-with="Updating ...">
     </div>
   </div>
   <% end %>

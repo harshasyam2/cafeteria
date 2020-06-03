@@ -21,7 +21,7 @@
             <td>
               <p class="display_price">Price :<%= orderitem.menuitem_price %>/-</p>
             </td>
-              <td colspan="2" width="20%">
+              <td colspan="1" width="20%">
                 <%= form_with(url: "/orderitems/#{orderitem.id}", method: "put") do %>
                   <p class="display_quantity">Quantity :
                     <input type="number"
@@ -38,7 +38,7 @@
             </td>
             <td>
               <%= form_with(url: "/orderitems/#{orderitem.id}",method: "delete", local:true) do %>
-                <input type="submit" class="Remove_cartitem" value="Remove">
+                <input type="submit" class="Remove_cartitem" value="Remove" data-disable-with="Removing ..." >
               <% end %>
             </td>
           </tr>
@@ -54,7 +54,7 @@
             <label class="address_label">Address :<p class="Mandatory"> * </p></label>
             <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
           </div>
-          <input type="submit" class="Confirm_order" value="Confirm Order">
+          <input type="submit" class="Confirm_order" value="Confirm Order" data-disable-with="Confirming ...">
         <% end %>
       <% end %>
     </div>

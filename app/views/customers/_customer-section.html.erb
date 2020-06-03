@@ -11,7 +11,7 @@
           <%= form_with(url: "/customers/#{customer.id}",method: "put", local: true) do %>
             <td>
               <input type="hidden" name="role" value="<%= cust_value %>">
-              <input class="billing_button" type="submit" value="<%= button_value %>">
+              <input class="billing_button" type="submit" value="<%= button_value %>" data-disable-with="changing...">
             </td>
           <% end %>
       </tr>

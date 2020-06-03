@@ -13,7 +13,9 @@ class OrderitemsController < ApplicationController
   def create
     id = params[:menuitem_id]
     @orderitem = Orderitem.item_present(params[:order_id])
-    orderitem = @orderitem.menuitem_present(params[:menuitem_id]).first
+    if @orderitem
+      orderitem = @orderitem.menuitem_present(params[:menuitem_id]).first
+    end
     if orderitem
       count = orderitem.no_of_items
       no_of_items = params[:no_of_items]

@@ -3,7 +3,7 @@
     <div class="title_and_delete">
       <p class="title"><%= menu_title %></p>
       <% if show_delete_btn %>
-        <% menu=Menu.find_by(name:"#{menu_title}") %>
+        <% menu=Menu.find_by("name=?","#{menu_title}") %>
         <%= form_with(url: "/menus/#{menu.id}", method: "DELETE", local: true) do %>
           <button class="delete menu_delete" type="submit">
             <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;Delete
@@ -32,28 +32,26 @@
           </p>
         </td>
         <% if show_delete_btn %>
-          <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
-            <td width="20%">
+          <td width="20%">
+            <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
               <div class="input-icons">
                 <button class="delete" type="submit">
                   <i class="fa fa-trash icon_delete"></i>&nbsp;&nbsp;&nbsp; Delete
                 </button>
               </div>
-            </td>
-          <% end %>
+            <% end %>
+          </td>
           <td width="20%">
             <%= link_to "Edit", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
           </td>
           <% else %>
-            <%= form_with(url: "/orders",method: "POST", local: true) do %>
-              <td width="20%">
+            <td colspan="2" width="40%">
+              <%= form_with(url: "/orders",method: "POST", local: true) do %>
                 <input class="item_count" name="no_of_items" type="number" min="1" max="10" value="1">
-              </td>
-              <input type="hidden" name="id" value="<%= menu_item.id %>">
-              <td width="20%">
-                <input class="Add_to_cart" type="submit" value="&nbsp;Add&nbsp;">
-              </td>
-            <% end %>
+                <input type="hidden" name="id" value="<%= menu_item.id %>">
+                <input class="Add_to_cart" type="submit" value="&nbsp;Add&nbsp;" data-disable-with="Adding....">
+              <% end %>
+            </td>
           <% end %>
       </tr>
     <% end %>

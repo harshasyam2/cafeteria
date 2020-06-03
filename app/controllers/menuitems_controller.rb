@@ -56,6 +56,20 @@ class MenuitemsController < ApplicationController
     menuitem.status = "Inactive"
     if menuitem.save
       flash[:alert] = "Menuitem removed successfully"
+      orders = Order.incart
+      orders.each do |order|
+        orderitems = Orderitem.item_present(order.id)
+        orderitems.each do |orderitem|
+          if orderitem.menuitem_name == menuitem.name
+            orderitem.destroy
+          else
+            flash[:error] = orderitem.errors.full_messages.join(",")
+          end
+        end
+        if order.orderitems.count < 1
+          order.destroy
+        end
+      end
     else
       flash[:error] = menuitem.errors.full_messages.join(",")
     end

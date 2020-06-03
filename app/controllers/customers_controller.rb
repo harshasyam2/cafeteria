@@ -76,7 +76,7 @@ class CustomersController < ApplicationController
     id = params[:id]
     email = params[:email]
     customer = Customer.find(id)
-    customer_a = Customer.find_by(email: email)
+    customer_a = Customer.find_by("email=?", email)
     if customer_a == current_user
       customer.first_name = params[:first_name]
       customer.last_name = params[:last_name]

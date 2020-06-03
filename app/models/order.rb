@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
-  has_many :orderitems
   belongs_to :customer
+  has_many :orderitems
   validates :address, presence: true, on: :update, length: { minimum: 10 }
 
   def self.incart

@@ -127,13 +127,14 @@
 }
 
 .Form-submit{
-  margin-left:110px;
+  margin-left:90px;
   font-size:14px;
   padding:10px;
   font-weight: 600;
   background-color: #8EE4AF;
   border:1px solid transparent;
   border-radius:8px;
+  width:120px;
 }
 
 .Form-submit:hover{
@@ -243,6 +244,7 @@
 }
 
 .column_heading{
+  background-color: #EFD;
   font-weight:bolder;
 }
 
@@ -293,11 +295,11 @@
   border:1px solid transparent;
   border-radius:8px;
   margin:10px;
+  font-weight:600;
 }
 
 .billing_button:hover{
   background-color:black;
-  font-weight:600;
 }
 
 .user_title{
@@ -363,12 +365,11 @@
 }
 
 .menu_id{
-  padding-left:8px;
-  padding-top:5px;
-  padding-bottom:5px;
+  font-size:14px;
+  padding:5px 10px;
   margin-left:20px;
   margin-right:10px;
-  border: 1px solid transparent;
+  border: 1px solid grey;
   border-radius: 8px;
   cursor: pointer;
   background-color:white;

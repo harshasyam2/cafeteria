@@ -16,7 +16,7 @@
                                         %>
                                 </div>
                                 <div class="add_menu_input">
-                                        <input class="submit menu_submit" type="submit" value="Add menu">
+                                        <input class="submit menu_submit" type="submit" value="Add menu" data-disable-with="Adding ....">
                                 </div>
                         </div>
                 <% end %>
@@ -49,7 +49,7 @@
                                 placeholder: "Image Url"
                                 )
                         %>
-                        <input class="submit" type="submit" value="Add an item">
+                        <input class="submit" type="submit" value="Add an item" data-disable-with="Adding ....">
                 <% end %>
         <% end %>
                 <div class="search_section">
@@ -67,7 +67,7 @@
                                         <% else %>
                                                 <input type="hidden" name="page" value="normal_page">
                                         <% end %>
-                                        <button type="submit" class="Form-search">
+                                        <button type="submit" class="Form-search" data-disable-with="Searching...">
                                                 <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
                                         </button>
                         <% end %>

@@ -21,11 +21,11 @@
               </div>
             </div>
             <div class="Form-section">
-              <%= form.submit "Sign-in!",class:"Form-submit" %>
+              <%= form.submit "Sign-in!",class:"Form-submit",data: { disable_with: "Signing.." } %>
             </div>
           <% end %>
         </section>
-        <p class="Signup_link">Don't have an Account ? <%= link_to "Create Account",new_customer_path,class:"links" %> here </p>
+        <p class="Signup_link">New User ? <%= link_to "Create Account",new_customer_path,class:"links" %> here </p>
       </div>
     </div>
   </section>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    customer = Customer.find_by(email: params[:email])
+    customer = Customer.find_by("email=?", params[:email])
     if customer && customer.authenticate(params[:password])
       session[:current_user_id] = customer.id
       flash[:alert] = "Welcome Back to Cafeteria Management"

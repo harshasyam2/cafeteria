@@ -38,10 +38,10 @@
               </div>
             </div>
             <div class="Form-section">
-              <%= form.submit "Sign Up",class:"Form-submit"%>
+              <%= form.submit "Sign Up",class:"Form-submit",data: { disable_with: "Creating..." } %>
             </div>
           <% end %>
-        <p class="Signin_link">Are you an existing user ? <%= link_to "Sign-in",new_sessions_path,class:"links" %>here </p>
+        <p class="Signin_link"> Have an account ? <%= link_to "Sign-in",new_sessions_path,class:"links" %>here </p>
       </section>
     </div>
   </section>
