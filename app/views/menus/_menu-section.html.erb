@@ -40,10 +40,12 @@
             <%= link_to "Edit", "/menuitems/#{menu_item.id}/edit", method:"get", class:"links" %>
           </td>
           <% else %>
-            <td colspan="2" width="40%">
+            <td colspan="2" width="400px">
               <%= form_with(url: "/orders",method: "POST", local: true) do %>
                 <% order=Order.currentuser(current_user).incart.first %>
-                <% orderitem = order.orderitems.menuitem_present(menu_item.id).first %>
+                <% if order %>
+                  <% orderitem = order.orderitems.menuitem_present(menu_item.id).first %>
+                <% end %>
                 <input class="item_count"
                   name="no_of_items"
                   type="number"

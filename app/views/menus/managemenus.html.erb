@@ -3,9 +3,9 @@
   <div class="manage_menu_block">
     <% if Menu.active.count >0 %>
       <table class="manage_menus">
+        <caption class="manage_menus_title"> Active Menus </caption>
         <% Menu.active.each do |menu| %>
           <%= render partial:"menus-manage",locals:{
-              title: "Active",
               menu: menu,
               status_bar: "active_button"
               }
@@ -15,9 +15,9 @@
     <% end %>
     <% if Menu.inactive.count >0 %>
       <table class="manage_menus">
+        <caption class="manage_menus_title"> Inactive Menus </caption>
         <% Menu.inactive.each do |menu| %>
           <%= render partial:"menus-manage",locals:{
-              title: "Inactive",
               menu: menu,
               status_bar: "inactive_button"
               }

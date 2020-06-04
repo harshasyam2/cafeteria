@@ -3,11 +3,7 @@
   <div class="edit_block">
       <div class="edit_input_block">
         <label class="edit_name">Menu Name:</label>
-        <select class="edit_name_price" name="name">
-          <% Menu.active.each do |menu| %>
-            <option value="<%= menu.name %>" <%= (menu.name== @menu.name) ? "selected" : "" %>> <%= menu.name %> </option>
-          <% end %>
-        </select>
+        <input type="text" class=" edit_name_price" value="<%= @menu.name %>">
       </div>
       <div class="edit_submit_block">
         <input type="submit" class="update_button" value="Update Menu" data-disable-with="Updating ...">
