@@ -511,12 +511,16 @@
   padding:10px;
 }
 
-.edit_name_price,.edit_url{
+.edit_name_price,.edit_url,.edit_description{
   padding:5px 10px;
   font-size:14px;
   border:2px solid grey;
   border-radius:8px;
   margin:5px;
+}
+
+.edit_description{
+  padding:20px;
 }
 
 .update_button{
@@ -544,8 +548,27 @@
   background-color:white;
 }
 
+.description_image{
+  display:inline;
+  height:150px;
+}
+
+.description{
+  margin-left:60px;
+  width:200px;
+  color:#453C52;
+  cursor:pointer;
+  vertical-align:middle;
+  visibility:hidden;
+}
+
+.description_image_block:hover .description{
+  visibility:visible;
+}
+
 .menu-item-image{
   margin:20px;
+  vertical-align:middle;
   margin-left:90px;
   margin-bottom:0px;
   width:150px;

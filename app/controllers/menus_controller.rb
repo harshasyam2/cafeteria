@@ -16,7 +16,7 @@ class MenusController < ApplicationController
   def create
     name = params[:name].gsub(/\s+/, "").strip.upcase
     menu = Menu.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
-    if menu and menu.status == "Active"
+    if menu
       flash[:error] = "Menu with entered details exists.Please check the details."
       redirect_to menus_path
     elsif menu and menu.status == "Inactive"

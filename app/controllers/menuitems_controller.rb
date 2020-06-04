@@ -5,7 +5,7 @@ class MenuitemsController < ApplicationController
 
   def uniquemenuitem
     name = params[:name].upcase
-    @menuitems = Menuitem.where("UPPER(name) like ?", "%#{name}%").all
+    @menuitems = Menuitem.where("UPPER(name) like ?", "%#{name}%").active
     if @menuitems.count != 0
       page = params[:page]
       render "uniquemenuitem", locals: { menuitems: @menuitems, user: current_user, show_delete: page == "delete_page" ? true : false }
@@ -123,6 +123,7 @@ class MenuitemsController < ApplicationController
     menuitem.price = params[:price]
     menuitem.menu_id = params[:menu_id]
     menuitem.url = params[:url]
+    menuitem.description = params[:description]
     if menuitem.save
       flash[:error] = "Menuitem updated successfully"
     else

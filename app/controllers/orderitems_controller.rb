@@ -17,9 +17,7 @@ class OrderitemsController < ApplicationController
       orderitem = @orderitem.menuitem_present(params[:menuitem_id]).first
     end
     if orderitem
-      count = orderitem.no_of_items
       no_of_items = params[:no_of_items]
-      total_items = Orderitem.add_items_incart(count, no_of_items)
       if no_of_items.to_i < 1
         flash[:error] = "Please select quantity to add item to cart"
         if current_user.role == "Owner"
@@ -27,12 +25,12 @@ class OrderitemsController < ApplicationController
         else
           redirect_to menus_path
         end
-      elsif total_items > 10
+      elsif no_of_items.to_i > 10
         flash[:error] = "Can't order more than 10 items"
         redirect_to orderitems_path
       else
-        flash[:alert] = "Total no.of #{orderitem.menuitem_name}'s in cart is #{total_items}"
-        orderitem.no_of_items = total_items
+        flash[:alert] = "Total no.of #{orderitem.menuitem_name}'s in cart is #{no_of_items}"
+        orderitem.no_of_items = no_of_items
         orderitem.save
         if current_user.role == "Owner"
           redirect_to owner_menus_path

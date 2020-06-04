@@ -38,6 +38,18 @@
             )
           %>
       </div>
+       <div class="edit_input_block">
+        <label class="edit_name">Description:</label>
+        <%= text_area_tag(
+            name="description",
+            value="#{@menuitem.description}",
+            placeholder: "Describe your item .....",
+            class: "edit_description",
+            rows: "5",
+            columns: "60"
+            )
+          %>
+      </div>
       <div class="edit_submit_block">
         <input type="submit" class="update_button" value="Update item" data-disable-with="Updating ..." >
       </div>
