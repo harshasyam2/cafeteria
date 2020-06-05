@@ -14,7 +14,7 @@
       <% if @current_user %>
         <div class="Customer_heading">
           <div class="dropdown">
-            <span><i class="fa fa-bars bars_display"></i></span>
+            <span><i class="fa fa-bars bars_display" style="font-size:20px"></i></span>
             <div class="dropdown-content">
                 <% if @current_user %>
                   <p class="dropdown-lists">
@@ -84,9 +84,11 @@
       </div>
     <% end %>
     <% if @current_user %>
-        <p class="Flash-alert"> <%= flash[:alert] %> </p>
-        <p class="Flash-error"> <%= flash[:error] %> </p>
-        <p class="Flash-alert-message"> <%= flash[:alert_message] %> </p>
+        <div class="flash_background">
+          <p class="Flash-alert"> <%= flash[:alert] %> </p>
+          <p class="Flash-error"> <%= flash[:error] %> </p>
+          <p class="Flash-alert-message"> <%= flash[:alert_message] %> </p>
+        </div>
     <% end %>
     <%= yield %>
     <div class="footer_line">

@@ -15,8 +15,10 @@
       <th class="heading_lists"> Status </th>
     <% end %>
   </tr>
+  <% value_decides_class=0 %>
   <% orders_list.order(:date).each do |order| %>
-    <tr class="list_row">
+    <% value_decides_class+=1 %>
+    <tr class="<%= value_decides_class.even? ? "list_row_one" : "list_row_two" %>">
     <% customer=Customer.find(order.customer_id) %>
       <td colspan="2" class="list_row_data">
         <% customer_name=customer.first_name %>

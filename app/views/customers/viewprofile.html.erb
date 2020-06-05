@@ -1,4 +1,5 @@
-<div class="main_content">
+<div class="main_content logged_in_background">
+  <p class="title_of_page"> Manage Profile </p>
   <section class="viewprofile_block">
     <%= form_with url:profile_customer_path do |form| %>
       <input type="hidden" name="id" value="<%= @user.id %>">
@@ -29,7 +30,7 @@
           <%= form.email_field :email,value:"#{@user.email}",class:"Form-input profile-input",placeholder:"Email-id" %>
         </div>
       </div>
-      <%= form.submit "Update Profile",class:"update_profile",local:true, data:{disable_with: "Updating.." }%>
+      <%= form.submit "Update Profile",class:"update_profile",local:true, data:{disable_with: "Updating ..." }%>
     <% end %>
   </section>
 </div>

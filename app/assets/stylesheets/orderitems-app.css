@@ -6,13 +6,11 @@
 
 .title_of_page{
   text-align:center;
-  color:rgb(115, 83, 160);
   font-weight:bolder;
+  font-size:20px;
   padding:5px 10px;
-  text-decoration:underline;
   margin-bottom:40px;
-  margin-top:-10px;
-  border-radius:8px;
+  padding-top:30px;
 }
 
 .totalearning{
@@ -110,29 +108,52 @@
   padding:5px 10px;
   margin:10px;
   font-size:12px;
-  border:1px solid transparent;
+  border:1px solid lightgrey;
   border-radius:8px;
   background-color:limegreen;
   color:white;
+  font-weight:600;
 }
 
 .show{
   margin-left:-50px;
 }
+
 .button:hover{
-  background-color:skyblue;
+  background-color:#FCE588;
   color:black;
 }
 
-.order_items_caption{
-  text-shadow:5px 5px 5px red;
-  margin:10px;
-  text-align:center;
+.delivered:hover{
+  background-color:palegreen;
 }
 
-.order_items_caption:hover{
-  text-decoration:underline;
-  text-shadow:5px 5px 5px skyblue;
+.order_items_caption{
+  width:100px;
+  margin:auto;
+  text-align:center;
+  font-size:18px;
+}
+
+.cancel_block,.order_block,.deliver_block{
+  border:1px solid lightgray;
+  border-radius:8px;
+  padding:5px 10px;
+  margin-top:20px;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+
+.order_block{
+  background-color:#F7C948;
+}
+
+.cancel_block{
+  background-color:#FF9B9B;
+}
+
+.deliver_block{
+  background-color:#65D6AD;
 }
 
 .order_item_data{
@@ -179,7 +200,7 @@
 }
 
 .myorders_content{
-  margin-bottom:100px;
+  padding-bottom:100px;
 }
 
 .message_myorders{
@@ -209,24 +230,31 @@
 
 .heading_lists{
   background-color:lavender;
-  font-size:14px;
+  font-size:16px;
   font-weight:600;
   padding:8px;
   border:1px solid black;
   text-align:center;
 }
 
-.list_row{
+.list_row_one,.list_row_two,.list_row{
   width:100px;
   border:1px solid black;
 }
 
+.list_row_one,.feedback_row_one{
+  background-color:mintcream;
+}
+
+.list_row_two,.feedback_row_two{
+  background-color:lavenderblush;
+}
+
 .list_row_data{
   width:100px;
-  font-size:12px;
+  font-size:14px;
   padding:8px;
   text-align:center;
-  background-color:mintcream;
   border:1px solid black;
 }
 
@@ -302,12 +330,12 @@
   border:2px solid lightgray;
   border-radius:8px;
   background-color:#8EE4AF;
+  font-weight:600;
+  color:white;
 }
 
 .cancel_order:hover{
-  background-color:red;
-  color:lightgrey;
-  font-weight:600;
+  background-color:#E12D39;
 }
 
 .my_orders_bill_line{

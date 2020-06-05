@@ -1,4 +1,5 @@
-<div class="main_content">
+<div class="main_content logged_in_background">
+  <p class="title_of_page"> Feedback </p>
   <table class="feedback_table">
     <tr class="feedback_row">
       <th colspan="2" class="feedback_data column_heading">Name</th>
@@ -8,8 +9,10 @@
       <th class="feedback_data column_heading">Email</th>
       <th class="feedback_data column_heading">Feedback</th>
     </tr>
+    <% value_decides_class=0 %>
     <% Contact.all.each do |contact| %>
-      <tr class="feedback_row">
+      <% value_decides_class+=1 %>
+      <tr class="<%= value_decides_class.even? ? "feedback_row_one" : "feedback_row_two" %>">
         <td colspan="2" class="feedback_data">
           <%= contact.first_name.concat(" #{contact.last_name}") %>
         </td>

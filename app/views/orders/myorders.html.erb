@@ -1,4 +1,4 @@
-<div class="main_content">
+<div class="main_content myorders_background">
   <p class="title_of_page">My Orders</p>
   <% if @orders.notincart.count==0%>
     <div class="emptycart_block">
@@ -12,6 +12,7 @@
         orders: @orders.ordered,
         order_title: "Ordered",
         count: @orders.ordered.count,
+        style_class: "order_block"
       }
       %>
 
@@ -19,6 +20,7 @@
         orders: @orders.cancelled,
         order_title: "Cancelled",
         count: @orders.cancelled.count,
+        style_class: "cancel_block"
       }
       %>
 
@@ -26,6 +28,7 @@
         orders: @orders.delivered,
         order_title: "Delivered",
         count: @orders.delivered.count,
+        style_class: "deliver_block"
       }
       %>
     </div>

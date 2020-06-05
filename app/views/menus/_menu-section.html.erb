@@ -22,9 +22,9 @@
           <p class="Menu_name"> <%= menu_item.name %></p>
         </td>
         <td width="20%">
-          <p class="display_price">
-            Price :<%= menu_item.price %>/-
-          </p>
+          <div class="display_price">
+            Price :<p class="price_value"><%= menu_item.price %></p>/-
+          </div>
         </td>
         <% if show_delete_btn %>
           <td width="20%">

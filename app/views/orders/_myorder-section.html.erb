@@ -1,18 +1,19 @@
 <% if count!=0 %>
-  <p class="order_items_caption"> <%= order_title %> </p>
+  <p class="order_items_caption <%= style_class %>"> <%= order_title %> </p>
 <table class="list_orders_to_admin">
   <tr class="list_row">
     <th colspan="2" class="heading_lists"> Name </th>
     <th class="heading_lists">Ordered Date</th>
     <th class="heading_lists"> Sub Total</th>
     <th class="heading_lists"> Show Details </th>
-    <th class="heading_lists"> Status </th>
     <% if order_title=="Ordered" %>
       <th class="heading_lists"> Cancellation </th>
     <% end %>
   </tr>
+  <% value_decides_class=0 %>
   <% orders.notincart.order(:date).each do |order| %>
-    <tr class="list_row">
+    <% value_decides_class+=1 %>
+    <tr class="<%= value_decides_class.even? ? "list_row_one" : "list_row_two" %>">
     <% customer=Customer.find(order.customer_id) %>
       <td colspan="2" class="list_row_data">
         <% customer_name=customer.first_name %>
@@ -23,7 +24,7 @@
         <% end %>
       </td>
       <td class="list_row_data">
-        <%= order.date %>
+        <%= order.date.to_s(:long) %>
       </td>
       <td class="list_row_data">
         <p class="order_bill"><%= order.bill %>/-</p>
@@ -32,9 +33,6 @@
         <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>
           <input class="button show list_row_show" type="submit" value="Show Details">
         <% end %>
-      </td>
-      <td class="list_row_data">
-        <p class="order_status"><%= order.status.capitalize %></p>
       </td>
       <% if order_title=="Ordered" %>
         <td class="list_row_data">

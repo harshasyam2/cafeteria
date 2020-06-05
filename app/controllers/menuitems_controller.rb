@@ -58,7 +58,7 @@ class MenuitemsController < ApplicationController
       flash[:alert] = "Menuitem removed successfully"
       orders = Order.incart
       orders.each do |order|
-        orderitems = Orderitem.item_present(order.id)
+        orderitems = order.orderitems
         orderitems.each do |orderitem|
           if orderitem.menuitem_name == menuitem.name
             orderitem.destroy
@@ -84,7 +84,7 @@ class MenuitemsController < ApplicationController
         flash[:alert] = "Menu and Menuitems removed successfully"
         orders = Order.incart
         orders.each do |order|
-          orderitems = Orderitem.item_present(order.id)
+          orderitems = order.orderitems
           orderitems.each do |orderitem|
             if orderitem.menuitem_name == menuitem.name
               orderitem.destroy

@@ -89,6 +89,8 @@
   align-items:center;
   width:800px;
   margin:auto;
+  margin-top:15px;
+  margin-bottom:15px;
 }
 
 .profile-input{
@@ -187,14 +189,14 @@
 }
 
 .about_us,.privacy_policy{
-  width:85%;
+  width:70%;
   margin:auto;
 }
 
 .about_us_content,.privacy_policy_content{
-  font-size:17px;
+  font-size:19px;
   margin:10px;
-  line-height:1.2;
+  line-height:1.6;
 }
 
 .about_us_title,.privacy_policy_title{
@@ -207,10 +209,19 @@
   margin-bottom:40px;
 }
 
+.flash_background{
+  margin-top:-30px;
+  background-color:#EDF2F7;
+  vertical-align:middle;
+}
+
 .Flash-error,.Flash-alert,.Flash-error-signin_up{
   text-align: center;
   color: darkred;
-  margin:20px;
+  margin:30px;
+  margin-bottom:10px;
+  padding-top:5px;
+  vertical-align:middle;
 }
 
 .Flash-error-signin_up{
@@ -244,7 +255,7 @@
 }
 
 .column_heading{
-  background-color: #EFD;
+  background-color:lavender;
   font-weight:bolder;
 }
 
@@ -310,30 +321,33 @@
   margin:auto;
   margin-bottom:20px;
   margin-top:20px;
+  font-weight:600px;
 }
 
 .user_title:hover{
   background-color:black;
   color:white;
-  font-weight:600px;
   border:3px solid black;
+  border-radius:8px;
+  font-weight:bolder;
 }
 
 .update_profile{
   border:1px solid transparent;
-  background-color:#CAFAFE;
+  background-color:#507DD7;
+  color:white;
+  font-weight:600;
   text-align:center;
   border-radius:5px;
   padding:4px;
   margin:auto;
   display:block;
-  margin-top:20px;
+  margin-top:40px;
 }
 
 .update_profile:hover{
   background-color:#FF8D27;
   color:black;
-  font-weight:600;
 }
 
 .users_display_page{
@@ -382,11 +396,11 @@
   padding-left:20px;
   border-radius:8px;
   border:1px solid transparent;
+  font-weight:600;
 }
 
 .input-icons:hover .delete{
-  background-color:lightgray;
-  color:red;
+  background-color:#E12D39
 }
 
 .icon{

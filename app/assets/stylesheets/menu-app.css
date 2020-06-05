@@ -1,5 +1,5 @@
 .main_content{
-  min-height:calc(100vh - 180px);
+  min-height:calc(100vh - 200px);
 }
 
 .manage_menu_block{
@@ -86,12 +86,13 @@
   font-size:14px;
 }
 .address_heading{
-  font-size:16px;
+  font-size:20px;
   margin-bottom:10px;
 }
 
 .address_content{
-  line-height:1.2;
+  font-size:16px;
+  line-height:1.4;
 }
 
 .Main_page{
@@ -205,6 +206,19 @@
   margin-left:40px;
 }
 
+.display_price{
+  display:flex;
+  align-items:center;
+  font-size:18px;
+}
+
+.price_value{
+  font-size:16px;
+  color:#ED553B;
+  font-weight:bold;
+  padding:5px;
+}
+
 .display_quantity{
   display:flex;
   align-items:center;
@@ -247,13 +261,13 @@
 
 .Menu_name{
   text-align:center;
-  color:#453C52;
-  font-size:14px;
+  color:#3D553B;
+  font-size:16px;
   margin:20px;
   margin-left:100px;
   margin-right:30px;
-  background-color:#AFD275;
   padding:5px 8px;
+  font-weight:bold;
   border-radius:8px;
   border:1px solid transparent;
 }
@@ -309,6 +323,7 @@
 
 .sales_page{
   height:auto;
+  margin-top:30px;
   margin-bottom:100px;
 }
 
@@ -326,8 +341,8 @@
 }
 
 .logo{
-  max-height:80px;
-  width:80px;
+  max-height:95px;
+  width:95px;
   border-radius:50%;
   margin-left:-40px;
 }
@@ -340,8 +355,9 @@
 
 .cart_menu_block{
   display:flex;
-  width:100%;
-  justify-content:center;
+  width:80%;
+  margin-left:10%;
+  margin-right:10%;
 }
 
 .proceed_button{
@@ -366,6 +382,7 @@
 .cart_section_proceed{
   display:flex;
   align-items:center;
+  margin-left:10px;
 }
 
 .cart_section_table{
@@ -373,15 +390,17 @@
   border:1px solid black;
   border-collapse:collapse;
   padding:30px;
+  margin:auto;
 }
 
 .cart_section{
-  margin-left:40px;
+  margin-left:10px;
   margin-top:50px;
   background-color:lightsalmon;
   padding:30px;
   width:330px;
   border-radius:15px;
+  box-shadow:2px 2px 3px 3px grey;
   height:auto;
 }
 
@@ -416,7 +435,7 @@
 }
 
 .cart_image{
-  height:30px;
+  height:40px;
   padding:10px;
   border:1px solid transparent;
   transition:0.5s;
@@ -443,152 +462,11 @@
   width:250px;
 }
 
-.emptycart_heading{
-  font-weight:600;
-  font-size:16px;
-  margin:20px;
-  margin-left:-10px;
+.logged_in_background{
+  background-color:#EDF2F7;
 }
 
-.emptycart_message{
-  font-size:14px;
-  margin-left:-60px;
-}
-
-.Add_to_cart{
-  color:white;
-  background-color:limegreen;
-  border:1px solid transparent;
-  border-radius:5px;
-  padding:5px 10px;
-  margin-left:20px;
-}
-
-.Add_to_cart:hover{
-  background-color:#DAAD86;;
-  color:black;
-}
-
-.welcome{
-  font-weight:600;
-  color:white;
-}
-
-.menuitems_show{
-  max-width:700px;
-  margin:0 auto;
-}
-
-.edit_block{
-  height:80vh;
-}
-
-.edit_line_row{
-  display:flex;
-  align-items:center;
-  width:800px;
-  margin:auto;
-}
-
-.edit_input_block{
-  display:flex;
-  align-items:center;
-  width:500px;
-  margin:0 auto;
-  padding:20px;
-}
-
-.edit_submit_block{
-  width:140px;
-  padding-top:30px;
-  margin:0 auto;
-}
-
-.edit_name{
-  color:#453C52;
-  font-size:16px;
-  width:140px;
-  padding:10px;
-}
-
-.edit_name_price,.edit_url,.edit_description{
-  padding:5px 10px;
-  font-size:14px;
-  border:2px solid grey;
-  border-radius:8px;
-  margin:5px;
-}
-
-.edit_description{
-  padding:20px;
-}
-
-.update_button{
-  background-color:limegreen;
-  padding:5px 10px;
-  border:1px solid transparent;
-  border-radius:8px;
-  color:white;
-  justify-content:center;
-  margin-right:10px;
-}
-
-.update_button:hover{
-  background-color:black;
-  color:white;
-  font-weight:600;
-}
-
-.image-holder{
-  border:1px solid transparent;
-  border-radius:5px;
-  padding:3px;
-  padding-left:10px;
-  margin:10px;
-  background-color:white;
-}
-
-.description_image{
-  display:inline;
-  height:150px;
-}
-
-.description{
-  margin-left:60px;
-  width:300px;
-  color:#453C52;
-  cursor:pointer;
-  vertical-align:middle;
-  visibility:hidden;
-}
-
-.description_image_block:hover .description{
-  visibility:visible;
-}
-
-.menu-item-image{
-  margin:20px;
-  vertical-align:middle;
-  margin-left:90px;
-  margin-bottom:0px;
-  width:150px;
-  max-height:150px;
-  border:5px solid gray;
-  border-radius:10px;
-  transition: 0.5s;
-}
-
-.menu-item-image:hover{
-  transform:scale(1.1);
-}
-
-.list_menuitems{
-  margin-left:-50px;
-}
-
-.menuitemimage{
-  margin-left:-20px;
-  width:150px;
-  border:5px solid gray;
-  border-radius:10px;
+.myorders_background{
+  margin-top:-20px;
+  background-color:#EDF2F7;
 }

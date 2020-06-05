@@ -1,0 +1,150 @@
+.emptycart_heading{
+  font-weight:600;
+  font-size:16px;
+  margin:20px;
+  margin-left:-10px;
+}
+
+.emptycart_message{
+  font-size:14px;
+  margin-left:-60px;
+}
+
+.Add_to_cart{
+  color:white;
+  background-color:limegreen;
+  border:1px solid transparent;
+  border-radius:5px;
+  padding:5px 10px;
+  margin-left:20px;
+}
+
+.Add_to_cart:hover{
+  background-color:#DAAD86;;
+  color:black;
+}
+
+.welcome{
+  font-size:16px;
+  font-weight:600;
+  color:white;
+}
+
+.menuitems_show{
+  max-width:700px;
+  margin:0 auto;
+}
+
+.edit_block{
+  height:80vh;
+}
+
+.edit_line_row{
+  display:flex;
+  align-items:center;
+  width:800px;
+  margin:auto;
+}
+
+.edit_input_block{
+  display:flex;
+  align-items:center;
+  width:500px;
+  margin:0 auto;
+  padding:20px;
+}
+
+.edit_submit_block{
+  width:140px;
+  padding-top:30px;
+  margin:0 auto;
+}
+
+.edit_name{
+  color:#453C52;
+  font-size:16px;
+  width:140px;
+  padding:10px;
+}
+
+.edit_name_price,.edit_url,.edit_description{
+  padding:5px 10px;
+  font-size:14px;
+  border:2px solid grey;
+  border-radius:8px;
+  margin:5px;
+}
+
+.edit_description{
+  padding:20px;
+}
+
+.update_button{
+  background-color:limegreen;
+  padding:5px 10px;
+  border:1px solid transparent;
+  border-radius:8px;
+  color:white;
+  justify-content:center;
+  margin-right:10px;
+}
+
+.update_button:hover{
+  background-color:black;
+  color:white;
+  font-weight:600;
+}
+
+.image-holder{
+  border:1px solid transparent;
+  border-radius:5px;
+  padding:3px;
+  padding-left:10px;
+  margin:10px;
+  background-color:white;
+}
+
+.description_image{
+  display:inline;
+}
+
+.description{
+  margin-left:60px;
+  width:300px;
+  color:#453C52;
+  cursor:pointer;
+  vertical-align:middle;
+  visibility:hidden;
+}
+
+.description_image_block:hover .description{
+  visibility:visible;
+}
+
+.menu-item-image{
+  margin:20px;
+  vertical-align:middle;
+  margin-left:90px;
+  margin-bottom:0px;
+  width:150px;
+  max-height:150px;
+  border:1px solid gray;
+  border-radius:10px;
+  box-shadow:2px 2px 3px 3px grey;
+  transition: 0.5s;
+}
+
+.menu-item-image:hover{
+  transform:scale(1.1);
+}
+
+.list_menuitems{
+  margin-left:-50px;
+}
+
+.menuitemimage{
+  margin-left:-20px;
+  width:150px;
+  border:5px solid gray;
+  border-radius:10px;
+}
