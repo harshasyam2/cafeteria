@@ -118,18 +118,25 @@ class MenuitemsController < ApplicationController
 
   def update
     id = params[:id]
+    name = params[:name]
     menuitem = Menuitem.find(id)
-    menuitem.name = params[:name]
-    menuitem.price = params[:price]
-    menuitem.menu_id = params[:menu_id]
-    menuitem.url = params[:url]
-    menuitem.description = params[:description]
-    if menuitem.save
-      flash[:error] = "Menuitem updated successfully"
+    menuitem_other = Menuitem.find_by("name=?", name)
+    if menuitem == menuitem_other or !menuitem_other
+      menuitem.name = params[:name]
+      menuitem.price = params[:price]
+      menuitem.menu_id = params[:menu_id]
+      menuitem.url = params[:url]
+      menuitem.description = params[:description]
+      if menuitem.save
+        flash[:error] = "Menuitem updated successfully"
+      else
+        flash[:error] = menuitem.errors.full_messages.join(",")
+      end
+      redirect_to menus_path
     else
-      flash[:error] = menuitem.errors.full_messages.join(",")
+      flash[:error] = "Menuitem already exists.Please try again"
+      redirect_to edit_menuitem_path
     end
-    redirect_to menus_path
   end
 
   def edit

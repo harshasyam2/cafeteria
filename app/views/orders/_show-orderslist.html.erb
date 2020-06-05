@@ -29,7 +29,7 @@
         <% end %>
       </td>
       <td class="list_row_data">
-        <%= order.date %>
+        <%= order.date.to_s(:long) %>
       </td>
       <td class="list_row_data">
         <%= customer.contact_number %>

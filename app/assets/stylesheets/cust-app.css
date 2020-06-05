@@ -212,20 +212,30 @@
 .flash_background{
   margin-top:-30px;
   background-color:#EDF2F7;
+  padding-bottom:10px;
   vertical-align:middle;
 }
 
-.Flash-error,.Flash-alert,.Flash-error-signin_up{
+.Flash-error,.Flash-alert,.Flash-error-signin_up,.Flash-error-signinup{
   text-align: center;
   color: darkred;
   margin:30px;
   margin-bottom:10px;
   padding-top:5px;
+  width:800px;
+  margin:auto;
+  line-height:1.4;
   vertical-align:middle;
 }
 
 .Flash-error-signin_up{
-  margin-top:40px;
+  padding:20px;
+}
+
+.Flash-error-signinup{
+  margin-top:-10px;
+  padding-bottom:20px;
+  background-color:#EDF2F7;
 }
 
 .Flash-alert-message{
@@ -353,7 +363,7 @@
 .users_display_page{
   width:100%;
   height:auto;
-  margin-bottom:30px;
+  padding-bottom:50px;
   margin:-20 auto;
 }
 

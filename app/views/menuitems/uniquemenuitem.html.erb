@@ -1,4 +1,4 @@
-<div class="main_content">
+<div class="main_content logged_in_background">
   <div class="form-search-clear">
     <%= form_with(url:unique_menuitem_path,local:true) do %>
         <%= text_field_tag(
@@ -34,9 +34,9 @@
               <p class="Menu_name"> <%= menu_item.name %></p>
               </td>
               <td width="20%">
-                <p class="display_price">
-                  Price :<%= menu_item.price %>/-
-                </p>
+                <div class="display_price">
+                  Price :<p class="price_value"><%= menu_item.price %></p>/-
+                </div>
               </td>
               <% if user.role=="Owner" and show_delete %>
                 <%= form_with(url: "/menuitems/#{menu_item.id}",method: "DELETE",local: true) do %>
@@ -53,8 +53,18 @@
                 </td>
               <% else %>
                 <%= form_with(url: "/orders",method: "POST",local:true) do %>
+                  <% order=Order.currentuser(user).incart.first %>
+                  <% if order %>
+                    <% orderitem = order.orderitems.menuitem_present(menu_item.id).first %>
+                  <% end %>
                   <td width="20%">
-                    <input class="item_count" name="no_of_items" type="number" min="1" max="10" value="1">
+                    <input class="item_count"
+                      name="no_of_items"
+                      type="number"
+                      min="1"
+                      max="10"
+                      value="<%= orderitem ? orderitem.no_of_items !=nil ? "#{orderitem.no_of_items}" : "0" : "0" %>"
+                    >
                   </td>
                   <input type="hidden" name="id" value="<%= menu_item.id %>">
                   <td width="20%">

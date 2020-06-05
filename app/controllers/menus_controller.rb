@@ -61,14 +61,21 @@ class MenusController < ApplicationController
 
   def update
     id = params[:id]
+    name = params[:name]
     menu = Menu.find(id)
-    menu.name = params[:name]
-    if menu.save
-      flash[:error] = "Menu updated successfully"
+    menu_other = Menu.find_by("name=?", name)
+    if menu == menu_other or !menu_other
+      menu.name = name
+      if menu.save
+        flash[:error] = "Menu updated successfully"
+      else
+        flash[:error] = menu.errors.full_messages.join(",")
+      end
+      redirect_to menus_path
     else
-      flash[:error] = menu.errors.full_messages.join(",")
+      flash[:error] = "Menu already exists.Please try again"
+      redirect_to manage_menus_path
     end
-    redirect_to menus_path
   end
 
   def destroy

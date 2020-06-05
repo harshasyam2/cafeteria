@@ -1,5 +1,6 @@
-<div class="main_content">
-  <p class="Flash-error-signin_up"> <%= flash[:error_contactus] %> </p>
+<div class="main_content logged_in_background">
+  <p class="contact_title"> Contact Us </p>
+  <p class="Flash-error-signinup"> <%= flash[:error_contactus] %> </p>
   <div class="contact_us_block">
     <%= form_with url:contacts_path do |form| %>
     <div class="contact_us_section">
@@ -42,8 +43,8 @@
         </div>
       </div>
       <div class="contactus-section center_section">
-        <div class="contact-input-label">Message:<p class="Mandatory"> * </p></div>
-          <%= form.text_area(name="message",class:"Form-input",size:"30") %>
+        <div class="contact-input-label">Message :<p class="Mandatory"> * </p></div>
+          <%= form.text_area(name="message",class:"Form-input",size:"30",placeholder:"Write your message here ....") %>
       </div>
       <div class="contactus-section">
         <%= form.submit "Submit",class:"contactus-submit",local:true%>

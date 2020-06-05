@@ -15,13 +15,13 @@
           </p>
         </td>
         <td class="order_item_data">
-          <p class="myorder_name price_myorders">
-            Price : <%= orderitem.menuitem_price %>/-
-          </p>
+          <div class="myorder_name price_myorders">
+            Price :<p class="price_value"><%= orderitem.menuitem_price %></p>/-
+          </div>
         </td>
         <td class="order_item_data">
           <p class="myorder_name items_myorders">
-            No.of items : <%= orderitem.no_of_items %>
+            Quantity : <%= orderitem.no_of_items %>
           </p>
         </td>
       </tr>

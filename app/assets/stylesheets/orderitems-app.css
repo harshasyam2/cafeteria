@@ -13,6 +13,13 @@
   padding-top:30px;
 }
 
+.contact_title{
+  text-align:center;
+  font-weight:bolder;
+  font-size:20px;
+  padding:5px 10px;
+}
+
 .totalearning{
   margin:auto;
   margin-bottom:20px;
@@ -174,20 +181,23 @@
   padding-left:20px;
   font-size:16px;
   margin-left:-30px;
-  border-radius:8px;
-  color:#453C52;
+  font-weight:600;
+  color:#3D553B;
   width:150px;
   text-align:center;
-  background-color:#AFD275;
 }
 
 .price_myorders{
-  width:100px;
+  width:140px;
   margin-left:50px;
+  display:flex;
+  align-items:center;
+  font-size:16px;
 }
 
 .items_myorders{
   width:120px;
+  font-size:16px;
 }
 
 .myorders_message{
@@ -293,7 +303,7 @@
 .label_to_records{
   color:#453C52;
   font-size:14px;
-  font-weight:600px;
+  font-weight:bold;
   margin-right:5px;
 }
 

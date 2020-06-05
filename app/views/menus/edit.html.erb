@@ -1,9 +1,11 @@
-<section class="main_content">
-  <%= form_with(url: "/menus/#{@menu.id}", method: "put",local:true) do %>
+<section class="main_content logged_in_background">
+  <p class="title_of_page"> Edit Menu </p>
+  <%= form_with(url:menu_path, method: "PUT", local:true) do %>
   <div class="edit_block">
+      <input type="hidden" name="id" value=<%= @menu.id %>>
       <div class="edit_input_block">
         <label class="edit_name">Menu Name:</label>
-        <input type="text" class=" edit_name_price" value="<%= @menu.name %>">
+        <input type="text" class=" edit_name_price" name="name" value="<%= @menu.name %>">
       </div>
       <div class="edit_submit_block">
         <input type="submit" class="update_button" value="Update Menu" data-disable-with="Updating ...">
