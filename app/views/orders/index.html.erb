@@ -1,16 +1,18 @@
 <div class="main_content logged_in_background">
-  <p class="title_of_page"> Pending Orders </p>
-  <% if @orders.count == 0 %>
-    <div class="emptycart_block">
-      <img src="pendingorders.png" class="empty-cart-theme">
-      <p class="myorders_message message_myorders">No pending orders</p>
-      <p class="myorders_message">Wait till someone orders</p>
-    </div>
-  <% else %>
-    <%= render partial:"show-orderslist",locals: {
-        orders_list: @orders,
-        show_delivered_button:true
-      }
-    %>
-  <% end %>
+  <div class="pending_block">
+    <p class="title_of_page"> Pending Orders </p>
+    <% if @orders.count == 0 %>
+      <div class="emptycart_block">
+        <img src="pendingorders.png" class="empty-cart-theme">
+        <p class="myorders_message message_myorders">No pending orders</p>
+        <p class="myorders_message">Wait till someone orders</p>
+      </div>
+    <% else %>
+      <%= render partial:"show-orderslist",locals: {
+          orders_list: @orders,
+          show_delivered_button:true
+        }
+      %>
+    <% end %>
+  </div>
 </div>

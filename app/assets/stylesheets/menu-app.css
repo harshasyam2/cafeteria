@@ -483,6 +483,10 @@
   background-color:#EDF2F7;
 }
 
+.pending_block{
+  padding-bottom:100px;
+}
+
 .myorders_background{
   margin-top:-20px;
   background-color:#EDF2F7;
