@@ -2,6 +2,8 @@
   <section class="background_style">
     <div class="Customer_signin">
       <p class="Flash-error-signin_up"> <%= flash[:error_signin] %> </p>
+      <p class="Flash-error-signin_up"> <%= flash[:error] %> </p>
+      <p class="Flash-error-signin_up"> <%= flash[:alert] %> </p>
       <div class="customer_block">
         <h1 class="NewCustomers_title">Sign in!</h1>
         <section class="Signin_content">
@@ -25,6 +27,7 @@
             </div>
           <% end %>
         </section>
+        <%= link_to "Forgot Password ?",forgot_password_path,class:"forgot_password" %>
         <p class="Signup_link">New User ? <%= link_to "Create Account",new_customer_path,class:"links" %> here </p>
       </div>
     </div>

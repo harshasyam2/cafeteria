@@ -1,4 +1,5 @@
 <div class="main_content logged_in_background">
+  <p class="title_of_page"> Order Details </p>
   <table class="order_table">
     <% bill_value = Order.find(@orderid).bill %>
     <% Orderitem.item_present(@orderid).all.each do |orderitem| %>

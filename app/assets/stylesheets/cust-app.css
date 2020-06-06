@@ -17,7 +17,7 @@
 }
 
 .viewprofile_block{
-  width:400px;
+  width:350px;
   border:10px solid transparent;
   margin:0 auto;
 }
@@ -32,8 +32,14 @@
 .customer_block{
   background-color:lightgoldenrodyellow;
   border:5px solid black;
-  margin:15vh auto;
+  margin:50px auto;
   border-radius:30px;
+}
+
+.update_password_block,.forgot_password_block{
+  max-width:300px;
+  margin:auto;
+  padding-top:50px;
 }
 
 .center_section{
@@ -119,6 +125,35 @@
 
 .Form-input:hover{
   border:1px solid darkblue;
+}
+
+.forgot_password{
+  width:130px;
+  padding-left:400px;
+  color:rgb(211, 69, 69);
+  font-size:14px;
+}
+
+.password_block,.mail_block,.contact_block{
+  border:1px solid grey;
+  border-radius:8px;
+  padding:5px 8px;
+  font-size:14px;
+  margin:20px;
+}
+
+.change_btn,.confirm_btn{
+  border:1px solid grey;
+  border-radius:8px;
+  padding:5px 8px;
+  font-size:14px;
+  margin:20px;
+  margin-left:70px;
+  background-color:limegreen;
+}
+
+.change_btn:hover,.confirm_btn:hover{
+  background-color:#E12D39;
 }
 
 .Form-input-label{
@@ -247,7 +282,15 @@
 .Flash-error-signinup{
   margin-top:-10px;
   padding-bottom:20px;
-  background-color:#EDF2F7;
+  background-color:rgb(5, 5, 5);
+}
+
+.flash-error-forgot,.flash-error-changepassword{
+  text-align: center;
+  color: darkred;
+  padding:30px;
+  line-height:1.4;
+  font-size:14px;
 }
 
 .Flash-alert-message{

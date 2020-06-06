@@ -113,4 +113,53 @@ class CustomersController < ApplicationController
     end
     redirect_to customers_path
   end
+
+  def forgotpassword
+    render "forgotpassword"
+  end
+
+  def checkdetails
+    email = params[:email]
+    contact_number = params[:contact_number]
+    if email != "" and contact_number != "" and contact_number.to_i.to_s == contact_number
+      customer_a = Customer.find_by("email=?", email)
+      customer_b = Customer.find_by("contact_number=?", contact_number.to_i)
+      if customer_a == customer_b
+        @customer = customer_a
+        render "updatepassword"
+      else
+        flash[:error] = "User with entered details not found"
+        redirect_to sessions_path
+      end
+    else
+      flash[:error_fill] = "Please fill out details to change password"
+      render "forgotpassword"
+    end
+  end
+
+  def updatepassword
+    customer = Customer.find(params[:id])
+    set_password = params[:set_password]
+    confirm_password = params[:confirm_password]
+    if set_password == confirm_password
+      if set_password.length > 4 and set_password.length < 9
+        customer.password = set_password
+        if customer.save
+          flash[:alert] = "Password changed successfully ...."
+          redirect_to sessions_path
+        else
+          flash[:error] = customer.errors.full_messages.join(",")
+          redirect_to update_password_path
+        end
+      else
+        flash[:error] = "Invalid Password length. Password should be in between 4 to 9"
+        @customer = customer
+        render "updatepassword"
+      end
+    else
+      flash[:error] = "Passwords doesnot match.Please try again"
+      @customer = customer
+      render "updatepassword"
+    end
+  end
 end
