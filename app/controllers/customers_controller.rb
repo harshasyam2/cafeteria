@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  skip_before_action :ensure_user_logged_in
+
   def index
     unless current_user.notcustomer?
       flash[:alert] = "You are not accessed to this page"
@@ -9,12 +11,7 @@ class CustomersController < ApplicationController
   end
 
   def new
-    if current_user
-      flash[:error] = "You are already logged in!"
-      redirect_to "/"
-    else
-      render "customers/new"
-    end
+    render "customers/new"
   end
 
   def uniquecustomer
