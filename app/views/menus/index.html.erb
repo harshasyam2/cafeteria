@@ -90,7 +90,7 @@
                 <% else %>
                         <div class="">
                 <% end %>
-                                <div class="partial-menu-section">
+                                <div class="<%= display_cart ? "partial-menu-section-cart" : "partial-menu-section" %>">
                                         <% menus.active.each do |menu| %>
                                                 <% if menu.menuitems.active.count >0 %>
                                                         <%= render partial:"menu-section",locals:{

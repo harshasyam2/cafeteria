@@ -1,5 +1,6 @@
 .main_content{
   min-height:calc(100vh - 200px);
+  width:100%;
 }
 
 .manage_menu_block{
@@ -96,7 +97,7 @@
 }
 
 .Main_page{
-  max-width:100%;
+  width:100%;
   margin:0 auto;
   font-family:sans-serif;
 }
@@ -119,11 +120,18 @@
 .partial-menu-section{
   display:block;
   height:auto;
+  width:700px;
+  margin:auto;
+}
+
+.partial-menu-section-cart{
+  display:block;
+  height:auto;
+  width:700px;
+  margin-left:50px;
 }
 
 .menu_section_display{
-  margin-left:10px;
-  width:700px;
   margin:auto;
 }
 
@@ -150,6 +158,8 @@
   font-size:16px;
   margin:15px;
   width:180px;
+  margin-top:30px;
+  margin-bottom:20px;
   margin-left:300px;
   margin-right:50px;
   text-align:center;
@@ -357,9 +367,8 @@
 
 .cart_menu_block{
   display:flex;
-  width:80%;
-  margin-left:10%;
-  margin-right:10%;
+  width:100%;
+  margin:auto;
 }
 
 .proceed_button{
@@ -384,11 +393,10 @@
 .cart_section_proceed{
   display:flex;
   align-items:center;
-  margin-left:10px;
+  margin-left:25px;
 }
 
 .cart_section_table{
-  width:300px;
   border:1px solid black;
   border-collapse:collapse;
   padding:30px;
@@ -400,7 +408,8 @@
   margin-top:50px;
   background-color:lightsalmon;
   padding:30px;
-  width:330px;
+  width:80%;
+  margin-right:30px;
   border-radius:15px;
   box-shadow:2px 2px 3px 3px grey;
   height:auto;
@@ -465,6 +474,7 @@
 }
 
 .logged_in_background{
+  width:100%;
   background-color:#EDF2F7;
 }
 

@@ -43,6 +43,7 @@
 .contact_us_block{
   width:450px;
   margin:auto;
+  padding-bottom:100px;
 }
 
 .contact_us_section{
@@ -108,6 +109,11 @@
   cursor:pointer;
   border:1px solid grey;;
   border-radius:5px;
+}
+
+.message_field{
+  width:250px;
+  padding:20px;
 }
 
 .Form-input:hover{
@@ -178,6 +184,11 @@
 .about_us_background,.privacy_policy_background{
   background-color:	#FFFDD0;
   height:100vh;
+  padding-bottom:100px;
+}
+
+.privacy_policy_background{
+  height:auto;
 }
 
 .subcontent{
@@ -222,7 +233,7 @@
   margin:30px;
   margin-bottom:10px;
   padding-top:5px;
-  width:800px;
+  width:550px;
   margin:auto;
   line-height:1.4;
   vertical-align:middle;

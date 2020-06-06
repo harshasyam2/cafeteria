@@ -16,11 +16,11 @@
   border:1px solid transparent;
   border-radius:5px;
   padding:5px 10px;
-  margin-left:20px;
+  margin-left:50px;
 }
 
 .Add_to_cart:hover{
-  background-color:#DAAD86;;
+  background-color:#F7C948;
   color:black;
 }
 
