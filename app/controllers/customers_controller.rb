@@ -1,6 +1,4 @@
 class CustomersController < ApplicationController
-  skip_before_action :ensure_user_logged_in
-
   def index
     unless current_user.notcustomer?
       flash[:alert] = "You are not accessed to this page"

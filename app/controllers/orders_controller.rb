@@ -73,15 +73,20 @@ class OrdersController < ApplicationController
   end
 
   def deliver
-    id = params[:id]
-    order = Order.find(id)
-    order.status = "delivered"
-    if order.save
-      flash[:alert] = "Order delivered Successfully"
-      redirect_to orders_path
+    if current_user.role == "Customer"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
     else
-      flash[:error] = order.errors.full_messages.join(",")
-      redirect_to orderitems_path
+      id = params[:id]
+      order = Order.find(id)
+      order.status = "delivered"
+      if order.save
+        flash[:alert] = "Order delivered Successfully"
+        redirect_to orders_path
+      else
+        flash[:error] = order.errors.full_messages.join(",")
+        redirect_to orderitems_path
+      end
     end
   end
 

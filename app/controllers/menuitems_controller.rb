@@ -16,72 +16,55 @@ class MenuitemsController < ApplicationController
   end
 
   def create
-    name = params[:name].gsub(/\s+/, "").strip.upcase
-    menuitem = Menuitem.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
-    if menuitem and menuitem.status == "Active"
-      flash[:error] = "Menuitem with entered details exists."
-      redirect_to menus_path
-    elsif menuitem and menuitem.status == "Inactive"
-      menuitem.price = params[:price]
-      menuitem.menu_id = params[:menu_id]
-      menuitem.url = params[:url]
-      menuitem.status = "Active"
-      if menuitem.save
-        flash[:alert] = "Menuitem added Successfully"
-      else
-        flash[:error] = menuitem.errors.full_messages.join(",")
-      end
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
       redirect_to menus_path
     else
-      new_menuitem = Menuitem.new(
-        name: params[:name],
-        price: params[:price],
-        menu_id: params[:menu_id],
-        url: params[:url],
-        status: "Active",
-      )
-      if new_menuitem.save
-        flash[:alert] = "Menuitem added Successfully"
+      name = params[:name].gsub(/\s+/, "").strip.upcase
+      menuitem = Menuitem.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
+      if menuitem and menuitem.status == "Active"
+        flash[:error] = "Menuitem with entered details exists."
+        redirect_to menus_path
+      elsif menuitem and menuitem.status == "Inactive"
+        menuitem.price = params[:price]
+        menuitem.menu_id = params[:menu_id]
+        menuitem.url = params[:url]
+        menuitem.status = "Active"
+        if menuitem.save
+          flash[:alert] = "Menuitem added Successfully"
+        else
+          flash[:error] = menuitem.errors.full_messages.join(",")
+        end
         redirect_to menus_path
       else
-        flash[:error] = new_menuitem.errors.full_messages.join(",")
-        redirect_to menus_path
+        new_menuitem = Menuitem.new(
+          name: params[:name],
+          price: params[:price],
+          menu_id: params[:menu_id],
+          url: params[:url],
+          status: "Active",
+        )
+        if new_menuitem.save
+          flash[:alert] = "Menuitem added Successfully"
+          redirect_to menus_path
+        else
+          flash[:error] = new_menuitem.errors.full_messages.join(",")
+          redirect_to menus_path
+        end
       end
     end
   end
 
   def destroy
-    id = params[:id]
-    menuitem = Menuitem.find(id)
-    menuitem.status = "Inactive"
-    if menuitem.save
-      flash[:alert] = "Menuitem removed successfully"
-      orders = Order.incart
-      orders.each do |order|
-        orderitems = order.orderitems
-        orderitems.each do |orderitem|
-          if orderitem.menuitem_name == menuitem.name
-            orderitem.destroy
-          else
-            flash[:error] = orderitem.errors.full_messages.join(",")
-          end
-        end
-        if order.orderitems.count < 1
-          order.destroy
-        end
-      end
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
     else
-      flash[:error] = menuitem.errors.full_messages.join(",")
-    end
-    redirect_to menus_path
-  end
-
-  def destroymenuitem
-    @menuitems = Menuitem.menu_present(params[:menu_id])
-    @menuitems.each do |menuitem|
+      id = params[:id]
+      menuitem = Menuitem.find(id)
       menuitem.status = "Inactive"
       if menuitem.save
-        flash[:alert] = "Menu and Menuitems removed successfully"
+        flash[:alert] = "Menuitem removed successfully"
         orders = Order.incart
         orders.each do |order|
           orderitems = order.orderitems
@@ -99,48 +82,95 @@ class MenuitemsController < ApplicationController
       else
         flash[:error] = menuitem.errors.full_messages.join(",")
       end
+      redirect_to menus_path
     end
-    redirect_to manage_menus_path
+  end
+
+  def destroymenuitem
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      @menuitems = Menuitem.menu_present(params[:menu_id])
+      @menuitems.each do |menuitem|
+        menuitem.status = "Inactive"
+        if menuitem.save
+          flash[:alert] = "Menu and Menuitems removed successfully"
+          orders = Order.incart
+          orders.each do |order|
+            orderitems = order.orderitems
+            orderitems.each do |orderitem|
+              if orderitem.menuitem_name == menuitem.name
+                orderitem.destroy
+              else
+                flash[:error] = orderitem.errors.full_messages.join(",")
+              end
+            end
+            if order.orderitems.count < 1
+              order.destroy
+            end
+          end
+        else
+          flash[:error] = menuitem.errors.full_messages.join(",")
+        end
+      end
+      redirect_to manage_menus_path
+    end
   end
 
   def createmenuitem
-    @menuitems = Menuitem.menu_present(params[:menu_id])
-    @menuitems.each do |menuitem|
-      menuitem.status = "Active"
-      if menuitem.save
-        flash[:alert] = "Menu and Menuitems added successfully"
-      else
-        flash[:error] = menuitem.errors.full_messages.join(",")
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      @menuitems = Menuitem.menu_present(params[:menu_id])
+      @menuitems.each do |menuitem|
+        menuitem.status = "Active"
+        if menuitem.save
+          flash[:alert] = "Menu and Menuitems added successfully"
+        else
+          flash[:error] = menuitem.errors.full_messages.join(",")
+        end
       end
+      redirect_to manage_menus_path
     end
-    redirect_to manage_menus_path
   end
 
   def update
-    id = params[:id]
-    name = params[:name]
-    menuitem = Menuitem.find(id)
-    menuitem_other = Menuitem.find_by("name=?", name)
-    if menuitem == menuitem_other or !menuitem_other
-      menuitem.name = params[:name]
-      menuitem.price = params[:price]
-      menuitem.menu_id = params[:menu_id]
-      menuitem.url = params[:url]
-      menuitem.description = params[:description]
-      if menuitem.save
-        flash[:error] = "Menuitem updated successfully"
-      else
-        flash[:error] = menuitem.errors.full_messages.join(",")
-      end
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
       redirect_to menus_path
     else
-      flash[:error] = "Menuitem already exists.Please try again"
-      redirect_to edit_menuitem_path
+      id = params[:id]
+      name = params[:name]
+      menuitem = Menuitem.find(id)
+      menuitem_other = Menuitem.find_by("name=?", name)
+      if menuitem == menuitem_other or !menuitem_other
+        menuitem.name = params[:name]
+        menuitem.price = params[:price]
+        menuitem.menu_id = params[:menu_id]
+        menuitem.url = params[:url]
+        menuitem.description = params[:description]
+        if menuitem.save
+          flash[:error] = "Menuitem updated successfully"
+        else
+          flash[:error] = menuitem.errors.full_messages.join(",")
+        end
+        redirect_to menus_path
+      else
+        flash[:error] = "Menuitem already exists.Please try again"
+        redirect_to edit_menuitem_path
+      end
     end
   end
 
   def edit
-    id = params[:id]
-    @menuitem = Menuitem.find(id)
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      id = params[:id]
+      @menuitem = Menuitem.find(id)
+    end
   end
 end

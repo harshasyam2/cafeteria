@@ -10,37 +10,47 @@ class MenusController < ApplicationController
   end
 
   def managemenus
-    render "managemenus"
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      render "managemenus"
+    end
   end
 
   def create
-    name = params[:name].gsub(/\s+/, "").strip.upcase
-    menu = Menu.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
-    if menu
-      flash[:error] = "Menu with entered details exists.Please check the details."
-      redirect_to menus_path
-    elsif menu and menu.status == "Inactive"
-      menu.status = "Active"
-      if menu.save
-        redirect_to create_menuitem_path(
-          :menu_id => menu.id,
-        )
-      else
-        flash[:error] = menu.errors.full_messages.join(",")
+    if current_user.role == "Owner"
+      name = params[:name].gsub(/\s+/, "").strip.upcase
+      menu = Menu.find_by("UPPER(REGEXP_REPLACE(name, '\s', '', 'g'))=?", name)
+      if menu
+        flash[:error] = "Menu with entered details exists.Please check the details."
         redirect_to menus_path
+      elsif menu and menu.status == "Inactive"
+        menu.status = "Active"
+        if menu.save
+          redirect_to create_menuitem_path(
+            :menu_id => menu.id,
+          )
+        else
+          flash[:error] = menu.errors.full_messages.join(",")
+          redirect_to menus_path
+        end
+      else
+        new_menu = Menu.new(
+          name: params[:name].strip.gsub(/\s+/, " "),
+          status: "Active",
+        )
+        if new_menu.save
+          flash[:alert] = "Menu added Successfully"
+          redirect_to menus_path
+        else
+          flash[:error] = new_menu.errors.full_messages.join(",")
+          redirect_to menus_path
+        end
       end
     else
-      new_menu = Menu.new(
-        name: params[:name].strip.gsub(/\s+/, " "),
-        status: "Active",
-      )
-      if new_menu.save
-        flash[:alert] = "Menu added Successfully"
-        redirect_to menus_path
-      else
-        flash[:error] = new_menu.errors.full_messages.join(",")
-        redirect_to menus_path
-      end
+      flash[:error] = "You are not accessible to this page"
+      redirect_to menus_path
     end
   end
 
@@ -55,51 +65,66 @@ class MenusController < ApplicationController
   end
 
   def edit
-    id = params[:id]
-    @menu = Menu.find(id)
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      id = params[:id]
+      @menu = Menu.find(id)
+    end
   end
 
   def update
-    id = params[:id]
-    name = params[:name]
-    menu = Menu.find(id)
-    menu_other = Menu.find_by("name=?", name)
-    if menu == menu_other or !menu_other
-      menu.name = name
-      if menu.save
-        flash[:error] = "Menu updated successfully"
-      else
-        flash[:error] = menu.errors.full_messages.join(",")
-      end
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
       redirect_to menus_path
     else
-      flash[:error] = "Menu already exists.Please try again"
-      redirect_to manage_menus_path
+      id = params[:id]
+      name = params[:name]
+      menu = Menu.find(id)
+      menu_other = Menu.find_by("name=?", name)
+      if menu == menu_other or !menu_other
+        menu.name = name
+        if menu.save
+          flash[:error] = "Menu updated successfully"
+        else
+          flash[:error] = menu.errors.full_messages.join(",")
+        end
+        redirect_to menus_path
+      else
+        flash[:error] = "Menu already exists.Please try again"
+        redirect_to manage_menus_path
+      end
     end
   end
 
   def destroy
-    id = params[:id]
-    menu = Menu.find(id)
-    status = params[:status]
-    if status
-      menu.status = "Active"
-    else
-      menu.status = "Inactive"
-    end
-    if menu.save
-      if menu.status == "Inactive"
-        redirect_to destroy_menuitem_path(
-          :menu_id => id,
-        )
-      elsif menu.status == "Active"
-        redirect_to create_menuitem_path(
-          :menu_id => id,
-        )
-      end
-    else
-      flash[:error] = menu.errors.full_messages.join(",")
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
       redirect_to menus_path
+    else
+      id = params[:id]
+      menu = Menu.find(id)
+      status = params[:status]
+      if status
+        menu.status = "Active"
+      else
+        menu.status = "Inactive"
+      end
+      if menu.save
+        if menu.status == "Inactive"
+          redirect_to destroy_menuitem_path(
+            :menu_id => id,
+          )
+        elsif menu.status == "Active"
+          redirect_to create_menuitem_path(
+            :menu_id => id,
+          )
+        end
+      else
+        flash[:error] = menu.errors.full_messages.join(",")
+        redirect_to menus_path
+      end
     end
   end
 end
