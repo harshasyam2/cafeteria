@@ -45,6 +45,10 @@ class OrdersController < ApplicationController
     @orderid = params[:id]
   end
 
+  def invoice
+    @orderid = params[:id]
+  end
+
   def myorders
     @orders = Order.currentuser(current_user)
     render "myorders"

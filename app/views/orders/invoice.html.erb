@@ -1,0 +1,74 @@
+<div class="main_content logged_in_background">
+  <p class="title_of_page"> Invoice Details </p>
+  <br>
+  <div class="invoice_bill">
+    <div class="invoice_block">
+      <% order=Order.find(@orderid) %>
+      <% customer=Customer.find(order.customer_id) %>
+      <div class="invoice_details">
+        <div class="bill_from">
+          <p class="bill_tags">Bill From:</p>
+          <div class="restaurant">
+            <div class="restaurant_name"> Restaurant Name:</div>
+            <div>Cafeteria (nature's flavor)</div>
+          </div>
+          <div class="restaurant">
+            <p class="invoice_address">Address:</p>
+            <div class="address_location">
+              <p>15/2143,</p>
+              <p> Rajiv Gandhi Road,</p>
+              <p> MSR Circle, Chittoor,</p>
+              <p>Andhra Pradesh</p>
+              <p>517001</p>
+            </div>
+          </div>
+          <div class="restaurant">
+            <div class="restaurant_name"> Contact Number:</div>
+            <div>9381271441</div>
+          </div>
+        </div>
+        <div class="bill_to">
+          <p class="bill_tags">Bill To:</p>
+          <div class="restaurant">
+            <div class="restaurant_name">Name:</div>
+            <div><%= customer.first_name.concat(" #{customer.last_name}") %></div>
+          </div>
+          <div class="restaurant">
+            <div class="restaurant_name">Date:</div>
+            <div><%= order.date.to_s(:long) %></div>
+          </div>
+          <div class="restaurant">
+            <div class="restaurant_name">Address:</div>
+            <div class="order_address_invoice"><%= order.address %></div>
+          </div>
+        </div>
+      </div>
+      <table class="list_invoice">
+        <tr class="invoice_row">
+          <th class="invoice_lists"> Item name </th>
+          <th class="invoice_lists"> Price </th>
+          <th class="invoice_lists"> Quantity </th>
+          <th class="invoice_lists"> Sub Total </th>
+        </tr>
+        <% orderitems=order.orderitems %>
+        <% orderitems.order(:menuitem_name).each do |orderitem| %>
+          <tr class="invoice_row">
+            <td class="invoice_row_data">
+              <%= orderitem.menuitem_name %>
+            </td>
+            <td class="invoice_row_data">
+              <%= orderitem.menuitem_price %>
+            </td>
+            <td class="invoice_row_data">
+              <%= orderitem.no_of_items %>
+            </td>
+            <td class="invoice_row_data">
+              <%= orderitem.menuitem_price * orderitem.no_of_items %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <p class="invoice_total">Sub Total :&nbsp;<%= order.bill %>&nbsp;/-</p>
+    </div>
+  </div>
+</div>

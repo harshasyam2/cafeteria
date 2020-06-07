@@ -39,7 +39,8 @@
 .update_password_block,.forgot_password_block{
   max-width:300px;
   margin:auto;
-  padding-top:50px;
+  padding-left:70px;
+  display:block;
 }
 
 .center_section{
@@ -129,9 +130,15 @@
 
 .forgot_password{
   width:130px;
-  padding-left:400px;
+  text-decoration:none;
+  margin-left:400px;
   color:rgb(211, 69, 69);
   font-size:14px;
+  border:1px solid transparent;
+}
+
+.forgot_password:hover{
+  text-decoration:underline;
 }
 
 .password_block,.mail_block,.contact_block{
@@ -149,11 +156,12 @@
   font-size:14px;
   margin:20px;
   margin-left:70px;
+  font-weight:600;
   background-color:limegreen;
 }
 
 .change_btn:hover,.confirm_btn:hover{
-  background-color:#E12D39;
+  background-color:#F29B9B;
 }
 
 .Form-input-label{

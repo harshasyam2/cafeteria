@@ -241,13 +241,20 @@
   border-collapse:collapse;
 }
 
-.heading_lists{
+.heading_lists,.invoice_lists{
   background-color:lavender;
   font-size:16px;
   font-weight:600;
   padding:8px;
   border:1px solid black;
   text-align:center;
+}
+
+.invoice_lists{
+  background-color:lavender;
+  font-size:16px;
+  font-weight:600;
+  padding:8px;
 }
 
 .list_row_one,.list_row_two,.list_row{

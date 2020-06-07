@@ -483,6 +483,86 @@
   background-color:#EDF2F7;
 }
 
+.invoice_bill{
+  padding-bottom:100px;
+}
+
+.invoice_block{
+  background-color:white;
+  width:700px;
+  border:1px solid grey;
+  border-radius:8px;
+  box-shadow:2px 2px 4px 4px lightgrey;
+  padding:40px;
+  margin:auto;
+  margin-top:30px;
+}
+
+.invoice_details{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+
+.order_address_invoice{
+  width:150px;
+}
+
+.bill_from,.bill_to{
+  display:block;
+  font-size:14px;
+  padding:20px;
+  line-height:1.5;
+}
+
+.restaurant{
+  display:flex;
+}
+
+.restaurant_name,.invoice_address{
+  color:tomato;
+  padding-right:10px;
+  font-weight:600;
+}
+
+.address_location{
+  display:block;
+  padding-left:10px;
+}
+
+.bill_tags{
+  font-size:15px;
+  font-weight:bolder;
+  padding:5px;
+}
+
+.list_invoice{
+  border:1px solid black;
+  max-width:550px;
+  margin:auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-collapse:collapse;
+}
+
+.invoice_row{
+  border:1px solid black;
+}
+
+.invoice_row_data{
+  border:1px solid black;
+  text-align:center;
+  padding:8px;
+}
+
+.invoice_total{
+  font-size:16px;
+  font-weight:bolder;
+  color:#DC4348;
+  width:200px;
+  margin:auto;
+}
+
 .pending_block{
   padding-bottom:100px;
 }

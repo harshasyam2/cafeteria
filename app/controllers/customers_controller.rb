@@ -142,7 +142,7 @@ class CustomersController < ApplicationController
     set_password = params[:set_password]
     confirm_password = params[:confirm_password]
     if set_password == confirm_password
-      if set_password.length > 4 and set_password.length < 9
+      if set_password.length >= 4 and set_password.length <= 9
         customer.password = set_password
         if customer.save
           flash[:alert] = "Password changed successfully ...."

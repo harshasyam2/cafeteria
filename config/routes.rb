@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/forgotpassword", to: "customers#forgotpassword", as: :forgot_password
   get "/checkdetails", to: "customers#checkdetails", as: :check_details
   get "/updatepassword", to: "customers#updatepassword", as: :update_password
+  get "/invoice", to: "orders#invoice", as: :invoice
   get "/listorders", to: "orders#listorders", as: :list_orders
   get "/showlist", to: "orders#listshow", as: :show_list_orders
   get "/myorders", to: "orders#myorders", as: :my_orders

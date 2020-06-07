@@ -38,8 +38,15 @@
         <p class="order_bill"> Bill : <%= order.bill %>/-</p>
       </td>
       <td class="list_row_data">
-        <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>
-          <input class="button show list_row_show" type="submit" value="Show Details">
+       <% if show_delivered_button %>
+          <%= form_with(url: "/orders/#{order.id}", method: "get",local: true) do %>
+            <input class="button show list_row_show" type="submit" value="Show Details">
+          <% end %>
+        <% else %>
+          <%= form_with(url: invoice_path, method: "get",local: true) do %>
+            <input type="hidden" name="id" value="<%= order.id %>">
+            <input class="button show list_row_show" type="submit" value="View Invoice">
+          <% end %>
         <% end %>
       </td>
       <td colspan="2" class="list_row_data">
