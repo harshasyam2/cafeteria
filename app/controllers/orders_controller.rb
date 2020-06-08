@@ -86,6 +86,7 @@ class OrdersController < ApplicationController
       order.status = "delivered"
       if order.save
         flash[:alert] = "Order delivered Successfully"
+        UserMailer.order_delivered(order.id).deliver
         redirect_to orders_path
       else
         flash[:error] = order.errors.full_messages.join(",")
@@ -102,6 +103,7 @@ class OrdersController < ApplicationController
     order.address = params[:address]
     if order.save
       if order.status == "ordered"
+        UserMailer.order_placed(order.id).deliver
         if current_user.role == "Customer"
           flash[:alert] = "Your order confirmed"
           redirect_to my_orders_path
@@ -136,6 +138,7 @@ class OrdersController < ApplicationController
     if order.customer_id == current_user.id or current_user.role != "Customer"
       order.status = "cancelled"
       if order.save
+        UserMailer.order_cancelled(order.id).deliver
         flash[:alert] = "Order Cancelled Successfully"
       else
         flash[:error] = order.errors.full_messages.join(",")

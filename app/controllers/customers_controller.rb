@@ -55,6 +55,7 @@ class CustomersController < ApplicationController
       if new_customer.save
         session[:current_user_id] = new_customer.id
         flash[:alert] = "Welcome to Cafeteria Management.Your account created successfully"
+        UserMailer.registration_confirmation(new_customer).deliver
         redirect_to "/"
       else
         flash[:error_signup] = new_customer.errors.full_messages.join(",")

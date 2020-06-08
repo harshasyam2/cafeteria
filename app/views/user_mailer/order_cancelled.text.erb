@@ -1,0 +1,35 @@
+<p>Hi <%= @user.first_name.concat(" #{@user.last_name}") %>,</p>
+<br>
+<p>Thanks for using Cafeteria! Your order has been cancelled.</p>
+<p>Looking forward to serving you.Hope you order again to have delicious dishes.</p>
+<br>
+<p>Order No: <%= @orderid %></p>
+<p>Restaurant Name: Cafeteria(nature's flavor)</p>
+<br>
+<% order=Order.find(@orderid) %>
+<table class="list_invoice">
+  <tr class="invoice_row">
+    <th class="invoice_lists"> Item name </th>
+    <th class="invoice_lists"> Price </th>
+    <th class="invoice_lists"> Quantity </th>
+    <th class="invoice_lists"> Sub Total </th>
+  </tr>
+  <% orderitems=order.orderitems %>
+  <% orderitems.order(:menuitem_name).each do |orderitem| %>
+    <tr class="invoice_row">
+      <td class="invoice_row_data">
+        <%= orderitem.menuitem_name %>
+      </td>
+      <td class="invoice_row_data">
+        <%= orderitem.menuitem_price %>
+      </td>
+      <td class="invoice_row_data">
+        <%= orderitem.no_of_items %>
+      </td>
+      <td class="invoice_row_data">
+        <%= orderitem.menuitem_price * orderitem.no_of_items %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p class="invoice_total">Sub Total :&nbsp;<%= order.bill %>&nbsp;/-</p>

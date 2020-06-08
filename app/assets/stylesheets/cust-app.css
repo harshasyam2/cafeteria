@@ -149,15 +149,23 @@
   margin:20px;
 }
 
+.password_block:hover,.mail_block:hover,.contact_block:hover{
+  border:1px solid navy;
+}
+
 .change_btn,.confirm_btn{
   border:1px solid grey;
   border-radius:8px;
   padding:5px 8px;
   font-size:14px;
   margin:20px;
-  margin-left:70px;
+  margin-left:60px;
   font-weight:600;
   background-color:limegreen;
+}
+
+.change_btn{
+  margin-left:55px;
 }
 
 .change_btn:hover,.confirm_btn:hover{
