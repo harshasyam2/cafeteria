@@ -7,6 +7,12 @@ class UserMailer < ApplicationMailer
     mail to: @user.email, subject: "Welcome to Cafeteria!"
   end
 
+  def feedback_confirmation(contact)
+    @email = contact.email
+
+    mail to: @email, subject: "Thank you for sending the feedback..."
+  end
+
   def order_placed(orderid)
     @orderid = orderid
     order = Order.find(@orderid)

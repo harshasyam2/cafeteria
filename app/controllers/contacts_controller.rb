@@ -20,8 +20,9 @@ class ContactsController < ApplicationController
       message: params[:message],
     )
     if new_contact.save
-      flash[:alert] = "Your Feedback submitted successfully"
-      redirect_to "/"
+      flash[:alert_contactus] = "Your Feedback submitted successfully"
+      UserMailer.feedback_confirmation(new_contact).deliver
+      redirect_to contacts_path
     else
       flash[:error_contactus] = new_contact.errors.full_messages.join(",")
       redirect_to contacts_path

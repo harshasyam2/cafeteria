@@ -297,8 +297,9 @@
 
 .Flash-error-signinup{
   margin-top:-10px;
+  padding-top:30px;
   padding-bottom:20px;
-  background-color:rgb(5, 5, 5);
+  background-color:#EDF2F7;
 }
 
 .flash-error-forgot,.flash-error-changepassword{
