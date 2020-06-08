@@ -13,6 +13,12 @@ class UserMailer < ApplicationMailer
     mail to: @email, subject: "Thank you for sending the feedback..."
   end
 
+  def send_otp(user)
+    @user = user
+
+    mail to: @user.email, subject: "Otp for password change request"
+  end
+
   def order_placed(orderid)
     @orderid = orderid
     order = Order.find(@orderid)

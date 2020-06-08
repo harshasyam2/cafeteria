@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :orderitems
   resources :contacts
+  resources :randomnumbers
   get "/aboutus", to: "home#aboutus", as: :about_us
   get "/privacypolicy", to: "home#privacypolicy", as: :privacy_policy
   get "/viewprofile", to: "customers#viewprofile", as: :view_profile_customer
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   post "/menuitem/unique", to: "menuitems#uniquemenuitem", as: :unique_menuitem
   get "/deleteorder", to: "orders#deleteorder", as: :delete_order
   get "/deleteorderitems", to: "orderitems#destroyorderitem", as: :delete_orderitem
+  get "/randomnumbers", to: "randomnumbers#index", as: :randomnumbers_path
   get "/createmenuitem", to: "menuitems#createmenuitem", as: :create_menuitem
   get "/destroymenuitem", to: "menuitems#destroymenuitem", as: :destroy_menuitem
   get "/menuitem/unique", to: "menus#index"

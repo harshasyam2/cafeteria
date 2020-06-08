@@ -5,6 +5,7 @@ class Customer < ActiveRecord::Base
   validates :password, length: { minimum: 4, maximum: 9 }, on: :create
   has_secure_password
   has_many :orders
+  has_many :randomnumbers
 
   def notcustomer?
     role != "Customer"
