@@ -24,17 +24,11 @@ class PaymentsController < ApplicationController
           UserMailer.order_placed(order.id).deliver
           flash[:alert] = "Your order confirmed"
           redirect_to menus_path
-        else
-          flash[:error] = order.errors.full_messages.join(",")
-          redirect_to payments_path
         end
       else
-        flash[:error] = new_payment.errors.full_messages.join(",")
-        redirect_to payments_path
+        flash[:error_payments] = new_payment.errors.full_messages.join(",")
+        redirect_to orderitems_path
       end
-    else
-      flash[:error] = "Invalid cvv.cvv length is 3 and mandatory to be a number"
-      redirect_to payments_path
     end
   end
 end

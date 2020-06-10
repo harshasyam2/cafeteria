@@ -1,5 +1,4 @@
 <div class="main_content logged_in_background">
-  <p class="payment-flash-error"><%= flash[:error] %></p>
   <p class="title_of_page"> Payment page </p>
   <div class="payment_block">
     <%= form_with(url: payments_path,method: "post",local:true) do %>

@@ -8,6 +8,7 @@ class UserMailer < ApplicationMailer
   end
 
   def feedback_confirmation(contact)
+    @contact = contact
     @email = contact.email
 
     mail to: @email, subject: "Thank you for sending the feedback..."

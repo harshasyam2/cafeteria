@@ -241,7 +241,7 @@
   border-collapse:collapse;
 }
 
-.heading_lists,.invoice_lists{
+.heading_lists{
   background-color:lavender;
   font-size:16px;
   font-weight:600;
@@ -250,11 +250,40 @@
   text-align:center;
 }
 
+.list_invoice{
+  border:1px solid black;
+  max-width:550px;
+  margin:auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-collapse:collapse;
+}
+
+.invoice_row{
+  border:1px solid black;
+}
+
+.invoice_row_data{
+  border:1px solid black;
+  text-align:center;
+  padding:8px;
+}
+
 .invoice_lists{
   background-color:lavender;
   font-size:16px;
   font-weight:600;
   padding:8px;
+  border:1px solid black;
+  text-align:center;
+}
+
+.invoice_total{
+  font-size:16px;
+  font-weight:bolder;
+  color:#DC4348;
+  width:200px;
+  margin:auto;
 }
 
 .list_row_one,.list_row_two,.list_row{

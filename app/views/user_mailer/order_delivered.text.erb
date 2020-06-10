@@ -1,72 +1,145 @@
-  <p class="title_of_page"> Invoice Details </p>
+  <p style="text-align:center;
+  font-weight:bolder;
+  font-size:20px;
+  padding:5px 10px;
+  margin-bottom:40px;
+  padding-top:30px;"> Invoice Details </p>
   <br>
-  <div class="invoice_bill">
-    <div class="invoice_block">
+  <div style="padding-bottom:100px;">
+    <div style="background-color:white;
+      width:700px;
+      border:1px solid grey;
+      border-radius:8px;
+      box-shadow:2px 2px 4px 4px lightgrey;
+      padding:40px;
+      margin:auto;
+      margin-top:30px;">
       <% order=Order.find(@orderid) %>
       <% customer=Customer.find(order.customer_id) %>
-      <div class="invoice_details">
-        <div class="bill_from">
-          <p class="bill_tags">Bill From:</p>
-          <div class="restaurant">
-            <div class="restaurant_name"> Restaurant Name:</div>
+      <div style=" display:flex;
+        align-items:flex-start;
+        justify-content:space-between;">
+        <div style="display:block;
+          font-size:14px;
+          padding:20px;
+          line-height:1.5;">
+          <p style="font-size:15px;
+            font-weight:bolder;
+            padding:5px;">Bill From:</p>
+          <div style="display:flex;">
+            <div style="color:tomato;
+              padding-right:10px;
+              font-weight:600;"> Restaurant Name:</div>
             <div>Cafeteria (nature's flavor)</div>
           </div>
-          <div class="restaurant">
-            <p class="invoice_address">Address:</p>
+          <div style="display:flex;">
+            <p style="color:tomato;
+              padding-right:10px;
+              font-weight:600;">Address:</p>
             <div class="address_location">
-              <p>15/2143,</p>
-              <p> Rajiv Gandhi Road,</p>
+              <p>16/93,</p>
+              <p> Gurujada Road,</p>
               <p> MSR Circle, Chittoor,</p>
               <p>Andhra Pradesh</p>
               <p>517001</p>
             </div>
           </div>
-          <div class="restaurant">
-            <div class="restaurant_name"> Contact Number:</div>
+          <div style="display:flex;">
+            <div style="color:tomato;
+              padding-right:10px;
+              font-weight:600;"> Contact Number:</div>
             <div>9381271441</div>
           </div>
         </div>
-        <div class="bill_to">
-          <p class="bill_tags">Bill To:</p>
-          <div class="restaurant">
-            <div class="restaurant_name">Name:</div>
+        <div style="display:block;
+          font-size:14px;
+          padding:20px;
+          line-height:1.5;">
+          <p style="font-size:15px;
+            font-weight:bolder;
+            padding:5px;">Bill To:</p>
+          <div style="display:flex;">
+            <div style="color:tomato;
+              padding-right:10px;
+              font-weight:600;">Name:</div>
             <div><%= customer.first_name.concat(" #{customer.last_name}") %></div>
           </div>
-          <div class="restaurant">
-            <div class="restaurant_name">Date:</div>
+          <div style="display:flex;">
+            <div style="color:tomato;
+              padding-right:10px;
+              font-weight:600;">Date:</div>
             <div><%= order.date.to_s(:long) %></div>
           </div>
-          <div class="restaurant">
-            <div class="restaurant_name">Address:</div>
-            <div class="order_address_invoice"><%= order.address %></div>
+          <div style="display:flex;">
+            <div style="color:tomato;
+              padding-right:10px;
+              font-weight:600;">Address:</div>
+            <div style="width:150px;"><%= order.address %></div>
           </div>
         </div>
       </div>
-      <table class="list_invoice">
-        <tr class="invoice_row">
-          <th class="invoice_lists"> Item name </th>
-          <th class="invoice_lists"> Price </th>
-          <th class="invoice_lists"> Quantity </th>
-          <th class="invoice_lists"> Sub Total </th>
+      <table style="border:1px solid black;
+        max-width:550px;
+        margin:auto;
+        margin-top:20px;
+        margin-bottom:20px;
+        border-collapse:collapse;">
+        <tr style="border:1px solid black;">
+          <th style="background-color:lavender;
+            font-size:16px;
+            font-weight:600;
+            padding:8px;
+            border:1px solid black;
+            text-align:center;"> Item name </th>
+          <th style="background-color:lavender;
+            font-size:16px;
+            font-weight:600;
+            padding:8px;
+            border:1px solid black;
+            text-align:center;"> Price </th>
+          <th style="background-color:lavender;
+            font-size:16px;
+            font-weight:600;
+            padding:8px;
+            border:1px solid black;
+            text-align:center;"> Quantity </th>
+          <th style="background-color:lavender;
+            font-size:16px;
+            font-weight:600;
+            padding:8px;
+            border:1px solid black;
+            text-align:center;"> Sub Total </th>
         </tr>
         <% orderitems=order.orderitems %>
         <% orderitems.order(:menuitem_name).each do |orderitem| %>
-          <tr class="invoice_row">
-            <td class="invoice_row_data">
+          <tr style="border:1px solid black;">
+            <td style=" border:1px solid black;
+              text-align:center;
+              padding:8px;">
               <%= orderitem.menuitem_name %>
             </td>
-            <td class="invoice_row_data">
+            <td style=" border:1px solid black;
+              text-align:center;
+              padding:8px;">
               <%= orderitem.menuitem_price %>
             </td>
-            <td class="invoice_row_data">
+            <td style=" border:1px solid black;
+              text-align:center;
+              padding:8px;">
               <%= orderitem.no_of_items %>
             </td>
-            <td class="invoice_row_data">
+            <td style=" border:1px solid black;
+              text-align:center;
+              padding:8px;">
               <%= orderitem.menuitem_price * orderitem.no_of_items %>
             </td>
           </tr>
         <% end %>
       </table>
-      <p class="invoice_total">Sub Total :&nbsp;<%= order.bill %>&nbsp;/-</p>
+      <p style="font-size:16px;
+        font-weight:bolder;
+        color:#DC4348;
+        width:200px;
+        margin:auto;">Sub Total :&nbsp;<%= order.bill %>&nbsp;/-</p>
     </div>
   </div>
