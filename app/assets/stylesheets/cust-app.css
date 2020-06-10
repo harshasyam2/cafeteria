@@ -153,6 +153,70 @@
   border:1px solid navy;
 }
 
+.payment-flash-error{
+  width:700px;
+  margin:auto;
+  color:darkred;
+  line-height:1.4;
+}
+
+.payment_block{
+  width:650px;
+  border:1px solid gray;
+  box-shadow:2px 2px 4px 4px lightgray;
+  padding:30px;
+  margin:auto;
+  background-color:white;
+  border-radius:10px;
+}
+
+.payment-input{
+  border:1px solid gray;
+  border-radius:8px;
+  padding:5px 10px;
+  box-shadow:1px 1px 3px 3px lightgray;
+  margin:10px;
+}
+
+.card_details{
+  display:flex;
+  align-items:center;
+  width:620px;
+  margin:auto;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.label-heading,.label-heading-name,.label-heading-cvv{
+  color:#453C52;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.label-heading-name,.label-heading-cvv{
+    padding-left:130px;
+}
+
+.expiry{
+  margin-left:10px;
+}
+
+.payment-submit{
+  color:white;
+  font-weight:bold;
+  background-color:limegreen;
+  padding:5px 10px;
+  margin:auto;
+  margin-top:20px;
+  text-align:center;
+  border:1px solid transparent;
+  border-radius:8px;
+}
+
+.payment-submit:hover{
+  background-color:#FF8D27;
+}
+
 .change_btn,.confirm_btn{
   border:1px solid grey;
   border-radius:8px;

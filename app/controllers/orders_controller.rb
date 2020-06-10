@@ -86,7 +86,9 @@ class OrdersController < ApplicationController
       order.status = "delivered"
       if order.save
         flash[:alert] = "Order delivered Successfully"
-        UserMailer.order_delivered(order.id).deliver
+        if order.customer_name != "Walk-in-customer"
+          UserMailer.order_delivered(order.id).deliver
+        end
         redirect_to orders_path
       else
         flash[:error] = order.errors.full_messages.join(",")
@@ -98,19 +100,28 @@ class OrdersController < ApplicationController
   def update
     id = params[:id]
     order = Order.find(id)
-    order.status = params[:status]
     order.bill = params[:bill]
     order.address = params[:address]
+    if current_user.role == "Customer"
+      order.customer_name = current_user.first_name
+    else
+      order.customer_name = params[:customer_name]
+      if params[:customer_name] == "Walk-in-customer"
+        order.status = params[:status]
+      end
+    end
     if order.save
-      if order.status == "ordered"
-        UserMailer.order_placed(order.id).deliver
-        if current_user.role == "Customer"
-          flash[:alert] = "Your order confirmed"
-          redirect_to my_orders_path
-        else
-          flash[:alert] = "Your order confirmed"
-          redirect_to menus_path
-        end
+      if current_user.role == "Customer"
+        redirect_to payments_path(
+          :orderid => order.id,
+        )
+      elsif order.customer_name == "Walk-in-customer"
+        flash[:alert] = "Your order confirmed"
+        redirect_to menus_path
+      else
+        redirect_to payments_path(
+          :orderid => order.id,
+        )
       end
     else
       flash[:error] = order.errors.full_messages.join(",")
@@ -119,7 +130,7 @@ class OrdersController < ApplicationController
   end
 
   def listorders
-    unless current_user.notcustomer?
+    if current_user.role != "Owner"
       flash[:alert] = "You are not accessed to this page"
       redirect_to menus_path
     else
@@ -138,7 +149,9 @@ class OrdersController < ApplicationController
     if order.customer_id == current_user.id or current_user.role != "Customer"
       order.status = "cancelled"
       if order.save
-        UserMailer.order_cancelled(order.id).deliver
+        if order.customer_name != "Walk-in-customer"
+          UserMailer.order_cancelled(order.id).deliver
+        end
         flash[:alert] = "Order Cancelled Successfully"
       else
         flash[:error] = order.errors.full_messages.join(",")

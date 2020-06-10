@@ -1,0 +1,26 @@
+<div class="main_content logged_in_background">
+  <p class="payment-flash-error"><%= flash[:error] %></p>
+  <p class="title_of_page"> Payment page </p>
+  <div class="payment_block">
+    <%= form_with(url: payments_path,method: "post",local:true) do %>
+      <input type="hidden" name="id" value="<%= @orderid %>">
+      <div class="card_details">
+        <label class="label-heading"> Card Number :</label>
+        <input type="text" class="payment-input" name="cardnumber" autocomplete="cardnumber" maxlength="16" placeholder="xxxx xxxx xxxx xxxx">
+        <label class="label-heading expiry"> Card Expiry :</label>
+        <input type="date" size="5" class="payment-input" name="cardexpiry" placeholder="xx/xx">
+      </div>
+      <div class="card_details">
+        <label class="label-heading-name"> Name on card :</label>
+        <input type="text" class="cardholder payment-input" name="cardholder" size="15" placeholder="Cardholder Name">
+      </div>
+      <div class="card_details">
+        <label class="label-heading-cvv"> Security Number(CVV) :</label>
+        <input type="text" class="payment-input" name="cvv" size="5" autocomplete="cvv" maxlength="3" placeholder="000">
+      </div>
+      <div class="card_details">
+        <input type="submit" class="payment-submit" value="Confirm Payment" data-disable-with="Confirming ...">
+      </div>
+    <% end %>
+  </div>
+</div>

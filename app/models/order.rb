@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :customer
   has_many :orderitems
+  has_one :payments
   validates :address, presence: true, on: :update, length: { minimum: 10 }
 
   def self.incart

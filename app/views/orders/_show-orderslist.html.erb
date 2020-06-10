@@ -21,18 +21,17 @@
     <tr class="<%= value_decides_class.even? ? "list_row_one" : "list_row_two" %>">
     <% customer=Customer.find(order.customer_id) %>
       <td colspan="2" class="list_row_data">
-        <% customer_name=customer.first_name %>
-        <% if customer.role=="Customer" %>
-          <%= customer_name %>
-        <% else %>
-          <%= customer_name.concat(" (#{customer.role}) ") %>
-        <% end %>
+        <%= order.customer_name %>
       </td>
       <td class="list_row_data">
         <%= order.date.to_s(:long) %>
       </td>
       <td class="list_row_data">
-        <%= customer.contact_number %>
+        <% if order.customer_name != "Walk-in-customer" %>
+          <%= customer.contact_number %>
+        <% else %>
+          <%= nil %>
+        <% end %>
       </td>
       <td class="list_row_data">
         <p class="order_bill"> Bill : <%= order.bill %>/-</p>

@@ -4,9 +4,9 @@ class OrderitemsController < ApplicationController
     order = @orders.currentuser(current_user)
     if order.first
       orderid = order.first.id
-      render "index", locals: { orderitems: Orderitem.where("order_id=?", orderid), orderid: orderid }
+      render "index", locals: { orderitems: Orderitem.where("order_id=?", orderid), orderid: orderid,user: current_user }
     else
-      render "index", locals: { orderitems: Orderitem.where("order_id=?", -1), orderid: orderid }
+      render "index", locals: { orderitems: Orderitem.where("order_id=?", -1), orderid: orderid,user: current_user }
     end
   end
 

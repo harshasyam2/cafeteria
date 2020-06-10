@@ -25,11 +25,11 @@
                   <p class="dropdown-lists" >
                     <%= link_to "Pending Orders", orders_path, class:"links_dropdown"%>
                   </p>
+                <% end %>
+                <% if @current_user.role == "Owner" %>
                   <p class="dropdown-lists" >
                     <%= link_to "List Sales", list_orders_path, class:"links_dropdown" %>
                   </p>
-                <% end %>
-                <% if @current_user.role == "Owner" %>
                   <p class="dropdown-lists" >
                     <%= link_to "Manage Menus", manage_menus_path, class:"links_dropdown" %>
                   </p>
@@ -109,8 +109,8 @@
         <p class="Home_menu"><%= link_to "Contact Us", contacts_path,class:"links home_link" %>
         <div class="address">
           <h2 class="address_heading"> Address : </h2>
-          <p class="address_content">15/2143,</p>
-          <p class="address_content"> Rajiv Gandhi Road,</p>
+          <p class="address_content">16/93,</p>
+          <p class="address_content"> Gurujada Road,</p>
           <p class="address_content"> MSR Circle, Chittoor,</p>
           <p class="address_content">Andhra Pradesh</p>
           <p class="address_content">517001</p>

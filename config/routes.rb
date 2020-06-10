@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :orderitems
   resources :contacts
   resources :randomnumbers
+  resources :payments
   get "/aboutus", to: "home#aboutus", as: :about_us
   get "/privacypolicy", to: "home#privacypolicy", as: :privacy_policy
   get "/viewprofile", to: "customers#viewprofile", as: :view_profile_customer

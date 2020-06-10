@@ -50,10 +50,26 @@
         <input type="hidden" name="status" value="ordered">
         <input type="hidden" name="bill" value="<%= bill_amount %>">
         <% if bill_amount > 0 %>
-          <div class="address_label_block">
-            <label class="address_label">Address :<p class="Mandatory"> * </p></label>
-            <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
-          </div>
+          <% if user.role!="Customer" %>
+            <div class="address_orderfor">
+              <div class="address_label_block">
+                <label class="address_label">Address :<p class="Mandatory"> * </p></label>
+                <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
+              </div>
+              <div class="orderfor_block">
+                <label class="address_label"> Order for :</label>
+                <select class="orderfor_select" name="customer_name">
+                    <option>Walk-in-customer</option>
+                    <option> <%= user.first_name.concat(" (#{user.role})") %> </option>
+                </select>
+              </div>
+            </div>
+          <% else %>
+            <div class="address_label_block_1">
+                <label class="address_label">Address :<p class="Mandatory"> * </p></label>
+                <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
+              </div>
+          <% end %>
           <input type="submit" class="Confirm_order" value="Confirm Order" data-disable-with="Confirming ...">
         <% end %>
       <% end %>
