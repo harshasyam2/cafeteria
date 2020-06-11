@@ -31,4 +31,8 @@ class Order < ActiveRecord::Base
   def self.notincart
     all.where("status!=?", "incart")
   end
+
+  def self.customername(cust_name)
+    all.where("customer_name=?", cust_name)
+  end
 end

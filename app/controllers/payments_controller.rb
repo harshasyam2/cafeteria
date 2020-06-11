@@ -19,6 +19,7 @@ class PaymentsController < ApplicationController
       )
       if new_payment.save
         order = Order.find(params[:id])
+        order.date = Date.today
         order.status = "ordered"
         if order.save
           UserMailer.order_placed(order.id).deliver
@@ -29,6 +30,9 @@ class PaymentsController < ApplicationController
         flash[:error_payments] = new_payment.errors.full_messages.join(",")
         redirect_to orderitems_path
       end
+    else
+      flash[:error_payments] = new_payment.errors.full_messages.join(",")
+      redirect_to orderitems_path
     end
   end
 end

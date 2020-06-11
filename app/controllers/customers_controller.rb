@@ -124,7 +124,7 @@ class CustomersController < ApplicationController
     contact_number = params[:contact_number]
     if email != "" and contact_number != "" and contact_number.to_i.to_s == contact_number
       customer = Customer.find_by("email=?", email)
-      if customer.contact_number == contact_number.to_i
+      if customer and customer.contact_number == contact_number.to_i
         redirect_to randomnumbers_path(
           :customer_id => customer.id,
         )

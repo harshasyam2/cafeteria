@@ -61,6 +61,7 @@ class OrdersController < ApplicationController
     else
       initial_date = params[:initial_date]
       final_date = params[:final_date]
+      cust_name = params[:cust_name]
       if initial_date == "" or final_date == ""
         flash[:alert] = "Please Enter valid dates.Dates can't be empty"
         redirect_to list_orders_path
@@ -69,8 +70,14 @@ class OrdersController < ApplicationController
         redirect_to list_orders_path
       else
         @orders = Order.fromto(initial_date, final_date)
+        if cust_name == "All"
+          @orders = @orders
+        else
+          @orders = @orders.customername(cust_name)
+        end
         @initial_date = initial_date
         @final_date = final_date
+        @customer_name = cust_name
         render "listorders"
       end
     end
@@ -83,13 +90,15 @@ class OrdersController < ApplicationController
     else
       id = params[:id]
       order = Order.find(id)
+      order.date = Date.today
       order.status = "delivered"
       if order.save
-        flash[:alert] = "Order delivered Successfully"
         if order.customer_name != "Walk-in-customer"
           UserMailer.order_delivered(order.id).deliver
         end
-        redirect_to orders_path
+        redirect_to sold_number_path(
+          :orderid => order.id,
+        )
       else
         flash[:error] = order.errors.full_messages.join(",")
         redirect_to orderitems_path
@@ -107,6 +116,7 @@ class OrdersController < ApplicationController
     else
       order.customer_name = params[:customer_name]
       if params[:customer_name] == "Walk-in-customer"
+        order.date = Date.today
         order.status = params[:status]
       end
     end
@@ -139,6 +149,7 @@ class OrdersController < ApplicationController
       @orders = Order.fromto(initial_date, final_date)
       @initial_date = initial_date
       @final_date = final_date
+      @customer_name = "All"
       render "listorders"
     end
   end
@@ -147,6 +158,7 @@ class OrdersController < ApplicationController
     id = params[:id]
     order = Order.find(id)
     if order.customer_id == current_user.id or current_user.role != "Customer"
+      order.date = Date.today
       order.status = "cancelled"
       if order.save
         if order.customer_name != "Walk-in-customer"

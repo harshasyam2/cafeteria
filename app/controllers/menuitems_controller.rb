@@ -173,4 +173,26 @@ class MenuitemsController < ApplicationController
       @menuitem = Menuitem.find(id)
     end
   end
+
+  def soldnumber
+    order = Order.find(params[:orderid])
+    orderitems = order.orderitems
+    orderitems.each do |orderitem|
+      menuitem = Menuitem.find_by("name=?", orderitem.menuitem_name)
+      if menuitem
+        previous_count = menuitem.soldnumber
+        if previous_count != nil and previous_count >= 1
+          menuitem.soldnumber = (previous_count + orderitem.no_of_items)
+        else
+          menuitem.soldnumber = orderitem.no_of_items
+        end
+      end
+      if menuitem.save
+        flash[:alert] = "Your order delivered"
+      else
+        flash[:error] = menuitem.errors.full_messages.join(",")
+      end
+      redirect_to orders_path
+    end
+  end
 end

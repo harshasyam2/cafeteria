@@ -10,6 +10,10 @@
         To Date:
       </label>
       <input class="from_to_button" type="date" name="final_date">
+       <label class="label_to_records to">
+        Customer Name:
+      </label>
+      <input type="text" name="cust_name" value="All">
       <input class="search_button" type="submit" value="Search" data-disable-with="Searching ...">
     </div>
   <% end %>
@@ -20,6 +24,13 @@
     <div class="display_dates">To Date :
       <p class="display_ini_fin_dates"><%= @final_date %></p>
     </div>
+    <% if @customer_name !="All" %>
+      <% if @customer_name!="" %>
+        <div class="display_dates">Customer Name :
+          <p class="display_ini_fin_dates"><%= @customer_name %></p>
+        </div>
+      <% end %>
+    <% end %>
     <% if @orders.delivered.count == 0 %>
       <div class="emptysales_block">
         <img src="nodelivery.jpeg" class="delivery_image">

@@ -30,7 +30,8 @@
         <% if order.customer_name != "Walk-in-customer" %>
           <%= customer.contact_number %>
         <% else %>
-          <%= nil %>
+          <% number = "- - -" %>
+          <%= number %>
         <% end %>
       </td>
       <td class="list_row_data">
