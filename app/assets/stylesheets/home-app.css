@@ -37,14 +37,14 @@
 
 .figures{
   position:relative;
-  width:500%;
+  width:1000%;
   margin:0;
   left:0;
   animation:20s slider infinite;
 }
 
 .theme_image{
-  width:20%;
+  width:10%;
   float:left;
   height:700px;
 }
@@ -53,29 +53,53 @@
   0%{
     left:0;
   }
-  20%{
+  10%{
     left:0;
   }
+  12.5%{
+    left:-100%;
+  }
+  22.5%{
+    left:-100%;
+  }
   25%{
-    left:-100%;
-  }
-  45%{
-    left:-100%;
-  }
-  50%{
     left:-200%;
   }
-  70%{
+  35%{
     left:-200;
   }
-  75%{
+  37.5%{
     left:-300%;
   }
-  95%{
+  47.5%{
     left:-300%;
+  }
+  50%{
+    left:-400%;
+  }
+  60%{
+    left:-400%;
+  }
+  62.5%{
+    left:-500%;
+  }
+  72.5%{
+    left:-500%;
+  }
+  75%{
+    left:-600%;
+  }
+  85%{
+    left:-600;
+  }
+  87.5%{
+    left:-700%;
+  }
+  97.5%{
+    left:-700%;
   }
   100%{
-    left:-400%;
+    left:-800%;
   }
 }
 
