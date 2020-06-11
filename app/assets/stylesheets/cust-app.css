@@ -25,6 +25,7 @@
 .Customer_signin{
   border:10px solid transparent;
   max-width:600px;
+  max-height:800px;
   margin:auto;
   padding-bottom:100px;
 }

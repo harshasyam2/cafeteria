@@ -314,14 +314,24 @@
 .search_records{
   display:flex;
   align-items:center;
-  width:700px;
+  width:1000px;
   margin:auto;
+}
+
+.cust_name{
+  width:100px;
+  padding:5px 10px;
+  border:1px solid gray;
+  box-shadow:1px 1px 3px 3px lightgray;
+  border-radius:8px;
+  margin-right:20px;
 }
 
 .from_to_button{
   font-size:14px;
   margin:5px;
   margin-right:10px;
+  box-shadow:1px 1px 3px 3px lightgray;
 }
 
 .search_button{
@@ -344,6 +354,7 @@
   font-size:14px;
   font-weight:bold;
   margin-right:5px;
+  width:120px;
 }
 
 .from{
@@ -352,6 +363,11 @@
 
 .to{
   margin-left:20px;
+}
+
+.records_name{
+  margin-left:20px;
+  width:180px;
 }
 
 .in_myorders_cancel{
