@@ -318,6 +318,13 @@
   margin:auto;
 }
 
+.search_records_menuitems{
+  display:flex;
+  align-items:center;
+  width:700px;
+  margin:auto;
+}
+
 .cust_name{
   width:100px;
   padding:5px 10px;
@@ -355,6 +362,13 @@
   font-weight:bold;
   margin-right:5px;
   width:120px;
+}
+
+.label_to_records_menuitems{
+  color:#453C52;
+  font-size:14px;
+  font-weight:bold;
+  margin-right:5px;
 }
 
 .from{

@@ -1,0 +1,33 @@
+<% total_earning=0 %>
+<% orders_list.each do |order| %>
+  <% total_earning=total_earning+order.bill %>
+<% end %>
+<p class="totalearning">Total Earning :<%= total_earning %>/-</p>
+<table class="list_orders_to_admin">
+  <tr class="list_row">
+    <th colspan="2" class="heading_lists"> Menuitem Name </th>
+    <th class="heading_lists"> Price </th>
+    <th class="heading_lists"> Quantity </th>
+    <th class="heading_lists"> Sub Total </th>
+  </tr>
+  <% value_decides_class=0 %>
+  <% orders_list.each do |order| %>
+    <% order.orderitems.each do |orderitem| %>
+      <% value_decides_class+=1 %>
+      <tr class="<%= value_decides_class.even? ? "list_row_one" : "list_row_two" %>">
+        <td colspan="2" class="list_row_data">
+          <%= orderitem.menuitem_name %>
+        </td>
+        <td class="list_row_data">
+          <%= orderitem.menuitem_price %>
+        </td>
+        <td class="list_row_data">
+          <%= orderitem.no_of_items %>
+        </td>
+        <td class="list_row_data">
+          <p class="order_bill"> Bill : <%= orderitem.menuitem_price*orderitem.no_of_items %>/-</p>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

@@ -96,9 +96,8 @@ class OrdersController < ApplicationController
         if order.customer_name != "Walk-in-customer"
           UserMailer.order_delivered(order.id).deliver
         end
-        redirect_to sold_number_path(
-          :orderid => order.id,
-        )
+        flash[:alert] = "Order delivered successfully"
+        redirect_to orders_path
       else
         flash[:error] = order.errors.full_messages.join(",")
         redirect_to orderitems_path

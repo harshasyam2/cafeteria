@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   get "/ownermenus", to: "menus#ownermenus", as: :owner_menus
   get "/managemenus", to: "menus#managemenus", as: :manage_menus
   post "/uniquecustomers", to: "customers#uniquecustomer", as: :unique_customer
-  get "/soldnumber", to: "menuitems#soldnumber", as: :sold_number
+  get "/listmenuitems", to: "menuitems#listmenuitems", as: :list_menuitems
+  get "/showmenuitems", to: "menuitems#menuitemshow", as: :show_menuitems_orders
   post "/menuitem/unique", to: "menuitems#uniquemenuitem", as: :unique_menuitem
   get "/deleteorder", to: "orders#deleteorder", as: :delete_order
   get "/deleteorderitems", to: "orderitems#destroyorderitem", as: :delete_orderitem

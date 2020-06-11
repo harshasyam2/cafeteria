@@ -33,4 +33,8 @@ class Menuitem < ActiveRecord::Base
   def self.menu_present(menu_id)
     all.where("menu_id=?", menu_id)
   end
+
+  def self.sold
+    all.where("condition=?", "sold")
+  end
 end

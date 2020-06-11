@@ -174,25 +174,41 @@ class MenuitemsController < ApplicationController
     end
   end
 
-  def soldnumber
-    order = Order.find(params[:orderid])
-    orderitems = order.orderitems
-    orderitems.each do |orderitem|
-      menuitem = Menuitem.find_by("name=?", orderitem.menuitem_name)
-      if menuitem
-        previous_count = menuitem.soldnumber
-        if previous_count != nil and previous_count >= 1
-          menuitem.soldnumber = (previous_count + orderitem.no_of_items)
-        else
-          menuitem.soldnumber = orderitem.no_of_items
-        end
-      end
-      if menuitem.save
-        flash[:alert] = "Your order delivered"
+  def listmenuitems
+    if current_user.role != "Owner"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      initial_date = Date.today - 30
+      final_date = Date.today
+      orders = Order.fromto(initial_date, final_date)
+      @initial_date = initial_date
+      @final_date = final_date
+      @orders = Order.fromto(initial_date, final_date)
+      @menuitem_name = "All"
+      render "listmenuitems"
+    end
+  end
+
+  def menuitemshow
+    if current_user.role == "Customer"
+      flash[:alert] = "You are not accessed to this page"
+      redirect_to menus_path
+    else
+      initial_date = params[:initial_date]
+      final_date = params[:final_date]
+      if initial_date == "" or final_date == ""
+        flash[:alert] = "Please Enter valid dates.Dates can't be empty"
+        redirect_to list_menuitems_path
+      elsif initial_date.to_s > final_date.to_s
+        flash[:alert] = "Invalid search of dates. From Date is greater than To Date"
+        redirect_to list_menuitems_path
       else
-        flash[:error] = menuitem.errors.full_messages.join(",")
+        @orders = Order.fromto(initial_date, final_date)
+        @initial_date = initial_date
+        @final_date = final_date
+        render "listmenuitems"
       end
-      redirect_to orders_path
     end
   end
 end

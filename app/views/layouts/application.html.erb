@@ -28,7 +28,10 @@
                 <% end %>
                 <% if @current_user.role == "Owner" %>
                   <p class="dropdown-lists" >
-                    <%= link_to "List Sales", list_orders_path, class:"links_dropdown" %>
+                    <%= link_to "Sales Based on Dates", list_orders_path, class:"links_dropdown" %>
+                  </p>
+                  <p class="dropdown-lists" >
+                    <%= link_to "Sales Based on Products", list_menuitems_path, class:"links_dropdown" %>
                   </p>
                   <p class="dropdown-lists" >
                     <%= link_to "Manage Menus", manage_menus_path, class:"links_dropdown" %>
