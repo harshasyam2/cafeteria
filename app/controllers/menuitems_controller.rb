@@ -185,7 +185,7 @@ class MenuitemsController < ApplicationController
       @initial_date = initial_date
       @final_date = final_date
       @orders = Order.fromto(initial_date, final_date)
-      @menuitem_name = "All"
+      @item_name = "ALL"
       render "listmenuitems"
     end
   end
@@ -197,6 +197,7 @@ class MenuitemsController < ApplicationController
     else
       initial_date = params[:initial_date]
       final_date = params[:final_date]
+      item_name = params[:item_name].gsub(/\s+/, "").strip.upcase
       if initial_date == "" or final_date == ""
         flash[:alert] = "Please Enter valid dates.Dates can't be empty"
         redirect_to list_menuitems_path
@@ -207,6 +208,7 @@ class MenuitemsController < ApplicationController
         @orders = Order.fromto(initial_date, final_date)
         @initial_date = initial_date
         @final_date = final_date
+        @item_name = item_name
         render "listmenuitems"
       end
     end

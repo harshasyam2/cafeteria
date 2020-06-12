@@ -1,15 +1,19 @@
 <div class="main_content logged_in_background">
   <p class="title_of_page"> Sales Based On Products </p>
   <%= form_with(url: "/showmenuitems", method: "get",local:true) do %>
-    <div class="search_records_menuitems">
-      <label class="label_to_records_menuitems from">
+    <div class="search_records">
+      <label class="label_to_records from">
         From Date:
       </label>
         <input class="from_to_button" type="date" name="initial_date">
-      <label class="label_to_records_menuitems to">
+      <label class="label_to_records to">
         To Date:
       </label>
       <input class="from_to_button" type="date" name="final_date">
+      <label class="label_to_records records_name">
+        Menuitem Name:
+      </label>
+      <input type="text" class="cust_name" name="item_name" value="All">
       <input class="search_button" type="submit" value="Search" data-disable-with="Searching ...">
     </div>
   <% end %>
@@ -20,6 +24,13 @@
     <div class="display_dates">To Date :
       <p class="display_ini_fin_dates"><%= @final_date %></p>
     </div>
+    <% if @item_name !="ALL" %>
+      <% if @item_name!="" %>
+        <div class="display_dates">Menuitem Name :
+          <p class="display_ini_fin_dates"><%= @item_name.capitalize %></p>
+        </div>
+      <% end %>
+    <% end %>
     <% if @orders.delivered.count == 0 %>
       <div class="emptysales_block">
         <img src="nodelivery.jpeg" class="delivery_image">
@@ -29,6 +40,7 @@
       </div>
     <% else %>
       <%= render partial:"show-menuitemslist",locals: {
+          item_name:@item_name,
           orders_list:@orders.delivered
         }
       %>

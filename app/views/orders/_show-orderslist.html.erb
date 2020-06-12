@@ -6,7 +6,13 @@
 <table class="list_orders_to_admin">
   <tr class="list_row">
     <th colspan="2" class="heading_lists"> Name </th>
-    <th class="heading_lists"> Ordered Date</th>
+    <th class="heading_lists">
+      <% if show_delivered_button %>
+        Ordered Date
+      <% else %>
+        Delivered Date
+      <% end %>
+    </th>
     <th class="heading_lists"> Contact Number </th>
     <th class="heading_lists"> Sub Total </th>
     <th class="heading_lists"> Details </th>

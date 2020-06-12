@@ -33,6 +33,6 @@ class Order < ActiveRecord::Base
   end
 
   def self.customername(cust_name)
-    all.where("customer_name=?", cust_name)
+    all.where("UPPER(REGEXP_REPLACE(customer_name, '\s', '', 'g')) like ?", "%#{cust_name}%")
   end
 end

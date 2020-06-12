@@ -24,10 +24,10 @@
     <div class="display_dates">To Date :
       <p class="display_ini_fin_dates"><%= @final_date %></p>
     </div>
-    <% if @customer_name !="All" %>
+    <% if @customer_name !="ALL" %>
       <% if @customer_name!="" %>
         <div class="display_dates">Customer Name :
-          <p class="display_ini_fin_dates"><%= @customer_name %></p>
+          <p class="display_ini_fin_dates"><%= @customer_name.capitalize %></p>
         </div>
       <% end %>
     <% end %>

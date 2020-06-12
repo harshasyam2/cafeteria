@@ -61,7 +61,7 @@ class OrdersController < ApplicationController
     else
       initial_date = params[:initial_date]
       final_date = params[:final_date]
-      cust_name = params[:cust_name]
+      cust_name = params[:cust_name].gsub(/\s+/, "").strip.upcase
       if initial_date == "" or final_date == ""
         flash[:alert] = "Please Enter valid dates.Dates can't be empty"
         redirect_to list_orders_path
@@ -70,7 +70,7 @@ class OrdersController < ApplicationController
         redirect_to list_orders_path
       else
         @orders = Order.fromto(initial_date, final_date)
-        if cust_name == "All"
+        if cust_name == "ALL"
           @orders = @orders
         else
           @orders = @orders.customername(cust_name)
@@ -148,7 +148,7 @@ class OrdersController < ApplicationController
       @orders = Order.fromto(initial_date, final_date)
       @initial_date = initial_date
       @final_date = final_date
-      @customer_name = "All"
+      @customer_name = "ALL"
       render "listorders"
     end
   end
