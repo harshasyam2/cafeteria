@@ -197,7 +197,8 @@ class MenuitemsController < ApplicationController
     else
       initial_date = params[:initial_date]
       final_date = params[:final_date]
-      item_name = params[:item_name].gsub(/\s+/, "").strip.upcase
+      @menuitem_name = params[:item_name]
+      item_name = @menuitem_name.gsub(/\s+/, "").strip.upcase
       if initial_date == "" or final_date == ""
         flash[:alert] = "Please Enter valid dates.Dates can't be empty"
         redirect_to list_menuitems_path

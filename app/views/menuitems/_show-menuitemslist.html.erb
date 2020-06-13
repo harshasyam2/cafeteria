@@ -15,18 +15,22 @@
   <table class="list_orders_to_admin">
     <tr class="list_row">
       <th colspan="2" class="heading_lists"> Menuitem Name </th>
+      <th class="heading_lists"> Delivered Date </th>
       <th class="heading_lists"> Price </th>
       <th class="heading_lists"> Quantity </th>
       <th class="heading_lists"> Sub Total </th>
     </tr>
     <% value_decides_class=0 %>
-    <% orders_list.each do |order| %>
+    <% orders_list.order(:date).each do |order| %>
       <% order.orderitems.order(:menuitem_name).each do |orderitem| %>
         <% if item_name=="ALL" %>
           <% value_decides_class+=1 %>
           <tr class="<%= value_decides_class.even? ? "list_row_one" : "list_row_two" %>">
             <td colspan="2" class="list_row_data">
               <%= orderitem.menuitem_name %>
+            </td>
+            <td class="list_row_data">
+              <%= order.date.to_s(:long) %>
             </td>
             <td class="list_row_data">
               <%= orderitem.menuitem_price %>
@@ -44,6 +48,9 @@
             <tr class="<%= value_decides_class.even? ? "list_row_one" : "list_row_two" %>">
               <td colspan="2" class="list_row_data">
                 <%= orderitem.menuitem_name %>
+              </td>
+              <td class="list_row_data">
+                <%= order.date.to_s(:long) %>
               </td>
               <td class="list_row_data">
                 <%= orderitem.menuitem_price %>

@@ -2,7 +2,7 @@
   <div class="list_menuitems">
     <table class="Menu_display menu_section_display" width="100%">
       <div class="title_and_delete">
-        <p class="title"><%= menu_title %></p>
+        <p class="<%= show_delete_btn ? "title_del" : "title" %>"><%= menu_title %></p>
       </div>
       <% menuitems.active.each do |menu_item| %>
         <tr class="description_image_block">
@@ -44,15 +44,24 @@
                   <% if order %>
                     <% orderitem = order.orderitems.menuitem_present(menu_item.id).first %>
                   <% end %>
-                  <input class="item_count"
-                    name="no_of_items"
-                    type="number"
-                    min="1"
-                    max="10"
-                    value="<%= orderitem ? orderitem.no_of_items !=nil ? "#{orderitem.no_of_items}" : "0" : "0" %>"
-                  >
+                  <% if orderitem and orderitem.no_of_items>=1 %>
+                    <input class="item_count"
+                      name="no_of_items"
+                      type="number"
+                      min="1"
+                      max="10"
+                      value="<%= orderitem ? (orderitem.no_of_items !=nil ? "#{orderitem.no_of_items}" : "1") : "1" %>"
+                      onchange="this.form.submit()"
+                    >
+                  <% else %>
+                    <input type="hidden" name="no_of_items" value="1">
+                  <% end %>
                   <input type="hidden" name="id" value="<%= menu_item.id %>">
-                  <input class="Add_to_cart" type="submit" value="&nbsp;Add&nbsp;" data-disable-with="Adding....">
+                  <% if !(orderitem and orderitem.no_of_items>=1) %>
+                    <button type="submit" class="Add_to_cart" data-disable-with="Adding ..">
+                      <i class="fa fa-cart-plus icon_cart"></i>&nbsp;&nbsp;Add
+                    </button>
+                  <% end %>
                 <% end %>
               </td>
             <% end %>

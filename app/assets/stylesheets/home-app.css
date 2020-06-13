@@ -306,6 +306,11 @@
   color:purple;
 }
 
+.search_section_block{
+  height:auto;
+  padding-bottom:150px;
+}
+
 .form-search-clear{
   width:620px;
   margin:auto;

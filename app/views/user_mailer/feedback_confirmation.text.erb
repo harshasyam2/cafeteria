@@ -1,16 +1,15 @@
+<p>Hi <%= @contact.first_name.concat(" #{@contact.last_name}") %>,</p>
+<br>
 <div style="font-size:14px;
   color:#453C52;
   line-height:1.4;
-  display:flex;
-  align-items:center;
   width:700px;
   margin:auto;">
-  <div>Your Feedback:</div>
+  <div style="font-size:14px;
+    font-weight:bolder;">Your Feedback:</div>
   <div><%= @contact.message %>
 </div>
-
+<br>
 <p style="font-size:14px;
   color:#453C52;
-  line-height:1.4;
-  width:700px;
-  margin:auto;">Thank you sor sending the feedback.Hope you are comfortable with us.</p>
+  line-height:1.4;">Thank you sor sending the feedback.Hope you are comfortable with us.</p>

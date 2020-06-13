@@ -118,6 +118,7 @@
   cursor:pointer;
   border:1px solid grey;;
   border-radius:5px;
+  width:150px;
 }
 
 .message_field{
@@ -580,6 +581,13 @@
   color:black;
   border:1px solid transparent;
   margin-right:10px;
+}
+
+.icon_cart{
+  color:black;
+  padding-right:5px;
+  font-size:18px;
+  text-align:center;
 }
 
 .icon_mail{

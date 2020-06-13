@@ -32,7 +32,7 @@
           <div class="contact-input-label">Mobile Number:<p class="Mandatory"> * </p></div>
           <div class="input-icons">
             <i class="fa fa-phone icon"></i>
-            <%= form.text_field :mobile,class:"Form-input" %>
+            <%= form.text_field :mobile,class:"Form-input",autocomplete:"mobile",maxlength:"10" %>
           </div>
         </div>
         <div class="contactus-section">
@@ -48,7 +48,7 @@
           <%= form.text_area(name="message",class:"Form-input message_field",rows:"5",columns:"70",placeholder:"Write your message here ....") %>
       </div>
       <div class="contactus-section">
-        <%= form.submit "Submit",class:"contactus-submit",local:true%>
+        <%= form.submit "Submit",class:"contactus-submit",data: { disable_with: "Submiting .." } %>
       </div>
     <% end %>
   </div>
