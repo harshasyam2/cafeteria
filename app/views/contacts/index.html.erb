@@ -3,6 +3,7 @@
   <p class="Flash-error-signinup"> <%= flash[:error_contactus] %> </p>
   <p class="contact_title"> Contact Us </p>
   <div class="contact_us_block">
+    <p class="contact_us_text"> For any grievance, suggesstions and queries kindly write to us </p>
     <%= form_with url:contacts_path do |form| %>
     <div class="contact_us_section">
       <div class="contactus-section">
@@ -47,8 +48,11 @@
         <div class="contact-input-label">Message :<p class="Mandatory"> * </p></div>
           <%= form.text_area(name="message",class:"Form-input message_field",rows:"5",columns:"70",placeholder:"Write your message here ....") %>
       </div>
-      <div class="contactus-section">
-        <%= form.submit "Submit",class:"contactus-submit",data: { disable_with: "Submiting .." } %>
+      <div class="Form-section">
+        <div class="input-icons">
+          <i class="fa fa-send-o icon_send"></i>
+          <%= form.submit "Send Feedback",class:"contact_submit",data: { disable_with: "Sending .." } %>
+        </div>
       </div>
     <% end %>
   </div>

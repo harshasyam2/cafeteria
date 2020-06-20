@@ -30,7 +30,7 @@
           <%= form.email_field :email,value:"#{@user.email}",class:"Form-input profile-input",placeholder:"Email-id" %>
         </div>
       </div>
-      <%= form.submit "Update Profile",class:"update_profile",local:true, data:{disable_with: "Updating ..." }%>
+      <%= form.submit "Update Profile",onclick:"return updateprofile();",class:"update_profile",local:true, data:{disable_with: "Updating ..." }%>
     <% end %>
   </section>
 </div>

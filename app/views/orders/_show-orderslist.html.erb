@@ -62,7 +62,7 @@
         <td class="list_row_data">
           <%= form_with(url: deliver_order_path, method: "get",local: true) do %>
             <input type="hidden" name="id" value="<%= order.id %>">
-            <input class="button delivered" type="submit" value="Deliver Order">
+            <input class="button delivered" type="submit" onclick="return deliver();" value="Deliver Order">
           <% end %>
         </td>
       <% end %>

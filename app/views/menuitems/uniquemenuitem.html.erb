@@ -28,7 +28,7 @@
     <% end %>
   </div>
 
-  <table class="Menu_display <%= user.role=="Owner" and show_delete ? "menuitems_show_del" : "menuitems_show"%>">
+  <table class="Menu_display <%= (user.role=="Owner" and show_delete) ? "menuitems_show_del" : "menuitems_show" %>">
     <% menuitems.active.each do |menu_item| %>
             <tr>
               <td colspan="2">

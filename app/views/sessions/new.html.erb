@@ -22,12 +22,12 @@
                 <%= form.password_field :password,class:"Form-input",placeholder:"Password" %>
               </div>
             </div>
+            <%= link_to "Forgot Password ?",forgot_password_path, class:"forgot_password" %>
             <div class="Form-section">
               <%= form.submit "Sign-in!",class:"Form-submit",data: { disable_with: "Signing.." } %>
             </div>
           <% end %>
         </section>
-        <%= link_to "Forgot Password ?",forgot_password_path, class:"forgot_password" %>
         <p class="Signup_link">New User ? <%= link_to "Create Account",new_customer_path,class:"links" %> here </p>
       </div>
     </div>

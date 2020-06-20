@@ -19,8 +19,17 @@
   font-size:20px;
   padding:5px 10px;
   padding-top:40px;
-  padding-bottom:40px;
+  padding-bottom:20px;
   padding-left:80px;
+}
+
+.contact_us_text{
+  color:rgb(93, 93, 224);
+  width:510px;
+  text-align:center;
+  font-size:16px;
+  padding:5px 10px;
+  padding-bottom:30px;
 }
 
 .totalearning{
@@ -70,6 +79,10 @@
   font-size:14px;
   width:25%;
   text-align:center;
+}
+
+.confirmorder_section{
+  width:100%;
 }
 
 .Confirm_order{

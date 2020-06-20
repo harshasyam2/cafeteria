@@ -45,7 +45,7 @@
 }
 
 .center_section{
-  width:250px;
+  width:300px;
   margin:auto;
 }
 
@@ -60,17 +60,20 @@
   align-items:center;
 }
 
-.contactus-submit{
-  margin-left:260px;
+.contact_submit{
+  width:180px;
+  margin:auto;
   font-size:14px;
   padding:10px;
   font-weight: 600;
   background-color: #8EE4AF;
   border:1px solid transparent;
   border-radius:8px;
+  padding-left:35px;
+  justify-content:center;
 }
 
-.contactus-submit:hover{
+.contact_submit:hover{
   background-color:grey;
   color:white;
 }
@@ -556,12 +559,16 @@
   background-color:#E12D39
 }
 
-.icon{
+.icon,.icon_send{
   padding:10px;
   margin-left:25px;
   color:#453C52;
   min-width:50px;
   text-align:center;
+}
+
+.icon_send{
+  margin-left:-10px;
 }
 
 .search_email_block{

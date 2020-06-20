@@ -55,7 +55,7 @@
             <div class="address_orderfor">
               <div class="address_label_block">
                 <label class="address_label">Address :<p class="Mandatory"> * </p></label>
-                <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
+                <textarea class="address_block" rows="4" cols="20" name="address" size="50" placeholder="Address location of delivery"></textarea>
               </div>
               <div class="orderfor_block">
                 <label class="address_label"> Order for :</label>
@@ -69,12 +69,13 @@
             <div class="address_label_block_1">
                 <label class="address_label">Address :<p class="Mandatory"> * </p></label>
                 <textarea class="address_block" rows="4" cols="30" name="address" size="50" placeholder="Address location of delivery"></textarea>
-              </div>
+            </div>
           <% end %>
-          <input type="submit" class="Confirm_order" value="Confirm Order" data-disable-with="Confirming ...">
+          <div class="confirmorder_section">
+            <input type="submit" class="Confirm_order" onclick="return confirmorder();" value="Confirm Order" data-disable-with="Confirming ...">
+          </div>
         <% end %>
       <% end %>
-    </div>
     <% else%>
       <div class="emptycart_block">
         <img src="emptycart.jpeg" class="empty-cart-theme">
