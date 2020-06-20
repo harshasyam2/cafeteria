@@ -7,6 +7,32 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script>
+      function myConfirm()
+      {
+        var result=confirm("Want to cancel an order?");
+        if(result==true)
+        {
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+
+      function Changerole()
+      {
+        var result=confirm("Want to change role?");
+        if(result==true)
+        {
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+    </script>
   </head>
 
 

@@ -8,10 +8,10 @@
       <th class="feedback_data column_heading">City</th>
       <th class="feedback_data column_heading">State</th>
       <th class="feedback_data column_heading">Email</th>
-      <th class="feedback_data column_heading">Feedback</th>
+      <th colspan="2" class="feedback_data feedback_column column_heading">Feedback</th>
     </tr>
     <% value_decides_class=0 %>
-    <% Contact.all.each do |contact| %>
+    <% Contact.order(:date).each do |contact| %>
       <% value_decides_class+=1 %>
       <tr class="<%= value_decides_class.even? ? "feedback_row_one" : "feedback_row_two" %>">
         <td colspan="2" class="feedback_data">

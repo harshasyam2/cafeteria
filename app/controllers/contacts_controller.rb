@@ -18,6 +18,7 @@ class ContactsController < ApplicationController
       mobile: params[:mobile],
       email: params[:email],
       message: params[:message],
+      date: Date.today,
     )
     if new_contact.save
       flash[:alert_contactus] = "Your Feedback submitted successfully"

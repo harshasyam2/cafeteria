@@ -29,10 +29,16 @@
   color:white;
 }
 
-.menuitems_show{
-  max-width:700px;
+.menuitems_show_del{
+  width:700px;
   margin:0 auto;
 }
+
+.menuitems_show{
+  width:600px;
+  margin:0 auto;
+}
+
 
 .edit_block{
   height:80vh;

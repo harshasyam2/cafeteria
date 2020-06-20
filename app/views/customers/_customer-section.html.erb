@@ -8,12 +8,12 @@
           <td class="customer_email">
             <%= customer.email %>
           </td>
-          <%= form_with(url: "/customers/#{customer.id}",method: "put", local: true) do %>
-            <td>
+          <td>
+            <%= form_with(url: "/customers/#{customer.id}",method: "put", local: true) do %>
               <input type="hidden" name="role" value="<%= cust_value %>">
-              <input class="billing_button" type="submit" value="<%= button_value %>" data-disable-with="changing...">
-            </td>
-          <% end %>
+              <input class="billing_button" type="submit" onclick="return Changerole();" value="<%= button_value %>" data-disable-with="changing...">
+            <% end %>
+          </td>
       </tr>
     <% end %>
 </section>

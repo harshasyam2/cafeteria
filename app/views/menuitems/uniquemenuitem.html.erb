@@ -13,6 +13,11 @@
       <button type="submit" class="Form-search" data-disable-with="Searching...">
         <i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;Search
       </button>
+      <% if user.role=="Owner" and show_delete %>
+        <input type="hidden" name="page" value="delete_page">
+      <% else %>
+        <input type="hidden" name="page" value="normal_page">
+      <% end %>
     <% end %>
     <%= form_with(url:"/menus",method:"get",local:true) do %>
       <div class="input-icons">
@@ -23,7 +28,7 @@
     <% end %>
   </div>
 
-  <table class="Menu_display menuitems_show">
+  <table class="Menu_display <%= user.role=="Owner" and show_delete ? "menuitems_show_del" : "menuitems_show"%>">
     <% menuitems.active.each do |menu_item| %>
             <tr>
               <td colspan="2">
@@ -54,33 +59,33 @@
                 </td>
               <% else %>
                 <td colspan="2" width="400px">
-                <%= form_with(url: "/orders",method: "POST", local: true) do %>
-                  <% order=Order.currentuser(user).incart.first %>
-                  <% if order %>
-                    <% orderitem = order.orderitems.menuitem_present(menu_item.id).first %>
+                  <%= form_with(url: "/orders",method: "POST", local: true) do %>
+                    <% order=Order.currentuser(user).incart.first %>
+                    <% if order %>
+                      <% orderitem = order.orderitems.menuitem_present(menu_item.id).first %>
+                    <% end %>
+                    <% if orderitem and orderitem.no_of_items>=1 %>
+                      <input class="item_count"
+                        name="no_of_items"
+                        type="number"
+                        min="1"
+                        max="10"
+                        value="<%= orderitem ? (orderitem.no_of_items !=nil ? "#{orderitem.no_of_items}" : "1") : "1" %>"
+                        onchange="this.form.submit()"
+                      >
+                    <% else %>
+                      <input type="hidden" name="no_of_items" value="1">
+                    <% end %>
+                    <input type="hidden" name="id" value="<%= menu_item.id %>">
+                    <% if !(orderitem and orderitem.no_of_items>=1) %>
+                      <button type="submit" class="Add_to_cart" data-disable-with="Adding ..">
+                        <i class="fa fa-cart-plus icon_cart"></i>&nbsp;&nbsp;Add
+                      </button>
+                    <% end %>
                   <% end %>
-                  <% if orderitem and orderitem.no_of_items>=1 %>
-                    <input class="item_count"
-                      name="no_of_items"
-                      type="number"
-                      min="1"
-                      max="10"
-                      value="<%= orderitem ? (orderitem.no_of_items !=nil ? "#{orderitem.no_of_items}" : "1") : "1" %>"
-                      onchange="this.form.submit()"
-                    >
-                  <% else %>
-                    <input type="hidden" name="no_of_items" value="1">
-                  <% end %>
-                  <input type="hidden" name="id" value="<%= menu_item.id %>">
-                  <% if !(orderitem and orderitem.no_of_items>=1) %>
-                    <button type="submit" class="Add_to_cart" data-disable-with="Adding ..">
-                      <i class="fa fa-cart-plus icon_cart"></i>&nbsp;&nbsp;Add
-                    </button>
-                  <% end %>
-                <% end %>
-              </td>
+                </td>
               <% end %>
-          </tr>
+            </tr>
       <% end %>
   </table>
 </div>

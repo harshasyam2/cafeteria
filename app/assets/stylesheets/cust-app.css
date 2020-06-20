@@ -412,6 +412,10 @@
   border:1px solid black;
 }
 
+.feedback_column{
+  width:200px;
+}
+
 .display_users_to_owner,.users_billing_section{
   display:flex;
   align-items:center;
@@ -545,6 +549,7 @@
   border-radius:8px;
   border:1px solid transparent;
   font-weight:600;
+  text-align:center;
 }
 
 .input-icons:hover .delete{

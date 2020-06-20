@@ -7,29 +7,67 @@
 <p>Restaurant Name: Cafeteria(nature's flavor)</p>
 <br>
 <% order=Order.find(@orderid) %>
-<table class="list_invoice">
-  <tr class="invoice_row">
-    <th class="invoice_lists"> Item name </th>
-    <th class="invoice_lists"> Price </th>
-    <th class="invoice_lists"> Quantity </th>
-    <th class="invoice_lists"> Sub Total </th>
+<table style="border:1px solid black;
+  max-width:550px;
+  margin:auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-collapse:collapse;">
+  <tr style="border:1px solid black;">
+    <th style="background-color:lavender;
+      font-size:16px;
+      font-weight:600;
+      padding:8px;
+      border:1px solid black;
+      text-align:center;"> Item name </th>
+    <th style="background-color:lavender;
+      font-size:16px;
+      font-weight:600;
+      padding:8px;
+      border:1px solid black;
+      text-align:center;"> Price </th>
+    <th style="background-color:lavender;
+      font-size:16px;
+      font-weight:600;
+      padding:8px;
+      border:1px solid black;
+      text-align:center;"> Quantity </th>
+    <th style="background-color:lavender;
+      font-size:16px;
+      font-weight:600;
+      padding:8px;
+      border:1px solid black;
+      text-align:center;"> Sub Total </th>
   </tr>
   <% orderitems=order.orderitems %>
   <% orderitems.order(:menuitem_name).each do |orderitem| %>
-    <tr class="invoice_row">
-      <td class="invoice_row_data">
+    <tr style="border:1px solid black;">
+      <td style="border:1px solid black;
+        text-align:center;
+        padding:8px;">
         <%= orderitem.menuitem_name %>
       </td>
-      <td class="invoice_row_data">
+      <td style="border:1px solid black;
+        text-align:center;
+        padding:8px;">
         <%= orderitem.menuitem_price %>
       </td>
-      <td class="invoice_row_data">
+      <td style="border:1px solid black;
+        text-align:center;
+        padding:8px;">
         <%= orderitem.no_of_items %>
       </td>
-      <td class="invoice_row_data">
+      <td style="border:1px solid black;
+        text-align:center;
+        padding:8px;">
         <%= orderitem.menuitem_price * orderitem.no_of_items %>
       </td>
     </tr>
   <% end %>
 </table>
-<p class="invoice_total">Sub Total :&nbsp;<%= order.bill %>&nbsp;/-</p>
+<p style="font-size:16px;
+  font-weight:bolder;
+  color:#DC4348;
+  width:200px;
+  margin:auto;
+  padding-left:50px;">Sub Total :&nbsp;<%= order.bill %>&nbsp;/-</p>

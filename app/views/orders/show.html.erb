@@ -40,7 +40,7 @@
             <% if order.status=="ordered" %>
               <%=  form_with(url: "/orders/#{order.id}",method: "delete",local: true) do %>
                 <input type="hidden" name="id" value="<%= order.id %>">
-                <input type="submit" value="Cancel order" class="cancel_order">
+                <input type="submit" value="Cancel order" class="cancel_order" onclick="return myConfirm();">
               <% end %>
             <% end %>
           </td>

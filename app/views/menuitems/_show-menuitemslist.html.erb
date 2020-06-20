@@ -1,4 +1,5 @@
 <% total_earning=0 %>
+<% total_quantity=0 %>
 <% orders_list.each do |order| %>
   <% if item_name=="ALL" %>
     <% total_earning=total_earning+order.bill %>
@@ -6,11 +7,19 @@
     <% order.orderitems.order(:menuitem_name).each do |orderitem| %>
       <% if orderitem.menuitem_name.gsub(/\s+/, "").strip.upcase==item_name %>
         <% total_earning=total_earning+( orderitem.menuitem_price*orderitem.no_of_items) %>
+        <% total_quantity = total_quantity+orderitem.no_of_items %>
       <% end %>
     <% end %>
   <% end %>
 <% end %>
 <% if total_earning > 0 %>
+  <% if item_name!="ALL" %>
+    <div class="sales_page_quantity">
+      <div class="display_dates">Total Quantities :
+        <p class="display_ini_fin_dates"><%= total_quantity %></p>
+      </div>
+    </div>
+  <% end %>
   <p class="totalearning">Total Earning :<%= total_earning %>/-</p>
   <table class="list_orders_to_admin">
     <tr class="list_row">
