@@ -159,8 +159,8 @@
 }
 
 .payment-flash-error{
-  width:700px;
-  margin:auto;
+  width:100%;
+  text-align:center;
   color:darkred;
   line-height:1.4;
 }
